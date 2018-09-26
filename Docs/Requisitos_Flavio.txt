@@ -1,0 +1,32 @@
+1 analista --> responsável pelo negócio 
+2 desenvolvedores --> responsável pela solução
+1 testing --> responsável por falar sobre roteiro de testes
+1 scrum master --> responsável por falar sobre o scrum
+
+---Internet Banking simples---
+Conta-corrente -> se fizer um EMPRÉSTIMO, soma na conta-corrente
+Solicitar EMPRÉSTIMO com valor, forma, juros, tipo de pagamento
+INVESTIMENTOS --> permitir fazer aplicação, que será debitada da conta-corrente e será creditada na conta-investimento -- Rentabilidade, resgate
+Geração de boletos para INVESTIMENTOS
+Banco possui conta-contábil EMPRÉSTIMOS
+Banco possui conta-contábil INVESTIMENTOS (1 conta-contábil para cada produto)
+Tratar de carência
+
+Definição de perfis de conta para variação de limites de empréstimos e investimentos
+
+Estórias do Usuário
+1- Movimentação de conta-corrente
+	2- Solicitação de empréstimos
+	3- Formas de pagamento dos empréstimos
+	4- Pagamento do empréstimo
+	
+	5- Aplicação investimento
+	6- Tipos de investimentos
+	7- Resgate total ou parcial dos investimentos
+	8- Valorização dos investimentos com base na rentabilidade
+	9- Sensibilização do contábil
+	
+	
+Artefatos entregáveis: 
+	roteiro de dados, roteiro de testes, diagrama de classes, diagrama relacional;
+	estórias do usuário mais completas;
