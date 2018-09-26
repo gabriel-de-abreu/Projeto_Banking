@@ -10,3 +10,6 @@
 
 - Realize commits com boa frequência, e garanta que os mesmos estejam devidamente funcionais, garantindo o backup de código e fácil acesso caso algum problema ocorra.
 
+## Organização
+
+- Os arquivos relacionados a banco de dados devem ficar na pasta "DataBase".
