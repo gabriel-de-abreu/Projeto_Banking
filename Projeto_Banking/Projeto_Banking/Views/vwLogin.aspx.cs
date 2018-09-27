@@ -31,14 +31,12 @@ namespace Projeto_Banking
         protected void BtnLogar_Click(object sender, EventArgs e)
        {
             //    TxtSenha.Text = Criptografia.GerarHashMd5(TxtSenha.Text);
-            ContaCorrenteController ccController = new ContaCorrenteController();
-            ContaCorrenteDAO ccDao = new ContaCorrenteDAO();
             ContaCorrente cc = new ContaCorrente() {
                 Numero = int.Parse(TxtNumConta.Text),
                 Senha = TxtSenha.Text
             };
 
-            cc = ccDao.Login(cc);
+            cc = new ContaCorrenteDAO().Login(cc);
 
             if (cc != null)
             {
