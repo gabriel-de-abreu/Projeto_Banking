@@ -63,5 +63,24 @@ namespace Projeto_Banking.Models
             }
 
         }
+        public DataTable ListarPorIntervaloDeData(DateTime DataIni, DateTime DataFim)
+        {
+            try
+            {
+                DataTable table = new DataTable();
+                MySqlDataAdapter sqlData = new MySqlDataAdapter("SELECT * FROM projetobanking.movimentacao " +
+                    "WHERE Movimentacao_data BETWEEN  @dataIni AND @dataFim", Connection.Instance);
+                sqlData.SelectCommand.Parameters.AddWithValue("@dataIni", DataIni);
+                sqlData.SelectCommand.Parameters.AddWithValue("@dataFim", DataFim);
+                sqlData.Fill(table);
+                return table;
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
     }
 }

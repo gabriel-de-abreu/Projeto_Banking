@@ -130,5 +130,23 @@ namespace Projeto_Banking.Testes
 
             Assert.AreNotEqual(false, table);
         }
+
+        [TestMethod]
+        public void TestMethodListarMovPorData()
+        {
+
+            MovimentacaoDAO mDao = new MovimentacaoDAO();
+
+            DataTable table = new DataTable();
+
+            table = mDao.ListarPorIntervaloDeData(DateTime.Today, DateTime.Today);
+
+            foreach (DataRow item in table.Rows)
+            {
+                Console.WriteLine(item["Movimentacao_id"]);
+            }
+
+            Assert.AreNotEqual(false, table);
+        }
     }
 }
