@@ -91,12 +91,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Connection.cs" />
-<<<<<<< HEAD
     <Compile Include="Models\ContaDAOs\ContaCorrenteDAO.cs" />
     <Compile Include="Models\ContaDAOs\ContaDAO.cs" />
-=======
-    <Compile Include="Models\Conta\ContaCorrenteDAO.cs" />
->>>>>>> 350088d9a295ea4249d4d128fb9fa3928f9c06fc
     <Compile Include="Models\MovimentacaoDAO.cs" />
     <Compile Include="Models\PessoaDAO.cs" />
     <Compile Include="Models\TaxaDAO.cs" />
