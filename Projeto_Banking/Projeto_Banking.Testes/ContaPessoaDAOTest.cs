@@ -63,7 +63,6 @@ namespace Projeto_Banking.Testes
             };
             Movimentacao mov = new Movimentacao()
             {
-                Movimentacao_id = 2,
                 Origem = cli1,
                 Destino = cli1,
                 Valor = 300.00,

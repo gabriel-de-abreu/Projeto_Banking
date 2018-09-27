@@ -56,7 +56,7 @@ namespace Projeto_Banking.Models.ContaDAOs
 
             if (conta != null)
             {
-                conta.Pessoa = new PessoaDAO().PesquisaPessoaPorCPF(cpfPessoa);
+                return new ContaDAO().PesquisarContaPorNumero(cc.Numero) as ContaCorrente;
             }
             return conta;
 
