@@ -5,9 +5,7 @@ using System.Web;
 
 namespace Projeto_Banking.Objetos
 {
-    public class PagamentoBoleto
+    public class ContaContabilEmprestimo
     {
-        public int Codigo { get; set; }
-        public DateTime Vencimento { get; set; }
     }
 }
