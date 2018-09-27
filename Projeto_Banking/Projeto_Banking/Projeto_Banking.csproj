@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\vwContaCorrente.aspx" />
+    <Content Include="Views\vwEmprestimo.aspx" />
     <Content Include="Views\vwLogin.aspx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
@@ -110,6 +111,13 @@
     </Compile>
     <Compile Include="Views\vwContaCorrente.aspx.designer.cs">
       <DependentUpon>vwContaCorrente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vwEmprestimo.aspx.cs">
+      <DependentUpon>vwEmprestimo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vwEmprestimo.aspx.designer.cs">
+      <DependentUpon>vwEmprestimo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\vwLogin.aspx.cs">
       <DependentUpon>vwLogin.aspx</DependentUpon>
