@@ -69,6 +69,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Footer.html" />
     <Content Include="Views\vwContaCorrente.aspx" />
     <Content Include="Views\vwLogin.aspx" />
     <Content Include="packages.config" />

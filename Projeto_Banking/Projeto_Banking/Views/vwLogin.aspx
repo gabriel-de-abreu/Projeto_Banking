@@ -23,5 +23,6 @@
     </form>
     <br />
     <asp:Label ID="LblResultado" runat="server" Text=""></asp:Label>
+    <!-- #include file="/Views/Footer.html"-->
 </body>
 </html>

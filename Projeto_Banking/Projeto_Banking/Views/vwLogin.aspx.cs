@@ -25,8 +25,8 @@ namespace Projeto_Banking
 
         }
 
-        //protected void BtnLogar_Click(object sender, EventArgs e)
-        //{
+        protected void BtnLogar_Click(object sender, EventArgs e)
+       {
         //    TxtSenha.Text = Criptografia.GerarHashMd5(TxtSenha.Text);
         //    ContaCorrenteDAO ccDao = new ContaCorrenetDAO();
         //    ContaCorrente cc = ccDao.ValidarLogin(TxtNumConta.Text, TxtSenha.Text);
@@ -41,6 +41,6 @@ namespace Projeto_Banking
         //        LblResultado.Text = "Dados Inválidos!";
         //    }
            
-        // }
+         }
     }
 }
