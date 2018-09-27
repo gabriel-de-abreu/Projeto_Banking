@@ -90,6 +90,7 @@
     <Compile Include="Models\Connection.cs" />
     <Compile Include="Models\Conta\ContaCorrenteDAO.cs" />
     <Compile Include="Models\PessoaDAO.cs" />
+    <Compile Include="Models\TaxaDAO.cs" />
     <Compile Include="Objetos\Conta.cs" />
     <Compile Include="Objetos\ContaContabil.cs" />
     <Compile Include="Objetos\ContaContabilEmprestimo.cs" />

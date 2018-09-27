@@ -7,8 +7,10 @@ namespace Projeto_Banking.Objetos
 {
     public class Taxa
     {
+        public int Id { get; set; }
         public Double Valor { get; set; }
         public String Nome { get; set; }
+        
 
     }
 }
