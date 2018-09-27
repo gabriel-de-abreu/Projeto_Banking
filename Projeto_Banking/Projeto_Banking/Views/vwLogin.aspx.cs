@@ -41,7 +41,7 @@ namespace Projeto_Banking
             if (cc != null)
             {
                 Session["contaCorrente"] = cc;
-                Response.Redirect("~/vwContaCorrente.aspx");
+                Response.Redirect("~/Views/vwContaCorrente.aspx");
             }
             else
             {
