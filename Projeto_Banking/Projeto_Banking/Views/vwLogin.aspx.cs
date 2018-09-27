@@ -1,4 +1,6 @@
-﻿using Projeto_Banking.Utils;
+﻿using Projeto_Banking.Controllers;
+using Projeto_Banking.Objetos;
+using Projeto_Banking.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,19 +29,24 @@ namespace Projeto_Banking
 
         protected void BtnLogar_Click(object sender, EventArgs e)
        {
-        //    TxtSenha.Text = Criptografia.GerarHashMd5(TxtSenha.Text);
-        //    ContaCorrenteDAO ccDao = new ContaCorrenetDAO();
-        //    ContaCorrente cc = ccDao.ValidarLogin(TxtNumConta.Text, TxtSenha.Text);
+            //    TxtSenha.Text = Criptografia.GerarHashMd5(TxtSenha.Text);
+            ContaCorrenteController ccController = new ContaCorrenteController();
+            ContaCorrente cc = new ContaCorrente() {
+                Numero = int.Parse(TxtNumConta.Text),
+                Senha = TxtSenha.Text
+            };
 
-        //    if (cc != null)
-        //    {
-        //        Session["contaCorrente"] = cc;
-        //        Response.Redirect("~/vwContaCorrente.aspx");
-        //    }
-        //    else
-        //    {
-        //        LblResultado.Text = "Dados Inválidos!";
-        //    }
+            cc = ccController.Login(cc);
+
+            if (cc != null)
+            {
+                Session["contaCorrente"] = cc;
+                Response.Redirect("~/vwContaCorrente.aspx");
+            }
+            else
+            {
+               LblResultado.Text = "Dados Inválidos!";
+            }
            
          }
     }
