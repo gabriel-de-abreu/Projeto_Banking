@@ -69,6 +69,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Footer.html" />
     <Content Include="Views\vwContaCorrente.aspx" />
     <Content Include="Views\vwLogin.aspx" />
     <Content Include="packages.config" />
@@ -91,6 +92,7 @@
     <Compile Include="Models\Conta\ContaCorrenteDAO.cs" />
     <Compile Include="Models\MovimentacaoDAO.cs" />
     <Compile Include="Models\PessoaDAO.cs" />
+    <Compile Include="Models\TaxaDAO.cs" />
     <Compile Include="Objetos\Conta.cs" />
     <Compile Include="Objetos\ContaContabil.cs" />
     <Compile Include="Objetos\ContaContabilEmprestimo.cs" />
