@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projeto_Banking.Objetos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,12 +14,21 @@ namespace Projeto_Banking.Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if(Session["contaCorrente"]!= null)
-            //{
-            //    ccSession = Session["contaCorrente"] as ContaCorrente;
-            //}
-            //lblNumConta.Text = ccSession.NumConta; //validar nome com objeto
-            //lblSaldo.Text = ccSession.Saldo; //validar nome com objeto
+            if (Session["contaCorrente"] != null)
+            {
+                if (!IsPostBack)
+                {
+                    ContaCorrente ccSession = Session["contaCorrente"] as ContaCorrente;
+                    lblNumero.Text += ccSession.Numero.ToString(); //validar nome com objeto
+                    lblSaldo.Text += ccSession.Saldo.ToString(); //validar nome com objeto
+                    lblLimite.Text += ccSession.Limite.ToString();
+                    lblTitular.Text += ccSession.Pessoa.Nome;
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Views/vwLogin.aspx");
+            }
         }
 
         protected void btnEmprestimo_Click(object sender, EventArgs e)
