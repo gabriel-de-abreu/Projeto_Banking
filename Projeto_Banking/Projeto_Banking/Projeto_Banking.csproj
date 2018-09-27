@@ -83,6 +83,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Objetos\Conta.cs" />
+    <Compile Include="Objetos\ContaContabil.cs" />
+    <Compile Include="Objetos\ContaContabilEmprestimo.cs" />
+    <Compile Include="Objetos\ContaContabilInvestimeto.cs" />
+    <Compile Include="Objetos\ContaCorrente.cs" />
+    <Compile Include="Objetos\Emprestimo.cs" />
+    <Compile Include="Objetos\Investimento.cs" />
+    <Compile Include="Objetos\InvestimentoConta.cs" />
+    <Compile Include="Objetos\Movimentacao.cs" />
+    <Compile Include="Objetos\Pagamento.cs" />
+    <Compile Include="Objetos\PagamentoBoleto.cs" />
+    <Compile Include="Objetos\PagamentoConta.cs" />
+    <Compile Include="Objetos\Pessoa.cs" />
+    <Compile Include="Objetos\Taxa.cs" />
     <Compile Include="Utils\Criptografia.cs" />
     <Compile Include="Views\vwContaCorrente.aspx.cs">
       <DependentUpon>vwContaCorrente.aspx</DependentUpon>
