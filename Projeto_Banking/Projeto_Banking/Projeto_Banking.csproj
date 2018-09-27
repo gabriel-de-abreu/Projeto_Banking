@@ -147,8 +147,12 @@
     <Compile Include="Models\ContaDAOs\ContaCorrenteDAO.cs" />
     <Compile Include="Models\ContaDAOs\ContaDAO.cs" />
     <Compile Include="Models\MovimentacaoDAO.cs" />
+    <Compile Include="Models\Opecacoes\Emprestimo\EmprestimoDAO.cs" />
+    <Compile Include="Models\Opecacoes\Emprestimo\PagamentoDAOs\PagamentoBoletoDAO.cs" />
+    <Compile Include="Models\Opecacoes\Emprestimo\PagamentoDAOs\PagamentoContaDAO.cs" />
+    <Compile Include="Models\Opecacoes\Emprestimo\PagamentoDAOs\PagamentoDAO.cs" />
     <Compile Include="Models\PessoaDAO.cs" />
-    <Compile Include="Models\TaxaDAO.cs" />
+    <Compile Include="Models\Opecacoes\TaxaDAO.cs" />
     <Compile Include="Objetos\Conta.cs" />
     <Compile Include="Objetos\ContaContabil.cs" />
     <Compile Include="Objetos\ContaContabilEmprestimo.cs" />
