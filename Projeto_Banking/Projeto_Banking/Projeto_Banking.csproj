@@ -65,7 +65,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Login.aspx" />
+    <Content Include="Views\vwContaCorrente.aspx" />
+    <Content Include="Views\vwLogin.aspx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -82,28 +83,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="Utils\Criptografia.cs" />
+    <Compile Include="Views\vwContaCorrente.aspx.cs">
+      <DependentUpon>vwContaCorrente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="Views\vwContaCorrente.aspx.designer.cs">
+      <DependentUpon>vwContaCorrente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vwLogin.aspx.cs">
+      <DependentUpon>vwLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vwLogin.aspx.designer.cs">
+      <DependentUpon>vwLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Exemplo.cs" />
-    <Compile Include="Objetos\ContaContabilEmprestimo.cs" />
-    <Compile Include="Objetos\ContaContabilInvestimeto.cs" />
-    <Compile Include="Objetos\Conta.cs" />
-    <Compile Include="Objetos\ContaContabil.cs" />
-    <Compile Include="Objetos\ContaCorrente.cs" />
-    <Compile Include="Objetos\Emprestimo.cs" />
-    <Compile Include="Objetos\Investimento.cs" />
-    <Compile Include="Objetos\InvestimentoConta.cs" />
-    <Compile Include="Objetos\Movimentacao.cs" />
-    <Compile Include="Objetos\Pagamento.cs" />
-    <Compile Include="Objetos\PagamentoBoleto.cs" />
-    <Compile Include="Objetos\PagamentoConta.cs" />
-    <Compile Include="Objetos\Pessoa.cs" />
-    <Compile Include="Objetos\Taxa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
