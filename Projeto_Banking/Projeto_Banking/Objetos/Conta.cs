@@ -9,5 +9,10 @@ namespace Projeto_Banking.Objetos
     {
         public int Numero { get; set; }
         public Double Saldo { get; set; }
+
+        public override string ToString()
+        {
+            return $"Numero: {Numero} Saldo: {Saldo}";
+        }
     }
 }
