@@ -20,7 +20,7 @@ namespace Projeto_Banking.Testes
         [TestMethod]
         public void TestMethod2()
         {
-            Console.WriteLine(Utils.Criptografia.GerarHashMd5("123"));
+            Console.WriteLine(Utils.Criptografia.GerarHashMd5("1234"));
         }
 
         [TestMethod]
@@ -29,7 +29,7 @@ namespace Projeto_Banking.Testes
             ContaCorrente cc = new ContaCorrenteDAO().Login(new ContaCorrente()
             {
                 Numero = 3,
-                Senha = Utils.Criptografia.GerarHashMd5("123")
+                Senha = Utils.Criptografia.GerarHashMd5("1234")
             }
             );
             Console.WriteLine(cc);
