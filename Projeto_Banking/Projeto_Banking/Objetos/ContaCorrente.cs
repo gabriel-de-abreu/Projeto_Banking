@@ -11,5 +11,6 @@ namespace Projeto_Banking.Objetos
         public float Limite { get; set; }
         public List<InvestimentoConta> Investimentos { get; set; }
         public List<Emprestimo> Emprestimos { get; set; }
+        public string Senha { get; set; }
     }
 }

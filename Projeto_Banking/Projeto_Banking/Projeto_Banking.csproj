@@ -69,6 +69,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Footer.html" />
     <Content Include="Views\vwContaCorrente.aspx" />
     <Content Include="Views\vwEmprestimo.aspx" />
     <Content Include="Views\vwLogin.aspx" />
@@ -85,11 +86,15 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ContaCorrenteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Connection.cs" />
+    <Compile Include="Models\Conta\ContaCorrenteDAO.cs" />
+    <Compile Include="Models\MovimentacaoDAO.cs" />
     <Compile Include="Models\PessoaDAO.cs" />
+    <Compile Include="Models\TaxaDAO.cs" />
     <Compile Include="Objetos\Conta.cs" />
     <Compile Include="Objetos\ContaContabil.cs" />
     <Compile Include="Objetos\ContaContabilEmprestimo.cs" />
