@@ -112,7 +112,6 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Views\Footer.html" />
-    <Content Include="Views\Header.html" />
     <Content Include="Views\vwContaCorrente.aspx" />
     <Content Include="Views\vwEmprestimo.aspx" />
     <Content Include="Views\vwLogin.aspx" />
@@ -137,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Views\WebForm1.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -146,9 +146,14 @@
     <Compile Include="Models\Connection.cs" />
     <Compile Include="Models\ContaDAOs\ContaCorrenteDAO.cs" />
     <Compile Include="Models\ContaDAOs\ContaDAO.cs" />
+    <Compile Include="Models\EmprestimoDAO.cs" />
     <Compile Include="Models\MovimentacaoDAO.cs" />
+    <Compile Include="Models\Opecacoes\Emprestimo\EmprestimoDAO.cs" />
+    <Compile Include="Models\Opecacoes\Emprestimo\PagamentoDAOs\PagamentoBoletoDAO.cs" />
+    <Compile Include="Models\Opecacoes\Emprestimo\PagamentoDAOs\PagamentoContaDAO.cs" />
+    <Compile Include="Models\Opecacoes\Emprestimo\PagamentoDAOs\PagamentoDAO.cs" />
     <Compile Include="Models\PessoaDAO.cs" />
-    <Compile Include="Models\TaxaDAO.cs" />
+    <Compile Include="Models\Opecacoes\TaxaDAO.cs" />
     <Compile Include="Objetos\Conta.cs" />
     <Compile Include="Objetos\ContaContabil.cs" />
     <Compile Include="Objetos\ContaContabilEmprestimo.cs" />
@@ -186,6 +191,13 @@
       <DependentUpon>vwLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
