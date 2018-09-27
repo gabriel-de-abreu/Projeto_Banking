@@ -88,6 +88,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Connection.cs" />
+    <Compile Include="Models\Conta\ContaCorrenteDAO.cs" />
     <Compile Include="Models\PessoaDAO.cs" />
     <Compile Include="Objetos\Conta.cs" />
     <Compile Include="Objetos\ContaContabil.cs" />
