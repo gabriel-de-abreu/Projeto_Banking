@@ -2,12 +2,12 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Projeto_Banking.Models;
 using Projeto_Banking.Objetos;
-using Projeto_Banking.Models.Conta;
+using Projeto_Banking.Models.ContaDAOs;
 
 namespace Projeto_Banking.Testes
 {
     [TestClass]
-    public class DAOTest
+    public class ContaPessoaDAOTest
     {
         [TestMethod]
         public void TestMethod1()
@@ -36,6 +36,15 @@ namespace Projeto_Banking.Testes
             Assert.IsNotNull(cc);
 
         }
+        [TestMethod]
+        public void TestMethod4()
+        {
+            ContaCorrente cc = new ContaDAO().PesquisarContaPorNumero(3) as ContaCorrente;
+            Console.WriteLine(cc);
+            Assert.IsNotNull(cc);
+
+        }
+
         [TestMethod]
         public void TestMethodMovimentacao()
         {

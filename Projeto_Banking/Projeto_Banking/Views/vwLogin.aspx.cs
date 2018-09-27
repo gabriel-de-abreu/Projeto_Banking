@@ -1,4 +1,5 @@
 ﻿using Projeto_Banking.Controllers;
+using Projeto_Banking.Models.ContaDAOs;
 using Projeto_Banking.Objetos;
 using Projeto_Banking.Utils;
 using System;
@@ -31,17 +32,18 @@ namespace Projeto_Banking
        {
             //    TxtSenha.Text = Criptografia.GerarHashMd5(TxtSenha.Text);
             ContaCorrenteController ccController = new ContaCorrenteController();
+            ContaCorrenteDAO ccDao = new ContaCorrenteDAO();
             ContaCorrente cc = new ContaCorrente() {
                 Numero = int.Parse(TxtNumConta.Text),
                 Senha = TxtSenha.Text
             };
 
-            cc = ccController.Login(cc);
+            cc = ccDao.Login(cc);
 
             if (cc != null)
             {
                 Session["contaCorrente"] = cc;
-                Response.Redirect("~/vwContaCorrente.aspx");
+                Response.Redirect("~/Views/vwContaCorrente.aspx");
             }
             else
             {
@@ -49,5 +51,11 @@ namespace Projeto_Banking
             }
            
          }
+
+     //   private Conta PesquisaPorNumero(int numero)
+    //    {
+     //       return new ContaCorrenteDAO().PesquisaPorNumero(numero);
+      //  }
+
     }
 }

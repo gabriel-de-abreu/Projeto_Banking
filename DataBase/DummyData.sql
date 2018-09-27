@@ -13,7 +13,7 @@ INSERT INTO `ProjetoBanking`.`Conta_Contabil_Emprestimo` (`Conta_Conta_Contabil_
 
 /*Inserção de Conta Corrente */
 INSERT INTO `ProjetoBanking`.`Conta` (`Conta_id`, `Conta_saldo`) VALUES (3, 0);
-INSERT INTO `ProjetoBanking`.`Conta_Corrente` (`Conta_Conta_Corrente_id`, `Conta_Corrente_limite`, `Pessoa_Pessoa_cpf`) VALUES (3, 1000, '000.111.222-33');
+INSERT INTO `ProjetoBanking`.`Conta_Corrente` (`Conta_Conta_Corrente_id`, `Conta_Corrente_limite`, `Pessoa_Pessoa_cpf`, `Conta_Corrente_senha`) VALUES (3, 1000, '000.111.222-33', "1234");
 
 INSERT INTO `ProjetoBanking`.`Conta` (`Conta_id`, `Conta_saldo`) VALUES (4, 0);
-INSERT INTO `ProjetoBanking`.`Conta_Corrente` (`Conta_Conta_Corrente_id`, `Conta_Corrente_limite`, `Pessoa_Pessoa_cpf`) VALUES (4, 10000, '000.121.222-44');
+INSERT INTO `ProjetoBanking`.`Conta_Corrente` (`Conta_Conta_Corrente_id`, `Conta_Corrente_limite`, `Pessoa_Pessoa_cpf`, `Conta_Corrente_senha`) VALUES (4, 10000, '000.121.222-44', "1234");

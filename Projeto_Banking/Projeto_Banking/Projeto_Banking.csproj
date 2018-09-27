@@ -114,6 +114,7 @@
     <Content Include="Views\Footer.html" />
     <Content Include="Views\Header.html" />
     <Content Include="Views\vwContaCorrente.aspx" />
+    <Content Include="Views\vwEmprestimo.aspx" />
     <Content Include="Views\vwLogin.aspx" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
@@ -144,7 +145,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Connection.cs" />
-    <Compile Include="Models\Conta\ContaCorrenteDAO.cs" />
+    <Compile Include="Models\ContaDAOs\ContaCorrenteDAO.cs" />
+    <Compile Include="Models\ContaDAOs\ContaDAO.cs" />
     <Compile Include="Models\MovimentacaoDAO.cs" />
     <Compile Include="Models\PessoaDAO.cs" />
     <Compile Include="Models\TaxaDAO.cs" />
@@ -169,6 +171,13 @@
     </Compile>
     <Compile Include="Views\vwContaCorrente.aspx.designer.cs">
       <DependentUpon>vwContaCorrente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vwEmprestimo.aspx.cs">
+      <DependentUpon>vwEmprestimo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vwEmprestimo.aspx.designer.cs">
+      <DependentUpon>vwEmprestimo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\vwLogin.aspx.cs">
       <DependentUpon>vwLogin.aspx</DependentUpon>

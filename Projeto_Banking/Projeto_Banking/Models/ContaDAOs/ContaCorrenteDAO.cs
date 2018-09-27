@@ -5,10 +5,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Projeto_Banking.Models.Conta
+namespace Projeto_Banking.Models.ContaDAOs
 {
     public class ContaCorrenteDAO
     {
+        public ContaCorrente PesquisarPorNumero(int numero)
+        {
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            command.CommandText = "SELECT * FROM projetobanking.conta_corrente WHERE Conta_Conta_Corrente_id = @id;";
+            command.Parameters.AddWithValue("@id", numero);
+            var reader = command.ExecuteReader();
+            ContaCorrente conta = null;
+            String cpfPessoa = null;
+            while (reader.Read())
+            {
+                conta = new ContaCorrente()
+                {
+                    Numero = numero,
+                    Limite = float.Parse(reader["Conta_Corrente_limite"].ToString())
+                };
+                cpfPessoa = reader["Pessoa_Pessoa_cpf"].ToString();
+            }
+            reader.Close();
+            if (conta != null)
+            {
+                conta.Pessoa = new PessoaDAO().PesquisaPessoaPorCPF(cpfPessoa);
+            }
+            return conta;
+        }
+
         public ContaCorrente Login(ContaCorrente cc)
         {
             MySqlCommand command = Connection.Instance.CreateCommand();
