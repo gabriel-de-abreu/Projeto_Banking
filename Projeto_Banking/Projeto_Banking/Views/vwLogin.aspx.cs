@@ -25,22 +25,22 @@ namespace Projeto_Banking
 
         }
 
-        protected void BtnLogar_Click(object sender, EventArgs e)
-        {
-            TxtSenha.Text = Criptografia.GerarHashMd5(TxtSenha.Text);
-            ContaCorrenteDAO ccDao = new ContaCorrenetDAO();
-            ContaCorrente cc = ccDao.ValidarLogin(TxtNumConta.Text, TxtSenha.Text);
+        //protected void BtnLogar_Click(object sender, EventArgs e)
+        //{
+        //    TxtSenha.Text = Criptografia.GerarHashMd5(TxtSenha.Text);
+        //    ContaCorrenteDAO ccDao = new ContaCorrenetDAO();
+        //    ContaCorrente cc = ccDao.ValidarLogin(TxtNumConta.Text, TxtSenha.Text);
 
-            if (cc != null)
-            {
-                Session["contaCorrente"] = cc;
-                Response.Redirect("~/vwContaCorrente.aspx");
-            }
-            else
-            {
-                LblResultado.Text = "Dados Inválidos!";
-            }
+        //    if (cc != null)
+        //    {
+        //        Session["contaCorrente"] = cc;
+        //        Response.Redirect("~/vwContaCorrente.aspx");
+        //    }
+        //    else
+        //    {
+        //        LblResultado.Text = "Dados Inválidos!";
+        //    }
            
-         }
+        // }
     }
 }

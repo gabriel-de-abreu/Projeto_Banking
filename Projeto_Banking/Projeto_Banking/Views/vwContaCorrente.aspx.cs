@@ -9,16 +9,16 @@ namespace Projeto_Banking.Views
 {
     public partial class vwContaCorrente : System.Web.UI.Page
     {
-        ContaCorrente ccSession;
+       // ContaCorrente ccSession;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["contaCorrente"]!= null)
-            {
-                ccSession = Session["contaCorrente"] as ContaCorrente;
-            }
-            lblNumConta.Text = ccSession.NumConta; //validar nome com objeto
-            lblSaldo.Text = ccSession.Saldo; //validar nome com objeto
+            //if(Session["contaCorrente"]!= null)
+            //{
+            //    ccSession = Session["contaCorrente"] as ContaCorrente;
+            //}
+            //lblNumConta.Text = ccSession.NumConta; //validar nome com objeto
+            //lblSaldo.Text = ccSession.Saldo; //validar nome com objeto
         }
 
         protected void btnEmprestimo_Click(object sender, EventArgs e)
