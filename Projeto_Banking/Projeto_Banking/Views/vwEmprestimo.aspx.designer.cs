@@ -103,22 +103,13 @@ namespace Projeto_Banking.Views {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// Controle radioBtnConta.
+        /// Controle rblPagamento.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radioBtnConta;
-        
-        /// <summary>
-        /// Controle radioBtnBoleto.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radioBtnBoleto;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblPagamento;
         
         /// <summary>
         /// Controle btnRealizar.

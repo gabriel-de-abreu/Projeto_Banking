@@ -25,6 +25,7 @@ namespace Projeto_Banking.Models
                 t.Nome = reader["Taxa_nome"].ToString();
                 t.Valor = Convert.ToInt32(reader["Taxa_valor"]);
             }
+            reader.Close();
             return t;
         }
     }

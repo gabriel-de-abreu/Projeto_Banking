@@ -32,9 +32,13 @@
             <br />
             <asp:Label ID="Label3" runat="server" Text="Pagamento"></asp:Label>
             <br />
-            <asp:RadioButton runat="server" Text="Débito em Conta" ID="radioBtnConta" GroupName="Pagamento"></asp:RadioButton>
-            <br />
-            <asp:RadioButton runat="server" Text="Boleto" ID="radioBtnBoleto" GroupName="Pagamento"></asp:RadioButton>
+
+            <asp:RadioButtonList ID="rblPagamento" runat="server">
+                <asp:ListItem Text="Débito em Conta" Value="Conta" Selected="True" />
+                <asp:ListItem Text="Boleto" Value="Boleto" />
+            </asp:RadioButtonList>
+
+         
             <br />
             <br />
             <asp:Button ID="btnRealizar" runat="server" Text="Realizar Empréstimo" OnClick="btnRealizar_Click" />
