@@ -28,11 +28,12 @@ namespace Projeto_Banking
         }
 
         protected void BtnLogar_Click(object sender, EventArgs e)
-       {
-            //    TxtSenha.Text = Criptografia.GerarHashMd5(TxtSenha.Text);
-            ContaCorrente cc = new ContaCorrente() {
+        {
+
+            ContaCorrente cc = new ContaCorrente()
+            {
                 Numero = int.Parse(TxtNumConta.Text),
-                Senha = TxtSenha.Text
+                Senha = Criptografia.GerarHashMd5(TxtSenha.Text)
             };
 
             cc = new ContaCorrenteDAO().Login(cc);
@@ -44,15 +45,15 @@ namespace Projeto_Banking
             }
             else
             {
-               LblResultado.Text = "Dados Inválidos!";
+                LblResultado.Text = "Dados Inválidos!";
             }
-           
-         }
 
-     //   private Conta PesquisaPorNumero(int numero)
-    //    {
-     //       return new ContaCorrenteDAO().PesquisaPorNumero(numero);
-      //  }
+        }
+
+        //   private Conta PesquisaPorNumero(int numero)
+        //    {
+        //       return new ContaCorrenteDAO().PesquisaPorNumero(numero);
+        //  }
 
     }
 }
