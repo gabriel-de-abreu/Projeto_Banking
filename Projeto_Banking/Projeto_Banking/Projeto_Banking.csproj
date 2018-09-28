@@ -146,7 +146,6 @@
     <Compile Include="Models\Connection.cs" />
     <Compile Include="Models\ContaDAOs\ContaCorrenteDAO.cs" />
     <Compile Include="Models\ContaDAOs\ContaDAO.cs" />
-    <Compile Include="Models\EmprestimoDAO.cs" />
     <Compile Include="Models\MovimentacaoDAO.cs" />
     <Compile Include="Models\Opecacoes\Emprestimo\PagamentoDAOs\PagamentoBoletoDAO.cs" />
     <Compile Include="Models\Opecacoes\Emprestimo\PagamentoDAOs\PagamentoContaDAO.cs" />

@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="ContaPessoaDAOTest.cs" />
     <Compile Include="PagamentoDAOTest.cs" />
+    <Compile Include="EmprestimoDAOTeste.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaxaDAOTest.cs" />
     <Compile Include="MovimentacaoDAOTest.cs" />

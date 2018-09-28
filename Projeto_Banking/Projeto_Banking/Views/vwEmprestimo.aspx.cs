@@ -80,8 +80,11 @@ namespace Projeto_Banking.Views
             {
                 divSimulacao.Visible = true;
 
-                valorTotal = valorDesejado + (parcelas*taxa*valorDesejado);
-                valorParcela = valorTotal / parcelas;
+                valorParcela = ((taxa) / (1 - Math.Pow((1 + taxa), -parcelas)))*valorDesejado;
+                valorTotal = valorParcela * parcelas;
+
+                //valorTotal = valorDesejado + (parcelas*taxa*valorDesejado);
+                //valorParcela = valorTotal / parcelas;
 
                 lblResultado.Text = "Número de Parcelas: " + parcelas + "\nValor da parcela: R$ " + valorParcela + "\nValor Total: R$" + valorTotal;
             }
