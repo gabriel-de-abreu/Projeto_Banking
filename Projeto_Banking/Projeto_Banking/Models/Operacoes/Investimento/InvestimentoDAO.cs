@@ -86,6 +86,8 @@ namespace Projeto_Banking.Models
                     taxaId = int.Parse(reader["Taxa_Taxa_id"].ToString());
                 }
                 reader.Close();
+                investimento.Taxa = new TaxaDAO().PesquisarPorTaxa(taxaId);
+
                 return investimento;
             }
             catch (Exception e)

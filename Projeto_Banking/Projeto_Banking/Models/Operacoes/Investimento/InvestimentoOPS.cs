@@ -20,6 +20,8 @@ namespace Projeto_Banking.Models.Operacoes.Investimento
                 mes = dataResgate.Subtract(investimentoConta.DataInicio);
 
             int meses = (int)(mes.TotalDays / 30);
+            if (investimentoConta.Investimento.Rentabilidade > 0)
+                investimentoConta.Investimento.PreFixada = true;
 
             if (investimentoConta.Investimento.PreFixada)
                 for (int i = 0; i < meses; i++)

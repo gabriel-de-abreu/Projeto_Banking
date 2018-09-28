@@ -122,13 +122,11 @@ namespace Projeto_Banking.Testes
                 Valor = 1000,
                 DataInicio = DateTime.Now,
                 DataFim = DateTime.Now.AddYears(1)
-
             };
 
-            double saidaDouble = InvestimentoOPS.Resgate(investimentoConta, DateTime.Now.AddMonths(12));
-            Console.Write(saidaDouble);
-            int saidaInt = Convert.ToInt32(saidaDouble);
-            Assert.AreEqual(2955, saidaInt);
+            int saidaInt = (int)InvestimentoOPS.Resgate(investimentoConta, DateTime.Now.AddMonths(12));
+            Console.Write(saidaInt);
+            Assert.AreEqual(1933, saidaInt);
         }
 
 
@@ -137,7 +135,7 @@ namespace Projeto_Banking.Testes
         {
             Taxa taxa = new TaxaDAO().PesquisarPorTaxa(1);
 
-            Investimento investimento = new InvestimentoDAO().BuscarInvestimentoPorId(1);
+            Investimento investimento = new InvestimentoDAO().BuscarInvestimentoPorId(2);
 
             ContaCorrente conta = new ContaCorrenteDAO().PesquisarPorNumero(3);
 
@@ -153,7 +151,7 @@ namespace Projeto_Banking.Testes
             double saidaDouble = InvestimentoOPS.Resgate(investimentoConta, DateTime.Now.AddMonths(12));
             Console.Write(saidaDouble);
             int saidaInt = Convert.ToInt32(saidaDouble);
-            Assert.IsTrue(saidaInt > 2120 && saidaInt < 4081);
+            Assert.IsTrue(saidaInt > 1900 && saidaInt < 3000);
         }
 
     }
