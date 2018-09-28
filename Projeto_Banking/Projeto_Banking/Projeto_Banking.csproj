@@ -137,7 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Views\WebForm1.aspx" />
+    <Content Include="Views\vwInvestimento.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -195,12 +195,12 @@
       <DependentUpon>vwLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Views\vwInvestimento.aspx.cs">
+      <DependentUpon>vwInvestimento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Views\vwInvestimento.aspx.designer.cs">
+      <DependentUpon>vwInvestimento.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -224,7 +224,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50151</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
