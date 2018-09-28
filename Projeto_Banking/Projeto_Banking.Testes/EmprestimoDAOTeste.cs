@@ -7,7 +7,7 @@ using Projeto_Banking.Objetos;
 
 namespace Projeto_Banking.Testes
 {
- 
+
     [TestClass]
     public class EmprestimoDAOTeste
     {
@@ -34,7 +34,7 @@ namespace Projeto_Banking.Testes
         #endregion
 
         [TestMethod]
-        public void TestMethodEmprestimoDAO()
+        public void TestMethodEmprestimoDAODebito()
         {
             EmprestimoDAO empDAO = new EmprestimoDAO();
             PessoaDAO dao = new PessoaDAO();
@@ -65,6 +65,40 @@ namespace Projeto_Banking.Testes
             };
 
             Assert.AreEqual(true, empDAO.InserirEmprestimo(emprestimo, "debito"));
+
+        }
+        [TestMethod]
+        public void TestMethodEmprestimoDAOBoleto()
+        {
+            EmprestimoDAO empDAO = new EmprestimoDAO();
+            PessoaDAO dao = new PessoaDAO();
+            Pessoa p = dao.PesquisaPessoaPorId(2);
+
+            ContaCorrente cli1 = new ContaCorrente
+            {
+                Numero = 4,
+                Saldo = 0.0,
+                Limite = 0.0f,
+                Pessoa = p,
+                Emprestimos = null,
+                Investimentos = null
+            };
+            Taxa taxa = new Taxa()
+            {
+                Id = 1,
+                Valor = 10
+            };
+
+            Emprestimo emprestimo = new Emprestimo()
+            {
+                Valor = 2000,
+                Parcelas = 10,
+                ContaCorrente = cli1,
+                Taxa = taxa,
+                DataInicio = DateTime.Now
+            };
+
+            Assert.AreEqual(true, empDAO.InserirEmprestimo(emprestimo, "boleto"));
 
         }
     }

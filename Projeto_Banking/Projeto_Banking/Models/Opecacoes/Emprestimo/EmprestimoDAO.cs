@@ -26,7 +26,7 @@ namespace Projeto_Banking.Models
                 command.Parameters.AddWithValue("@Conta_Corrente_Conta_Conta_Corrente_id", emp.ContaCorrente.Numero);
                 command.Parameters.AddWithValue("@Emprestimo_Inicio", emp.DataInicio);
                 int retorno = command.ExecuteNonQuery();
-                emp.Id = (int) command.LastInsertedId;
+                emp.Id = (int)command.LastInsertedId;
                 // Adicionar cálculo do valor de parcela Valor dummy 5
                 if (tipo.Equals("debito"))
                 {
@@ -38,6 +38,20 @@ namespace Projeto_Banking.Models
                             Emprestimo = emp,
                             Data = emp.DataInicio.AddMonths(i)
 
+                        });
+                    }
+                }
+                else if (tipo.Equals("boleto"))
+                {
+                    for (int i = 0; i < emp.Parcelas; i++)
+                    {
+                        new PagamentoDAO().Inserir(new PagamentoBoleto()
+                        {
+                            Codigo = Math.Abs(emp.DataInicio.AddMonths(i).GetHashCode()),
+                            Data = emp.DataInicio.AddMonths(i),
+                            Valor = 5,
+                            Vencimento = emp.DataInicio.AddMonths(i),
+                            Emprestimo = emp
                         });
                     }
                 }
