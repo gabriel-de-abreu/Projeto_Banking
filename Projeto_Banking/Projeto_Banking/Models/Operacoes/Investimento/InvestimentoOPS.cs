@@ -19,19 +19,19 @@ namespace Projeto_Banking.Models.Operacoes.Investimento
             else
                 mes = dataResgate.Subtract(investimentoConta.Investimento.DataInicio);
 
-            int meses = Convert.ToInt32(mes.TotalDays / 30);
+            int meses = (int)(mes.TotalDays / 30);
 
-            if(investimentoConta.Investimento.PreFixada)
-            for (int i = 0; i < meses; i++)
-            {
-                investimentoConta = AtualizaInvestimento(investimentoConta);
-                investimentoConta.Valor -= investimentoConta.Valor * (investimentoConta.Investimento.Taxa.Valor / 100) / 12;
-            }
+            if (investimentoConta.Investimento.PreFixada)
+                for (int i = 0; i < meses; i++)
+                {
+                    investimentoConta = AtualizaInvestimento(investimentoConta);
+                    investimentoConta.Valor -= investimentoConta.Valor * (investimentoConta.Investimento.Taxa.Valor / 100) / 12;
+                }
 
             else
                 for (int i = 0; i < meses; i++)
                 {
-                    investimentoConta = AtualizaInvestimento(investimentoConta, random.Next(7,13));
+                    investimentoConta = AtualizaInvestimento(investimentoConta, random.Next(7, 13)); // Taxa de rentabilidade aleatoria entre 7% e 13% ao mês
                     investimentoConta.Valor -= investimentoConta.Valor * (investimentoConta.Investimento.Taxa.Valor / 100) / 12;
                 }
 
