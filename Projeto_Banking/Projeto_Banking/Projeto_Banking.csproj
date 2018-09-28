@@ -52,6 +52,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\DataBase\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -149,15 +150,17 @@
     <Compile Include="Models\ContaDAOs\ContaCorrenteDAO.cs" />
     <Compile Include="Models\ContaDAOs\ContaDAO.cs" />
     <Compile Include="Models\MovimentacaoDAO.cs" />
-    <Compile Include="Models\Opecacoes\Emprestimo\PagamentoDAOs\PagamentoBoletoDAO.cs" />
-    <Compile Include="Models\Opecacoes\Emprestimo\PagamentoDAOs\PagamentoContaDAO.cs" />
-    <Compile Include="Models\Opecacoes\Emprestimo\PagamentoDAOs\PagamentoDAO.cs" />
+    <Compile Include="Models\Operacoes\Emprestimo\EmprestimoOPS.cs" />
+    <Compile Include="Models\Operacoes\Emprestimo\PagamentoDAOs\PagamentoBoletoDAO.cs" />
+    <Compile Include="Models\Operacoes\Emprestimo\PagamentoDAOs\PagamentoContaDAO.cs" />
+    <Compile Include="Models\Operacoes\Emprestimo\PagamentoDAOs\PagamentoDAO.cs" />
+    <Compile Include="Models\Operacoes\Investimento\InvestimentoOPS.cs" />
     <Compile Include="Models\PessoaDAO.cs" />
-    <Compile Include="Models\Opecacoes\TaxaDAO.cs" />
+    <Compile Include="Models\Operacoes\TaxaDAO.cs" />
     <Compile Include="Objetos\ContaObjetos\Conta.cs" />
     <Compile Include="Objetos\ContaObjetos\ContaContabil.cs" />
     <Compile Include="Objetos\ContaObjetos\ContaContabilEmprestimo.cs" />
-    <Compile Include="Objetos\ContaObjetos\ContaContabilInvestimeto.cs" />
+    <Compile Include="Objetos\ContaObjetos\ContaContabilInvestimento.cs" />
     <Compile Include="Objetos\ContaObjetos\ContaCorrente.cs" />
     <Compile Include="Objetos\OperacoesObjetos\Emprestimo.cs" />
     <Compile Include="Objetos\OperacoesObjetos\Investimento.cs" />
@@ -169,7 +172,7 @@
     <Compile Include="Objetos\Pessoa.cs" />
     <Compile Include="Objetos\OperacoesObjetos\Taxa.cs" />
     <Compile Include="Utils\Criptografia.cs" />
-    <Compile Include="Models\Opecacoes\Emprestimo\EmprestimoDAO.cs" />
+    <Compile Include="Models\Operacoes\Emprestimo\EmprestimoDAO.cs" />
     <Compile Include="Views\vwContaCorrente.aspx.cs">
       <DependentUpon>vwContaCorrente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

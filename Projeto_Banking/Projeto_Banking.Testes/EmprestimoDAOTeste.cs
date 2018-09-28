@@ -7,37 +7,10 @@ using Projeto_Banking.Objetos;
 
 namespace Projeto_Banking.Testes
 {
-    /// <summary>
-    /// Descrição resumida para EmprestimoDAOTeste
-    /// </summary>
+
     [TestClass]
     public class EmprestimoDAOTeste
     {
-        public EmprestimoDAOTeste()
-        {
-            //
-            // TODO: Adicionar lógica de construtor aqui
-            //
-        }
-
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///Obtém ou define o contexto do teste que provê
-        ///informação e funcionalidade da execução de teste atual.
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
-
         #region Atributos de teste adicionais
         //
         // É possível usar os seguintes atributos adicionais enquanto escreve os testes:
@@ -61,7 +34,7 @@ namespace Projeto_Banking.Testes
         #endregion
 
         [TestMethod]
-        public void TestMethodEmprestimoDAO()
+        public void TestMethodEmprestimoDAODebito()
         {
             EmprestimoDAO empDAO = new EmprestimoDAO();
             PessoaDAO dao = new PessoaDAO();
@@ -90,8 +63,42 @@ namespace Projeto_Banking.Testes
                 Taxa = taxa,
                 DataInicio = DateTime.Now
             };
-            
-            Assert.AreEqual(true, empDAO.InserirEmprestimo(emprestimo));
+
+            Assert.AreEqual(true, empDAO.InserirEmprestimo(emprestimo, "debito"));
+
+        }
+        [TestMethod]
+        public void TestMethodEmprestimoDAOBoleto()
+        {
+            EmprestimoDAO empDAO = new EmprestimoDAO();
+            PessoaDAO dao = new PessoaDAO();
+            Pessoa p = dao.PesquisaPessoaPorId(2);
+
+            ContaCorrente cli1 = new ContaCorrente
+            {
+                Numero = 4,
+                Saldo = 0.0,
+                Limite = 0.0f,
+                Pessoa = p,
+                Emprestimos = null,
+                Investimentos = null
+            };
+            Taxa taxa = new Taxa()
+            {
+                Id = 1,
+                Valor = 10
+            };
+
+            Emprestimo emprestimo = new Emprestimo()
+            {
+                Valor = 2000,
+                Parcelas = 10,
+                ContaCorrente = cli1,
+                Taxa = taxa,
+                DataInicio = DateTime.Now
+            };
+
+            Assert.AreEqual(true, empDAO.InserirEmprestimo(emprestimo, "boleto"));
 
         }
     }

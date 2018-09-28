@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Projeto_Banking.Objetos
 {
-    public class ContaContabilEmprestimo
+    public class ContaContabilEmprestimo : Conta
     {
     }
 }

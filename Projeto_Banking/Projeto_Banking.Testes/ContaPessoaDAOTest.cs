@@ -32,7 +32,7 @@ namespace Projeto_Banking.Testes
                 Senha = Utils.Criptografia.GerarHashMd5("1234")
             }
             );
-            Console.WriteLine(cc);
+            Console.WriteLine(cc.Senha);
             Assert.IsNotNull(cc);
 
         }

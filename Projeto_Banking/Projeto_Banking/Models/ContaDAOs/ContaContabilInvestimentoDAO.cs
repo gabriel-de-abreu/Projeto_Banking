@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Projeto_Banking.Objetos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,17 +51,35 @@ namespace Projeto_Banking.Models.ContaDAOs
 
                 command.CommandText = sql;
                 MySqlDataReader reader = command.ExecuteReader();
+                float saldo = -1;
                 while (reader.Read())
                 {
-                    return float.Parse(reader["Conta_saldo"].ToString());
+                    saldo = float.Parse(reader["Conta_saldo"].ToString());
                 }
-                return -1;
+                reader.Close();
+                return saldo;
             }
             catch (Exception e)
             {
                 throw e;
             }
 
+        }
+
+        public ContaContabilInvestimento PesquisarContaContabilInvestimento(int numero)
+        {
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            command.CommandText = "Select Conta_Conta_Contabil_Investimento_id FROM conta_contabil_investimento WHERE Conta_Conta_Contabil_Investimento_id " +
+                "= @numero";
+            command.Parameters.AddWithValue("@numero", numero);
+            var reader = command.ExecuteReader();
+            int count = 0;
+            while (reader.Read())
+            {
+                count++;
+            }
+            reader.Close();
+            return count > 0 ? new ContaContabilInvestimento() : null;
         }
 
     }
