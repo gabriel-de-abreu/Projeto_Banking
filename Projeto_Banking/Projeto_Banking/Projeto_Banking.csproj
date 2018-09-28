@@ -167,6 +167,7 @@
     <Compile Include="Objetos\Pessoa.cs" />
     <Compile Include="Objetos\OperacoesObjetos\Taxa.cs" />
     <Compile Include="Utils\Criptografia.cs" />
+    <Compile Include="Models\Opecacoes\Emprestimo\EmprestimoDAO.cs" />
     <Compile Include="Views\vwContaCorrente.aspx.cs">
       <DependentUpon>vwContaCorrente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
