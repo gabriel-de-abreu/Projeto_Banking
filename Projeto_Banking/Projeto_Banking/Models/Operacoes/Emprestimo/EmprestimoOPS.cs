@@ -21,9 +21,25 @@ namespace Projeto_Banking.Models.Opecacoes.Emprestimo
             return valorParcela;
         }
 
-        public static Taxa VerificarPerfil(Pessoa pessoa) //retorna a taxa de acordo com o perfil de pessoa
+        public static int VerificarPerfil(ContaCorrente cc) //retorna a taxa de acordo com o perfil de pessoa
         {
-            return new TaxaDAO().PesquisarPorTaxa(1);
+            if (cc.Saldo < 0)
+            {
+                return 3;
+            }
+            else if (cc.Saldo > 0 && cc.Saldo <= 1000)
+            {
+                return 3;
+            }
+            else if (cc.Saldo >= 1001 && cc.Saldo <= 5000)
+            {
+                return 2;
+            }
+            else if (cc.Saldo > 5000)
+            {
+                return 1;
+            }
+            return 3;
         }
     }
 }

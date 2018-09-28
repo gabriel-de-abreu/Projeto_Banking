@@ -16,6 +16,7 @@ namespace Projeto_Banking.Models
         {
             try
             {
+                emp.Taxa = new TaxaDAO().PesquisarPorTaxa(EmprestimoOPS.VerificarPerfil(emp.ContaCorrente));
                 MySqlCommand command = Connection.Instance.CreateCommand();
                 string sql = ("INSERT INTO Emprestimo(Emprestimo_valor,Emprestimo_parcelas, Taxa_Taxa_id, " +
                                 "Conta_Corrente_Conta_Conta_Corrente_id, Emprestimo_Inicio) VALUES (@Emprestimo_valor," +

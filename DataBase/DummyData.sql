@@ -20,7 +20,9 @@ INSERT INTO `ProjetoBanking`.`Conta_Corrente` (`Conta_Conta_Corrente_id`, `Conta
 `Pessoa_Pessoa_cpf`, `Conta_Corrente_senha`) VALUES (4, 10000, '000.121.222-44', "81dc9bdb52d04dc20036dbd8313ed055");
 
 /* Inserção de Taxa */
-INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUES (1, "SELIC", 4);
+INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUES (1, "Juros Perfil 1", 4);
+INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUES (2, "Juros Perfil 2", 8);
+INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUES (3,"Juros Perfil 3", 12);
 
 /*Inserção de Empréstimo */
 INSERT INTO `ProjetoBanking`.`Emprestimo` (`Emprestimo_id`, `Emprestimo_valor`, `Emprestimo_parcelas`, `Taxa_Taxa_id`, 
