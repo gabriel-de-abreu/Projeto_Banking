@@ -63,16 +63,16 @@ namespace Projeto_Banking.Testes
         [TestMethod]
         public void TestInvestimentoDAO1()
         {
-            Investimento investimentoConta = new InvestimentoDAO().BuscarInvestimentoPorId(1);
-            Assert.IsNotNull(investimentoConta);
+            Investimento investimento = new InvestimentoDAO().BuscarInvestimentoPorId(1);
+            Assert.IsNotNull(investimento);
 
         }
 
         [TestMethod]
         public void TestInvestimentoDAO2()
         {
-            Investimento investimentoConta = new InvestimentoDAO().BuscarInvestimentoPorId(22);
-            Assert.IsNull(investimentoConta);
+            Investimento investimento = new InvestimentoDAO().BuscarInvestimentoPorId(22);
+            Assert.IsNull(investimento);
         }
 
 

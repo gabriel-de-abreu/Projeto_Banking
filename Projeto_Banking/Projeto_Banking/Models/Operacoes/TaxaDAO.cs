@@ -16,10 +16,9 @@ namespace Projeto_Banking.Models
             command.Parameters.AddWithValue("@id", id);
 
             var reader = command.ExecuteReader();
-            Taxa t = null;
-            if (reader.HasRows)
+            Taxa t = new Taxa();
+            while (reader.Read())
             {
-                reader.Read();
                 t = new Taxa();
                 t.Id = id;
                 t.Nome = reader["Taxa_nome"].ToString();

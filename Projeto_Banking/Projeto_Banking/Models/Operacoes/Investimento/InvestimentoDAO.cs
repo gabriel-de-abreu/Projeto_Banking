@@ -53,12 +53,13 @@ namespace Projeto_Banking.Models
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                return null;
+                throw e;
             }
         }
 
         public Investimento BuscarInvestimentoPorId(int id)
         {
+
             try
             {
                 MySqlCommand command = Connection.Instance.CreateCommand();
@@ -68,17 +69,21 @@ namespace Projeto_Banking.Models
                 command.Parameters.AddWithValue("@Investimento_id", id);
 
                 var reader = command.ExecuteReader();
-
                 Investimento investimento = null;
 
-                while (reader.Read()) { 
-                    investimento.Id = int.Parse(reader["Investimento_id"].ToString());
-                    investimento.Nome = reader["Investimento_nome"].ToString();
-                    //  investimento.PreFixada = reader["Investimento_nome"].ToString();
-                    investimento.Rentabilidade = double.Parse(reader["Investimento_rentabilidade"].ToString());
-                    investimento.Taxa = new TaxaDAO().PesquisarPorTaxa(int.Parse(reader["Taxa_Taxa_id"].ToString()));
-                    //investimento.DataInicio = DateTime.Parse(reader["Investimento_Inicio"].ToString());
-                    //investimento.DataFim = DateTime.Parse(reader["Investimento_Fim"].ToString());
+                int taxaId = -1;
+                while (reader.Read())
+                {
+                    investimento = new Investimento()
+                    {
+                        Id = int.Parse(reader["Investimento_id"].ToString()),
+                        Nome = reader["Investimento_nome"].ToString(),
+                        //  investimento.PreFixada = reader["Investimento_nome"].ToString();
+                        Rentabilidade = double.Parse(reader["Investimento_rentabilidade"].ToString()),
+                        //investimento.DataInicio = DateTime.Parse(reader["Investimento_Inicio"].ToString());
+                        //investimento.DataFim = DateTime.Parse(reader["Investimento_Fim"].ToString());
+                    };
+                    taxaId = int.Parse(reader["Taxa_Taxa_id"].ToString());
                 }
                 reader.Close();
                 return investimento;
