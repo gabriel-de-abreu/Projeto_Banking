@@ -3,6 +3,7 @@ using Projeto_Banking.Models.Opecacoes.Emprestimo.PagamentoDAOs;
 using Projeto_Banking.Objetos;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -29,6 +30,25 @@ namespace Projeto_Banking.Models.Opecacoes.Emprestimo
                 new PagamentoContaDAO().InserirPagamentoConta(pagamento as PagamentoConta);
             }
             return pagamento;
+        }
+
+        public DataTable BuscarPagamentosPorIdDoEmprestimo(int numPagamento)
+        {
+            try
+            {
+                DataTable table = new DataTable();
+                MySqlDataAdapter sqlData = new MySqlDataAdapter("SELECT * FROM projetobanking.pagamento " +
+                    "WHERE pagamento.Emprestimo_Emprestimo_id = @numPagamento", Connection.Instance);
+                sqlData.SelectCommand.Parameters.AddWithValue("@numPagamento", numPagamento );
+
+                sqlData.Fill(table);
+                return table;
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
     }
 }

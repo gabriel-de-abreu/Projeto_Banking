@@ -2,6 +2,7 @@
 using Projeto_Banking.Objetos;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -20,5 +21,32 @@ namespace Projeto_Banking.Models.Opecacoes.Emprestimo.PagamentoDAOs
             command.ExecuteNonQuery();
             return pagamento;
         }
+
+        public DataTable BuscarPagamentosBoletos(int numPagamento)
+        {
+            try
+            {
+                DataTable table = new DataTable();
+                MySqlDataAdapter sqlData = new MySqlDataAdapter("SELECT Pagamento_Boleto_codigo " +
+                                                                "FROM projetobanking.pagamento_boleto, pagamento " +
+                                                                "WHERE Pagamento_Pagamento_Boleto_id = " +
+                                                                    "(SELECT pagamento.Pagamento_id FROM emprestimo, pagamento" +
+                                                                        " WHERE emprestimo.Emprestimo_id = @pagamento.Emprestimo_Emprestimo_id);"
+                                                                        , Connection.Instance);
+
+                sqlData.SelectCommand.Parameters.AddWithValue("@pagamento.Emprestimo_Emprestimo_id", numPagamento);
+
+                sqlData.Fill(table);
+
+                return table;
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
     }
+
 }
