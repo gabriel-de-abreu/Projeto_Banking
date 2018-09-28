@@ -66,7 +66,7 @@ namespace Projeto_Banking.Testes
 
             InvestimentoDAO investDao = new InvestimentoDAO();
 
-            Investimento investimentoConta = investDao.BuscarInvestimentoPorId(2);
+            Investimento investimentoConta = investDao.BuscarInvestimentoPorId(1);
             Assert.IsNotNull(investimentoConta);
 
 

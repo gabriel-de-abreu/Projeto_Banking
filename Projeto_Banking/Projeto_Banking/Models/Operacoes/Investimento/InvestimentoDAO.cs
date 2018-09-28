@@ -53,13 +53,13 @@ namespace Projeto_Banking.Models.Operacoes.Investimento
             try
             {
                 MySqlCommand command = Connection.Instance.CreateCommand();
-                string sql = "Select * FROM Investimento WHERE Investimento_id= @Investimento_id";
+                string sql = "SELECT * FROM projetobanking.investimento WHERE Investimento_id= @Investimento_id;";
 
                 command.CommandText = sql;
                 command.Parameters.AddWithValue("@Investimento_id", id);
 
                 var reader = command.ExecuteReader();
-                Projeto_Banking.Objetos.Investimento investimento = null;
+                Investimento investimento = null;
                 if (reader.HasRows)
                 {
                     reader.Read();
