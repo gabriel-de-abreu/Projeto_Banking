@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Projeto_Banking.Objetos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,6 +64,21 @@ namespace Projeto_Banking.Models.ContaDAOs
                 throw e;
             }
 
+        }
+        public ContaContabilEmprestimo PesquisarContaContabilEmprestimo(int numero)
+        {
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            command.CommandText = "Select Conta_Conta_Contabil_Emprestimo_id FROM conta_contabil_emprestimo WHERE Conta_Conta_Contabil_Emprestimo_id " +
+                "= @numero";
+            command.Parameters.AddWithValue("@numero", numero);
+            var reader = command.ExecuteReader();
+            int count = 0;
+            while (reader.Read())
+            {
+                count++;
+            }
+            reader.Close();
+            return count > 0 ? new ContaContabilEmprestimo() : null;
         }
 
     }
