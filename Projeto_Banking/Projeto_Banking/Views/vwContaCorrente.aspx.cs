@@ -33,12 +33,12 @@ namespace Projeto_Banking.Views
 
         protected void btnEmprestimo_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/vwEmprestimo.aspx");
+            Response.Redirect("~/Views/vwEmprestimo.aspx");
         }
 
         protected void btnInvestimento_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/vwInvestimento.aspx");
+            Response.Redirect("~/Views/vwInvestimento.aspx");
         }
     }
 }

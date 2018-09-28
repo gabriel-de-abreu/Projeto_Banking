@@ -57,7 +57,7 @@ namespace Projeto_Banking.Views
                     //a fazer
                 }
 
-                lblAviso.Text = "Emrpestimo Realizado";
+                lblAviso.Text = "Emprestimo Realizado";
             }
             else
             {
