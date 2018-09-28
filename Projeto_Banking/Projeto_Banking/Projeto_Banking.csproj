@@ -145,6 +145,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Connection.cs" />
+    <Compile Include="Models\ContaDAOs\ContaContabilEmprestimoDAO.cs" />
+    <Compile Include="Models\ContaDAOs\ContaContabilInvestimentoDAO.cs" />
     <Compile Include="Models\ContaDAOs\ContaCorrenteDAO.cs" />
     <Compile Include="Models\ContaDAOs\ContaDAO.cs" />
     <Compile Include="Models\MovimentacaoDAO.cs" />

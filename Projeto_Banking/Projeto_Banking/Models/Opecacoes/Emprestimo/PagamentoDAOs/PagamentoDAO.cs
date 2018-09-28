@@ -24,6 +24,10 @@ namespace Projeto_Banking.Models.Opecacoes.Emprestimo
             {
                 new PagamentoBoletoDAO().InserirPagamentoBoleto(pagamento as PagamentoBoleto);
             }
+            if (pagamento is PagamentoConta)
+            {
+                new PagamentoContaDAO().InserirPagamentoConta(pagamento as PagamentoConta);
+            }
             return pagamento;
         }
     }

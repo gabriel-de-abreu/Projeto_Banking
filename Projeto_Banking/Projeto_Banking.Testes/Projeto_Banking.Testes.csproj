@@ -48,6 +48,8 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContaContabilEmprestimoDAOTest.cs" />
+    <Compile Include="ContaContabilInvestimentoDAOTest.cs" />
     <Compile Include="ContaPessoaDAOTest.cs" />
     <Compile Include="PagamentoDAOTest.cs" />
     <Compile Include="EmprestimoDAOTeste.cs" />
