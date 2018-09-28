@@ -96,5 +96,23 @@ namespace Projeto_Banking.Testes
             InvestimentoConta investimentoConta = investDao.InserirInvestimento(investimento, conta, 1000);
             Assert.IsNull(investimentoConta);
         }
+
+        [TestMethod]
+        public void TestInvestimentoDAO3()
+        {
+            InvestimentoDAO investDao = new InvestimentoDAO();
+
+            Investimento investimentoConta = investDao.BuscarInvestimentoPorId(2);
+            Assert.IsNotNull(investimentoConta);
+        }
+
+        [TestMethod]
+        public void TestInvestimentoDAO4()
+        {
+            InvestimentoDAO investDao = new InvestimentoDAO();
+
+            Investimento investimentoConta = investDao.BuscarInvestimentoPorId(22);
+            Assert.IsNull(investimentoConta);
+        }
     }
 }
