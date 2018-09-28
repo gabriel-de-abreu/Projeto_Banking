@@ -31,7 +31,7 @@ namespace Projeto_Banking.Models.Opecacoes.Emprestimo.PagamentoDAOs
                                                                 "FROM projetobanking.pagamento_boleto, pagamento " +
                                                                 "WHERE Pagamento_Pagamento_Boleto_id = " +
                                                                     "(SELECT pagamento.Pagamento_id FROM emprestimo, pagamento" +
-                                                                        " WHERE emprestimo.Emprestimo_id = @pagamento.Emprestimo_Emprestimo_id);", Connection.Instance);
+                                                                        " WHERE Pagamento_id  = @pagamento.Emprestimo_Emprestimo_id);", Connection.Instance);
 
                 sqlData.SelectCommand.Parameters.AddWithValue("@pagamento.Emprestimo_Emprestimo_id", numPagamento);
 
