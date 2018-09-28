@@ -1,6 +1,7 @@
 ﻿
 using Projeto_Banking.Models;
 using Projeto_Banking.Objetos;
+using Projeto_Banking.Models.Opecacoes.Emprestimo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +14,12 @@ namespace Projeto_Banking.Views
     public partial class vwEmprestimo : System.Web.UI.Page
     {
         ContaCorrente cc;
-
-        public object EmprestimoDAO { get; private set; }
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             cc = Session["contaCorrente"] as ContaCorrente;
+            lblDataVencimento.Text = " (entre " + DateTime.Today.AddDays(1).ToString("dd/MM/yyyy") + " e "+ DateTime.Today.AddMonths(1).ToString("dd/MM/yyyy")+")"; //exibe data limites para o primeiro vencimento
+
             if (!IsPostBack)
             {
                 divSimulacao.Visible = false;
@@ -27,12 +28,11 @@ namespace Projeto_Banking.Views
 
         protected void btnRealizar_Click(object sender, EventArgs e)
         {
-            double valorDesejado, valorParcela, valorTotal;
+            double valorDesejado;
             int parcelas;
 
             Taxa taxa = new TaxaDAO().PesquisarPorTaxa(1);
-            //taxa.Valor = 1;
-
+           
             string tipoPagamento = rblPagamento.SelectedValue;
 
             if (Double.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas))
@@ -43,21 +43,13 @@ namespace Projeto_Banking.Views
                     Parcelas = parcelas,
                     ContaCorrente = cc,
                     Taxa = taxa,
-                    DataInicio = DateTime.Now,
+                    DataInicio = DateTime.Parse(txtDataPrimeiroVencimento.Text),
                 };
 
                 EmprestimoDAO empDAO = new EmprestimoDAO();
-                //empDAO.InserirEmprestimo(emprestimo);
-
-                if (tipoPagamento.Equals("Conta"))
-                {
-                    //a fazer
-                }else if (tipoPagamento.Equals("Boleto"))
-                {
-                    //a fazer
-                }
-
-                lblAviso.Text = "Emrpestimo Realizado";
+                //empDAO.InserirEmprestimo(emprestimo, tipoPagamento);
+                
+                lblResultado.Text = "Empréstimo Realizado com Sucesso!";
             }
             else
             {
@@ -70,23 +62,26 @@ namespace Projeto_Banking.Views
         {
             lblAviso.Text = "";
 
-            double valorDesejado, valorParcela, valorTotal, taxa;
+            double valorDesejado, valorParcela, valorTotal;
             int parcelas;
 
-            taxa = new TaxaDAO().PesquisarPorTaxa(1).Valor/100;
+            cc = new ContaCorrente() {
+                Pessoa = new PessoaDAO().PesquisaPessoaPorId(1)
+            };
 
-
+            Taxa taxa = EmprestimoOPS.VerificarPerfil(cc.Pessoa); //obtem taxa atraves do perfil da pessoa
+            
             if (Double.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas))
             {
                 divSimulacao.Visible = true;
-
-                valorParcela = ((taxa) / (1 - Math.Pow((1 + taxa), -parcelas)))*valorDesejado;
+                
+                valorParcela = EmprestimoOPS.CalcularParcelas(parcelas, taxa, valorDesejado); //calcula valor das parcelas 
                 valorTotal = valorParcela * parcelas;
 
-                //valorTotal = valorDesejado + (parcelas*taxa*valorDesejado);
-                //valorParcela = valorTotal / parcelas;
-
-                lblResultado.Text = "Número de Parcelas: " + parcelas + "\nValor da parcela: R$ " + valorParcela + "\nValor Total: R$" + valorTotal;
+                lblParcelas.Text = parcelas.ToString();
+                lblValor.Text = "R$ " + valorParcela.ToString("0.00");
+                lblValorTotal.Text = "R$" + valorTotal.ToString("0.00");
+                lblTaxa.Text = taxa.Valor + "%";
             }
             else
             {

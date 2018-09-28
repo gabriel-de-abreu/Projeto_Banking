@@ -41,7 +41,6 @@ namespace Projeto_Banking.Models
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
                 return false;
             }
         }
