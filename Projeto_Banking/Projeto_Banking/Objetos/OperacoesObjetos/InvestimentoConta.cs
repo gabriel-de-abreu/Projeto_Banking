@@ -8,7 +8,7 @@ namespace Projeto_Banking.Objetos
     public class InvestimentoConta
     {
         public ContaCorrente Conta { get; set; }
-        public float Valor { get; set; }
+        public double Valor { get; set; }
         public Investimento Investimento { get; set; }
     }
 }
