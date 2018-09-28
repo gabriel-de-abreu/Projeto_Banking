@@ -17,6 +17,12 @@ namespace Projeto_Banking.Views
         protected void Page_Load(object sender, EventArgs e)
         {
             cc = Session["contaCorrente"] as ContaCorrente;
+            List<Investimento> investimentos = new List<Investimento>();
+
+            ddlInvestimentos.DataSource = investimentos;
+            ddlInvestimentos.DataTextField = "Nome";
+            ddlInvestimentos.DataValueField = "Id";
+            ddlInvestimentos.DataBind();
         }
 
         protected void BtnSimular_Click(object sender, EventArgs e)
