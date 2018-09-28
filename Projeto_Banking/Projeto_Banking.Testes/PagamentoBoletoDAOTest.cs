@@ -61,7 +61,7 @@ namespace Projeto_Banking.Testes
         #endregion
 
         [TestMethod]
-        public void TestMethod1()
+        public void PagamentoPorBoletoTeste()
         {
             PagamentoBoletoDAO pgtDAO = new PagamentoBoletoDAO();
             
