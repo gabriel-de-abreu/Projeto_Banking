@@ -74,7 +74,7 @@ namespace Projeto_Banking.Testes
 
             InvestimentoDAO investDao = new InvestimentoDAO();
 
-            InvestimentoConta investimentoConta = investDao.InserirInvestimento(investimento,conta,1000);
+            InvestimentoConta investimentoConta = investDao.InserirInvestimento(new InvestimentoConta());
             Assert.IsNotNull(investimentoConta);
         }
 
@@ -93,7 +93,7 @@ namespace Projeto_Banking.Testes
 
             InvestimentoDAO investDao = new InvestimentoDAO();
 
-            InvestimentoConta investimentoConta = investDao.InserirInvestimento(investimento, conta, 1000);
+            InvestimentoConta investimentoConta = investDao.InserirInvestimento(new InvestimentoConta());
             Assert.IsNull(investimentoConta);
         }
 
