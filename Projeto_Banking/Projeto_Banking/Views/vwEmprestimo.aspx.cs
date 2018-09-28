@@ -14,11 +14,11 @@ namespace Projeto_Banking.Views
     public partial class vwEmprestimo : System.Web.UI.Page
     {
         ContaCorrente cc;
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             cc = Session["contaCorrente"] as ContaCorrente;
-            lblDataVencimento.Text = " (entre " + DateTime.Today.AddDays(1).ToString("dd/MM/yyyy") + " e "+ DateTime.Today.AddMonths(1).ToString("dd/MM/yyyy")+")"; //exibe data limites para o primeiro vencimento
+            lblDataVencimento.Text = " (entre " + DateTime.Today.AddDays(1).ToString("dd/MM/yyyy") + " e " + DateTime.Today.AddMonths(1).ToString("dd/MM/yyyy") + ")"; //exibe data limites para o primeiro vencimento
 
             if (!IsPostBack)
             {
@@ -32,7 +32,7 @@ namespace Projeto_Banking.Views
             int parcelas;
 
             Taxa taxa = new TaxaDAO().PesquisarPorTaxa(1);
-           
+
             string tipoPagamento = rblPagamento.SelectedValue;
 
             if (float.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas))
@@ -50,9 +50,9 @@ namespace Projeto_Banking.Views
                 //if(empDAO.InserirEmprestimo(emprestimo, tipoPagamento){
 
                 lblAviso.Text = "Emprestimo Realizado";
-                    //atualizar saldo da conta corrente
-                    
-                    lblResultado.Text = "Empréstimo Realizado com Sucesso!";
+                //atualizar saldo da conta corrente
+
+                lblResultado.Text = "Empréstimo Realizado com Sucesso!";
                 //}
             }
             else
@@ -69,16 +69,12 @@ namespace Projeto_Banking.Views
             double valorDesejado, valorParcela, valorTotal;
             int parcelas;
 
-            cc = new ContaCorrente() {
-                Pessoa = new PessoaDAO().PesquisaPessoaPorId(1)
-            };
+            Taxa taxa = new TaxaDAO().PesquisarPorTaxa(EmprestimoOPS.VerificarPerfil(cc)); //obtem taxa atraves do perfil da pessoa
 
-            Taxa taxa = EmprestimoOPS.VerificarPerfil(cc.Pessoa); //obtem taxa atraves do perfil da pessoa
-            
             if (Double.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas))
             {
                 divSimulacao.Visible = true;
-                
+
                 valorParcela = EmprestimoOPS.CalcularParcelas(parcelas, taxa, valorDesejado); //calcula valor das parcelas 
                 valorTotal = valorParcela * parcelas;
 
