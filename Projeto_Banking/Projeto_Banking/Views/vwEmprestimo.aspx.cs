@@ -28,14 +28,14 @@ namespace Projeto_Banking.Views
 
         protected void btnRealizar_Click(object sender, EventArgs e)
         {
-            double valorDesejado;
+            float valorDesejado;
             int parcelas;
 
             Taxa taxa = new TaxaDAO().PesquisarPorTaxa(1);
            
             string tipoPagamento = rblPagamento.SelectedValue;
 
-            if (Double.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas))
+            if (float.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas))
             {
                 Emprestimo emprestimo = new Emprestimo()
                 {

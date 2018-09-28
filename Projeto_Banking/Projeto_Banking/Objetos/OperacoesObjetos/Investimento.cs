@@ -7,6 +7,7 @@ namespace Projeto_Banking.Objetos
 {
     public class Investimento
     {
+        public int Id { get; set; }
         public String Nome { get; set; }
         public Taxa Taxa { get; set; }
         public Boolean PreFixada { get; set; }
