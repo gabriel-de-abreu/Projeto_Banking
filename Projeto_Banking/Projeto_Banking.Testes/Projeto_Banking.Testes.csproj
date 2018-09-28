@@ -52,7 +52,9 @@
     <Compile Include="ContaContabilInvestimentoDAOTest.cs" />
     <Compile Include="ContaDAOTest.cs" />
     <Compile Include="ContaPessoaDAOTest.cs" />
+    <Compile Include="InvestimentoDAOTest.cs" />
     <Compile Include="InvestimentoOPSTest.cs" />
+    <Compile Include="PagamentoBoletoDAOTest.cs" />
     <Compile Include="PagamentoDAOTest.cs" />
     <Compile Include="EmprestimoDAOTeste.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

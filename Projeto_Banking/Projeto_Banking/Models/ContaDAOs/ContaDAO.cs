@@ -59,5 +59,28 @@ namespace Projeto_Banking.Models.ContaDAOs
                 $" WHERE `Conta_id` = {conta.Numero};";
             return command.ExecuteNonQuery() > 0 ? contaAux : null;
         }
+
+        public List<Conta> Transferir(Conta origem, Conta destino, float valor, String descricao)
+        {
+            if (ContaAtualizarSaldo(origem, (valor * -1)) != null && ContaAtualizarSaldo(destino, valor) != null)
+            {
+                List<Conta> contas = new List<Conta>();
+                origem.Saldo -= valor;
+                destino.Saldo += valor;
+                contas.Add(origem);
+                contas.Add(destino);
+                Movimentacao log = new Movimentacao()
+                {
+                    Data = DateTime.Now,
+                    Destino = destino,
+                    Origem = origem,
+                    Valor = valor,
+                    Descricao = descricao
+                };
+                new MovimentacaoDAO().InsererMovimentacao(log);
+                return contas;
+            }
+            return null;
+        }
     }
 }

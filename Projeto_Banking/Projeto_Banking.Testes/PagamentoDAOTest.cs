@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Projeto_Banking.Objetos;
 using Projeto_Banking.Models.Opecacoes.Emprestimo;
+using System.Data;
 
 namespace Projeto_Banking.Testes
 {
@@ -40,6 +41,23 @@ namespace Projeto_Banking.Testes
             };
             var res = new PagamentoDAO().Inserir(pagamento);
             Assert.IsNotNull(res);
+        }
+        [TestMethod]
+        public void TestListarTodosOsPagamentos()
+        {
+            PagamentoDAO pDAO = new PagamentoDAO();
+            
+
+            DataTable table = new DataTable();
+
+            table = pDAO.BuscarPagamentosPorIdDoEmprestimo(1);
+
+            foreach (DataRow item in table.Rows)
+            {
+                Console.WriteLine(item["Pagamento_Id"]);
+            }
+
+            Assert.AreNotEqual(false, table);
         }
     }
 }
