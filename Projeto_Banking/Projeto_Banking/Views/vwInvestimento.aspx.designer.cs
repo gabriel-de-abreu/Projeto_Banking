@@ -112,6 +112,24 @@ namespace Projeto_Banking.Views {
         protected global::System.Web.UI.WebControls.TextBox txtDataRet;
         
         /// <summary>
+        /// Controle lblInvestimento.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInvestimento;
+        
+        /// <summary>
+        /// Controle ddlInvestimentos.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlInvestimentos;
+        
+        /// <summary>
         /// Controle BtnSimular.
         /// </summary>
         /// <remarks>

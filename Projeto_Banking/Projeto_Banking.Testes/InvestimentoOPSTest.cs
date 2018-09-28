@@ -77,9 +77,7 @@ namespace Projeto_Banking.Testes
                 PreFixada = true,
                 Rentabilidade = 10,
                 Taxa = taxa,
-                DataInicio = DateTime.Now,
-                DataFim = DateTime.Now.AddYears(1)
-
+                
             };
 
             ContaCorrente conta = new ContaCorrente()
@@ -97,7 +95,10 @@ namespace Projeto_Banking.Testes
             {
                 Conta = conta,
                 Investimento = investimento,
-                Valor = 1000
+                Valor = 1000,
+                DataInicio = DateTime.Now,
+                DataFim = DateTime.Now.AddYears(1)
+
             };
             double saidaDouble = InvestimentoOPS.Resgate(investimentoConta, DateTime.Now.AddMonths(3));
             Console.Write(saidaDouble);
@@ -114,10 +115,8 @@ namespace Projeto_Banking.Testes
                 Nome = "Tesouro Direto",
                 PreFixada = true,
                 Rentabilidade = 10,
-                Taxa = taxa,
-                DataInicio = DateTime.Now,
-                DataFim = DateTime.Now.AddYears(1)
-
+                Taxa = taxa
+                
             };
 
             ContaCorrente conta = new ContaCorrente()
@@ -135,7 +134,10 @@ namespace Projeto_Banking.Testes
             {
                 Conta = conta,
                 Investimento = investimento,
-                Valor = 1000
+                Valor = 1000,
+                DataInicio = DateTime.Now,
+                DataFim = DateTime.Now.AddYears(1)
+
             };
 
             double saidaDouble = InvestimentoOPS.Resgate(investimentoConta, DateTime.Now.AddMonths(12));
@@ -156,9 +158,7 @@ namespace Projeto_Banking.Testes
                 PreFixada = false,
                 Rentabilidade = 10,
                 Taxa = taxa,
-                DataInicio = DateTime.Now,
-                DataFim = DateTime.Now.AddYears(1)
-
+                
             };
 
             ContaCorrente conta = new ContaCorrente()
@@ -176,7 +176,10 @@ namespace Projeto_Banking.Testes
             {
                 Conta = conta,
                 Investimento = investimento,
-                Valor = 1000
+                Valor = 1000,
+                DataInicio = DateTime.Now,
+                DataFim = DateTime.Now.AddYears(1)
+
             };
             double saidaDouble = InvestimentoOPS.Resgate(investimentoConta, DateTime.Now.AddMonths(12));
             Console.Write(saidaDouble);

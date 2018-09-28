@@ -12,7 +12,5 @@ namespace Projeto_Banking.Objetos
         public Taxa Taxa { get; set; }
         public Boolean PreFixada { get; set; }
         public Double Rentabilidade { get; set; }
-        public DateTime DataInicio { get; set; }
-        public DateTime DataFim { get; set; }
     }
 }

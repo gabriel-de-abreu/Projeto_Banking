@@ -4,6 +4,7 @@ using Projeto_Banking.Models.Opecacoes.Emprestimo;
 using Projeto_Banking.Objetos;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -58,9 +59,6 @@ namespace Projeto_Banking.Models
                     }
                 }
                 // Fim da gerar pagamentos
-                //Atualizar movimentação
-                //Atualizar Conta contabil
-                //Atualizar Saldo da conta corrente
                 new ContaDAO().Transferir(new ContaDAO().PesquisarContaPorNumero(2), emp.ContaCorrente, emp.Valor, "Realização de empréstimo");
                 if (retorno > 0)
                 {
@@ -77,6 +75,15 @@ namespace Projeto_Banking.Models
                 Console.WriteLine(e);
                 return false;
             }
+        }
+        public DataTable PesquisarEmprestimosContaCorrente(ContaCorrente conta)
+        {
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            String sql = $"SELECT * FROM projetobanking.emprestimo WHERE Conta_Corrente_Conta_Conta_Corrente_id={conta.Numero};";
+            MySqlDataAdapter mAdpater = new MySqlDataAdapter(sql, Connection.Instance);
+            DataTable table = new DataTable();
+            mAdpater.Fill(table);
+            return table;
         }
     }
 }
