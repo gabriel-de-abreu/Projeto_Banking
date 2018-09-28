@@ -7,37 +7,10 @@ using Projeto_Banking.Objetos;
 
 namespace Projeto_Banking.Testes
 {
-    /// <summary>
-    /// Descrição resumida para EmprestimoDAOTeste
-    /// </summary>
+ 
     [TestClass]
     public class EmprestimoDAOTeste
     {
-        public EmprestimoDAOTeste()
-        {
-            //
-            // TODO: Adicionar lógica de construtor aqui
-            //
-        }
-
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///Obtém ou define o contexto do teste que provê
-        ///informação e funcionalidade da execução de teste atual.
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
-
         #region Atributos de teste adicionais
         //
         // É possível usar os seguintes atributos adicionais enquanto escreve os testes:
@@ -90,8 +63,8 @@ namespace Projeto_Banking.Testes
                 Taxa = taxa,
                 DataInicio = DateTime.Now
             };
-            
-            Assert.AreEqual(true, empDAO.InserirEmprestimo(emprestimo));
+
+            Assert.AreEqual(true, empDAO.InserirEmprestimo(emprestimo, "debito"));
 
         }
     }
