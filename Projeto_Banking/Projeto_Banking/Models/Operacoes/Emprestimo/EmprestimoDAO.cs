@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Projeto_Banking.Models.ContaDAOs;
 using Projeto_Banking.Models.Opecacoes.Emprestimo;
 using Projeto_Banking.Objetos;
 using System;
@@ -60,6 +61,7 @@ namespace Projeto_Banking.Models
                 //Atualizar movimentação
                 //Atualizar Conta contabil
                 //Atualizar Saldo da conta corrente
+                new ContaDAO().Transferir(new ContaDAO().PesquisarContaPorNumero(2), emp.ContaCorrente, emp.Valor, "Realização de empréstimo");
                 if (retorno > 0)
                 {
                     return true;
