@@ -154,13 +154,14 @@
     <Compile Include="Models\Operacoes\Emprestimo\PagamentoDAOs\PagamentoBoletoDAO.cs" />
     <Compile Include="Models\Operacoes\Emprestimo\PagamentoDAOs\PagamentoContaDAO.cs" />
     <Compile Include="Models\Operacoes\Emprestimo\PagamentoDAOs\PagamentoDAO.cs" />
+    <Compile Include="Models\Operacoes\Investimento\InvestimentoDAO.cs" />
     <Compile Include="Models\Operacoes\Investimento\InvestimentoOPS.cs" />
     <Compile Include="Models\PessoaDAO.cs" />
     <Compile Include="Models\Operacoes\TaxaDAO.cs" />
     <Compile Include="Objetos\ContaObjetos\Conta.cs" />
     <Compile Include="Objetos\ContaObjetos\ContaContabil.cs" />
     <Compile Include="Objetos\ContaObjetos\ContaContabilEmprestimo.cs" />
-    <Compile Include="Objetos\ContaObjetos\ContaContabilInvestimeto.cs" />
+    <Compile Include="Objetos\ContaObjetos\ContaContabilInvestimento.cs" />
     <Compile Include="Objetos\ContaObjetos\ContaCorrente.cs" />
     <Compile Include="Objetos\OperacoesObjetos\Emprestimo.cs" />
     <Compile Include="Objetos\OperacoesObjetos\Investimento.cs" />
