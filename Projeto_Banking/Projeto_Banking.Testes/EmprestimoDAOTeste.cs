@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Projeto_Banking.Models;
 using Projeto_Banking.Objetos;
+using Projeto_Banking.Models.ContaDAOs;
 
 namespace Projeto_Banking.Testes
 {
@@ -67,6 +68,7 @@ namespace Projeto_Banking.Testes
             Assert.AreEqual(true, empDAO.InserirEmprestimo(emprestimo, "debito"));
 
         }
+
         [TestMethod]
         public void TestMethodEmprestimoDAOBoleto()
         {
@@ -99,7 +101,13 @@ namespace Projeto_Banking.Testes
             };
 
             Assert.AreEqual(true, empDAO.InserirEmprestimo(emprestimo, "boleto"));
+        }
 
+        [TestMethod]
+        public void ConsultaEmprestimoTeste()
+        {
+            var table = new EmprestimoDAO().PesquisarEmprestimosContaCorrente(new ContaDAO().PesquisarContaPorNumero(3) as ContaCorrente);
+            Assert.AreEqual(1, table.Rows.Count);
         }
     }
 }
