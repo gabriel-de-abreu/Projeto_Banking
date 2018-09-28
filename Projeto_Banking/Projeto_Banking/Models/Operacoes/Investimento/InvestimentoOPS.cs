@@ -13,11 +13,11 @@ namespace Projeto_Banking.Models.Operacoes.Investimento
         {
             Random random = new Random();
             TimeSpan mes;
-            if (investimentoConta.Investimento.DataFim == dataResgate)
-                mes = investimentoConta.Investimento.DataFim.Subtract(investimentoConta.Investimento.DataInicio);
+            if (investimentoConta.DataFim == dataResgate)
+                mes = investimentoConta.DataFim.Subtract(investimentoConta.DataInicio);
 
             else
-                mes = dataResgate.Subtract(investimentoConta.Investimento.DataInicio);
+                mes = dataResgate.Subtract(investimentoConta.DataInicio);
 
             int meses = (int)(mes.TotalDays / 30);
 

@@ -13,7 +13,7 @@
             <asp:Label ID="lblValorIni" runat="server" Text="Valor inicial do Investimento:"></asp:Label>
             <asp:TextBox ID="txtValorIni" runat="server"></asp:TextBox>
             <asp:Label ID="lblValorFim" runat="server" Text="Valor final do Investimento:"></asp:Label>
-            <asp:TextBox ID="txtValorFim" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtValorFim" runat="server" OnTextChanged="txtValorFim_TextChanged"></asp:TextBox>
             <br />
 
             <asp:Label ID="lblDataIni" runat="server" Text="Data Inicial do Investimento: "></asp:Label>
@@ -26,6 +26,10 @@
 
             <asp:Label ID="lblDataRet" runat="server" Text="Data da Retirada: "></asp:Label>
             <asp:TextBox ID="txtDataRet" runat="server"></asp:TextBox>
+            <br />
+
+            <asp:Label ID="lblInvestimento" runat="server" Text="Selecione o Tipo de Investimento: "></asp:Label>
+            <asp:DropDownList ID="ddlInvestimentos" runat="server"></asp:DropDownList>
             <br />
             <asp:Button ID="BtnSimular"  runat="server" Text="Simular" OnClick="BtnSimular_Click" />
 
