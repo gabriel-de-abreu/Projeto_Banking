@@ -9,7 +9,7 @@ namespace Projeto_Banking.Models.Opecacoes.Emprestimo.PagamentoDAOs
 {
     public class PagamentoBoletoDAO
     {
-        public PagamentoBoletoDAO InserirPagamentoBoleto(PagamentoBoleto pagamento)
+        public PagamentoBoleto InserirPagamentoBoleto(PagamentoBoleto pagamento)
         {
             MySqlCommand command = Connection.Instance.CreateCommand();
             command.CommandText = "INSERT INTO `ProjetoBanking`.`Pagamento_Boleto` (`Pagamento_Pagamento_Boleto_id`, `Pagamento_Boleto_codigo`, `Pagamento_Boleto_vencimento`) " +
@@ -18,7 +18,7 @@ namespace Projeto_Banking.Models.Opecacoes.Emprestimo.PagamentoDAOs
             command.Parameters.AddWithValue("@boleto_cod", pagamento.Codigo);
             command.Parameters.AddWithValue("@vencimento", pagamento.Vencimento);
             command.ExecuteNonQuery();
-            return null;
+            return pagamento;
         }
     }
 }

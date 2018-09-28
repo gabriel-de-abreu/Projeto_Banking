@@ -148,7 +148,6 @@
     <Compile Include="Models\ContaDAOs\ContaContabilInvestimentoDAO.cs" />
     <Compile Include="Models\ContaDAOs\ContaCorrenteDAO.cs" />
     <Compile Include="Models\ContaDAOs\ContaDAO.cs" />
-    <Compile Include="Models\Opecacoes\Emprestimo\EmprestimoDAO.cs" />
     <Compile Include="Models\MovimentacaoDAO.cs" />
     <Compile Include="Models\Opecacoes\Emprestimo\PagamentoDAOs\PagamentoBoletoDAO.cs" />
     <Compile Include="Models\Opecacoes\Emprestimo\PagamentoDAOs\PagamentoContaDAO.cs" />
@@ -170,6 +169,7 @@
     <Compile Include="Objetos\Pessoa.cs" />
     <Compile Include="Objetos\OperacoesObjetos\Taxa.cs" />
     <Compile Include="Utils\Criptografia.cs" />
+    <Compile Include="Models\Opecacoes\Emprestimo\EmprestimoDAO.cs" />
     <Compile Include="Views\vwContaCorrente.aspx.cs">
       <DependentUpon>vwContaCorrente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

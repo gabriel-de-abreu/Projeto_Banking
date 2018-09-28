@@ -2,6 +2,8 @@
 using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Projeto_Banking.Models;
+using Projeto_Banking.Objetos;
 
 namespace Projeto_Banking.Testes
 {
@@ -59,11 +61,38 @@ namespace Projeto_Banking.Testes
         #endregion
 
         [TestMethod]
-        public void TestMethod1()
+        public void TestMethodEmprestimoDAO()
         {
-            //
-            // TODO: Adicionar lógica de teste aqui
-            //
+            EmprestimoDAO empDAO = new EmprestimoDAO();
+            PessoaDAO dao = new PessoaDAO();
+            Pessoa p = dao.PesquisaPessoaPorId(2);
+
+            ContaCorrente cli1 = new ContaCorrente
+            {
+                Numero = 4,
+                Saldo = 0.0,
+                Limite = 0.0f,
+                Pessoa = p,
+                Emprestimos = null,
+                Investimentos = null
+            };
+            Taxa taxa = new Taxa()
+            {
+                Id = 1,
+                Valor = 10
+            };
+
+            Emprestimo emprestimo = new Emprestimo()
+            {
+                Valor = 2000,
+                Parcelas = 10,
+                ContaCorrente = cli1,
+                Taxa = taxa,
+                DataInicio = DateTime.Now
+            };
+            
+            Assert.AreEqual(true, empDAO.InserirEmprestimo(emprestimo));
+
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Projeto_Banking.Objetos
 {
-    public class PagamentoConta
+    public class PagamentoConta : Pagamento
     {
         public ContaCorrente ContaCorrente { get; set; }
     }
