@@ -52,6 +52,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\DataBase\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -147,6 +148,7 @@
     <Compile Include="Models\ContaDAOs\ContaCorrenteDAO.cs" />
     <Compile Include="Models\ContaDAOs\ContaDAO.cs" />
     <Compile Include="Models\MovimentacaoDAO.cs" />
+    <Compile Include="Models\Opecacoes\Emprestimo\EmprestimoOPS.cs" />
     <Compile Include="Models\Opecacoes\Emprestimo\PagamentoDAOs\PagamentoBoletoDAO.cs" />
     <Compile Include="Models\Opecacoes\Emprestimo\PagamentoDAOs\PagamentoContaDAO.cs" />
     <Compile Include="Models\Opecacoes\Emprestimo\PagamentoDAOs\PagamentoDAO.cs" />
