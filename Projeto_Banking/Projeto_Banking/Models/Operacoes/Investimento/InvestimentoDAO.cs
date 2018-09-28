@@ -77,8 +77,8 @@ namespace Projeto_Banking.Models.Operacoes.Investimento
                     //  investimento.PreFixada = reader["Investimento_nome"].ToString();
                     investimento.Rentabilidade = double.Parse(reader["Investimento_rentabilidade"].ToString());
                     investimento.Taxa = new TaxaDAO().PesquisarPorTaxa(int.Parse(reader["Taxa_Taxa_id"].ToString()));
-                    investimento.DataInicio = DateTime.Parse(reader["Investimento_Inicio"].ToString());
-                    investimento.DataFim = DateTime.Parse(reader["Investimento_Fim"].ToString());
+                    //investimento.DataInicio = DateTime.Parse(reader["Investimento_Inicio"].ToString());
+                    //investimento.DataFim = DateTime.Parse(reader["Investimento_Fim"].ToString());
                 }
                 reader.Close();
                 return investimento;
@@ -90,5 +90,14 @@ namespace Projeto_Banking.Models.Operacoes.Investimento
             }
 
         }
+
+        //public List<Investimento> PopularDropMenu()
+        //{
+        //    MySqlCommand command = Connection.Instance.CreateCommand();
+        //    command.CommandText = "SELECT * FROM investimento";
+        //    var reader = command.ExecuteReader();
+        //    List<Investimento> lInvestimento = new List<Opera;
+        //    while ()
+        //}
     }
 }
