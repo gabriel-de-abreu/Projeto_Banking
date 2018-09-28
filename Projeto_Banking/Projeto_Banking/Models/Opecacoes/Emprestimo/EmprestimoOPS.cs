@@ -13,11 +13,10 @@ namespace Projeto_Banking.Models.Opecacoes.Emprestimo
             double valorParcela, taxaValor;
             taxaValor = taxa.Valor / 100;
 
-            valorParcela = ((taxaValor) / (1 - Math.Pow((1 + taxaValor), -parcelas)))*valor;
-           
+            valorParcela = ((taxaValor) / (1 - Math.Pow((1 + taxaValor), -parcelas))) * valor;
 
             //valorTotal = valorDesejado + (parcelas * taxaValor * valorDesejado);
-            
+
 
             return valorParcela;
         }

@@ -159,7 +159,7 @@
     <Compile Include="Objetos\ContaObjetos\Conta.cs" />
     <Compile Include="Objetos\ContaObjetos\ContaContabil.cs" />
     <Compile Include="Objetos\ContaObjetos\ContaContabilEmprestimo.cs" />
-    <Compile Include="Objetos\ContaObjetos\ContaContabilInvestimeto.cs" />
+    <Compile Include="Objetos\ContaObjetos\ContaContabilInvestimento.cs" />
     <Compile Include="Objetos\ContaObjetos\ContaCorrente.cs" />
     <Compile Include="Objetos\OperacoesObjetos\Emprestimo.cs" />
     <Compile Include="Objetos\OperacoesObjetos\Investimento.cs" />

@@ -28,7 +28,36 @@ namespace Projeto_Banking.Models.ContaDAOs
                 cc.Saldo = saldo;
                 return cc;
             }
+
+            ContaContabilEmprestimo cce = new ContaContabilEmprestimoDAO().PesquisarContaContabilEmprestimo(numero);
+            if (cce != null)
+            {
+                return new ContaContabilEmprestimo()
+                {
+                    Numero = numero,
+                    Saldo = saldo
+                };
+            }
+            ContaContabilInvestimento cci = new ContaContabilInvestimentoDAO().PesquisarContaContabilInvestimento(numero);
+            if (cci != null)
+            {
+                return new ContaContabilInvestimento()
+                {
+                    Numero = numero,
+                    Saldo = saldo
+                };
+            }
             return null;
+        }
+
+        public Conta ContaAtualizarSaldo(Conta conta, float valor)
+        {
+            Conta contaAux = PesquisarContaPorNumero(conta.Numero);
+            contaAux.Saldo += valor;
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            command.CommandText = $"UPDATE `projetobanking`.`conta` SET `Conta_id` = {conta.Numero} , `Conta_saldo` = {contaAux.Saldo}" +
+                $" WHERE `Conta_id` = {conta.Numero};";
+            return command.ExecuteNonQuery() > 0 ? contaAux : null;
         }
     }
 }
