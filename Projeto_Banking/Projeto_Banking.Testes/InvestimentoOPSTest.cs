@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Projeto_Banking.Objetos;
 using Projeto_Banking.Models.Operacoes.Investimento;
+using Projeto_Banking.Models;
 
 namespace Projeto_Banking.Testes
 {
@@ -94,9 +95,9 @@ namespace Projeto_Banking.Testes
 
             InvestimentoConta investimentoConta = new InvestimentoConta()
             {
-                Conta=conta,
-                Investimento=investimento,
-                Valor=1000
+                Conta = conta,
+                Investimento = investimento,
+                Valor = 1000
             };
             double saidaDouble = InvestimentoOPS.Resgate(investimentoConta, DateTime.Now.AddMonths(3));
             Console.Write(saidaDouble);
@@ -107,12 +108,7 @@ namespace Projeto_Banking.Testes
         [TestMethod]
         public void TestInvestimentoOPS2()
         {
-            Taxa taxa = new Taxa()
-            {
-                Id = 1,
-                Nome = "Taxa louca",
-                Valor = 6
-            };
+            Taxa taxa = new TaxaDAO().PesquisarPorTaxa(1);
             Investimento investimento = new Investimento()
             {
                 Nome = "Tesouro Direto",
@@ -152,12 +148,7 @@ namespace Projeto_Banking.Testes
         [TestMethod]
         public void TestInvestimentoOPS3()
         {
-            Taxa taxa = new Taxa()
-            {
-                Id = 1,
-                Nome = "Taxa louca",
-                Valor = 6
-            };
+            Taxa taxa = new TaxaDAO().PesquisarPorTaxa(1);
 
             Investimento investimento = new Investimento()
             {
@@ -190,7 +181,7 @@ namespace Projeto_Banking.Testes
             double saidaDouble = InvestimentoOPS.Resgate(investimentoConta, DateTime.Now.AddMonths(12));
             Console.Write(saidaDouble);
             int saidaInt = Convert.ToInt32(saidaDouble);
-           // Assert.AreEqual(1311, saidaInt);
+            Assert.IsTrue(saidaInt > 2120 && saidaInt < 4081);
         }
 
     }
