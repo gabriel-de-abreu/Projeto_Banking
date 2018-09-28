@@ -3,7 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Projeto_Banking.Objetos;
-using Projeto_Banking.Models.Operacoes.Investimento;
+using Projeto_Banking.Models;
 
 namespace Projeto_Banking.Testes
 {
@@ -63,24 +63,18 @@ namespace Projeto_Banking.Testes
         [TestMethod]
         public void TestInvestimentoDAO1()
         {
-
-            InvestimentoDAO investDao = new InvestimentoDAO();
-
-            Investimento investimentoConta = investDao.BuscarInvestimentoPorId(1);
+            Investimento investimentoConta = new InvestimentoDAO().BuscarInvestimentoPorId(1);
             Assert.IsNotNull(investimentoConta);
-
 
         }
 
         [TestMethod]
         public void TestInvestimentoDAO2()
         {
-            InvestimentoDAO investDao = new InvestimentoDAO();
-
-            Investimento investimentoConta = investDao.BuscarInvestimentoPorId(22);
+            Investimento investimentoConta = new InvestimentoDAO().BuscarInvestimentoPorId(22);
             Assert.IsNull(investimentoConta);
         }
 
-   
+
     }
 }

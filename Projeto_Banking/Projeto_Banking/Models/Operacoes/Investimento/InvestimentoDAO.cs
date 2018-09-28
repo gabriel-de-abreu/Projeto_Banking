@@ -6,11 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Projeto_Banking.Models.Operacoes.Investimento
+namespace Projeto_Banking.Models
 {
     public class InvestimentoDAO
     {
-        public InvestimentoConta InserirInvestimento(Projeto_Banking.Objetos.Investimento investimento, ContaCorrente conta, double valor)
+        public InvestimentoConta InserirInvestimento(Investimento investimento, ContaCorrente conta, double valor)
         {
             try
             {
@@ -57,21 +57,21 @@ namespace Projeto_Banking.Models.Operacoes.Investimento
             }
         }
 
-        public Projeto_Banking.Objetos.Investimento BuscarInvestimentoPorId(int id)
+        public Investimento BuscarInvestimentoPorId(int id)
         {
             try
             {
                 MySqlCommand command = Connection.Instance.CreateCommand();
-                string sql = "SELECT * FROM projetobanking.investimento WHERE Investimento_id= @Investimento_id;";
+                string sql = "SELECT * FROM Investimento WHERE Investimento_id= @Investimento_id;";
 
                 command.CommandText = sql;
                 command.Parameters.AddWithValue("@Investimento_id", id);
 
                 var reader = command.ExecuteReader();
+
                 Investimento investimento = null;
-                if (reader.HasRows)
-                {
-                    reader.Read();
+
+                while (reader.Read()) { 
                     investimento.Id = int.Parse(reader["Investimento_id"].ToString());
                     investimento.Nome = reader["Investimento_nome"].ToString();
                     //  investimento.PreFixada = reader["Investimento_nome"].ToString();
