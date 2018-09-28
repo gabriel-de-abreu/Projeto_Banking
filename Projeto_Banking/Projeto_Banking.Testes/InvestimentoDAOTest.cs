@@ -63,56 +63,24 @@ namespace Projeto_Banking.Testes
         [TestMethod]
         public void TestInvestimentoDAO1()
         {
-            ContaCorrente conta = new ContaCorrente()
-            {
-                Numero = 4,
-                Saldo = 1999
-            };
-            Investimento investimento = new Investimento() {
-                Id=1                
-            };
 
-            InvestimentoDAO investDao = new InvestimentoDAO();
-
-            InvestimentoConta investimentoConta = investDao.InserirInvestimento(new InvestimentoConta());
-            Assert.IsNotNull(investimentoConta);
-        }
-
-        [TestMethod]
-        public void TestInvestimentoDAO2()
-        {
-            ContaCorrente conta = new ContaCorrente()
-            {
-                Numero = 4,
-                Saldo = 999
-            };
-            Investimento investimento = new Investimento()
-            {
-                Id = 2
-            };
-
-            InvestimentoDAO investDao = new InvestimentoDAO();
-
-            InvestimentoConta investimentoConta = investDao.InserirInvestimento(new InvestimentoConta());
-            Assert.IsNull(investimentoConta);
-        }
-
-        [TestMethod]
-        public void TestInvestimentoDAO3()
-        {
             InvestimentoDAO investDao = new InvestimentoDAO();
 
             Investimento investimentoConta = investDao.BuscarInvestimentoPorId(2);
             Assert.IsNotNull(investimentoConta);
+
+
         }
 
         [TestMethod]
-        public void TestInvestimentoDAO4()
+        public void TestInvestimentoDAO2()
         {
             InvestimentoDAO investDao = new InvestimentoDAO();
 
             Investimento investimentoConta = investDao.BuscarInvestimentoPorId(22);
             Assert.IsNull(investimentoConta);
         }
+
+   
     }
 }

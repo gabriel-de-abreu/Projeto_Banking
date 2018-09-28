@@ -33,6 +33,7 @@ namespace Projeto_Banking.Models.Operacoes.Investimento
 
                     if (retorno > 0)
                     {
+                        new ContaDAO().Transferir(investimentoConta.Conta, new ContaDAO().PesquisarContaPorNumero(1),  (float)investimentoConta.Valor, "Realização de investimento");
                         return investimentoConta;
                     }
                 }
