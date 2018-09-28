@@ -50,11 +50,13 @@ namespace Projeto_Banking.Models.ContaDAOs
 
                 command.CommandText = sql;
                 MySqlDataReader reader = command.ExecuteReader();
+                float saldo = -1;
                 while (reader.Read())
                 {
-                    return float.Parse(reader["Conta_saldo"].ToString());
+                    saldo = float.Parse(reader["Conta_saldo"].ToString());
                 }
-                return -1;
+                reader.Close();
+                return saldo;
             }
             catch (Exception e)
             {
