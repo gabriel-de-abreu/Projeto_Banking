@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Projeto_Banking.Objetos;
 using Projeto_Banking.Models.Operacoes.Investimento;
 using Projeto_Banking.Models;
+using Projeto_Banking.Models.ContaDAOs;
 
 namespace Projeto_Banking.Testes
 {
@@ -110,25 +111,9 @@ namespace Projeto_Banking.Testes
         public void TestInvestimentoOPS2()
         {
             Taxa taxa = new TaxaDAO().PesquisarPorTaxa(1);
-            Investimento investimento = new Investimento()
-            {
-                Nome = "Tesouro Direto",
-                PreFixada = true,
-                Rentabilidade = 10,
-                Taxa = taxa
-                
-            };
+            Investimento investimento = new InvestimentoDAO().BuscarInvestimentoPorId(1);
 
-            ContaCorrente conta = new ContaCorrente()
-            {
-                Limite = 1000,
-                Emprestimos = null,
-                Investimentos = null,
-                Numero = 1213,
-                Pessoa = null,
-                Saldo = 1500,
-                Senha = "1234"
-            };
+            ContaCorrente conta = new ContaCorrenteDAO().PesquisarPorNumero(3);
 
             InvestimentoConta investimentoConta = new InvestimentoConta()
             {
@@ -152,25 +137,9 @@ namespace Projeto_Banking.Testes
         {
             Taxa taxa = new TaxaDAO().PesquisarPorTaxa(1);
 
-            Investimento investimento = new Investimento()
-            {
-                Nome = "Tesouro Direto",
-                PreFixada = false,
-                Rentabilidade = 10,
-                Taxa = taxa,
-                
-            };
+            Investimento investimento = new InvestimentoDAO().BuscarInvestimentoPorId(1);
 
-            ContaCorrente conta = new ContaCorrente()
-            {
-                Limite = 1000,
-                Emprestimos = null,
-                Investimentos = null,
-                Numero = 1213,
-                Pessoa = null,
-                Saldo = 1500,
-                Senha = "1234"
-            };
+            ContaCorrente conta = new ContaCorrenteDAO().PesquisarPorNumero(3);
 
             InvestimentoConta investimentoConta = new InvestimentoConta()
             {
