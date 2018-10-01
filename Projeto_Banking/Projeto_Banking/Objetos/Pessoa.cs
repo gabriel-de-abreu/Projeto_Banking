@@ -13,9 +13,9 @@ namespace Projeto_Banking.Objetos
 
         public override string ToString()
         {
-            return $"Id: {Id} Cpf: {Cpf} Nome:{Nome}";
+            return $"Id: {Id} Cpf: {Cpf} Nome: {Nome}";
         }
 
     }
-    
+
 }
