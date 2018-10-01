@@ -126,7 +126,7 @@ namespace Projeto_Banking.Testes
 
             int saidaInt = (int)InvestimentoOPS.Resgate(investimentoConta, DateTime.Now.AddMonths(12));
             Console.Write(saidaInt);
-            Assert.AreEqual(1933, saidaInt);
+            Assert.AreEqual(2163, saidaInt);
         }
 
 
@@ -151,7 +151,7 @@ namespace Projeto_Banking.Testes
             double saidaDouble = InvestimentoOPS.Resgate(investimentoConta, DateTime.Now.AddMonths(12));
             Console.Write(saidaDouble);
             int saidaInt = Convert.ToInt32(saidaDouble);
-            Assert.IsTrue(saidaInt > 1900 && saidaInt < 3000);
+            Assert.IsTrue(saidaInt > 1800 && saidaInt < 2500);
         }
 
     }
