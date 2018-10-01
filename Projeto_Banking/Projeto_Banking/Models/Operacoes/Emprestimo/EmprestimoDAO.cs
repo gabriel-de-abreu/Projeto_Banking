@@ -87,6 +87,16 @@ namespace Projeto_Banking.Models
             return table;
         }
 
+        public DataTable PesquisarEmprestimosContaCorrenteComTaxa(ContaCorrente conta)
+        {
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            String sql = $"SELECT * FROM emprestimo INNER JOIN taxa ON Taxa_Taxa_id=Taxa_id where Conta_Corrente_Conta_Conta_Corrente_id ={conta.Numero};";
+            MySqlDataAdapter mAdpater = new MySqlDataAdapter(sql, Connection.Instance);
+            DataTable table = new DataTable();
+            mAdpater.Fill(table);
+            return table;
+        }
+
         public Emprestimo PesquisarEmprestimoPorId(int id)
         {
             MySqlCommand command = Connection.Instance.CreateCommand();
