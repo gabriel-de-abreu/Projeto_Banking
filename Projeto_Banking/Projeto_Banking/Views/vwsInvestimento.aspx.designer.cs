@@ -10,177 +10,123 @@
 namespace Projeto_Banking.Views {
     
     
-    public partial class vwEmprestimo {
+    public partial class vwsInvestimento {
         
         /// <summary>
-        /// Controle form1.
+        /// Controle lblValorIni.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label lblValorIni;
         
         /// <summary>
-        /// Controle Label1.
+        /// Controle txtValorIni.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox txtValorIni;
         
         /// <summary>
-        /// Controle txtValor.
+        /// Controle lblValorFim.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtValor;
+        protected global::System.Web.UI.WebControls.Label lblValorFim;
         
         /// <summary>
-        /// Controle Label2.
+        /// Controle txtValorFim.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.TextBox txtValorFim;
         
         /// <summary>
-        /// Controle txtParcelas.
+        /// Controle lblDataIni.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtParcelas;
+        protected global::System.Web.UI.WebControls.Label lblDataIni;
         
         /// <summary>
-        /// Controle Label4.
+        /// Controle txtDataIni.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.TextBox txtDataIni;
         
         /// <summary>
-        /// Controle txtDataPrimeiroVencimento.
+        /// Controle lblDataFim.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDataPrimeiroVencimento;
+        protected global::System.Web.UI.WebControls.Label lblDataFim;
         
         /// <summary>
-        /// Controle lblDataVencimento.
+        /// Controle txtDataFim.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDataVencimento;
+        protected global::System.Web.UI.WebControls.TextBox txtDataFim;
         
         /// <summary>
-        /// Controle btnSimular.
+        /// Controle lblDataRet.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSimular;
+        protected global::System.Web.UI.WebControls.Label lblDataRet;
         
         /// <summary>
-        /// Controle lblAviso.
+        /// Controle txtDataRet.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAviso;
+        protected global::System.Web.UI.WebControls.TextBox txtDataRet;
         
         /// <summary>
-        /// Controle divSimulacao.
+        /// Controle lblInvestimento.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSimulacao;
+        protected global::System.Web.UI.WebControls.Label lblInvestimento;
         
         /// <summary>
-        /// Controle lblParcelas.
+        /// Controle ddlInvestimentos.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblParcelas;
+        protected global::System.Web.UI.WebControls.DropDownList ddlInvestimentos;
         
         /// <summary>
-        /// Controle lblValor.
+        /// Controle BtnSimular.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblValor;
-        
-        /// <summary>
-        /// Controle lblValorTotal.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblValorTotal;
-        
-        /// <summary>
-        /// Controle lblTaxa.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTaxa;
-        
-        /// <summary>
-        /// Controle Label3.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-        
-        /// <summary>
-        /// Controle rblPagamento.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblPagamento;
-        
-        /// <summary>
-        /// Controle btnRealizar.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRealizar;
-        
-        /// <summary>
-        /// Controle lblResultado.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblResultado;
+        protected global::System.Web.UI.WebControls.Button BtnSimular;
     }
 }

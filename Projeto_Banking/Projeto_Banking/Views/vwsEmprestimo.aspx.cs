@@ -1,7 +1,6 @@
-﻿
-using Projeto_Banking.Models;
-using Projeto_Banking.Objetos;
+﻿using Projeto_Banking.Models;
 using Projeto_Banking.Models.Opecacoes.Emprestimo;
+using Projeto_Banking.Objetos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace Projeto_Banking.Views
 {
-    public partial class vwEmprestimo : System.Web.UI.Page
+    public partial class vwsEmprestimo : System.Web.UI.Page
     {
         ContaCorrente cc;
 

@@ -1,15 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="vwContaCorrente.aspx.cs" Inherits="Projeto_Banking.Views.vwContaCorrente" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/vwfTemplate.Master" AutoEventWireup="true" CodeBehind="vwsContaCorrente.aspx.cs" Inherits="Projeto_Banking.Views.vwsContaCorrente" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+     <div>
             <div>
                 <asp:Label ID="lblTitular" runat="server" Text="Titular da Conta: "></asp:Label>
             </div>
@@ -28,7 +21,4 @@
                 <asp:Button ID="btnInvestimento" runat="server" Text="Investimentos" OnClick="btnInvestimento_Click" />
             </div>
         </div>
-    </form>
-    <!-- #include file="/Views/Footer.html"-->
-</body>
-</html>
+</asp:Content>

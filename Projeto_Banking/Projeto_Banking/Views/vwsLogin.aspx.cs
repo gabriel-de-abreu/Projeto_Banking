@@ -8,15 +8,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Projeto_Banking
+namespace Projeto_Banking.Views
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class vwsLogin : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
         protected void TxtSenha_TextChanged(object sender, EventArgs e)
         {
 
@@ -41,7 +40,7 @@ namespace Projeto_Banking
             if (cc != null)
             {
                 Session["contaCorrente"] = cc;
-                Response.Redirect("~/Views/vwContaCorrente.aspx");
+                Response.Redirect("~/Views/vwsContaCorrente.aspx");
             }
             else
             {
