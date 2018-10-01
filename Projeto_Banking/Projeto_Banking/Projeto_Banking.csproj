@@ -139,6 +139,8 @@
     <Content Include="Views\vwsEmprestimo.aspx" />
     <Content Include="Views\vwsInvestimento.aspx" />
     <Content Include="Views\vwsLogin.aspx" />
+    <Content Include="Views\vwsVisualizarEmprestimo.aspx" />
+    <Content Include="Views\vwsMeusInvestimentos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +220,23 @@
     <Compile Include="Views\vwsLogin.aspx.designer.cs">
       <DependentUpon>vwsLogin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\vwsVisualizarEmprestimo.aspx.cs">
+      <DependentUpon>vwsVisualizarEmprestimo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+
+    <Compile Include="Views\vwsVisualizarEmprestimo.aspx.designer.cs">
+      <DependentUpon>vwsVisualizarEmprestimo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vwsMeusInvestimentos.aspx.cs">
+      <DependentUpon>vwsMeusInvestimentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+
+    <Compile Include="Views\vwsMeusInvestimentos.aspx.designer.cs">
+      <DependentUpon>vwsMeusInvestimentos.aspx</DependentUpon>
+    </Compile>
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

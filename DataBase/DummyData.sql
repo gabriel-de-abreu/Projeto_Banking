@@ -1,4 +1,4 @@
-
+﻿
 /* Inserções de pessoa */
 INSERT INTO `ProjetoBanking`.`Pessoa` (`Pessoa_id`, `Pessoa_cpf`, `Pessoa_nome`) VALUES (1, '000.111.222-33', 'Fulano');
 INSERT INTO `ProjetoBanking`.`Pessoa` (`Pessoa_id`, `Pessoa_cpf`, `Pessoa_nome`) VALUES (2, '000.121.222-44', 'Beltrano');
@@ -13,11 +13,11 @@ INSERT INTO `ProjetoBanking`.`Conta_Contabil_Emprestimo` (`Conta_Conta_Contabil_
 /*Inserção de Conta Corrente */
 INSERT INTO `ProjetoBanking`.`Conta` (`Conta_id`, `Conta_saldo`) VALUES (3, 0);
 INSERT INTO `ProjetoBanking`.`Conta_Corrente` (`Conta_Conta_Corrente_id`, `Conta_Corrente_limite`, `Pessoa_Pessoa_cpf`,
- `Conta_Corrente_senha`) VALUES (3, 1000, '000.111.222-33', "81dc9bdb52d04dc20036dbd8313ed055");
+ `Conta_Corrente_senha`) VALUES (3, 10000, '000.111.222-33', "81dc9bdb52d04dc20036dbd8313ed055");
 
 INSERT INTO `ProjetoBanking`.`Conta` (`Conta_id`, `Conta_saldo`) VALUES (4, 0);
 INSERT INTO `ProjetoBanking`.`Conta_Corrente` (`Conta_Conta_Corrente_id`, `Conta_Corrente_limite`,
-`Pessoa_Pessoa_cpf`, `Conta_Corrente_senha`) VALUES (4, 10000, '000.121.222-44', "81dc9bdb52d04dc20036dbd8313ed055");
+`Pessoa_Pessoa_cpf`, `Conta_Corrente_senha`) VALUES (4, 20000, '000.121.222-44', "81dc9bdb52d04dc20036dbd8313ed055");
 
 /* Inserção de Taxa */
 INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUES (1, "Juros Perfil 1", 4);
@@ -44,3 +44,6 @@ INSERT INTO `projetobanking`.`investimento`
 `Taxa_Taxa_id`)
 VALUES
 (2, "Tesouro Direto", 2, 3);
+
+/* Inserção Investimento_Conta */
+INSERT INTO projetobanking.Investimento_Conta (Investimento_Investimento_id, Conta_Corrente_Conta_Conta_Corrente_id,Investimento_Conta_Valor, Investimento_Inicio, Investimento_Fim)  VALUES (1, 4,100, '2018-10-01','2019-10-01');

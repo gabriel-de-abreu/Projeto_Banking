@@ -110,6 +110,13 @@ namespace Projeto_Banking.Testes
             Assert.AreEqual(1, table.Rows.Count);
         }
         [TestMethod]
+        public void ConsultaEmprestimoTaxaTeste()
+        {
+            var table = new EmprestimoDAO().PesquisarEmprestimosContaCorrenteComTaxa(new ContaDAO().PesquisarContaPorNumero(3) as ContaCorrente);
+            Assert.AreEqual(6, table.Rows.Count);
+        }
+
+        [TestMethod]
         public void ConsultarEmprestimoIdTeste()
         {
             Emprestimo emprestimo = new EmprestimoDAO().PesquisarEmprestimoPorId(1);

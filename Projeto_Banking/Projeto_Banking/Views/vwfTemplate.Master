@@ -17,18 +17,26 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Internet Banking</title>
+    <link href ="../Vendors/Content/bootstrap.min.css" rel ="stylesheet" />
+    <script src ="../Vendors/Scripts/jquery-3.0.0.min.js"></script>
+    <script src ="../Vendors/Scripts/bootstrap.min.js"></script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
 </head>
 <body>
-    <form id="form1" runat="server">
+    <div class="container">
+        <form id="form1" runat="server">
 
-            <asp:ContentPlaceHolder ID="body" runat="server">
-            </asp:ContentPlaceHolder>
-    </form>
-    <div class="footer">
-        <p>Projeto final do curso de programação do Senai. Apresentado à Tata Consultancy Services do Brasil.</p>
-        <p>Participantes: Flávio Santos, Gabriel de Abreu, Gabriel de Carli, João Victor e Matheus Giacomini.</p>
+                <asp:ContentPlaceHolder ID="body" runat="server">
+                </asp:ContentPlaceHolder>
+        </form>
+
+        <div class="footer">
+            <p>Projeto final do curso de programação do Senai. Apresenta à Tata Consultancy Services do Brasil.</p>
+            <p>Participantes: Flávio Santos, Gabriel de Abreu, Gabriel de Carli, João Victor e Matheus Giacomini.</p>
+        </div>
     </div>
 </body>
 </html>

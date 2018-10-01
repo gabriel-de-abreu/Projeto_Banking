@@ -3,6 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
      <div>
+            <br />
             <asp:Label ID="lblValorIni" runat="server" Text="Valor inicial do Investimento:"></asp:Label>
             <asp:TextBox ID="txtValorIni" runat="server"></asp:TextBox>
             <asp:Label ID="lblValorFim" runat="server" Text="Valor final do Investimento:"></asp:Label>
@@ -25,6 +26,6 @@
             <asp:DropDownList ID="ddlInvestimentos" runat="server"></asp:DropDownList>
             <br />
             <asp:Button ID="BtnSimular"  runat="server" Text="Simular" OnClick="BtnSimular_Click" />
-
+         <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
         </div>
 </asp:Content>

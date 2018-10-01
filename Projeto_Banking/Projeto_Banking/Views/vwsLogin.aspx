@@ -4,7 +4,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
             <div>   
-                <asp:Label ID="LblNumConta" runat="server" Text="Número da Conta:"></asp:Label>
+                <asp:Label ID="LblNumConta"  runat="server" Text="Número da Conta:"></asp:Label>
                 <asp:TextBox ID="TxtNumConta" runat="server" OnTextChanged="TxtNumConta_TextChanged"></asp:TextBox>
             </div>
 
@@ -16,5 +16,5 @@
             <asp:Button ID="BtnLogar" class = "btn btn-primary" runat="server" Text="Logar" OnClick="BtnLogar_Click" style="height: 26px" />
 
             <br />
-        <asp:Label ID="LblResultado" runat="server" Text=""></asp:Label>
+        <asp:Label ID="LblResultado" runat="server" class="btn-outline-success" Text=""></asp:Label>
 </asp:Content>
