@@ -24,9 +24,8 @@ namespace Projeto_Banking.Views
         public void PopularGrid()
         {
             EmprestimoDAO empDao = new EmprestimoDAO();
-            DataTable dTable = empDao.PesquisarEmprestimosContaCorrente(cc);
-            //criar query SELECT * FROM emprestimo INNER JOIN taxa ON Taxa_Taxa_id=Taxa_id where Conta_Corrente_Conta_Conta_Corrente_id =
-
+            DataTable dTable = empDao.PesquisarEmprestimosContaCorrenteComTaxa(cc);
+            
             gdvEmprestimos.DataSource = dTable;
             gdvEmprestimos.DataBind();
         }
