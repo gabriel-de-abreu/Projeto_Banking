@@ -3,6 +3,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div>
+        <asp:Button ID="btnConsultar" runat="server" Text="Consultar meus empréstimos" Onclick="btnConsultar_Click"/>
+    </div>
+    <div>
             <asp:Label ID="Label1" runat="server" Text="Qual o valor do empréstimo?"></asp:Label>
             <br />
             <asp:TextBox ID="txtValor" runat="server"></asp:TextBox>
@@ -54,8 +57,8 @@
             <br />
 
             <asp:RadioButtonList ID="rblPagamento" runat="server">
-                <asp:ListItem Text="Débito em Conta" Value="Conta" Selected="True" />
-                <asp:ListItem Text="Boleto" Value="Boleto" />
+                <asp:ListItem Text="Débito em Conta" Value="debito" Selected="True" />
+                <asp:ListItem Text="Boleto" Value="boleto" />
             </asp:RadioButtonList>
 
 
