@@ -12,5 +12,10 @@ namespace Projeto_Banking.Objetos
         public List<InvestimentoConta> Investimentos { get; set; }
         public List<Emprestimo> Emprestimos { get; set; }
         public string Senha { get; set; }
+
+        public override string ToString()
+        {
+            return base.ToString() + $" Pessoa: {{{Pessoa}}}";
+        }
     }
 }
