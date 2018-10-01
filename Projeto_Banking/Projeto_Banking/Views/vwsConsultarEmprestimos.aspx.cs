@@ -1,4 +1,5 @@
 ﻿using Projeto_Banking.Models;
+using Projeto_Banking.Models.Opecacoes.EmprestimoDAOs;
 using Projeto_Banking.Objetos;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,15 @@ namespace Projeto_Banking.Views
         {
             EmprestimoDAO empDao = new EmprestimoDAO();
             DataTable dTable = empDao.PesquisarEmprestimosContaCorrenteComTaxa(cc);
+
+
+            dTable.Columns.Add("Pagamento_tipo", typeof(String));
+
+            PagamentoDAO pagDAO = new PagamentoDAO();
+
+            foreach (DataRow row in dTable.Rows) {
+               row["Pagamento_tipo"] = pagDAO.TipoPagamentoEmprestimo(new Emprestimo() { Id = Convert.ToInt32(row["Emprestimo_id"].ToString()) });
+            }
             
             gdvEmprestimos.DataSource = dTable;
             gdvEmprestimos.DataBind();
@@ -36,7 +46,19 @@ namespace Projeto_Banking.Views
             {
                 EmprestimoDAO empDao = new EmprestimoDAO();
                 Session["emprestimo"] = empDao.PesquisarEmprestimoPorId(Convert.ToInt32(e.CommandArgument.ToString()));
-                Response.Redirect("~/Views/vwsVisualizarEmprestimo.aspx");
+
+                GridViewRow clickedRow = ((LinkButton)e.CommandSource).NamingContainer as GridViewRow;
+                Label lblPagamento = (Label)clickedRow.FindControl("lblPagamento");
+
+                if (lblPagamento.Text.Equals("Débito em Conta")){
+                    Session["tipoPagamento"] = "Debito em Conta";
+                    Response.Redirect("~/Views/vwsVisualizarPagamentoEmprestimo.aspx");
+
+                }else if (lblPagamento.Text.Equals("Boleto"))
+                {
+                    Session["tipoPagamento"] = "Boleto";
+                    Response.Redirect("~/Views/vwsVisualizarPagamentoEmprestimo.aspx");
+                }
             }
         }
     }

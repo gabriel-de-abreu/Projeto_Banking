@@ -33,14 +33,14 @@ namespace Projeto_Banking.Models.Opecacoes.EmprestimoDAOs
             return pagamento;
         }
 
-        public DataTable BuscarPagamentosPorIdDoEmprestimo(int numPagamento)
+        public DataTable BuscarPagamentosPorIdDoEmprestimo(int emprestimoId)
         {
             try
             {
                 DataTable table = new DataTable();
                 MySqlDataAdapter sqlData = new MySqlDataAdapter("SELECT * FROM projetobanking.pagamento " +
                     "WHERE pagamento.Emprestimo_Emprestimo_id = @numPagamento", Connection.Instance);
-                sqlData.SelectCommand.Parameters.AddWithValue("@numPagamento", numPagamento);
+                sqlData.SelectCommand.Parameters.AddWithValue("@numPagamento", emprestimoId);
 
                 sqlData.Fill(table);
                 return table;
@@ -65,14 +65,17 @@ namespace Projeto_Banking.Models.Opecacoes.EmprestimoDAOs
         }
 
         public String TipoPagamentoEmprestimo(Emprestimo emprestimo)
-        {
-            if(BuscarPagamentosPorEmprestimo(emprestimo)[0] is PagamentoConta)
+        {   
+            if(BuscarPagamentosPorEmprestimo(emprestimo) == null)
             {
-                return "debito";
+                return null;
+            }else if(BuscarPagamentosPorEmprestimo(emprestimo)[0] is PagamentoConta)
+            {
+                return "Débito em Conta";
             }
             else if(BuscarPagamentosPorEmprestimo(emprestimo)[0] is PagamentoBoleto)
             {
-                return "boleto";
+                return "Boleto";
             }
             return null;
         }
