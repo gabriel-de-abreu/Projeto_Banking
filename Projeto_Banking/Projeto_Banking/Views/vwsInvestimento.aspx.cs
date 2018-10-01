@@ -23,40 +23,49 @@ namespace Projeto_Banking.Views
             {
                 PopularMenuDD();
                 txtValorFim.Visible = false;
-                lblDataRet.Visible = false;
+                lblValorFim.Visible = false;
             }
         }
 
         protected void BtnSimular_Click(object sender, EventArgs e)
         {
-            if(DateTime.Parse(txtDataFim.Text) >= DateTime.Parse(txtDataRet.Text) &&
-                DateTime.Parse(txtDataIni.Text) < DateTime.Parse(txtDataRet.Text))
+            if(cc.Saldo > Double.Parse(txtValorIni.Text))
             {
-                InvestimentoDAO investimentoDao = new InvestimentoDAO();
-                Investimento investimento = investimentoDao.BuscarInvestimentoPorId(int.Parse(ddlInvestimentos.SelectedValue));
-
-                InvestimentoConta investimentoConta = new InvestimentoConta()
+                if (DateTime.Parse(txtDataFim.Text) >= DateTime.Parse(txtDataRet.Text) &&
+                DateTime.Parse(txtDataIni.Text) < DateTime.Parse(txtDataRet.Text))
                 {
-                    Conta = cc,
-                    Investimento = investimento,
-                    DataInicio = DateTime.Parse(txtDataIni.Text),
-                    DataFim = DateTime.Parse(txtDataFim.Text),
-                    Valor = double.Parse(txtValorIni.Text)
+                    InvestimentoDAO investimentoDao = new InvestimentoDAO();
+                    Investimento investimento = investimentoDao.BuscarInvestimentoPorId(int.Parse(ddlInvestimentos.SelectedValue));
 
-                };
+                    InvestimentoConta investimentoConta = new InvestimentoConta()
+                    {
+                        Conta = cc,
+                        Investimento = investimento,
+                        DataInicio = DateTime.Parse(txtDataIni.Text),
+                        DataFim = DateTime.Parse(txtDataFim.Text),
+                        Valor = double.Parse(txtValorIni.Text)
 
-                investimentoDao.InserirInvestimento(investimentoConta);
-                txtValorFim.Visible = true;
-                lblDataRet.Visible = true;
-                txtValorFim.Text = investimentoDao.Resgate(investimentoConta, DateTime.Parse(txtDataRet.Text)).ToString();
+                    };
+
+                    investimentoDao.InserirInvestimento(investimentoConta);
+                    txtValorFim.Visible = true;
+                    lblValorFim.Visible = true;
+                    txtValorFim.Text = investimentoDao.Resgate(investimentoConta, DateTime.Parse(txtDataRet.Text)).ToString();
+                }
+                else
+                {
+                    lblResultado.Text = "Insira as datas de forma válida!";
+                }
             }
             else
             {
-                lblDataRet.Text = "Insira as datas de forma válida!";
-            }
-            
+                lblResultado.Text = "O valor não pode ser maior que o saldo!";
 
-            
+            }
+
+
+
+
         }
         private void PopularMenuDD()
         {
