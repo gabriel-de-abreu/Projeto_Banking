@@ -31,10 +31,9 @@ namespace Projeto_Banking.Views
             dTable.Columns.Add("Pagamento_tipo", typeof(String));
 
             PagamentoDAO pagDAO = new PagamentoDAO();
-            int i = 0;
+
             foreach (DataRow row in dTable.Rows) {
                row["Pagamento_tipo"] = pagDAO.TipoPagamentoEmprestimo(new Emprestimo() { Id = Convert.ToInt32(row["Emprestimo_id"].ToString()) });
-
             }
             
             gdvEmprestimos.DataSource = dTable;
@@ -47,7 +46,19 @@ namespace Projeto_Banking.Views
             {
                 EmprestimoDAO empDao = new EmprestimoDAO();
                 Session["emprestimo"] = empDao.PesquisarEmprestimoPorId(Convert.ToInt32(e.CommandArgument.ToString()));
-                Response.Redirect("~/Views/vwsVisualizarEmprestimo.aspx");
+
+                GridViewRow clickedRow = ((LinkButton)e.CommandSource).NamingContainer as GridViewRow;
+                Label lblPagamento = (Label)clickedRow.FindControl("lblPagamento");
+
+                if (lblPagamento.Text.Equals("Débito em Conta")){
+                    Session["tipoPagamento"] = "Debito em Conta";
+                    Response.Redirect("~/Views/vwsVisualizarPagamentoEmprestimo.aspx");
+
+                }else if (lblPagamento.Text.Equals("Boleto"))
+                {
+                    Session["tipoPagamento"] = "Boleto";
+                    Response.Redirect("~/Views/vwsVisualizarPagamentoEmprestimo.aspx");
+                }
             }
         }
     }
