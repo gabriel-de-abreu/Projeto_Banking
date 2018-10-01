@@ -75,6 +75,11 @@ namespace Projeto_Banking.Testes
             Assert.IsNull(investimento);
         }
 
+        [TestMethod]
+        public void TestInvestimentoDAO3()
+        {
+
+        }
 
     }
 }
