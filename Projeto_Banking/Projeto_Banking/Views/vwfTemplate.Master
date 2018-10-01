@@ -1,25 +1,15 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="vwfTemplate.master.cs" Inherits="Projeto_Banking.vwfTemplate" %>
 
 <!DOCTYPE html>
-<style>
-    .footer{
-        position:fixed;
-        bottom: 0;
-        width: 100%;
-        background-color: #F5F5DC;
-        color: black;
-        text-align: center;
-        height: 80px;
-        font-size-adjust: inherit;
-    }
-</style>
+
+
 <html>
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Internet Banking</title>
-    <link href ="../Vendors/Content/bootstrap.min.css" rel ="stylesheet" />
-    <script src ="../Vendors/Scripts/jquery-3.0.0.min.js"></script>
-    <script src ="../Vendors/Scripts/bootstrap.min.js"></script>
+    <link href="../Vendors/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="../Vendors/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="../Vendors/Scripts/bootstrap.min.js"></script>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -29,14 +19,43 @@
     <div class="container">
         <form id="form1" runat="server">
 
-                <asp:ContentPlaceHolder ID="body" runat="server">
-                </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="body" runat="server">
+            </asp:ContentPlaceHolder>
         </form>
 
-        <div class="footer">
-            <p>Projeto final do curso de programação do Senai. Apresenta à Tata Consultancy Services do Brasil.</p>
-            <p>Participantes: Flávio Santos, Gabriel de Abreu, Gabriel de Carli, João Victor e Matheus Giacomini.</p>
-        </div>
+        <!-- Footer -->
+        <footer class="blockquote-footer>
+            <!-- Footer Text -->
+            <div class="container-fluid text-center text-md-left">
+                <!-- Grid row -->
+                <div class="row">
+                    <!-- Grid column -->
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <!-- Content -->
+                        <h5 class="text-uppercase font-weight-bold">Sobre</h5>
+                        <p>Projeto final do curso de programação do Senai. Apresentado à Tata Consultancy Services do Brasil.</p>
+                    </div>
+                    <!-- Grid column -->
+                    <hr class="clearfix w-100 d-md-none pb-3">
+                    <!-- Grid column -->
+                    <div class="col-md-6 mb-md-0 mb-3">
+                        <!-- Content -->
+                        <h5 class="text-uppercase font-weight-bold">Participantes</h5>
+                        <p>Participantes: Flávio Santos, Gabriel de Abreu, Gabriel de Carli, João Victor e Matheus Giacomini.</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+            <!-- Footer Text -->
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">
+                © 2018 Copyright.
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+
     </div>
 </body>
 </html>
