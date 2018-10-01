@@ -130,6 +130,18 @@ namespace Projeto_Banking.Testes
             Assert.IsTrue(invest > -1);
         }
 
+        [TestMethod]
+        public void TestInvestimentoDAO6() {
 
+            InvestimentoConta ic = new InvestimentoConta()
+            {
+                Id = 1,
+                Conta = new ContaDAO().PesquisarContaPorNumero(4) as ContaCorrente,
+                Investimento = new InvestimentoDAO().BuscarInvestimentoPorId(2),
+                DataInicio = DateTime.Now,
+                DataFim = DateTime.Now.AddYears(1),
+                Valor = 1000,
+            };
+        }
     }
 }
