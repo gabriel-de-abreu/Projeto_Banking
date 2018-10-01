@@ -14,26 +14,43 @@ namespace Projeto_Banking.Views
         ContaCorrente cc;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["contaCorrente"] != null)
-            {
-                cc = Session["contaCorrente"] as ContaCorrente;
-                lblContaAtual.Text = "Número da Conta: " +cc.Numero;
-                lblSaldo.Text = "Saldo: " +cc.Saldo;
-            }
-            else
+            if (Session["contaCorrente"] == null)
             {
                 Response.Redirect("~/Views/Login.aspx");
             }
+ 
+                AtualizaLabels();
         }
 
         protected void btnTransferir_Click(object sender, EventArgs e)
         {
-            ContaCorrente conta = new ContaCorrente();
-            conta.Numero = int.Parse(txtConta.Text);
+            ContaCorrente conta = new ContaDAO().PesquisarContaPorNumero(int.Parse(txtConta.Text)) as ContaCorrente;
 
             float valor = float.Parse(txtValor.Text);
 
-            new ContaDAO().Transferir(cc,conta,valor,"Transferência entre contas");
+            if (cc.Saldo >= valor)
+            {
+                List<Conta> contas = new ContaDAO().Transferir(cc, conta, valor, "Transferência entre contas");
+                if (contas != null)
+                {
+                    Session["contaCorrente"] = contas.First();
+                    lblResultado.Text = "Transferência realizada com sucesso!";
+                }
+                else
+                    lblResultado.Text = "Falha ao realizar transferência...";
+            }
+            else
+                lblResultado.Text = "Falha ao realizar transferência...";
+
+            AtualizaLabels();
+
+        }
+
+        private void AtualizaLabels()
+        {
+            cc = Session["contaCorrente"] as ContaCorrente;
+            lblContaAtual.Text = "Número da Conta: " + cc.Numero;
+            lblSaldo.Text = "Saldo: " + cc.Saldo;
         }
     }
 }

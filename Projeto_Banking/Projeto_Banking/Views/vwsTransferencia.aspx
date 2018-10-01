@@ -13,9 +13,11 @@
     <asp:TextBox ID="txtConta" runat="server"></asp:TextBox>
     <br />
     <asp:Label ID="lblValor" runat="server" Text="Valor: "></asp:Label>
-    <asp:TextBox ID="txtValor" runat="server" OnTextChanged="TextBox2_TextChanged"></asp:TextBox>
+    <asp:TextBox ID="txtValor" runat="server" ></asp:TextBox>
     <br />
     <asp:Button ID="btnTransferir" runat="server" OnClick="btnTransferir_Click" Text="Transferir" />
+    <br />
+    <asp:Label ID="lblResultado" runat="server"></asp:Label>
     <br />
 
 
