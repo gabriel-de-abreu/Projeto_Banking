@@ -3,12 +3,28 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
 
-    <asp:GridView ID="gdvEmprestimos" runat="server" AutoGenerateColumns="False">
+    <asp:GridView ID="gdvEmprestimos" runat="server" AutoGenerateColumns="False" DataKeyNames="Emprestimo_id">
         <Columns>
-            <asp:BoundField HeaderText="Data Início" />
-            <asp:BoundField HeaderText="Valor " />
-            <asp:BoundField HeaderText="Nº de Parcelas" />
-            <asp:BoundField HeaderText="Taxa de Juros" />
+            <asp:TemplateField HeaderText="Data Início">
+               <ItemTemplate>
+                    <asp:Label ID="lblData" runat="server" Text='<%# Bind("Emprestimo_inicio") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Valor ">
+                <ItemTemplate>
+                    <asp:Label ID="lblValor" runat="server" Text='<%# Bind("Emprestimo_valor") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Nº de Parcelas">
+                <ItemTemplate>
+                    <asp:Label ID="lblParcelas" runat="server" Text='<%# Bind("Emprestimo_parcelas") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Taxa de Juros">
+                <ItemTemplate>
+                    <asp:Label ID="lblTaxa" runat="server" ></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
     </asp:GridView>
 </asp:Content>
