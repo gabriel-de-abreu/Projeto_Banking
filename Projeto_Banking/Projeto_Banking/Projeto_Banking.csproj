@@ -243,13 +243,6 @@
     <Compile Include="Views\vwsTransferencia.aspx.designer.cs">
       <DependentUpon>vwsTransferencia.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\vwsVisualizarEmprestimo.aspx.cs">
-      <DependentUpon>vwsVisualizarEmprestimo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\vwsVisualizarEmprestimo.aspx.designer.cs">
-      <DependentUpon>vwsVisualizarEmprestimo.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
