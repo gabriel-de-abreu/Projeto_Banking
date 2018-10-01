@@ -9,6 +9,13 @@ body {
     margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
+.login-div {
+    display:block;
+    margin-top:15%;
+    margin-bottom:auto;
+    text-align:center;
+}
+
 .footer {
     position: absolute;
     bottom: 0;
@@ -22,9 +29,7 @@ body {
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
-
-.container {
-    width: auto;
-    max-width: 680px;
-    padding: 0 15px;
+.centered {
+    margin: 0 auto !important;
+    float: none !important;
 }

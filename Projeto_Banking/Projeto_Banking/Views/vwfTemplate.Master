@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Internet Banking</title>
     <link href="../Vendors/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href ="../Vendors/Snippets/sticky-footer.css" rel ="stylesheet"/>
+    <link href="../Vendors/Snippets/sticky-footer.css" rel="stylesheet" />
     <script src="../Vendors/Scripts/jquery-3.0.0.min.js"></script>
     <script src="../Vendors/Scripts/bootstrap.min.js"></script>
     <script src="../Vendors/Scripts/bootstrap.bundle.min.js"></script>
@@ -18,18 +18,14 @@
 
 </head>
 <body>
-    <div class="container">
-        <form id="form1" runat="server">
+    <form id="form1" runat="server">
 
-            <asp:ContentPlaceHolder ID="body" runat="server">
-            </asp:ContentPlaceHolder>
-        </form>
-
-
-    </div>
-    <footer class="footer"> 
-        <div class ="container">
-            <span class="text-muted">Projeto final do curso de programação do Senai. </span>            
+        <asp:ContentPlaceHolder ID="body" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Projeto final do curso de programação do Senai. </span>
         </div>
     </footer>
 </body>
