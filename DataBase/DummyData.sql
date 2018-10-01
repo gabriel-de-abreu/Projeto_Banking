@@ -27,3 +27,20 @@ INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUE
 /*Inserção de Empréstimo */
 INSERT INTO `ProjetoBanking`.`Emprestimo` (`Emprestimo_id`, `Emprestimo_valor`, `Emprestimo_parcelas`, `Taxa_Taxa_id`, 
 `Conta_Corrente_Conta_Conta_Corrente_id`, `Emprestimo_Inicio`) VALUES (1,1000, 10, 1, 3,'2017-8-09');
+
+/* Inserção de Investimentos */
+INSERT INTO `projetobanking`.`investimento`
+(`Investimento_id`,
+`Investimento_nome`,
+`Investimento_rentabilidade`,
+`Taxa_Taxa_id`)
+VALUES
+(1, "Renda Fixa", 4, 3);
+
+INSERT INTO `projetobanking`.`investimento`
+(`Investimento_id`,
+`Investimento_nome`,
+`Investimento_rentabilidade`,
+`Taxa_Taxa_id`)
+VALUES
+(2, "Tesouro Direto", 2, 3);
