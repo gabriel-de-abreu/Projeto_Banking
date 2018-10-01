@@ -19,6 +19,7 @@
             <div>
                 <asp:Button ID="btnEmprestimo" runat="server" Text="Empréstimos" OnClick="btnEmprestimo_Click" />
                 <asp:Button ID="btnInvestimento" runat="server" Text="Investimentos" OnClick="btnInvestimento_Click" />
+                <asp:Button ID="btnMeusInvestimentos" runat="server" Text="Meus Investimentos" OnClick="btnMeusInvestimentos_Click" />
             </div>
         </div>
 </asp:Content>
