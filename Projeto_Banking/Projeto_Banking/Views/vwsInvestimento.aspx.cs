@@ -47,7 +47,7 @@ namespace Projeto_Banking.Views
 
                     };
 
-                    investimentoConta = investimentoDao.InserirInvestimento(investimentoConta);
+                    investimentoDao.InserirInvestimento(investimentoConta);
                     txtValorFim.Visible = true;
                     lblValorFim.Visible = true;
                     txtValorFim.Text = investimentoDao.Resgate(investimentoConta, DateTime.Parse(txtDataRet.Text)).ToString();
