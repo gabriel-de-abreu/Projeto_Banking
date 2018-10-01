@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Projeto_Banking.Models.ContaDAOs;
 using Projeto_Banking.Objetos;
 using System;
 using System.Collections.Generic;
@@ -42,6 +43,12 @@ namespace Projeto_Banking.Models.Opecacoes.Emprestimo.PagamentoDAOs
             return boleto;
         }
 
+        public void PagarPagamentoBoleto(PagamentoBoleto pagamento)
+        {
+            new ContaDAO().Transferir(null, new ContaDAO().PesquisarContaPorNumero(2),
+                (float) pagamento.Valor, "Pagamento Parcela Empréstimo Boleto");
+
+        }
     }
 
 }

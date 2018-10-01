@@ -109,7 +109,10 @@ namespace Projeto_Banking.Models.Opecacoes.Emprestimo
                 {
                     new PagamentoContaDAO().PagarPagamentoConta(pagamento as PagamentoConta);
                 }
-
+                else if (pagamento is PagamentoBoleto)
+                {
+                    new PagamentoBoletoDAO().PagarPagamentoBoleto(pagamento as PagamentoBoleto);
+                }
                 return pagamento;
             }
             return null;

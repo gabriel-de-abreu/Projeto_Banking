@@ -57,30 +57,52 @@ namespace Projeto_Banking.Models.ContaDAOs
             MySqlCommand command = Connection.Instance.CreateCommand();
             command.CommandText = $"UPDATE `projetobanking`.`conta` SET `Conta_id` = {conta.Numero} , `Conta_saldo` = @saldo" +
                 $" WHERE `Conta_id` = {conta.Numero};";
-            command.Parameters.AddWithValue("@saldo",(float)contaAux.Saldo);
+            command.Parameters.AddWithValue("@saldo", (float)contaAux.Saldo);
 
             return command.ExecuteNonQuery() > 0 ? contaAux : null;
         }
 
         public List<Conta> Transferir(Conta origem, Conta destino, float valor, String descricao)
         {
-            if (ContaAtualizarSaldo(origem, (valor * -1)) != null && ContaAtualizarSaldo(destino, valor) != null)
+            if (origem != null)
             {
-                List<Conta> contas = new List<Conta>();
-                origem.Saldo -= valor;
-                destino.Saldo += valor;
-                contas.Add(origem);
-                contas.Add(destino);
-                Movimentacao log = new Movimentacao()
+                if (ContaAtualizarSaldo(origem, (valor * -1)) != null && ContaAtualizarSaldo(destino, valor) != null)
                 {
-                    Data = DateTime.Now,
-                    Destino = destino,
-                    Origem = origem,
-                    Valor = valor,
-                    Descricao = descricao
-                };
-                new MovimentacaoDAO().InsererMovimentacao(log);
-                return contas;
+                    List<Conta> contas = new List<Conta>();
+                    origem.Saldo -= valor;
+                    destino.Saldo += valor;
+                    contas.Add(origem);
+                    contas.Add(destino);
+                    Movimentacao log = new Movimentacao()
+                    {
+                        Data = DateTime.Now,
+                        Destino = destino,
+                        Origem = origem,
+                        Valor = valor,
+                        Descricao = descricao
+                    };
+                    new MovimentacaoDAO().InsererMovimentacao(log);
+                    return contas;
+                }
+            }
+            else
+            {
+                if (ContaAtualizarSaldo(destino, valor) != null)
+                {
+                    List<Conta> contas = new List<Conta>();
+                    destino.Saldo += valor;
+                    contas.Add(destino);
+                    Movimentacao log = new Movimentacao()
+                    {
+                        Data = DateTime.Now,
+                        Destino = destino,
+                        Origem = origem,
+                        Valor = valor,
+                        Descricao = descricao
+                    };
+                    new MovimentacaoDAO().InsererMovimentacao(log);
+                    return contas;
+                }
             }
             return null;
         }
