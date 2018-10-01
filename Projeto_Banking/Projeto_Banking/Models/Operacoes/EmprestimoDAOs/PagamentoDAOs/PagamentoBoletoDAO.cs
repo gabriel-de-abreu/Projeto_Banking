@@ -7,7 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 
-namespace Projeto_Banking.Models.Opecacoes.Emprestimo.PagamentoDAOs
+namespace Projeto_Banking.Models.Opecacoes.EmprestimoDAOs.PagamentoDAOs
 {
     public class PagamentoBoletoDAO
     {
