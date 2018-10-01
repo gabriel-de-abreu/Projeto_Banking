@@ -123,7 +123,7 @@ namespace Projeto_Banking.Models
             return lInvestimento;
         }
 
-        public DataTable BuscaInvestimentosConta(ContaCorrente conta)
+        public DataTable BuscarInvestimentosConta(ContaCorrente conta)
         {
             MySqlCommand command = Connection.Instance.CreateCommand();
             string sql = $"SELECT * FROM Investimento_Conta WHERE Conta_Corrente_Conta_Conta_Corrente_id={conta.Numero};";
@@ -135,7 +135,7 @@ namespace Projeto_Banking.Models
 
         }
 
-        public InvestimentoConta BuscaInvestimento(InvestimentoConta investimentoConta)
+        public InvestimentoConta BuscarInvestimento(InvestimentoConta investimentoConta)
         {
             MySqlCommand command = Connection.Instance.CreateCommand();
             command.CommandText = "SELECT * FROM Investimento_Conta WHERE Investimento_Conta_Id=@Investimento_Conta_Id;";
@@ -149,7 +149,7 @@ namespace Projeto_Banking.Models
             {
                 iC = new InvestimentoConta()
                 {
-                    Id = int.Parse(reader["Investimento_id"].ToString()),
+                    Id = int.Parse(reader["Investimento_Conta_id"].ToString()),
                     DataFim = DateTime.Parse(reader["Investimento_Fim"].ToString()),
                     DataInicio = DateTime.Parse(reader["Investimento_Inicio"].ToString()),
                     Valor = double.Parse(reader["Investimento_Conta_Valor"].ToString()),
