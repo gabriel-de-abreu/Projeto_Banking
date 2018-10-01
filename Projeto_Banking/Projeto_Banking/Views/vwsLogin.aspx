@@ -3,7 +3,8 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-            <div>   
+    <div>
+         <div>   
                 <asp:Label ID="LblNumConta"  runat="server" Text="Número da Conta:"></asp:Label>
                 <asp:TextBox ID="TxtNumConta" runat="server" OnTextChanged="TxtNumConta_TextChanged"></asp:TextBox>
             </div>
@@ -13,8 +14,10 @@
                 <asp:TextBox ID="TxtSenha" runat="server" TextMode="Password" OnTextChanged="TxtSenha_TextChanged"></asp:TextBox>
             </div>
             <br />
-            <asp:Button ID="BtnLogar" class = "btn btn-primary" runat="server" Text="Logar" OnClick="BtnLogar_Click" style="height: 26px" />
+            <asp:Button ID="BtnLogar" class="btn btn-lg btn-primary btn-block text-uppercase"  runat="server" Text="Logar" OnClick="BtnLogar_Click" style="height: 26px" />
 
             <br />
         <asp:Label ID="LblResultado" runat="server" class="btn-outline-success" Text=""></asp:Label>
+    </div>        
+   
 </asp:Content>

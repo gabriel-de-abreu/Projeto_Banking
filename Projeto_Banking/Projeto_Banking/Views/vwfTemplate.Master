@@ -8,8 +8,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Internet Banking</title>
     <link href="../Vendors/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href ="../Vendors/Snippets/sticky-footer.css" rel ="stylesheet"/>
     <script src="../Vendors/Scripts/jquery-3.0.0.min.js"></script>
     <script src="../Vendors/Scripts/bootstrap.min.js"></script>
+    <script src="../Vendors/Scripts/bootstrap.bundle.min.js"></script>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -23,39 +25,12 @@
             </asp:ContentPlaceHolder>
         </form>
 
-        <!-- Footer -->
-        <footer class="blockquote-footer>
-            <!-- Footer Text -->
-            <div class="container-fluid text-center text-md-left">
-                <!-- Grid row -->
-                <div class="row">
-                    <!-- Grid column -->
-                    <div class="col-md-6 mt-md-0 mt-3">
-                        <!-- Content -->
-                        <h5 class="text-uppercase font-weight-bold">Sobre</h5>
-                        <p>Projeto final do curso de programação do Senai. Apresentado à Tata Consultancy Services do Brasil.</p>
-                    </div>
-                    <!-- Grid column -->
-                    <hr class="clearfix w-100 d-md-none pb-3">
-                    <!-- Grid column -->
-                    <div class="col-md-6 mb-md-0 mb-3">
-                        <!-- Content -->
-                        <h5 class="text-uppercase font-weight-bold">Participantes</h5>
-                        <p>Participantes: Flávio Santos, Gabriel de Abreu, Gabriel de Carli, João Victor e Matheus Giacomini.</p>
-                    </div>
-                    <!-- Grid column -->
-                </div>
-                <!-- Grid row -->
-            </div>
-            <!-- Footer Text -->
-            <!-- Copyright -->
-            <div class="footer-copyright text-center py-3">
-                © 2018 Copyright.
-            </div>
-            <!-- Copyright -->
-        </footer>
-        <!-- Footer -->
 
     </div>
+    <footer class="footer"> 
+        <div class ="container">
+            <span class="text-muted">Projeto final do curso de programação do Senai. </span>            
+        </div>
+    </footer>
 </body>
 </html>
