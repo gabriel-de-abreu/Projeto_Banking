@@ -13,11 +13,15 @@ namespace Projeto_Banking.Views
     public partial class vwsEmprestimo : System.Web.UI.Page
     {
         ContaCorrente cc;
+        DateTime dataMinima= DateTime.Today.AddDays(1);
+        DateTime dataMaxima= DateTime.Today.AddMonths(1);
+        DateTime data;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             cc = Session["contaCorrente"] as ContaCorrente;
-            lblDataVencimento.Text = " (entre " + DateTime.Today.AddDays(1).ToString("dd/MM/yyyy") + " e " + DateTime.Today.AddMonths(1).ToString("dd/MM/yyyy") + ")"; //exibe data limites para o primeiro vencimento
+            
+            lblDataVencimento.Text = " (entre " + dataMinima.ToString("dd/MM/yyyy") + " e " + dataMaxima.ToString("dd/MM/yyyy") + ")"; //exibe data limites para o primeiro vencimento
 
             if (!IsPostBack)
             {
@@ -33,8 +37,9 @@ namespace Projeto_Banking.Views
             Taxa taxa = new TaxaDAO().PesquisarPorTaxa(1);
 
             string tipoPagamento = rblPagamento.SelectedValue;
+            data = DateTime.Parse(txtDataPrimeiroVencimento.Text);
 
-            if (float.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas))
+            if (float.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima < data && dataMaxima > data)
             {
                 Emprestimo emprestimo = new Emprestimo()
                 {
@@ -42,13 +47,13 @@ namespace Projeto_Banking.Views
                     Parcelas = parcelas,
                     ContaCorrente = cc,
                     Taxa = taxa,
-                    DataInicio = DateTime.Parse(txtDataPrimeiroVencimento.Text),
+                    DataInicio = data,
                 };
 
                 EmprestimoDAO empDAO = new EmprestimoDAO();
                 //if(empDAO.InserirEmprestimo(emprestimo, tipoPagamento){
 
-                lblAviso.Text = "Emprestimo Realizado";
+                
                 //atualizar saldo da conta corrente
 
                 lblResultado.Text = "Empréstimo Realizado com Sucesso!";
@@ -69,8 +74,9 @@ namespace Projeto_Banking.Views
             int parcelas;
 
             Taxa taxa = new TaxaDAO().PesquisarPorTaxa(EmprestimoOPS.VerificarPerfil(cc)); //obtem taxa atraves do perfil da pessoa
+            data = DateTime.Parse(txtDataPrimeiroVencimento.Text);
 
-            if (Double.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas))
+            if (Double.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima < data && dataMaxima > data)
             {
                 divSimulacao.Visible = true;
 

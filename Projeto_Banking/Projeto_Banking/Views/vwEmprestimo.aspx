@@ -21,7 +21,7 @@
             <asp:Label ID="Label4" runat="server" Text="Vencimento da primeira parcela"></asp:Label>
             <br />
             <asp:TextBox ID="txtDataPrimeiroVencimento" runat="server"></asp:TextBox>
-            <asp:Label ID="lblDataVencimento" runat="server" Text="Vencimento da primeira parcela"></asp:Label>
+            <asp:Label ID="lblDataVencimento" runat="server" Text=""></asp:Label>
             <br />
             <br />
             <asp:Button ID="btnSimular" runat="server" Text="Simular" OnClick="btnSimular_Click" />
@@ -34,22 +34,22 @@
             <br />
             <table>
                 <tr>
-                    <th>Parcelas</th>
+                    <td><b>Parcelas</b></td>
                     <td>
                         <asp:Label ID="lblParcelas" runat="server" Text=""></asp:Label></td>
                 </tr>
                 <tr>
-                    <th>Valor</th>
+                    <td><b>Valor</b></td>
                     <td>
                         <asp:Label ID="lblValor" runat="server" Text=""></asp:Label></td>
                 </tr>
                 <tr>
-                    <th>Valor Total</th>
+                    <td><b>Valor Total</b></td>
                     <td>
                         <asp:Label ID="lblValorTotal" runat="server" Text=""></asp:Label></td>
                 </tr>
                 <tr>
-                    <th>Taxa de Juros</th>
+                    <td><b>Taxa de Juros</b></td>
                     <td>
                         <asp:Label ID="lblTaxa" runat="server" Text=""></asp:Label></td>
                 </tr>
