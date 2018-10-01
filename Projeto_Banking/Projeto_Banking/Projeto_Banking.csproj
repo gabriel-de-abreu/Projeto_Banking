@@ -224,15 +224,19 @@
       <DependentUpon>vwsVisualizarEmprestimo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+
     <Compile Include="Views\vwsVisualizarEmprestimo.aspx.designer.cs">
       <DependentUpon>vwsVisualizarEmprestimo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\vwsMeusInvestimentos.aspx.cs">
       <DependentUpon>vwsMeusInvestimentos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+
     <Compile Include="Views\vwsMeusInvestimentos.aspx.designer.cs">
       <DependentUpon>vwsMeusInvestimentos.aspx</DependentUpon>
     </Compile>
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
