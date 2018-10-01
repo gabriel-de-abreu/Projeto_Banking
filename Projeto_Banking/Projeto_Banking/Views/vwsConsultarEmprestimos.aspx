@@ -27,7 +27,7 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Tipo de Pagamento">
                <ItemTemplate>
-                    
+                    <asp:Label ID="lblPagamento" runat="server" Text='<%# Bind("Pagamento_tipo") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="">

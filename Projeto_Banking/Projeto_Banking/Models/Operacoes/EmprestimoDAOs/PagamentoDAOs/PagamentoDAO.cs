@@ -65,8 +65,11 @@ namespace Projeto_Banking.Models.Opecacoes.EmprestimoDAOs
         }
 
         public String TipoPagamentoEmprestimo(Emprestimo emprestimo)
-        {
-            if(BuscarPagamentosPorEmprestimo(emprestimo)[0] is PagamentoConta)
+        {   
+            if(BuscarPagamentosPorEmprestimo(emprestimo) == null)
+            {
+                return null;
+            }else if(BuscarPagamentosPorEmprestimo(emprestimo)[0] is PagamentoConta)
             {
                 return "debito";
             }

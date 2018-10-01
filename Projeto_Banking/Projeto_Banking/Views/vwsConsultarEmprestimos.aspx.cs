@@ -1,4 +1,5 @@
 ﻿using Projeto_Banking.Models;
+using Projeto_Banking.Models.Opecacoes.EmprestimoDAOs;
 using Projeto_Banking.Objetos;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,16 @@ namespace Projeto_Banking.Views
         {
             EmprestimoDAO empDao = new EmprestimoDAO();
             DataTable dTable = empDao.PesquisarEmprestimosContaCorrenteComTaxa(cc);
+
+
+            dTable.Columns.Add("Pagamento_tipo", typeof(String));
+
+            PagamentoDAO pagDAO = new PagamentoDAO();
+            int i = 0;
+            foreach (DataRow row in dTable.Rows) {
+               row["Pagamento_tipo"] = pagDAO.TipoPagamentoEmprestimo(new Emprestimo() { Id = Convert.ToInt32(row["Emprestimo_id"].ToString()) });
+
+            }
             
             gdvEmprestimos.DataSource = dTable;
             gdvEmprestimos.DataBind();
