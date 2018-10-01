@@ -25,6 +25,6 @@
             <asp:DropDownList ID="ddlInvestimentos" runat="server"></asp:DropDownList>
             <br />
             <asp:Button ID="BtnSimular"  runat="server" Text="Simular" OnClick="BtnSimular_Click" />
-
+         <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
         </div>
 </asp:Content>
