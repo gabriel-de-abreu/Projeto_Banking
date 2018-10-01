@@ -23,27 +23,38 @@ namespace Projeto_Banking.Views
             {
                 PopularMenuDD();
                 txtValorFim.Visible = false;
+                lblDataRet.Visible = false;
             }
         }
 
         protected void BtnSimular_Click(object sender, EventArgs e)
         {
-            InvestimentoDAO investimentoDao = new InvestimentoDAO();
-            Investimento investimento = investimentoDao.BuscarInvestimentoPorId(int.Parse(ddlInvestimentos.SelectedValue));
-            
-            InvestimentoConta investimentoConta = new InvestimentoConta()
+            if(DateTime.Parse(txtDataFim.Text) >= DateTime.Parse(txtDataRet.Text) &&
+                DateTime.Parse(txtDataIni.Text) < DateTime.Parse(txtDataRet.Text))
             {
-                Conta = cc,
-                Investimento = investimento,
-                DataInicio = DateTime.Parse(txtDataIni.Text),
-                DataFim = DateTime.Parse(txtDataFim.Text),
-                Valor =  double.Parse(txtValorIni.Text)               
+                InvestimentoDAO investimentoDao = new InvestimentoDAO();
+                Investimento investimento = investimentoDao.BuscarInvestimentoPorId(int.Parse(ddlInvestimentos.SelectedValue));
 
-            };
+                InvestimentoConta investimentoConta = new InvestimentoConta()
+                {
+                    Conta = cc,
+                    Investimento = investimento,
+                    DataInicio = DateTime.Parse(txtDataIni.Text),
+                    DataFim = DateTime.Parse(txtDataFim.Text),
+                    Valor = double.Parse(txtValorIni.Text)
 
-            investimentoDao.InserirInvestimento(investimentoConta);
-            txtValorFim.Visible = true;
-            txtValorFim.Text = investimentoDao.Resgate(investimentoConta, DateTime.Parse(txtDataRet.Text)).ToString();
+                };
+
+                investimentoDao.InserirInvestimento(investimentoConta);
+                txtValorFim.Visible = true;
+                lblDataRet.Visible = true;
+                txtValorFim.Text = investimentoDao.Resgate(investimentoConta, DateTime.Parse(txtDataRet.Text)).ToString();
+            }
+            else
+            {
+                lblDataRet.Text = "Insira as datas de forma válida!";
+            }
+            
 
             
         }
