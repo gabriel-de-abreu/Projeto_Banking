@@ -34,7 +34,7 @@ namespace Projeto_Banking.Views
             float valorDesejado;
             int parcelas;
 
-            Taxa taxa = new TaxaDAO().PesquisarPorTaxa(1);
+            Taxa taxa = new TaxaDAO().PesquisarPorTaxa(EmprestimoOPS.VerificarPerfil(cc)); //obtem taxa atraves do perfil da pessoa
 
             string tipoPagamento = rblPagamento.SelectedValue;
             data = DateTime.Parse(txtDataPrimeiroVencimento.Text);
