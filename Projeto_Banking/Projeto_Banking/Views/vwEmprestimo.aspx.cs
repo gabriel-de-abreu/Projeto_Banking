@@ -1,6 +1,7 @@
-﻿using Projeto_Banking.Models;
-using Projeto_Banking.Models.Opecacoes.Emprestimo;
+﻿
+using Projeto_Banking.Models;
 using Projeto_Banking.Objetos;
+using Projeto_Banking.Models.Opecacoes.Emprestimo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,18 +11,14 @@ using System.Web.UI.WebControls;
 
 namespace Projeto_Banking.Views
 {
-    public partial class vwsEmprestimo : System.Web.UI.Page
+    public partial class vwEmprestimo : System.Web.UI.Page
     {
         ContaCorrente cc;
-        DateTime dataMinima = DateTime.Today.AddDays(1);
-        DateTime dataMaxima = DateTime.Today.AddMonths(1);
-        DateTime data;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             cc = Session["contaCorrente"] as ContaCorrente;
-
-            lblDataVencimento.Text = " (entre " + dataMinima.ToString("dd/MM/yyyy") + " e " + dataMaxima.ToString("dd/MM/yyyy") + ")"; //exibe data limites para o primeiro vencimento
+            lblDataVencimento.Text = " (entre " + DateTime.Today.AddDays(1).ToString("dd/MM/yyyy") + " e " + DateTime.Today.AddMonths(1).ToString("dd/MM/yyyy") + ")"; //exibe data limites para o primeiro vencimento
 
             if (!IsPostBack)
             {
@@ -37,9 +34,8 @@ namespace Projeto_Banking.Views
             Taxa taxa = new TaxaDAO().PesquisarPorTaxa(1);
 
             string tipoPagamento = rblPagamento.SelectedValue;
-            data = DateTime.Parse(txtDataPrimeiroVencimento.Text);
 
-            if (float.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima < data && dataMaxima > data)
+            if (float.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas))
             {
                 Emprestimo emprestimo = new Emprestimo()
                 {
@@ -47,17 +43,17 @@ namespace Projeto_Banking.Views
                     Parcelas = parcelas,
                     ContaCorrente = cc,
                     Taxa = taxa,
-                    DataInicio = data,
+                    DataInicio = DateTime.Parse(txtDataPrimeiroVencimento.Text),
                 };
 
                 EmprestimoDAO empDAO = new EmprestimoDAO();
-                if (empDAO.InserirEmprestimo(emprestimo, tipoPagamento))
-                {
-                    
-                    //atualizar saldo da conta corrente
+                //if(empDAO.InserirEmprestimo(emprestimo, tipoPagamento){
 
-                    lblResultado.Text = "Empréstimo Realizado com Sucesso!";
-                }
+                lblAviso.Text = "Emprestimo Realizado";
+                //atualizar saldo da conta corrente
+
+                lblResultado.Text = "Empréstimo Realizado com Sucesso!";
+                //}
             }
             else
             {
@@ -74,9 +70,8 @@ namespace Projeto_Banking.Views
             int parcelas;
 
             Taxa taxa = new TaxaDAO().PesquisarPorTaxa(EmprestimoOPS.VerificarPerfil(cc)); //obtem taxa atraves do perfil da pessoa
-            data = DateTime.Parse(txtDataPrimeiroVencimento.Text);
 
-            if (Double.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima < data && dataMaxima > data)
+            if (Double.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas))
             {
                 divSimulacao.Visible = true;
 
