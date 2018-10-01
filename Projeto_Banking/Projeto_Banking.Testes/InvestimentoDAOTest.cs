@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Projeto_Banking.Objetos;
 using Projeto_Banking.Models;
 using Projeto_Banking.Models.ContaDAOs;
+using System.Data;
 
 namespace Projeto_Banking.Testes
 {
@@ -108,7 +109,7 @@ namespace Projeto_Banking.Testes
             var invest = new InvestimentoDAO().Resgate(ic, DateTime.Now.AddMonths(6));
             Console.Write(invest);
             Assert.IsTrue(invest > -1);
-            
+
         }
 
         [TestMethod]
@@ -130,6 +131,29 @@ namespace Projeto_Banking.Testes
             Assert.IsTrue(invest > -1);
         }
 
+        [TestMethod]
+        public void TestInvestimentoDAO6()
+        {
 
+            InvestimentoConta ic = new InvestimentoConta()
+            {
+                Id = 1,
+                Conta = new ContaDAO().PesquisarContaPorNumero(4) as ContaCorrente,
+                Investimento = new InvestimentoDAO().BuscarInvestimentoPorId(2),
+                DataInicio = DateTime.Now,
+                DataFim = DateTime.Now.AddYears(1),
+                Valor = 1000,
+            };
+
+            Assert.IsInstanceOfType(new InvestimentoDAO().BuscarInvestimento(ic), typeof(InvestimentoConta));
+        }
+
+        [TestMethod]
+        public void TestInvestimentoDAO7()
+        {
+            ContaCorrente conta = new ContaDAO().PesquisarContaPorNumero(4) as ContaCorrente;
+
+            Assert.IsInstanceOfType(new InvestimentoDAO().BuscarInvestimentosConta(conta), typeof(DataTable));
+        }
     }
 }
