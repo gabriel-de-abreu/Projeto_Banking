@@ -17,5 +17,23 @@ namespace Projeto_Banking.Models.Opecacoes.Emprestimo.PagamentoDAOs
             command.ExecuteNonQuery();
             return pagamento;
         }
+
+        public PagamentoConta BuscarPagamentoContaPorId(int id)
+        {
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            command.CommandText = "SELECT * FROM projetobanking.pagamento_conta WHERE Pagamento_Pagamento_id = @id;";
+            command.Parameters.AddWithValue("@id", id);
+            var reader = command.ExecuteReader();
+            PagamentoConta pagamento = null;
+            if (reader.HasRows)
+            {
+                pagamento = new PagamentoConta()
+                {
+                    Id = id
+                };
+            }
+            reader.Close();
+            return pagamento;
+        }
     }
 }

@@ -39,7 +39,7 @@ namespace Projeto_Banking.Models.Opecacoes.Emprestimo
                 DataTable table = new DataTable();
                 MySqlDataAdapter sqlData = new MySqlDataAdapter("SELECT * FROM projetobanking.pagamento " +
                     "WHERE pagamento.Emprestimo_Emprestimo_id = @numPagamento", Connection.Instance);
-                sqlData.SelectCommand.Parameters.AddWithValue("@numPagamento", numPagamento );
+                sqlData.SelectCommand.Parameters.AddWithValue("@numPagamento", numPagamento);
 
                 sqlData.Fill(table);
                 return table;
@@ -49,6 +49,41 @@ namespace Projeto_Banking.Models.Opecacoes.Emprestimo
             {
                 return null;
             }
+        }
+
+        public Pagamento BuscarPagamentoPorId(int id)
+        {
+            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM projetobanking.pagamento" +
+                $" WHERE Pagamento_id = {id}", Connection.Instance);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            PagamentoConta pagamento = new PagamentoContaDAO().BuscarPagamentoContaPorId(id);
+            if (pagamento != null)
+            {
+                return new PagamentoConta()
+                {
+                    Data = Convert.ToDateTime(table.Rows[0]["Pagamento_data"]),
+                    Id = id,
+                    Valor = float.Parse(table.Rows[0]["Pagamento_Valor"].ToString()),
+                    Emprestimo = new EmprestimoDAO().PesquisarEmprestimoPorId(
+                      Convert.ToInt32(table.Rows[0]["Emprestimo_Emprestimo_id"]))
+                };
+            }
+            PagamentoBoleto pagamentoBoleto = new PagamentoBoletoDAO().BuscarPagamentoBoletoPorId(id);
+            if (pagamentoBoleto != null)
+            {
+                return new PagamentoBoleto()
+                {
+                    Codigo = pagamentoBoleto.Codigo,
+                    Data = Convert.ToDateTime(table.Rows[0]["Pagamento_data"]),
+                    Valor = float.Parse(table.Rows[0]["Pagamento_Valor"].ToString()),
+                    Emprestimo = new EmprestimoDAO().PesquisarEmprestimoPorId(
+                      Convert.ToInt32(table.Rows[0]["Emprestimo_Emprestimo_id"])),
+                    Id = id,
+                    Vencimento = pagamentoBoleto.Vencimento
+                };
+            }
+            return null;
         }
     }
 }

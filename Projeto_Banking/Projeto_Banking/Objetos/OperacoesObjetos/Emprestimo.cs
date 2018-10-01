@@ -14,5 +14,10 @@ namespace Projeto_Banking.Objetos
         public Taxa Taxa { get; set; }
         public DateTime DataInicio { get; set; }
 
+        public override string ToString()
+        {
+            return $"Id: {Id} Parcelas: {Parcelas} Valor: {Valor} ContaCorrente: {{ {ContaCorrente.ToString()} }}" +
+                $" Taxa: {{ {Taxa.ToString()} }} Data Inicio: {DataInicio}";
+        }
     }
 }
