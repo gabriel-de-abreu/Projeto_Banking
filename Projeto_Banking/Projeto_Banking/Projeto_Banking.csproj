@@ -141,6 +141,7 @@
     <Content Include="Views\vwsLogin.aspx" />
     <Content Include="Views\vwsMeusInvestimentos.aspx" />
     <Content Include="Views\vwsTransferencia.aspx" />
+    <Content Include="Views\vwsVisualizarEmprestimo.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -233,6 +234,13 @@
     </Compile>
     <Compile Include="Views\vwsTransferencia.aspx.designer.cs">
       <DependentUpon>vwsTransferencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vwsVisualizarEmprestimo.aspx.cs">
+      <DependentUpon>vwsVisualizarEmprestimo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vwsVisualizarEmprestimo.aspx.designer.cs">
+      <DependentUpon>vwsVisualizarEmprestimo.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
