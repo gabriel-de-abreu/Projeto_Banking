@@ -13,14 +13,14 @@ namespace Projeto_Banking.Views
     public partial class vwsEmprestimo : System.Web.UI.Page
     {
         ContaCorrente cc;
-        DateTime dataMinima= DateTime.Today.AddDays(1);
-        DateTime dataMaxima= DateTime.Today.AddMonths(1);
+        DateTime dataMinima = DateTime.Today.AddDays(1);
+        DateTime dataMaxima = DateTime.Today.AddMonths(1);
         DateTime data;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             cc = Session["contaCorrente"] as ContaCorrente;
-            
+
             lblDataVencimento.Text = " (entre " + dataMinima.ToString("dd/MM/yyyy") + " e " + dataMaxima.ToString("dd/MM/yyyy") + ")"; //exibe data limites para o primeiro vencimento
 
             if (!IsPostBack)
@@ -51,13 +51,13 @@ namespace Projeto_Banking.Views
                 };
 
                 EmprestimoDAO empDAO = new EmprestimoDAO();
-                //if(empDAO.InserirEmprestimo(emprestimo, tipoPagamento){
+                if (empDAO.InserirEmprestimo(emprestimo, tipoPagamento))
+                {
+                    
+                    //atualizar saldo da conta corrente
 
-                
-                //atualizar saldo da conta corrente
-
-                lblResultado.Text = "Empréstimo Realizado com Sucesso!";
-                //}
+                    lblResultado.Text = "Empréstimo Realizado com Sucesso!";
+                }
             }
             else
             {

@@ -134,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Views\vwsConsultarEmprestimos.aspx" />
     <Content Include="Views\vwsContaCorrente.aspx" />
     <Content Include="Views\vwsEmprestimo.aspx" />
     <Content Include="Views\vwsInvestimento.aspx" />
@@ -181,6 +182,13 @@
     </Compile>
     <Compile Include="Views\vwfTemplate.Master.designer.cs">
       <DependentUpon>vwfTemplate.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vwsConsultarEmprestimos.aspx.cs">
+      <DependentUpon>vwsConsultarEmprestimos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vwsConsultarEmprestimos.aspx.designer.cs">
+      <DependentUpon>vwsConsultarEmprestimos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\vwsContaCorrente.aspx.cs">
       <DependentUpon>vwsContaCorrente.aspx</DependentUpon>
