@@ -10,34 +10,16 @@
 namespace Projeto_Banking.Views {
     
     
-    public partial class vwsContaCorrente {
+    public partial class vwsTransferencia {
         
         /// <summary>
-        /// Controle lblTitular.
+        /// Controle lblContaAtual.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitular;
-        
-        /// <summary>
-        /// Controle lblNumero.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNumero;
-        
-        /// <summary>
-        /// Controle lblLimite.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLimite;
+        protected global::System.Web.UI.WebControls.Label lblContaAtual;
         
         /// <summary>
         /// Controle lblSaldo.
@@ -49,38 +31,57 @@ namespace Projeto_Banking.Views {
         protected global::System.Web.UI.WebControls.Label lblSaldo;
         
         /// <summary>
-        /// Controle btnEmprestimo.
+        /// Controle lblConta.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEmprestimo;
+        protected global::System.Web.UI.WebControls.Label lblConta;
         
         /// <summary>
-        /// Controle btnInvestimento.
+        /// Controle txtConta.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnInvestimento;
+        protected global::System.Web.UI.WebControls.TextBox txtConta;
         
         /// <summary>
-
-        /// Controle btnMeusInvestimentos.
-
-        /// Controle btnTransferencias.
-
+        /// Controle lblValor.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-
-        protected global::System.Web.UI.WebControls.Button btnMeusInvestimentos;
-
-        protected global::System.Web.UI.WebControls.Button btnTransferencias;
-
+        protected global::System.Web.UI.WebControls.Label lblValor;
+        
+        /// <summary>
+        /// Controle txtValor.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtValor;
+        
+        /// <summary>
+        /// Controle btnTransferir.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnTransferir;
+        
+        /// <summary>
+        /// Controle lblResultado.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResultado;
     }
 }

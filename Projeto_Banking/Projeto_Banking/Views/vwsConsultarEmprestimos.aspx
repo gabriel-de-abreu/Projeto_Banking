@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
 
-    <asp:GridView ID="gdvEmprestimos" runat="server" AutoGenerateColumns="False" DataKeyNames="Emprestimo_id" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
+    <asp:GridView ID="gdvEmprestimos" runat="server" AutoGenerateColumns="False" DataKeyNames="Emprestimo_id" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnRowCommand="gdvEmprestimos_RowCommand">
         <Columns>
             <asp:TemplateField HeaderText="Data Início">
                <ItemTemplate>
@@ -23,6 +23,16 @@
             <asp:TemplateField HeaderText="Taxa de Juros">
                 <ItemTemplate>
                     <asp:Label ID="lblTaxa" runat="server" Text='<%# Bind("Taxa_valor") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Tipo de Pagamento">
+               <ItemTemplate>
+                    <asp:Label ID="lblPagamento" runat="server" Text='<%# Bind("Pagamento_tipo") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="">
+                <ItemTemplate>
+                   <asp:LinkButton ID="lkbVer" runat="server" Text="Ver" CommandArgument='<%# Bind("Emprestimo_id") %>' CommandName="Ver"></asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

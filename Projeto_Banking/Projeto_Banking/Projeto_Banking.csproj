@@ -124,6 +124,7 @@
     <Content Include="Vendors\Scripts\popper.js.map" />
     <Content Include="Vendors\Scripts\popper-utils.min.js.map" />
     <Content Include="Vendors\Scripts\popper-utils.js.map" />
+    <Content Include="Vendors\Snippets\sticky-footer.css" />
     <Content Include="Views\vwfTemplate.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -140,6 +141,8 @@
     <Content Include="Views\vwsInvestimento.aspx" />
     <Content Include="Views\vwsLogin.aspx" />
     <Content Include="Views\vwsMeusInvestimentos.aspx" />
+    <Content Include="Views\vwsTransferencia.aspx" />
+    <Content Include="Views\vwsVisualizarEmprestimo.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -219,12 +222,26 @@
     <Compile Include="Views\vwsLogin.aspx.designer.cs">
       <DependentUpon>vwsLogin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\vwsVisualizarEmprestimo.aspx.cs">
+      <DependentUpon>vwsVisualizarEmprestimo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vwsVisualizarEmprestimo.aspx.designer.cs">
+      <DependentUpon>vwsVisualizarEmprestimo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\vwsMeusInvestimentos.aspx.cs">
       <DependentUpon>vwsMeusInvestimentos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\vwsMeusInvestimentos.aspx.designer.cs">
       <DependentUpon>vwsMeusInvestimentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vwsTransferencia.aspx.cs">
+      <DependentUpon>vwsTransferencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vwsTransferencia.aspx.designer.cs">
+      <DependentUpon>vwsTransferencia.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

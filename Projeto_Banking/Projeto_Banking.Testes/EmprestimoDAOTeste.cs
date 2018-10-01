@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Projeto_Banking.Models;
 using Projeto_Banking.Objetos;
 using Projeto_Banking.Models.ContaDAOs;
+using Projeto_Banking.Models.Opecacoes.EmprestimoDAOs;
 
 namespace Projeto_Banking.Testes
 {
@@ -110,11 +111,27 @@ namespace Projeto_Banking.Testes
             Assert.AreEqual(1, table.Rows.Count);
         }
         [TestMethod]
+        public void ConsultaEmprestimoTaxaTeste()
+        {
+            var table = new EmprestimoDAO().PesquisarEmprestimosContaCorrenteComTaxa(new ContaDAO().PesquisarContaPorNumero(3) as ContaCorrente);
+            Assert.AreEqual(6, table.Rows.Count);
+        }
+
+        [TestMethod]
         public void ConsultarEmprestimoIdTeste()
         {
             Emprestimo emprestimo = new EmprestimoDAO().PesquisarEmprestimoPorId(1);
             Console.Write(emprestimo);
             Assert.IsNotNull(emprestimo);
+        }
+        [TestMethod]
+        public void ConsultarTipoEmprestimo()
+        {
+            Emprestimo emprestimo = new EmprestimoDAO().PesquisarEmprestimoPorId(5);
+            Console.WriteLine(new PagamentoDAO().BuscarPagamentosPorEmprestimo(emprestimo)[0]);
+            
+            String tipo = new PagamentoDAO().TipoPagamentoEmprestimo(emprestimo);
+            Console.Write(tipo);
         }
     }
 }
