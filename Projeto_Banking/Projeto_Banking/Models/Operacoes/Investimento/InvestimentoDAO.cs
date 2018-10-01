@@ -102,13 +102,26 @@ namespace Projeto_Banking.Models
 
         }
 
-        //public List<Investimento> PopularDropMenu()
-        //{
-        //    MySqlCommand command = Connection.Instance.CreateCommand();
-        //    command.CommandText = "SELECT * FROM investimento";
-        //    var reader = command.ExecuteReader();
-        //    List<Investimento> lInvestimento = new List<Opera;
-        //    while ()
-        //}
+        public List<Investimento> PopularDropMenu()
+        {
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            command.CommandText = "SELECT * FROM investimento";
+            var reader = command.ExecuteReader();
+            List<Investimento> lInvestimento = new List<Investimento>();
+            while (reader.Read())
+            {
+                Investimento investimento = new Investimento()
+                {
+                    Id = int.Parse(reader["Investimento_id"].ToString()),
+                    Nome = reader["Investimento_nome"].ToString(),
+                                      Rentabilidade = double.Parse(reader["Investimento_rentabilidade"].ToString()),
+                   
+                };
+                lInvestimento.Add(investimento);
+               //taxaId = int.Parse(reader["Taxa_Taxa_id"].ToString());
+            }
+            reader.Close();
+            return lInvestimento;
+        }
     }
 }
