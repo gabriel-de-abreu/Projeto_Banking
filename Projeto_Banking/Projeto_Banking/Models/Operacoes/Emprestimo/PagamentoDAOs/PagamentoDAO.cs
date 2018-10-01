@@ -80,9 +80,34 @@ namespace Projeto_Banking.Models.Opecacoes.Emprestimo
                     Emprestimo = new EmprestimoDAO().PesquisarEmprestimoPorId(
                       Convert.ToInt32(table.Rows[0]["Emprestimo_Emprestimo_id"])),
                     Id = id,
-                    Vencimento = pagamentoBoleto.Vencimento
+                    Vencimento = pagamentoBoleto.Vencimento,
+                    Pago = Convert.ToBoolean(table.Rows[0]["Pagamento_Pago"])
                 };
             }
+            return null;
+        }
+
+        public Pagamento Pagar(Pagamento pagamento)
+        {
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            command.CommandText = "UPDATE `projetobanking`.`pagamento` SET `Pagamento_id` = @id, " +
+                "`Pagamento_data` = @data," +
+                "`Emprestimo_Emprestimo_id` = @emprestimo_id," +
+                "`Pagamento_Valor` = @valor," +
+                "`Pagamento_Pago` = @pago" +
+                " WHERE `Pagamento_id` = @id;";
+            command.Parameters.AddWithValue("@id", pagamento.Id);
+            command.Parameters.AddWithValue("@data", pagamento.Data);
+            command.Parameters.AddWithValue("@emprestimo_id", pagamento.Emprestimo.Id);
+            command.Parameters.AddWithValue("@valor", pagamento.Valor);
+            command.Parameters.AddWithValue("@pago", true);
+            pagamento.Pago = true;
+            int retorno = command.ExecuteNonQuery();
+            if (retorno > 0)
+            {
+                return pagamento;
+            }
+
             return null;
         }
     }

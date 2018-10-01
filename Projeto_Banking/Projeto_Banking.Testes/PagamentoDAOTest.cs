@@ -73,6 +73,16 @@ namespace Projeto_Banking.Testes
         {
             Pagamento pagamento = new PagamentoDAO().BuscarPagamentoPorId(2);
             Console.Write(pagamento);
+            Assert.IsNotNull(pagamento);
+        }
+
+        [TestMethod]
+        public void TestPagar()
+        {
+            Pagamento pagamento = new PagamentoDAO().BuscarPagamentoPorId(3);
+            pagamento = new PagamentoDAO().Pagar(pagamento);
+            Console.Write(pagamento);
+            Assert.IsNotNull(pagamento);
         }
     }
 }
