@@ -22,7 +22,8 @@ namespace Projeto_Banking.Models.ContaDAOs
                 conta = new ContaCorrente()
                 {
                     Numero = numero,
-                    Limite = float.Parse(reader["Conta_Corrente_limite"].ToString())
+                    Limite = float.Parse(reader["Conta_Corrente_limite"].ToString()),
+                  
                 };
                 cpfPessoa = reader["Pessoa_Pessoa_cpf"].ToString();
             }

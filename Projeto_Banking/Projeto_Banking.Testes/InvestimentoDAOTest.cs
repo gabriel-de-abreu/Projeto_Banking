@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Projeto_Banking.Objetos;
 using Projeto_Banking.Models;
+using Projeto_Banking.Models.ContaDAOs;
 
 namespace Projeto_Banking.Testes
 {
@@ -79,7 +80,56 @@ namespace Projeto_Banking.Testes
         public void TestInvestimentoDAO3()
         {
 
+            InvestimentoConta ic = new InvestimentoConta()
+            {
+                Conta = new ContaDAO().PesquisarContaPorNumero(4) as ContaCorrente,
+                Investimento = new InvestimentoDAO().BuscarInvestimentoPorId(1),
+                DataInicio = DateTime.Now,
+                DataFim = DateTime.Now.AddYears(1),
+                Valor = 1000
+            };
+
+            Assert.IsNotNull(new InvestimentoDAO().InserirInvestimento(ic));
+
         }
+        [TestMethod]
+        public void TestInvestimentoDAO4()
+        {
+
+            InvestimentoConta ic = new InvestimentoConta()
+            {
+                Conta = new ContaDAO().PesquisarContaPorNumero(4) as ContaCorrente,
+                Investimento = new InvestimentoDAO().BuscarInvestimentoPorId(1),
+                DataInicio = DateTime.Now,
+                DataFim = DateTime.Now.AddYears(1),
+                Valor = 1000,
+            };
+
+            var invest = new InvestimentoDAO().Resgate(ic, DateTime.Now.AddMonths(6));
+            Console.Write(invest);
+            Assert.IsTrue(invest > -1);
+            
+        }
+
+        [TestMethod]
+        public void TestInvestimentoDAO5()
+        {
+
+            InvestimentoConta ic = new InvestimentoConta()
+            {
+                Conta = new ContaDAO().PesquisarContaPorNumero(4) as ContaCorrente,
+                Investimento = new InvestimentoDAO().BuscarInvestimentoPorId(2),
+                DataInicio = DateTime.Now,
+                DataFim = DateTime.Now.AddYears(1),
+                Valor = 1000,
+            };
+
+            Assert.IsNotNull(new InvestimentoDAO().InserirInvestimento(ic));
+            var invest = new InvestimentoDAO().Resgate(ic, DateTime.Now.AddMonths(12));
+            Console.Write(invest);
+            Assert.IsTrue(invest > -1);
+        }
+
 
     }
 }
