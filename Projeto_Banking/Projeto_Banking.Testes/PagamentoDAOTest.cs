@@ -11,39 +11,6 @@ namespace Projeto_Banking.Testes
     [TestClass]
     public class PagamentoDAOTest
     {
-        [TestMethod]
-        public void TestPagamentoBoleto()
-        {
-            PagamentoBoleto pagamento = new PagamentoBoleto()
-            {
-                Codigo = DateTime.Now.GetHashCode(),
-                Data = DateTime.Now,
-                Emprestimo = new Emprestimo()
-                {
-                    Id = 1
-                },
-                Valor = 100,
-                Vencimento = DateTime.Now
-            };
-
-            var res = new PagamentoDAO().Inserir(pagamento);
-            Assert.IsNotNull(res);
-        }
-        [TestMethod]
-        public void TestPagamentoConta()
-        {
-            PagamentoConta pagamento = new PagamentoConta()
-            {
-                Data = DateTime.Now,
-                Emprestimo = new Emprestimo()
-                {
-                    Id = 1
-                },
-                Valor = 100
-            };
-            var res = new PagamentoDAO().Inserir(pagamento);
-            Assert.IsNotNull(res);
-        }
 
         [TestMethod]
         public void TestListarTodosOsPagamentos()
@@ -81,7 +48,7 @@ namespace Projeto_Banking.Testes
         [TestMethod]
         public void TestPagarBoleto()
         {
-            Pagamento pagamento = new PagamentoDAO().BuscarPagamentoPorId(13);
+            Pagamento pagamento = new PagamentoDAO().BuscarPagamentoPorId(2);
             pagamento = new PagamentoDAO().Pagar(pagamento);
             Console.Write(pagamento);
             Assert.IsNotNull(pagamento);
@@ -98,7 +65,7 @@ namespace Projeto_Banking.Testes
         [TestMethod]
         public void TestListarTodosPag()
         {
-            List<Pagamento> pagamentos = new PagamentoDAO().BuscarPagamentosPorEmprestimo(new EmprestimoDAO().PesquisarEmprestimoPorId(1));
+            List<Pagamento> pagamentos = new PagamentoDAO().BuscarPagamentosPorEmprestimo(new EmprestimoDAO().PesquisarEmprestimoPorId(3));
             foreach (var pagamento in pagamentos)
             {
                 Console.WriteLine(pagamento);
