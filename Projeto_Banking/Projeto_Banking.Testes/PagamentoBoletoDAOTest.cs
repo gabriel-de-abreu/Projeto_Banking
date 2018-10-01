@@ -2,7 +2,7 @@
 using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Projeto_Banking.Models.Opecacoes.Emprestimo.PagamentoDAOs;
+using Projeto_Banking.Models.Opecacoes.EmprestimoDAOs.PagamentoDAOs;
 using System.Data;
 
 namespace Projeto_Banking.Testes

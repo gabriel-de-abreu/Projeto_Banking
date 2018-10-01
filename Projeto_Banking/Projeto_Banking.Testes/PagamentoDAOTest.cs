@@ -1,8 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Projeto_Banking.Objetos;
-using Projeto_Banking.Models.Opecacoes.Emprestimo;
+using Projeto_Banking.Models.Opecacoes.EmprestimoDAOs;
 using System.Data;
+using Projeto_Banking.Models;
+using System.Collections.Generic;
 
 namespace Projeto_Banking.Testes
 {
@@ -92,6 +94,16 @@ namespace Projeto_Banking.Testes
             pagamento = new PagamentoDAO().Pagar(pagamento);
             Console.Write(pagamento);
             Assert.IsNotNull(pagamento);
+        }
+        [TestMethod]
+        public void TestListarTodosPag()
+        {
+            List<Pagamento> pagamentos = new PagamentoDAO().BuscarPagamentosPorEmprestimo(new EmprestimoDAO().PesquisarEmprestimoPorId(1));
+            foreach (var pagamento in pagamentos)
+            {
+                Console.WriteLine(pagamento);
+
+            }
         }
     }
 }

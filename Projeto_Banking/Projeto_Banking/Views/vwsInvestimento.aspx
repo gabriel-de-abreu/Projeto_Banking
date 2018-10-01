@@ -3,6 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
      <div>
+            <br />
             <asp:Label ID="lblValorIni" runat="server" Text="Valor inicial do Investimento:"></asp:Label>
             <asp:TextBox ID="txtValorIni" runat="server"></asp:TextBox>
             <asp:Label ID="lblValorFim" runat="server" Text="Valor final do Investimento:"></asp:Label>
