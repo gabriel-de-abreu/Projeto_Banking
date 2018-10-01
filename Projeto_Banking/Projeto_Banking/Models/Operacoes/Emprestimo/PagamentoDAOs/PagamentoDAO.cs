@@ -105,9 +105,13 @@ namespace Projeto_Banking.Models.Opecacoes.Emprestimo
             int retorno = command.ExecuteNonQuery();
             if (retorno > 0)
             {
+                if (pagamento is PagamentoConta)
+                {
+                    new PagamentoContaDAO().PagarPagamentoConta(pagamento as PagamentoConta);
+                }
+
                 return pagamento;
             }
-
             return null;
         }
     }

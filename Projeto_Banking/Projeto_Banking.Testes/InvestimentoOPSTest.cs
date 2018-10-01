@@ -69,14 +69,14 @@ namespace Projeto_Banking.Testes
             {
                 Id = 1,
                 Nome = "Taxa louca",
-                Valor = 6
+                Valor = 12
             };
 
             Investimento investimento = new Investimento()
             {
                 Nome = "Tesouro Direto",
                 PreFixada = true,
-                Rentabilidade = 10,
+                Rentabilidade = 4,
                 Taxa = taxa,
                 
             };
@@ -104,16 +104,36 @@ namespace Projeto_Banking.Testes
             double saidaDouble = InvestimentoOPS.Resgate(investimentoConta, DateTime.Now.AddMonths(3));
             Console.Write(saidaDouble);
             int saidaInt = Convert.ToInt32(saidaDouble);
-            Assert.AreEqual(1311, saidaInt);
+            Assert.AreEqual(955, saidaInt);
         }
 
         [TestMethod]
         public void TestInvestimentoOPS2()
         {
-            Taxa taxa = new TaxaDAO().PesquisarPorTaxa(1);
-            Investimento investimento = new InvestimentoDAO().BuscarInvestimentoPorId(1);
+            Taxa taxa = new Taxa()
+            {
+                Id = 1,
+                Nome = "Taxa louca",
+                Valor = 12
+            };
+            Investimento investimento = new Investimento()
+            {
+                Nome = "Tesouro Direto",
+                PreFixada = true,
+                Rentabilidade = 4,
+                Taxa = taxa,
 
-            ContaCorrente conta = new ContaCorrenteDAO().PesquisarPorNumero(3);
+            };
+            ContaCorrente conta = new ContaCorrente()
+            {
+                Limite = 1000,
+                Emprestimos = null,
+                Investimentos = null,
+                Numero = 1213,
+                Pessoa = null,
+                Saldo = 1500,
+                Senha = "1234"
+            };
 
             InvestimentoConta investimentoConta = new InvestimentoConta()
             {
@@ -126,18 +146,37 @@ namespace Projeto_Banking.Testes
 
             int saidaInt = (int)InvestimentoOPS.Resgate(investimentoConta, DateTime.Now.AddMonths(12));
             Console.Write(saidaInt);
-            Assert.AreEqual(2163, saidaInt);
+            Assert.AreEqual(1419, saidaInt);
         }
 
 
         [TestMethod]
         public void TestInvestimentoOPS3()
         {
-            Taxa taxa = new TaxaDAO().PesquisarPorTaxa(1);
+            Taxa taxa = new Taxa()
+            {
+                Id = 1,
+                Nome = "Taxa louca",
+                Valor = 12
+            };
+            Investimento investimento = new Investimento()
+            {
+                Nome = "Tesouro Direto",
+                PreFixada = true,
+                Rentabilidade = 0,
+                Taxa = taxa,
 
-            Investimento investimento = new InvestimentoDAO().BuscarInvestimentoPorId(2);
-
-            ContaCorrente conta = new ContaCorrenteDAO().PesquisarPorNumero(3);
+            };
+            ContaCorrente conta = new ContaCorrente()
+            {
+                Limite = 1000,
+                Emprestimos = null,
+                Investimentos = null,
+                Numero = 1213,
+                Pessoa = null,
+                Saldo = 1500,
+                Senha = "1234"
+            };
 
             InvestimentoConta investimentoConta = new InvestimentoConta()
             {
@@ -146,12 +185,12 @@ namespace Projeto_Banking.Testes
                 Valor = 1000,
                 DataInicio = DateTime.Now,
                 DataFim = DateTime.Now.AddYears(1)
-
             };
+
             double saidaDouble = InvestimentoOPS.Resgate(investimentoConta, DateTime.Now.AddMonths(12));
             Console.Write(saidaDouble);
             int saidaInt = Convert.ToInt32(saidaDouble);
-            Assert.IsTrue(saidaInt > 1800 && saidaInt < 2500);
+            Assert.IsTrue(saidaInt > 1419 && saidaInt < 1996);
         }
 
     }
