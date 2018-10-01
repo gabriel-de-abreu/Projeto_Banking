@@ -55,8 +55,10 @@ namespace Projeto_Banking.Models.ContaDAOs
             Conta contaAux = PesquisarContaPorNumero(conta.Numero);
             contaAux.Saldo += valor;
             MySqlCommand command = Connection.Instance.CreateCommand();
-            command.CommandText = $"UPDATE `projetobanking`.`conta` SET `Conta_id` = {conta.Numero} , `Conta_saldo` = {contaAux.Saldo}" +
+            command.CommandText = $"UPDATE `projetobanking`.`conta` SET `Conta_id` = {conta.Numero} , `Conta_saldo` = @saldo" +
                 $" WHERE `Conta_id` = {conta.Numero};";
+            command.Parameters.AddWithValue("@saldo",(float)contaAux.Saldo);
+
             return command.ExecuteNonQuery() > 0 ? contaAux : null;
         }
 

@@ -86,5 +86,33 @@ namespace Projeto_Banking.Models
             mAdpater.Fill(table);
             return table;
         }
+
+        public Emprestimo PesquisarEmprestimoPorId(int id)
+        {
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            command.CommandText = "SELECT * FROM projetobanking.emprestimo WHERE Emprestimo_id = @id;";
+            command.Parameters.AddWithValue("@id", id);
+            var reader = command.ExecuteReader();
+            Emprestimo emprestimo = null;
+            int contaId = -1;
+            int taxaId = -1;
+            while (reader.Read())
+            {
+                emprestimo = new Emprestimo()
+                {
+                    DataInicio = Convert.ToDateTime(reader["Emprestimo_Inicio"]),
+                    Id = id,
+                    Parcelas = Convert.ToInt32(reader["Emprestimo_parcelas"]),
+                    Valor = float.Parse(reader["Emprestimo_valor"].ToString())
+
+                };
+                contaId = Convert.ToInt32(reader["Conta_Corrente_Conta_Conta_Corrente_id"]);
+                taxaId = Convert.ToInt32(reader["Taxa_Taxa_id"]);
+            }
+            reader.Close();
+            emprestimo.ContaCorrente = new ContaCorrenteDAO().PesquisarPorNumero(contaId);
+            emprestimo.Taxa = new TaxaDAO().PesquisarPorTaxa(taxaId);
+            return emprestimo;
+        }
     }
 }

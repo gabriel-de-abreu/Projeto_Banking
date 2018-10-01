@@ -109,5 +109,12 @@ namespace Projeto_Banking.Testes
             var table = new EmprestimoDAO().PesquisarEmprestimosContaCorrente(new ContaDAO().PesquisarContaPorNumero(3) as ContaCorrente);
             Assert.AreEqual(1, table.Rows.Count);
         }
+        [TestMethod]
+        public void ConsultarEmprestimoIdTeste()
+        {
+            Emprestimo emprestimo = new EmprestimoDAO().PesquisarEmprestimoPorId(1);
+            Console.Write(emprestimo);
+            Assert.IsNotNull(emprestimo);
+        }
     }
 }

@@ -15,35 +15,31 @@ namespace Projeto_Banking.Models.Opecacoes.Emprestimo.PagamentoDAOs
             MySqlCommand command = Connection.Instance.CreateCommand();
             command.CommandText = "INSERT INTO `ProjetoBanking`.`Pagamento_Boleto` (`Pagamento_Pagamento_Boleto_id`, `Pagamento_Boleto_codigo`, `Pagamento_Boleto_vencimento`) " +
                 "VALUES (@id, @boleto_cod,@vencimento);";
-            command.Parameters.AddWithValue("@id",pagamento.Id);
+            command.Parameters.AddWithValue("@id", pagamento.Id);
             command.Parameters.AddWithValue("@boleto_cod", pagamento.Codigo);
             command.Parameters.AddWithValue("@vencimento", pagamento.Vencimento);
             command.ExecuteNonQuery();
             return pagamento;
         }
 
-        public DataTable BuscarPagamentosBoletos(int numPagamento)
+        public PagamentoBoleto BuscarPagamentoBoletoPorId(int id)
         {
-            try
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            command.CommandText = "SELECT * FROM projetobanking.pagamento_boleto" +
+                " WHERE Pagamento_Pagamento_Boleto_id = @id;";
+            command.Parameters.AddWithValue("@id", id);
+            var reader = command.ExecuteReader();
+            PagamentoBoleto boleto = null;
+            while (reader.Read())
             {
-                DataTable table = new DataTable();
-                MySqlDataAdapter sqlData = new MySqlDataAdapter("SELECT Pagamento_Boleto_codigo " +
-                                                                "FROM projetobanking.pagamento_boleto, pagamento " +
-                                                                "WHERE Pagamento_Pagamento_Boleto_id = " +
-                                                                    "(SELECT pagamento.Pagamento_id FROM emprestimo, pagamento" +
-                                                                        " WHERE Pagamento_id  = @pagamento.Emprestimo_Emprestimo_id);", Connection.Instance);
-
-                sqlData.SelectCommand.Parameters.AddWithValue("@pagamento.Emprestimo_Emprestimo_id", numPagamento);
-
-                sqlData.Fill(table);
-
-                return table;
-
+                boleto = new PagamentoBoleto()
+                {
+                    Codigo = Convert.ToInt32(reader["Pagamento_Boleto_codigo"]),
+                    Vencimento = Convert.ToDateTime(reader["Pagamento_Boleto_vencimento"]),
+                };
             }
-            catch (Exception e)
-            {
-                return null;
-            }
+            reader.Close();
+            return boleto;
         }
 
     }

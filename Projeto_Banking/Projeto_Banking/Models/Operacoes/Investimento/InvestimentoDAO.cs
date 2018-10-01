@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using Projeto_Banking.Models.ContaDAOs;
+using Projeto_Banking.Models.Operacoes.Investimento;
 using Projeto_Banking.Objetos;
 using System;
 using System.Collections.Generic;
@@ -18,13 +19,15 @@ namespace Projeto_Banking.Models
                 {
                     MySqlCommand command = Connection.Instance.CreateCommand();
                     string sql = ("INSERT INTO Investimento_Conta (Investimento_Investimento_id, Conta_Corrente_Conta_Conta_Corrente_id," +
-                        " Investimento_Conta_Valor)  VALUES (@Investimento_Investimento_id, @Conta_Corrente_Conta_Conta_Corrente_id," +
-                        " @Investimento_Conta_valor)");
+                        " Investimento_Conta_Valor, Investimento_Inicio, Investimento_Fim)  VALUES (@Investimento_Investimento_id, @Conta_Corrente_Conta_Conta_Corrente_id," +
+                        " @Investimento_Conta_valor, @Investimento_Inicio, @Investimento_Fim)");
 
                     command.CommandText = sql;
                     command.Parameters.AddWithValue("@Investimento_Investimento_id", investimentoConta.Investimento.Id);
                     command.Parameters.AddWithValue("@Conta_Corrente_Conta_Conta_Corrente_id", investimentoConta.Conta.Numero);
                     command.Parameters.AddWithValue("@Investimento_Conta_valor", investimentoConta.Valor);
+                    command.Parameters.AddWithValue("@Investimento_Inicio", investimentoConta.DataInicio);
+                    command.Parameters.AddWithValue("@Investimento_Fim", investimentoConta.DataFim);
 
                     int retorno = command.ExecuteNonQuery();
 
@@ -85,6 +88,17 @@ namespace Projeto_Banking.Models
                 Console.WriteLine(e);
                 return null;
             }
+
+        }
+
+        public float Resgate(InvestimentoConta investimentoConta, DateTime dataResgate)
+        {
+            var valor = InvestimentoOPS.Resgate(investimentoConta, dataResgate);
+            if (new ContaDAO().Transferir(new ContaDAO().PesquisarContaPorNumero(1),
+                investimentoConta.Conta, (float)valor, "Resgate de investimento") != null)
+                return (float)valor;
+            else
+                return -1;
 
         }
 

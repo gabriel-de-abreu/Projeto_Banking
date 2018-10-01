@@ -60,21 +60,21 @@ namespace Projeto_Banking.Testes
         //
         #endregion
 
-        [TestMethod]
-        public void PagamentoPorBoletoTeste()
-        {
-            PagamentoBoletoDAO pgtDAO = new PagamentoBoletoDAO();
+        //[TestMethod]
+        //public void PagamentoPorBoletoTeste()
+        //{
+        //    PagamentoBoletoDAO pgtDAO = new PagamentoBoletoDAO();
             
-            DataTable table = new DataTable();
+        //    DataTable table = new DataTable();s
 
-            table = pgtDAO.BuscarPagamentosBoletos(1);
+        //    table = pgtDAO.BuscarPagamentosBoletos(1);
 
-            foreach (DataRow item in table.Rows)
-            {
-                Console.WriteLine(item["Pagamento_Boleto_codigo"]);
-            }
+        //    foreach (DataRow item in table.Rows)
+        //    {
+        //        Console.WriteLine(item["Pagamento_Boleto_codigo"]);
+        //    }
 
-            Assert.AreNotEqual(false, table);
-        }
+        //    Assert.AreNotEqual(false, table);
+        //}
     }
 }

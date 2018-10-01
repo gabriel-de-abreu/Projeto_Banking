@@ -9,5 +9,10 @@ namespace Projeto_Banking.Objetos
     {
         public int Codigo { get; set; }
         public DateTime Vencimento { get; set; }
+
+        public override string ToString()
+        {
+            return base.ToString() + $" Código: {Codigo} Vencimento: {Vencimento}";
+        }
     }
 }

@@ -42,11 +42,12 @@ namespace Projeto_Banking.Testes
             var res = new PagamentoDAO().Inserir(pagamento);
             Assert.IsNotNull(res);
         }
+
         [TestMethod]
         public void TestListarTodosOsPagamentos()
         {
             PagamentoDAO pDAO = new PagamentoDAO();
-            
+
 
             DataTable table = new DataTable();
 
@@ -58,6 +59,20 @@ namespace Projeto_Banking.Testes
             }
 
             Assert.AreNotEqual(false, table);
+        }
+
+        [TestMethod]
+        public void TestBuscarPagamentoBoleto()
+        {
+            Pagamento pagamento = new PagamentoDAO().BuscarPagamentoPorId(1);
+            Console.Write(pagamento);
+        }
+
+        [TestMethod]
+        public void TestBuscarPagamentoConta()
+        {
+            Pagamento pagamento = new PagamentoDAO().BuscarPagamentoPorId(2);
+            Console.Write(pagamento);
         }
     }
 }

@@ -7,6 +7,5 @@ namespace Projeto_Banking.Objetos
 {
     public class PagamentoConta : Pagamento
     {
-        public ContaCorrente ContaCorrente { get; set; }
     }
 }
