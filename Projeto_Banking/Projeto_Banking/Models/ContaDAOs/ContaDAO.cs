@@ -52,6 +52,7 @@ namespace Projeto_Banking.Models.ContaDAOs
 
         public Conta ContaAtualizarSaldo(Conta conta, float valor)
         {
+            if (conta==null) return null;
             Conta contaAux = PesquisarContaPorNumero(conta.Numero);
             contaAux.Saldo += valor;
             MySqlCommand command = Connection.Instance.CreateCommand();
