@@ -7,72 +7,63 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace Projeto_Banking {
+namespace Projeto_Banking.Views {
     
     
-    public partial class Login {
+    public partial class vwsContaCorrente {
         
         /// <summary>
-        /// Controle form1.
+        /// Controle lblTitular.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label lblTitular;
         
         /// <summary>
-        /// Controle LblNumConta.
+        /// Controle lblNumero.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblNumConta;
+        protected global::System.Web.UI.WebControls.Label lblNumero;
         
         /// <summary>
-        /// Controle TxtNumConta.
+        /// Controle lblLimite.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtNumConta;
+        protected global::System.Web.UI.WebControls.Label lblLimite;
         
         /// <summary>
-        /// Controle LblSenha.
+        /// Controle lblSaldo.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblSenha;
+        protected global::System.Web.UI.WebControls.Label lblSaldo;
         
         /// <summary>
-        /// Controle TxtSenha.
+        /// Controle btnEmprestimo.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtSenha;
+        protected global::System.Web.UI.WebControls.Button btnEmprestimo;
         
         /// <summary>
-        /// Controle BtnLogar.
+        /// Controle btnInvestimento.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnLogar;
-        
-        /// <summary>
-        /// Controle LblResultado.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblResultado;
+        protected global::System.Web.UI.WebControls.Button btnInvestimento;
     }
 }

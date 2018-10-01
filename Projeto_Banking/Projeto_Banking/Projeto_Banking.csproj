@@ -112,10 +112,6 @@
     <Content Include="Vendors\Scripts\umd\popper-utils.min.js" />
     <Content Include="Vendors\Scripts\umd\popper.js" />
     <Content Include="Vendors\Scripts\umd\popper.min.js" />
-    <Content Include="Views\Footer.html" />
-    <Content Include="Views\vwContaCorrente.aspx" />
-    <Content Include="Views\vwEmprestimo.aspx" />
-    <Content Include="Views\vwLogin.aspx" />
     <Content Include="packages.config" />
     <Content Include="Vendors\Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Vendors\Scripts\jquery-3.0.0.min.map" />
@@ -128,6 +124,7 @@
     <Content Include="Vendors\Scripts\popper.js.map" />
     <Content Include="Vendors\Scripts\popper-utils.min.js.map" />
     <Content Include="Vendors\Scripts\popper-utils.js.map" />
+    <Content Include="Views\vwfTemplate.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -137,7 +134,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Views\vwInvestimento.aspx" />
+    <Content Include="Views\vwsConsultarEmprestimos.aspx" />
+    <Content Include="Views\vwsContaCorrente.aspx" />
+    <Content Include="Views\vwsEmprestimo.aspx" />
+    <Content Include="Views\vwsInvestimento.aspx" />
+    <Content Include="Views\vwsLogin.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -174,34 +175,48 @@
     <Compile Include="Objetos\OperacoesObjetos\Taxa.cs" />
     <Compile Include="Utils\Criptografia.cs" />
     <Compile Include="Models\Operacoes\Emprestimo\EmprestimoDAO.cs" />
-    <Compile Include="Views\vwContaCorrente.aspx.cs">
-      <DependentUpon>vwContaCorrente.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\vwContaCorrente.aspx.designer.cs">
-      <DependentUpon>vwContaCorrente.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\vwEmprestimo.aspx.cs">
-      <DependentUpon>vwEmprestimo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\vwEmprestimo.aspx.designer.cs">
-      <DependentUpon>vwEmprestimo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\vwLogin.aspx.cs">
-      <DependentUpon>vwLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\vwLogin.aspx.designer.cs">
-      <DependentUpon>vwLogin.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\vwInvestimento.aspx.cs">
-      <DependentUpon>vwInvestimento.aspx</DependentUpon>
+    <Compile Include="Views\vwfTemplate.Master.cs">
+      <DependentUpon>vwfTemplate.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\vwInvestimento.aspx.designer.cs">
-      <DependentUpon>vwInvestimento.aspx</DependentUpon>
+    <Compile Include="Views\vwfTemplate.Master.designer.cs">
+      <DependentUpon>vwfTemplate.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vwsConsultarEmprestimos.aspx.cs">
+      <DependentUpon>vwsConsultarEmprestimos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vwsConsultarEmprestimos.aspx.designer.cs">
+      <DependentUpon>vwsConsultarEmprestimos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vwsContaCorrente.aspx.cs">
+      <DependentUpon>vwsContaCorrente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vwsContaCorrente.aspx.designer.cs">
+      <DependentUpon>vwsContaCorrente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vwsEmprestimo.aspx.cs">
+      <DependentUpon>vwsEmprestimo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vwsEmprestimo.aspx.designer.cs">
+      <DependentUpon>vwsEmprestimo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vwsInvestimento.aspx.cs">
+      <DependentUpon>vwsInvestimento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vwsInvestimento.aspx.designer.cs">
+      <DependentUpon>vwsInvestimento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vwsLogin.aspx.cs">
+      <DependentUpon>vwsLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vwsLogin.aspx.designer.cs">
+      <DependentUpon>vwsLogin.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

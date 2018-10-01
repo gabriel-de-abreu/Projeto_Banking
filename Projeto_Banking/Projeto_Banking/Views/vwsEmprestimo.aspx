@@ -1,15 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="vwEmprestimo.aspx.cs" Inherits="Projeto_Banking.Views.vwEmprestimo" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/vwfTemplate.Master" AutoEventWireup="true" CodeBehind="vwsEmprestimo.aspx.cs" Inherits="Projeto_Banking.Views.vwsEmprestimo" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+    <div>
             <asp:Label ID="Label1" runat="server" Text="Qual o valor do empréstimo?"></asp:Label>
             <br />
             <asp:TextBox ID="txtValor" runat="server"></asp:TextBox>
@@ -72,6 +65,4 @@
             <br /><br />
             <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
         </div>
-    </form>
-</body>
-</html>
+</asp:Content>

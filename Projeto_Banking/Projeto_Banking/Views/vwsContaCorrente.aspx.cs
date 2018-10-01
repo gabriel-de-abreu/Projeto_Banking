@@ -8,10 +8,8 @@ using System.Web.UI.WebControls;
 
 namespace Projeto_Banking.Views
 {
-    public partial class vwContaCorrente : System.Web.UI.Page
+    public partial class vwsContaCorrente : System.Web.UI.Page
     {
-       // ContaCorrente ccSession;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["contaCorrente"] != null)
@@ -27,18 +25,18 @@ namespace Projeto_Banking.Views
             }
             else
             {
-                Response.Redirect("~/Views/vwLogin.aspx");
+                Response.Redirect("~/Views/vwsLogin.aspx");
             }
         }
 
         protected void btnEmprestimo_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Views/vwEmprestimo.aspx");
+            Response.Redirect("~/Views/vwsEmprestimo.aspx");
         }
 
         protected void btnInvestimento_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Views/vwInvestimento.aspx");
+            Response.Redirect("~/Views/vwsInvestimento.aspx");
         }
     }
 }
