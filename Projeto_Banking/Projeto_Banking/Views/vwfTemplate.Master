@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="vwfTemplate.master.cs" Inherits="Projeto_Banking.vwfTemplate" %>
+
+<!DOCTYPE html>
+<style>
+    .footer{
+        position:fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #F5F5DC;
+        color: black;
+        text-align: center;
+        height: 80px;
+        font-size-adjust: inherit;
+    }
+</style>
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Internet Banking</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+            <asp:ContentPlaceHolder ID="body" runat="server">
+            </asp:ContentPlaceHolder>
+    </form>
+    <div class="footer">
+        <p>Projeto final do curso de programação do Senai. Apresenta à Tata Consultancy Services do Brasil.</p>
+        <p>Participantes: Flávio Santos, Gabriel de Abreu, Gabriel de Carli, João Victor e Matheus Giacomini.</p>
+    </div>
+</body>
+</html>
