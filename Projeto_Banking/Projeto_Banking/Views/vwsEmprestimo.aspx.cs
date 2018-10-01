@@ -1,5 +1,5 @@
 ﻿using Projeto_Banking.Models;
-using Projeto_Banking.Models.Opecacoes.Emprestimo;
+using Projeto_Banking.Models.Opecacoes.EmprestimoDAOs;
 using Projeto_Banking.Objetos;
 using System;
 using System.Collections.Generic;
@@ -53,7 +53,7 @@ namespace Projeto_Banking.Views
                 EmprestimoDAO empDAO = new EmprestimoDAO();
                 if (empDAO.InserirEmprestimo(emprestimo, tipoPagamento))
                 {
-                    
+
                     //atualizar saldo da conta corrente
 
                     lblResultado.Text = "Empréstimo Realizado com Sucesso!";
@@ -94,5 +94,9 @@ namespace Projeto_Banking.Views
             }
         }
 
+        protected void btnConsultar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/vwsConsultarEmprestimos.aspx");
+        }
     }
 }

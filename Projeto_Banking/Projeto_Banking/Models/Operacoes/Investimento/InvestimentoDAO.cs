@@ -4,6 +4,7 @@ using Projeto_Banking.Models.Operacoes.Investimento;
 using Projeto_Banking.Objetos;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -71,10 +72,8 @@ namespace Projeto_Banking.Models
                     {
                         Id = int.Parse(reader["Investimento_id"].ToString()),
                         Nome = reader["Investimento_nome"].ToString(),
-                        //  investimento.PreFixada = reader["Investimento_nome"].ToString();
                         Rentabilidade = double.Parse(reader["Investimento_rentabilidade"].ToString()),
-                        //investimento.DataInicio = DateTime.Parse(reader["Investimento_Inicio"].ToString());
-                        //investimento.DataFim = DateTime.Parse(reader["Investimento_Fim"].ToString());
+
                     };
                     taxaId = int.Parse(reader["Taxa_Taxa_id"].ToString());
                 }
@@ -114,14 +113,59 @@ namespace Projeto_Banking.Models
                 {
                     Id = int.Parse(reader["Investimento_id"].ToString()),
                     Nome = reader["Investimento_nome"].ToString(),
-                                      Rentabilidade = double.Parse(reader["Investimento_rentabilidade"].ToString()),
-                   
+                    Rentabilidade = double.Parse(reader["Investimento_rentabilidade"].ToString()),
+
                 };
                 lInvestimento.Add(investimento);
-               //taxaId = int.Parse(reader["Taxa_Taxa_id"].ToString());
+                //taxaId = int.Parse(reader["Taxa_Taxa_id"].ToString());
             }
             reader.Close();
             return lInvestimento;
+        }
+
+        public DataTable BuscarInvestimentosConta(ContaCorrente conta)
+        {
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            string sql = $"SELECT * FROM Investimento_Conta WHERE Conta_Corrente_Conta_Conta_Corrente_id={conta.Numero};";
+
+            MySqlDataAdapter mAdpater = new MySqlDataAdapter(sql, Connection.Instance);
+            DataTable table = new DataTable();
+            mAdpater.Fill(table);
+            return table;
+
+        }
+
+        public InvestimentoConta BuscarInvestimento(InvestimentoConta investimentoConta)
+        {
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            command.CommandText = "SELECT * FROM Investimento_Conta WHERE Investimento_Conta_Id=@Investimento_Conta_Id;";
+            command.Parameters.AddWithValue("@Investimento_Conta_Id", investimentoConta.Id);
+
+            var reader = command.ExecuteReader();
+            int contaId = -1, investimentoId = -1;
+            InvestimentoConta iC = null;
+
+            while (reader.Read())
+            {
+                iC = new InvestimentoConta()
+                {
+                    Id = int.Parse(reader["Investimento_Conta_id"].ToString()),
+                    DataFim = DateTime.Parse(reader["Investimento_Fim"].ToString()),
+                    DataInicio = DateTime.Parse(reader["Investimento_Inicio"].ToString()),
+                    Valor = double.Parse(reader["Investimento_Conta_Valor"].ToString()),
+                };
+            }
+
+            contaId = int.Parse(reader["Conta_Corrente_Conta_Conta_Corrente_id"].ToString());
+            investimentoId = int.Parse(reader["Investimento_Investimento_id"].ToString());
+            reader.Close();
+
+            iC.Investimento = new InvestimentoDAO().BuscarInvestimentoPorId(investimentoId);
+            iC.Conta = new ContaDAO().PesquisarContaPorNumero(contaId) as ContaCorrente;
+
+
+            return iC;
+
         }
     }
 }

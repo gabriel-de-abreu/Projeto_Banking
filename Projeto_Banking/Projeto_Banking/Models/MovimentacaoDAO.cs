@@ -23,7 +23,16 @@ namespace Projeto_Banking.Models
 
                 command.CommandText = sql;
                 command.Parameters.AddWithValue("@movimentacao_id", mov.Movimentacao_id);
-                command.Parameters.AddWithValue("@conta_Movimentacao_origem_id", mov.Origem.Numero);
+                if (mov.Origem != null)
+                {
+                    command.Parameters.AddWithValue("@conta_Movimentacao_origem_id", mov.Origem.Numero);
+
+                }
+                else
+                {
+                    command.Parameters.AddWithValue("@conta_Movimentacao_origem_id", null);
+
+                }
                 command.Parameters.AddWithValue("@conta_Movimetacao_destino", mov.Destino.Numero);
                 command.Parameters.AddWithValue("@movimentacao_valor", mov.Valor);
                 command.Parameters.AddWithValue("@movimentacao_descricao", mov.Descricao);
@@ -44,7 +53,7 @@ namespace Projeto_Banking.Models
                 return false;
             }
         }
-        public DataTable ListarTodosPorOrigem( Conta origem )
+        public DataTable ListarTodosPorOrigem(Conta origem)
         {
             try
             {
@@ -54,7 +63,7 @@ namespace Projeto_Banking.Models
 
                 sqlData.Fill(table);
                 return table;
-                
+
             }
             catch (Exception e)
             {

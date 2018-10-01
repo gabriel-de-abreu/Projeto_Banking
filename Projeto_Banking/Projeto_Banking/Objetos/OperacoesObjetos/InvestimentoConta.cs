@@ -12,5 +12,6 @@ namespace Projeto_Banking.Objetos
         public Investimento Investimento { get; set; }
         public DateTime DataInicio { get; set; }
         public DateTime DataFim { get; set; }
+        public int Id { get; set; }
     }
 }

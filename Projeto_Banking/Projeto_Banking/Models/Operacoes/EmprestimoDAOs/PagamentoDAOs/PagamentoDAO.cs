@@ -1,5 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
-using Projeto_Banking.Models.Opecacoes.Emprestimo.PagamentoDAOs;
+using Projeto_Banking.Models.Opecacoes.EmprestimoDAOs.PagamentoDAOs;
 using Projeto_Banking.Objetos;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 
-namespace Projeto_Banking.Models.Opecacoes.Emprestimo
+namespace Projeto_Banking.Models.Opecacoes.EmprestimoDAOs
 {
     public class PagamentoDAO
     {
@@ -27,6 +27,7 @@ namespace Projeto_Banking.Models.Opecacoes.Emprestimo
             }
             if (pagamento is PagamentoConta)
             {
+
                 new PagamentoContaDAO().InserirPagamentoConta(pagamento as PagamentoConta);
             }
             return pagamento;
@@ -49,6 +50,31 @@ namespace Projeto_Banking.Models.Opecacoes.Emprestimo
             {
                 return null;
             }
+        }
+
+        public List<Pagamento> BuscarPagamentosPorEmprestimo(Emprestimo emprestimo)
+        {
+            List<Pagamento> pagamentos = new List<Pagamento>();
+            DataTable table = BuscarPagamentosPorIdDoEmprestimo(emprestimo.Id);
+            foreach (DataRow row in table.Rows)
+            {
+                pagamentos.Add(BuscarPagamentoPorId(Convert.ToInt32(row["Pagamento_id"])));
+            }
+
+            return pagamentos;
+        }
+
+        public String TipoPagamentoEmprestimo(Emprestimo emprestimo)
+        {
+            if(BuscarPagamentosPorEmprestimo(emprestimo)[0] is PagamentoConta)
+            {
+                return "debito";
+            }
+            else if(BuscarPagamentosPorEmprestimo(emprestimo)[0] is PagamentoBoleto)
+            {
+                return "boleto";
+            }
+            return null;
         }
 
         public Pagamento BuscarPagamentoPorId(int id)
@@ -109,7 +135,10 @@ namespace Projeto_Banking.Models.Opecacoes.Emprestimo
                 {
                     new PagamentoContaDAO().PagarPagamentoConta(pagamento as PagamentoConta);
                 }
-
+                else if (pagamento is PagamentoBoleto)
+                {
+                    new PagamentoBoletoDAO().PagarPagamentoBoleto(pagamento as PagamentoBoleto);
+                }
                 return pagamento;
             }
             return null;

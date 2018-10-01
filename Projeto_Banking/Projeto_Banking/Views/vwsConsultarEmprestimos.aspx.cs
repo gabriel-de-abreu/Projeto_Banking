@@ -29,5 +29,15 @@ namespace Projeto_Banking.Views
             gdvEmprestimos.DataSource = dTable;
             gdvEmprestimos.DataBind();
         }
+
+        protected void gdvEmprestimos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName.Equals("Ver"))
+            {
+                EmprestimoDAO empDao = new EmprestimoDAO();
+                Session["emprestimo"] = empDao.PesquisarEmprestimoPorId(Convert.ToInt32(e.CommandArgument.ToString()));
+                Response.Redirect("~/Views/vwsVisualizarEmprestimo.aspx");
+            }
+        }
     }
 }

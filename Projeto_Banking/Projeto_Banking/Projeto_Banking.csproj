@@ -139,6 +139,8 @@
     <Content Include="Views\vwsEmprestimo.aspx" />
     <Content Include="Views\vwsInvestimento.aspx" />
     <Content Include="Views\vwsLogin.aspx" />
+    <Content Include="Views\vwsVisualizarEmprestimo.aspx" />
+    <Content Include="Views\vwsMeusInvestimentos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -151,10 +153,10 @@
     <Compile Include="Models\ContaDAOs\ContaCorrenteDAO.cs" />
     <Compile Include="Models\ContaDAOs\ContaDAO.cs" />
     <Compile Include="Models\MovimentacaoDAO.cs" />
-    <Compile Include="Models\Operacoes\Emprestimo\EmprestimoOPS.cs" />
-    <Compile Include="Models\Operacoes\Emprestimo\PagamentoDAOs\PagamentoBoletoDAO.cs" />
-    <Compile Include="Models\Operacoes\Emprestimo\PagamentoDAOs\PagamentoContaDAO.cs" />
-    <Compile Include="Models\Operacoes\Emprestimo\PagamentoDAOs\PagamentoDAO.cs" />
+    <Compile Include="Models\Operacoes\EmprestimoDAOs\EmprestimoOPS.cs" />
+    <Compile Include="Models\Operacoes\EmprestimoDAOs\PagamentoDAOs\PagamentoBoletoDAO.cs" />
+    <Compile Include="Models\Operacoes\EmprestimoDAOs\PagamentoDAOs\PagamentoContaDAO.cs" />
+    <Compile Include="Models\Operacoes\EmprestimoDAOs\PagamentoDAOs\PagamentoDAO.cs" />
     <Compile Include="Models\Operacoes\Investimento\InvestimentoDAO.cs" />
     <Compile Include="Models\Operacoes\Investimento\InvestimentoOPS.cs" />
     <Compile Include="Models\PessoaDAO.cs" />
@@ -174,7 +176,7 @@
     <Compile Include="Objetos\Pessoa.cs" />
     <Compile Include="Objetos\OperacoesObjetos\Taxa.cs" />
     <Compile Include="Utils\Criptografia.cs" />
-    <Compile Include="Models\Operacoes\Emprestimo\EmprestimoDAO.cs" />
+    <Compile Include="Models\Operacoes\EmprestimoDAOs\EmprestimoDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\vwfTemplate.Master.cs">
       <DependentUpon>vwfTemplate.Master</DependentUpon>
@@ -217,6 +219,19 @@
     </Compile>
     <Compile Include="Views\vwsLogin.aspx.designer.cs">
       <DependentUpon>vwsLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vwsVisualizarEmprestimo.aspx.cs">
+      <DependentUpon>vwsVisualizarEmprestimo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vwsVisualizarEmprestimo.aspx.designer.cs">
+      <DependentUpon>vwsVisualizarEmprestimo.aspx</DependentUpon>
+    <Compile Include="Views\vwsMeusInvestimentos.aspx.cs">
+      <DependentUpon>vwsMeusInvestimentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vwsMeusInvestimentos.aspx.designer.cs">
+      <DependentUpon>vwsMeusInvestimentos.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
