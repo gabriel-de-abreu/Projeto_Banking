@@ -1,4 +1,5 @@
-﻿using Projeto_Banking.Objetos;
+﻿using Projeto_Banking.Models.ContaDAOs;
+using Projeto_Banking.Objetos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace Projeto_Banking.Views
             {
                 if (!IsPostBack)
                 {
+                    Session["contaCorrente"] = new ContaDAO().PesquisarContaPorNumero((Session["contaCorrente"] as ContaCorrente).Numero);
                     ContaCorrente ccSession = Session["contaCorrente"] as ContaCorrente;
                     lblNumero.Text += ccSession.Numero.ToString(); //validar nome com objeto
                     lblSaldo.Text += ccSession.Saldo.ToString(); //validar nome com objeto
