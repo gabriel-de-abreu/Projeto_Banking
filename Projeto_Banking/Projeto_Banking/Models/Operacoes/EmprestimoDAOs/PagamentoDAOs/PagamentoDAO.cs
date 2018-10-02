@@ -71,7 +71,7 @@ namespace Projeto_Banking.Models.Opecacoes.EmprestimoDAOs
                 return null;
             }else if(BuscarPagamentosPorEmprestimo(emprestimo)[0] is PagamentoConta)
             {
-                return "Débito em Conta";
+                return "Débito em Conta";   
             }
             else if(BuscarPagamentosPorEmprestimo(emprestimo)[0] is PagamentoBoleto)
             {
