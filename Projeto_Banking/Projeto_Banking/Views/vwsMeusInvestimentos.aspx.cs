@@ -17,6 +17,7 @@ namespace Projeto_Banking.Views
         protected void Page_Load(object sender, EventArgs e)
         {
             ContaCorrente cc = Session["contaCorrente"] as ContaCorrente;
+            if (cc == null) Response.Redirect("~/Views/vwsLogin.aspx");
             numeroConta = cc.Numero;
             PopulateGrid();
         }

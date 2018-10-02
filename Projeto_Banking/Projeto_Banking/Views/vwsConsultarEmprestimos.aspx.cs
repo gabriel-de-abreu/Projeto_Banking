@@ -18,8 +18,8 @@ namespace Projeto_Banking.Views
         protected void Page_Load(object sender, EventArgs e)
         {
             cc = Session["contaCorrente"] as ContaCorrente;
-            
 
+            if (cc == null) Response.Redirect("~/Views/vwsLogin.aspx");
             if (new EmprestimoDAO().PesquisarEmprestimosContaCorrente(cc).Rows.Count > 0)
             {
                 PopularGrid();
