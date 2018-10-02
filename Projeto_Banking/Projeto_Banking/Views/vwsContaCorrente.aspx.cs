@@ -42,6 +42,7 @@ namespace Projeto_Banking.Views
         protected void btnMeusInvestimentos_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Views/vwsMeusInvestimentos.aspx");
+        }
 
         protected void btnTransferencias_Click(object sender, EventArgs e)
         {

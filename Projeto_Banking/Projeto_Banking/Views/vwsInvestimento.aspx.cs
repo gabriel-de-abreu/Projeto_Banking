@@ -84,7 +84,7 @@ namespace Projeto_Banking.Views
             InvestimentoConta investimento = new InvestimentoDAO().BuscarInvestimento(new InvestimentoConta() {  Id = cc.Numero });
 
             txtValorIni.Text = ((Convert.ToDouble(investimento.Valor))).ToString();
-            txtValorFim.Text = 
+            //txtValorFim.Text = 
 
         }
     }
