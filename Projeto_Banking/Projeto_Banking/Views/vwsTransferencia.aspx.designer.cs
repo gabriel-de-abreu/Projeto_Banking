@@ -13,31 +13,13 @@ namespace Projeto_Banking.Views {
     public partial class vwsTransferencia {
         
         /// <summary>
-        /// Controle lblContaAtual.
+        /// Controle divTransf.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblContaAtual;
-        
-        /// <summary>
-        /// Controle lblSaldo.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSaldo;
-        
-        /// <summary>
-        /// Controle lblConta.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblConta;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTransf;
         
         /// <summary>
         /// Controle txtConta.
@@ -47,15 +29,6 @@ namespace Projeto_Banking.Views {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtConta;
-        
-        /// <summary>
-        /// Controle lblValor.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblValor;
         
         /// <summary>
         /// Controle txtValor.
@@ -76,6 +49,24 @@ namespace Projeto_Banking.Views {
         protected global::System.Web.UI.WebControls.Button btnTransferir;
         
         /// <summary>
+        /// Controle lblContaAtual.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblContaAtual;
+        
+        /// <summary>
+        /// Controle lblSaldo.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSaldo;
+        
+        /// <summary>
         /// Controle lblResultado.
         /// </summary>
         /// <remarks>
@@ -83,5 +74,68 @@ namespace Projeto_Banking.Views {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblResultado;
+        
+        /// <summary>
+        /// Controle divComprovante.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divComprovante;
+        
+        /// <summary>
+        /// Controle lblContaOrigem.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblContaOrigem;
+        
+        /// <summary>
+        /// Controle lblNomeOrigem.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNomeOrigem;
+        
+        /// <summary>
+        /// Controle lblContaDestino.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblContaDestino;
+        
+        /// <summary>
+        /// Controle lblNomeDestino.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNomeDestino;
+        
+        /// <summary>
+        /// Controle lblValor.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValor;
+        
+        /// <summary>
+        /// Controle btnVoltar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVoltar;
     }
 }
