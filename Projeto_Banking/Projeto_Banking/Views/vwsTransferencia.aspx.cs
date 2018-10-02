@@ -39,6 +39,12 @@ namespace Projeto_Banking.Views
                     lblResultado.Text = "Transferência realizada com sucesso!";
                     divTransf.Visible = false;
                     divComprovante.Visible = true;
+                    //Atualizar os dados para comprovante
+                    lblContaOrigem.Text = cc.Numero.ToString();
+                    lblNomeOrigem.Text = cc.Pessoa.Nome;
+                    lblContaDestino.Text = conta.Numero.ToString();
+                    lblNomeDestino.Text = conta.Pessoa.Nome;
+                    lblValor.Text = valor.ToString();
                 }
                 else
                 {

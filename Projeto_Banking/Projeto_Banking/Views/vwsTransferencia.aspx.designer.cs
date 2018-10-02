@@ -103,31 +103,31 @@ namespace Projeto_Banking.Views {
         protected global::System.Web.UI.WebControls.Label lblNomeOrigem;
         
         /// <summary>
-        /// Controle Label1.
+        /// Controle lblContaDestino.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblContaDestino;
         
         /// <summary>
-        /// Controle Label2.
+        /// Controle lblNomeDestino.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label lblNomeDestino;
         
         /// <summary>
-        /// Controle Label3.
+        /// Controle lblValor.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label lblValor;
         
         /// <summary>
         /// Controle btnVoltar.

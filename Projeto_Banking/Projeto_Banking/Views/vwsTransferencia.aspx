@@ -64,11 +64,11 @@
                         <tr>
                             <td><strong>Conta de Destino</strong></td>
                             <td>
-                                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                                <asp:Label ID="lblContaDestino" runat="server" Text="Label"></asp:Label>
                             </td>
                             <td><strong>Nome</strong></td>
                             <td>
-                                <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                                <asp:Label ID="lblNomeDestino" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
@@ -78,7 +78,7 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                                <asp:Label ID="lblValor" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                     </table>
