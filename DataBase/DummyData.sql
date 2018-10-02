@@ -1,4 +1,3 @@
-﻿
 /* Inserções de pessoa */
 INSERT INTO `ProjetoBanking`.`Pessoa` (`Pessoa_id`, `Pessoa_cpf`, `Pessoa_nome`) VALUES (1, '000.111.222-33', 'Fulano');
 INSERT INTO `ProjetoBanking`.`Pessoa` (`Pessoa_id`, `Pessoa_cpf`, `Pessoa_nome`) VALUES (2, '000.121.222-44', 'Beltrano');
@@ -23,10 +22,6 @@ INSERT INTO `ProjetoBanking`.`Conta_Corrente` (`Conta_Conta_Corrente_id`, `Conta
 INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUES (1, "Juros Perfil 1", 4);
 INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUES (2, "Juros Perfil 2", 8);
 INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUES (3,"Juros Perfil 3", 12);
-
-/*Inserção de Empréstimo */
-INSERT INTO `ProjetoBanking`.`Emprestimo` (`Emprestimo_id`, `Emprestimo_valor`, `Emprestimo_parcelas`, `Taxa_Taxa_id`, 
-`Conta_Corrente_Conta_Conta_Corrente_id`, `Emprestimo_Inicio`) VALUES (1,1000, 10, 1, 3,'2017-8-09');
 
 /* Inserção de Investimentos */
 INSERT INTO `projetobanking`.`investimento`

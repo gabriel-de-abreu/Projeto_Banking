@@ -42,6 +42,14 @@
                         <asp:Label ID="lblInvestimentoFim" runat="server" Text='<%# Bind("Investimento_Fim") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
+                <asp:TemplateField HeaderText="Resgatado">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Investimento_Resgate") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Investimento_Resgate") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField HeaderText="Operações">
                         <ItemTemplate>
                             <asp:LinkButton ID="lkbAbrir" runat="server" Text="Abrir"
@@ -53,5 +61,8 @@
                     </asp:TemplateField>                
             </Columns>
         </asp:GridView>
+        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+
+
     </div>
 </asp:Content>
