@@ -14,12 +14,14 @@ namespace Projeto_Banking.Views
         ContaCorrente cc;
         protected void Page_Load(object sender, EventArgs e)
         {
+            divComprovante.Visible = false;
             if (Session["contaCorrente"] == null)
             {
-                Response.Redirect("~/Views/Login.aspx");
+                Response.Redirect("~/Views/vwsLogin.aspx");
             }
- 
-                AtualizaLabels();
+
+
+            AtualizaLabels();
         }
 
         protected void btnTransferir_Click(object sender, EventArgs e)
@@ -35,29 +37,31 @@ namespace Projeto_Banking.Views
                 {
                     Session["contaCorrente"] = contas.First();
                     lblResultado.Text = "Transferência realizada com sucesso!";
-                    Response.Write("<script language='javascript'>alert('Transferência realizada com sucesso!');</script>");
+                    divTransf.Visible = false;
+                    divComprovante.Visible = true;
                 }
                 else
                 {
                     lblResultado.Text = "Falha ao realizar transferência...";
-                    Response.Write("<script language='javascript'>alert('Falha ao realizar transferência...');</script>");
                 }
             }
             else
             {
                 lblResultado.Text = "Falha ao realizar transferência...";
-                Response.Write("<script language='javascript'>alert('Falha ao realizar transferência...');</script>");
             }
-
             AtualizaLabels();
-
         }
 
         private void AtualizaLabels()
         {
             cc = Session["contaCorrente"] as ContaCorrente;
-            lblContaAtual.Text = "Número da Conta: " + cc.Numero;
-            lblSaldo.Text = "Saldo: " + cc.Saldo;
+            lblContaAtual.Text = cc.Numero.ToString();
+            lblSaldo.Text = cc.Saldo.ToString();
+        }
+
+        protected void btnVoltar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/vwsContaCorrente.aspx");
         }
     }
 }
