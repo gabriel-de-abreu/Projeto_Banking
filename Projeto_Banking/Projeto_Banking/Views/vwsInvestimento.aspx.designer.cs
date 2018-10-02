@@ -49,6 +49,15 @@ namespace Projeto_Banking.Views {
         protected global::System.Web.UI.WebControls.TextBox txtValorFim;
         
         /// <summary>
+        /// Controle btnEfetuar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEfetuar;
+        
+        /// <summary>
         /// Controle lblDataIni.
         /// </summary>
         /// <remarks>
@@ -83,24 +92,6 @@ namespace Projeto_Banking.Views {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDataFim;
-        
-        /// <summary>
-        /// Controle lblDataRet.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDataRet;
-        
-        /// <summary>
-        /// Controle txtDataRet.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDataRet;
         
         /// <summary>
         /// Controle lblInvestimento.
