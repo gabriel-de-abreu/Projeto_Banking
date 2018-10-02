@@ -139,6 +139,7 @@
     <Content Include="Views\vwsConsultarEmprestimos.aspx" />
     <Content Include="Views\vwsContaCorrente.aspx" />
     <Content Include="Views\vwsEmprestimo.aspx" />
+    <Content Include="Views\vwsExtrato.aspx" />
     <Content Include="Views\vwsInvestimento.aspx" />
     <Content Include="Views\vwsLogin.aspx" />
     <Content Include="Views\vwsMeusInvestimentos.aspx" />
@@ -209,6 +210,13 @@
     </Compile>
     <Compile Include="Views\vwsEmprestimo.aspx.designer.cs">
       <DependentUpon>vwsEmprestimo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vwsExtrato.aspx.cs">
+      <DependentUpon>vwsExtrato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vwsExtrato.aspx.designer.cs">
+      <DependentUpon>vwsExtrato.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\vwsInvestimento.aspx.cs">
       <DependentUpon>vwsInvestimento.aspx</DependentUpon>
