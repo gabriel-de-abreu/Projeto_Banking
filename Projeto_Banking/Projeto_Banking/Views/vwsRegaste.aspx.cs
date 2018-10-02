@@ -11,12 +11,13 @@ namespace Projeto_Banking.Views
 {
     public partial class vwsRegaste : System.Web.UI.Page
     {
-        ContaCorrente cc;
+        ContaCorrente cc; InvestimentoConta iC;
         protected void Page_Load(object sender, EventArgs e)
         {
             cc = Session["contaCorrente"] as ContaCorrente;
+            iC = Session["investimentoConta"] as InvestimentoConta;
 
-            if (cc == null) Response.Redirect("~/Views/vwsLogin.aspx");
+            if (cc == null || iC == null) Response.Redirect("~/Views/vwsLogin.aspx");
 
             if (!IsPostBack)
             {
@@ -26,36 +27,28 @@ namespace Projeto_Banking.Views
 
         private void PreencherCampos()
         {
-            InvestimentoConta inv = new InvestimentoDAO().BuscarInvestimento(new InvestimentoConta() { Id = cc.Numero });
 
-            txtValorIni.Text = ((Convert.ToDouble(inv.Valor))).ToString();
+            txtValorIni.Text = ((Convert.ToDouble(iC.Valor))).ToString();
             txtValorFim.Text = ("");
             txtDataResgate.Text = ("");
-            txtDataIni.Text = (inv.DataInicio).ToString();
-            txtDataFim.Text = (inv.DataFim).ToString();
+            txtDataIni.Text = (iC.DataInicio).ToString();
+            txtDataFim.Text = (iC.DataFim).ToString();
 
         }
         public void SimularInvestimento(object sender, EventArgs e)
         {
-            InvestimentoConta inv = new InvestimentoConta();
-            InvestimentoDAO invDAO = new InvestimentoDAO();
-            inv.Id = cc.Numero;
-            inv = invDAO.BuscarInvestimento(inv);
             if (!(txtDataResgate.Text).Equals(""))
             {
-                txtValorFim.Text = (invDAO.SimulaResgate(inv, Convert.ToDateTime(txtDataResgate.Text))).ToString();
+                txtValorFim.Text = (new InvestimentoDAO().SimulaResgate(iC, Convert.ToDateTime(txtDataResgate.Text))).ToString();
             }
         }
 
         protected void btnResgatar_Click(object sender, EventArgs e)
         {
-            InvestimentoConta inv = new InvestimentoConta();
             InvestimentoDAO invDAO = new InvestimentoDAO();
-            inv.Id = cc.Numero;
-            inv = invDAO.BuscarInvestimento(inv);
             if (!(txtDataResgate.Text).Equals(""))
             {
-                txtValorFim.Text = (invDAO.Resgate(inv, Convert.ToDateTime(txtDataResgate.Text))).ToString();
+                txtValorFim.Text = (invDAO.Resgate(iC, Convert.ToDateTime(txtDataResgate.Text))).ToString();
                 Response.Write("<script language='javascript'>alert('Resgate Realizado com sucesso...');</script>");
                 Response.Redirect("~/Views/vwsMeusInvestimentos.aspx");
             }

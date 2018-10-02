@@ -14,9 +14,10 @@ namespace Projeto_Banking.Views
     public partial class vwsMeusInvestimentos : System.Web.UI.Page
     {
         int numeroConta = -1;
+        ContaCorrente cc; InvestimentoConta iC;
         protected void Page_Load(object sender, EventArgs e)
         {
-            ContaCorrente cc = Session["contaCorrente"] as ContaCorrente;
+            cc = Session["contaCorrente"] as ContaCorrente;
             if (cc == null) Response.Redirect("~/Views/vwsLogin.aspx");
             numeroConta = cc.Numero;
             PopulateGrid();
@@ -25,7 +26,6 @@ namespace Projeto_Banking.Views
         public void PopulateGrid()
         {
             InvestimentoDAO investimentoDAO = new InvestimentoDAO();
-            ContaCorrente cc = new ContaCorrenteDAO().PesquisarPorNumero(numeroConta);
             DataTable dt = investimentoDAO.BuscarInvestimentosConta(cc);
             gdvMeusInvestimentos.DataSource = dt;
             gdvMeusInvestimentos.DataBind();
@@ -35,12 +35,14 @@ namespace Projeto_Banking.Views
         {
             int rowIndex = gdvMeusInvestimentos.SelectedIndex;
             int id = Convert.ToInt32(gdvMeusInvestimentos.DataKeys[rowIndex].Value);
-            ContaCorrente ccSession = Session["contaCorrente"] as ContaCorrente;
-            ccSession.Numero = Convert.ToInt32(gdvMeusInvestimentos.DataKeys[rowIndex].Value.ToString());
-            Session["contaCorrente"] = ccSession;
+            iC=new InvestimentoDAO().BuscarInvestimento(new InvestimentoConta() { Id = id });
+            Session["investimentoConta"] = iC;
+
+            //Session["contaCorrente"] = ccSession;
             //if (int.Parse(gdvMeusInvestimentos.Rows[rowIndex].Cells[6].Text) ==0 )
             //{
-                Response.Redirect("~/Views/vwsRegaste.aspx");
+
+            Response.Redirect("~/Views/vwsRegaste.aspx");
             //}
             //else
             //{

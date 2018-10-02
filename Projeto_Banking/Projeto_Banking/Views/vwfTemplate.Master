@@ -27,7 +27,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" id="aMeusEmprestimos" href="vwsConsultarEmprestimos.aspx" runat="server">Meus Empréstimos </a>
+                    <a class="nav-item nav-link" id="aMeusEmprestimos" href="vwsConsultarEmprestimos.aspx"   runat="server">Meus Empréstimos </a>
                     <a class="nav-item nav-link" id="aMeusInvestimentos" runat="server" href="vwsMeusInvestimentos.aspx">Meus Investimentos</a>
                     <asp:LinkButton ID="lbEntrarSair" runat="server" CssClass="nav-item nav-link" OnClick="lbEntrarSair_Click">Entrar</asp:LinkButton>
                 </div>
