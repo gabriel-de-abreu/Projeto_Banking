@@ -35,19 +35,13 @@ namespace Projeto_Banking.Views
                 {
                     Session["contaCorrente"] = contas.First();
                     lblResultado.Text = "Transferência realizada com sucesso!";
-                    Response.Write("<script language='javascript'>alert('Transferência realizada com sucesso!');</script>");
                 }
                 else
-                {
                     lblResultado.Text = "Falha ao realizar transferência...";
-                    Response.Write("<script language='javascript'>alert('Falha ao realizar transferência...');</script>");
-                }
             }
             else
-            {
                 lblResultado.Text = "Falha ao realizar transferência...";
-                Response.Write("<script language='javascript'>alert('Falha ao realizar transferência...');</script>");
-            }
+
             AtualizaLabels();
 
         }
