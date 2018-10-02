@@ -20,6 +20,8 @@ namespace Projeto_Banking.Views
             List<Investimento> investimentos = new List<Investimento>();
             lblValorFim.Visible = txtValorFim.Visible = btnEfetuar.Visible = false;
 
+            if (cc == null) Response.Redirect("~/Views/vwsLogin.aspx");
+            
             if (!IsPostBack)
             {
                 PopularMenuDD();
@@ -73,6 +75,8 @@ namespace Projeto_Banking.Views
             ddlInvestimentos.DataTextField = "Nome";
             ddlInvestimentos.DataValueField = "Id";
             ddlInvestimentos.DataBind();
+
+            txtDataIni.Text = DateTime.Now.ToString();
         }
 
         public void PreencherCampos()
@@ -101,9 +105,13 @@ namespace Projeto_Banking.Views
 
             if (investimentoDao.InserirInvestimento(investimentoConta) != null)
             {
+                Response.Write("<script language='javascript'>alert('Investimento realizado com sucesso!');</script>");
                 lblResultado.Text = "Investimento realizado com sucesso!";
             }
-            else lblResultado.Text = "Falha ao realizar investimento...";
+            else {
+                lblResultado.Text = "Falha ao realizar investimento...";
+                Response.Write("<script language='javascript'>alert('Erro ao realizar investimento...');</script>");
+            }
         }
     }
 }
