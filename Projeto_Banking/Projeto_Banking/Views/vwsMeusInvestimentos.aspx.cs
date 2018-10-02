@@ -36,7 +36,16 @@ namespace Projeto_Banking.Views
             int id = Convert.ToInt32(gdvMeusInvestimentos.DataKeys[rowIndex].Value);
             ContaCorrente ccSession = Session["contaCorrente"] as ContaCorrente;
             ccSession.Numero = Convert.ToInt32(gdvMeusInvestimentos.DataKeys[rowIndex].Value.ToString());
-            Response.Redirect("~/Views/vwsRegaste.aspx");
+            Session["contaCorrente"] = ccSession;
+            //if (int.Parse(gdvMeusInvestimentos.Rows[rowIndex].Cells[6].Text) ==0 )
+            //{
+                Response.Redirect("~/Views/vwsRegaste.aspx");
+            //}
+            //else
+            //{
+            //    Response.Write("<script language='javascript'>alert('Este investimento já foi resgatado!');</script>");
+            //}
+
         }
     }
 }

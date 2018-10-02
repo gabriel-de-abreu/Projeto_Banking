@@ -13,5 +13,6 @@ namespace Projeto_Banking.Objetos
         public DateTime DataInicio { get; set; }
         public DateTime DataFim { get; set; }
         public int Id { get; set; }
+        public bool Resgatado { get; set; }
     }
 }

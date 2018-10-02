@@ -158,9 +158,18 @@ namespace Projeto_Banking.Models
                     DataFim = DateTime.Parse(reader["Investimento_Fim"].ToString()),
                     DataInicio = DateTime.Parse(reader["Investimento_Inicio"].ToString()),
                     Valor = double.Parse(reader["Investimento_Conta_Valor"].ToString()),
+                    
                 };
             }
 
+            int resgatado = int.Parse(reader["Investimento_Resgate"].ToString());
+            if ( resgatado == 1)
+            {
+                iC.Resgatado = true;
+            }
+            else
+            {
+            }
             contaId = int.Parse(reader["Conta_Corrente_Conta_Conta_Corrente_id"].ToString());
             investimentoId = int.Parse(reader["Investimento_Investimento_id"].ToString());
             reader.Close();
