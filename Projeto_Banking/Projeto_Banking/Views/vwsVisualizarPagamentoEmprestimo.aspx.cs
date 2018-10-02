@@ -15,6 +15,8 @@ namespace Projeto_Banking.Views
         Emprestimo emp;
         protected void Page_Load(object sender, EventArgs e)
         {
+            ContaCorrente cc = Session["contaCorrente"] as ContaCorrente;
+            if (cc == null) Response.Redirect("~/Views/vwsLogin.aspx");
             emp = Session["emprestimo"] as Emprestimo;
 
             gdvPagamentosBoleto.Visible = false;
