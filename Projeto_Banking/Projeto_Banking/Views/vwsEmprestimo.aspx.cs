@@ -50,7 +50,7 @@ namespace Projeto_Banking.Views
                 divSimulacao.Visible = false;
 
             }
-            else if (float.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima < data && dataMaxima > data)
+            else if (float.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima <= data && dataMaxima >= data)
             {
                 Emprestimo emprestimo = new Emprestimo()
                 {

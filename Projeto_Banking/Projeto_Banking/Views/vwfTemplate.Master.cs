@@ -11,6 +11,9 @@ namespace Projeto_Banking
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["contaCorrente"] == null && !HttpContext.Current.Request.Url.AbsolutePath.Equals("/Views/vwsLogin.aspx"))
+                Response.Redirect("~/Views/vwsLogin.aspx");
+
             if (Session["contaCorrente"] != null)
             {
                 aMeusEmprestimos.Visible = true;

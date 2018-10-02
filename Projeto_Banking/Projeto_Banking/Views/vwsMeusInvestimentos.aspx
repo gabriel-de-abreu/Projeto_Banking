@@ -4,11 +4,10 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div>
-        <asp:GridView ID="gdvMeusInvestimentos" runat="server" 
+    <div class="container margin-3-upper">
+        <asp:GridView ID="gdvMeusInvestimentos" runat="server"
             AutoGenerateColumns="False" OnSelectedIndexChanged="gdvMeusInvestimentos_SelectedIndexChanged"
-            DataKeyNames="Investimento_Conta_Id">
-            
+            DataKeyNames="Investimento_Conta_Id" CssClass="table table-hover view-table">
             <Columns>
                 <asp:TemplateField HeaderText="Conta Corrente">
                     <EditItemTemplate>
@@ -51,18 +50,15 @@
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Operações">
-                        <ItemTemplate>
-                            <asp:LinkButton ID="lkbAbrir" runat="server" Text="Abrir"
-                                CommandName="Select" 
-                                OnClientClick="return confirm('Deseja realmente visualizar esse investimento?');" 
-                                CommandArgument='<%# Bind("Investimento_Conta_Id") %>'>
-                            </asp:LinkButton>
-                        </ItemTemplate>                                               
-                    </asp:TemplateField>                
+                    <ItemTemplate>
+                        <asp:LinkButton ID="lkbAbrir" runat="server" Text="Abrir"
+                            CommandName="Select"
+                            OnClientClick="return confirm('Deseja realmente visualizar esse investimento?');"
+                            CommandArgument='<%# Bind("Investimento_Conta_Id") %>'>
+                        </asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
-        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-
-
     </div>
 </asp:Content>
