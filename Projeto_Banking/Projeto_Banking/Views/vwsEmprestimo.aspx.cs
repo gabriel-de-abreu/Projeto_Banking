@@ -42,9 +42,15 @@ namespace Projeto_Banking.Views
             Taxa taxa = new TaxaDAO().PesquisarPorTaxa(EmprestimoOPS.VerificarPerfil(cc)); //obtem taxa atraves do perfil da pessoa
 
             string tipoPagamento = rblPagamento.SelectedValue;
-            data = DateTime.Parse(txtDataPrimeiroVencimento.Text);
+            //data = DateTime.Parse(txtDataPrimeiroVencimento.Text);
 
-            if (float.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima < data && dataMaxima > data)
+            if (!DateTime.TryParse(txtDataPrimeiroVencimento.Text, out data))
+            {   //verifica data
+                lblAviso.Text = "Escolha uma data válida!";
+                divSimulacao.Visible = false;
+
+            }
+            else if (float.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima < data && dataMaxima > data)
             {
                 Emprestimo emprestimo = new Emprestimo()
                 {
@@ -77,11 +83,13 @@ namespace Projeto_Banking.Views
 
             Taxa taxa = new TaxaDAO().PesquisarPorTaxa(EmprestimoOPS.VerificarPerfil(cc)); //obtem taxa atraves do perfil da pessoa
             //data = DateTime.Parse(txtDataPrimeiroVencimento.Text);
-            if(!DateTime.TryParse(txtDataPrimeiroVencimento.Text, out data)){
-                data = DateTime.Now.Date;
-            }
 
-            if (Double.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima < data && dataMaxima > data)
+            if(!DateTime.TryParse(txtDataPrimeiroVencimento.Text, out data)){   //verifica data
+                lblAviso.Text = "Escolha uma data válida!";
+                divSimulacao.Visible = false;
+
+            }
+            else if (Double.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima <= data && dataMaxima >= data)
             {
                 divSimulacao.Visible = true;
 
