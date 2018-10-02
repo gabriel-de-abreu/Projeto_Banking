@@ -18,8 +18,6 @@ namespace Projeto_Banking.Views
         {
             cc = Session["contaCorrente"] as ContaCorrente;
             List<Investimento> investimentos = new List<Investimento>();
-            lblValorFim.Visible = txtValorFim.Visible = btnEfetuar.Visible = false;
-
             if (cc == null) Response.Redirect("~/Views/vwsLogin.aspx");
 
             if (!IsPostBack)
@@ -50,7 +48,8 @@ namespace Projeto_Banking.Views
 
                     //investimentoDao.InserirInvestimento(investimentoConta);
                     txtValorFim.Text = investimentoDao.SimulaResgate(investimentoConta, DateTime.Parse(txtDataFim.Text)).ToString();
-                    lblValorFim.Visible = txtValorFim.Visible = btnEfetuar.Visible = true;
+                    dadosInvestimento.Visible = false;
+                    dadosSimulacao.Visible = true;
                 }
                 else
                 {
@@ -102,21 +101,26 @@ namespace Projeto_Banking.Views
             };
             if (investimentoDao.InserirInvestimento(investimentoConta) != null)
             {
-                Response.Write("<script language='javascript'>alert('Investimento realizado com sucesso!');</script>");
+                dadosSimulacao.Visible = false;
                 lblResultado.Text = "Investimento realizado com sucesso!";
             }
             else
             {
                 lblResultado.Text = "Falha ao realizar investimento...";
-                Response.Write("<script language='javascript'>alert('Erro ao realizar investimento...');</script>");
             }
             AtualizaLabels();
         }
         private void AtualizaLabels()
         {
             cc = Session["contaCorrente"] as ContaCorrente;
-            lblContaAtual.Text = "Número da Conta: " + cc.Numero;
-            lblSaldo.Text = "Saldo: " + cc.Saldo;
+            lblContaAtual.Text = cc.Numero.ToString();
+            lblSaldo.Text = cc.Saldo.ToString();
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            dadosInvestimento.Visible = true;
+            dadosSimulacao.Visible = false;
         }
     }
 }

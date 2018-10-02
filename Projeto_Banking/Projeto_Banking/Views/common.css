@@ -26,6 +26,14 @@
     padding-bottom:5px;
     background-color: ghostwhite
 }
+
+.container-border-login {
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    padding: 5px 5px 5px 5px;
+    padding-bottom: 5px;
+    background-color: ghostwhite
+}
 .inner-padding-button1{
     margin-right:5px;
 }
