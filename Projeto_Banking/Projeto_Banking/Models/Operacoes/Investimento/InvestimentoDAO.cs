@@ -100,6 +100,10 @@ namespace Projeto_Banking.Models
                 return -1;
 
         }
+        public float SimulaResgate(InvestimentoConta investimentoConta, DateTime dataResgate)
+        {
+            return (float)InvestimentoOPS.Resgate(investimentoConta, dataResgate);
+        }
 
         public List<Investimento> PopularDropMenu()
         {

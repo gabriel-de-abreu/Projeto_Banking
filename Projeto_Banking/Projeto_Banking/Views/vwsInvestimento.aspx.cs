@@ -18,22 +18,22 @@ namespace Projeto_Banking.Views
         {
             cc = Session["contaCorrente"] as ContaCorrente;
             List<Investimento> investimentos = new List<Investimento>();
+            lblValorFim.Visible = txtValorFim.Visible = btnEfetuar.Visible = false;
 
-            
+            if (cc == null) Response.Redirect("~/Views/vwsLogin.aspx");
+
             if (!IsPostBack)
             {
                 PopularMenuDD();
-                txtValorFim.Visible = false;
-                lblValorFim.Visible = false;
             }
+            AtualizaLabels();
         }
 
         protected void BtnSimular_Click(object sender, EventArgs e)
         {
-            if(cc.Saldo > Double.Parse(txtValorIni.Text))
+            if (cc.Saldo > Double.Parse(txtValorIni.Text))
             {
-                if (DateTime.Parse(txtDataFim.Text) >= DateTime.Parse(txtDataRet.Text) &&
-                DateTime.Parse(txtDataIni.Text) < DateTime.Parse(txtDataRet.Text))
+                if (DateTime.Parse(txtDataIni.Text) < DateTime.Parse(txtDataFim.Text))
                 {
                     InvestimentoDAO investimentoDao = new InvestimentoDAO();
                     Investimento investimento = investimentoDao.BuscarInvestimentoPorId(int.Parse(ddlInvestimentos.SelectedValue));
@@ -48,10 +48,9 @@ namespace Projeto_Banking.Views
 
                     };
 
-                    investimentoDao.InserirInvestimento(investimentoConta);
-                    txtValorFim.Visible = true;
-                    lblValorFim.Visible = true;
-                    txtValorFim.Text = investimentoDao.Resgate(investimentoConta, DateTime.Parse(txtDataRet.Text)).ToString();
+                    //investimentoDao.InserirInvestimento(investimentoConta);
+                    txtValorFim.Text = investimentoDao.SimulaResgate(investimentoConta, DateTime.Parse(txtDataFim.Text)).ToString();
+                    lblValorFim.Visible = txtValorFim.Visible = btnEfetuar.Visible = true;
                 }
                 else
                 {
@@ -77,15 +76,47 @@ namespace Projeto_Banking.Views
             ddlInvestimentos.DataTextField = "Nome";
             ddlInvestimentos.DataValueField = "Id";
             ddlInvestimentos.DataBind();
+            txtDataIni.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
         }
 
-        public void PreencherCampos()
+        private void PreencherCampos()
         {
-            InvestimentoConta investimento = new InvestimentoDAO().BuscarInvestimento(new InvestimentoConta() {  Id = cc.Numero });
+            InvestimentoConta investimento = new InvestimentoDAO().BuscarInvestimento(new InvestimentoConta() { Id = cc.Numero });
 
             txtValorIni.Text = ((Convert.ToDouble(investimento.Valor))).ToString();
             //txtValorFim.Text = 
 
+        }
+
+        protected void btnEfetuar_Click(object sender, EventArgs e)
+        {
+            InvestimentoDAO investimentoDao = new InvestimentoDAO();
+            Investimento investimento = investimentoDao.BuscarInvestimentoPorId(int.Parse(ddlInvestimentos.SelectedValue));
+            InvestimentoConta investimentoConta = new InvestimentoConta()
+            {
+                Conta = cc,
+                Investimento = investimento,
+                DataInicio = DateTime.Parse(txtDataIni.Text),
+                DataFim = DateTime.Parse(txtDataFim.Text),
+                Valor = double.Parse(txtValorIni.Text)
+            };
+            if (investimentoDao.InserirInvestimento(investimentoConta) != null)
+            {
+                Response.Write("<script language='javascript'>alert('Investimento realizado com sucesso!');</script>");
+                lblResultado.Text = "Investimento realizado com sucesso!";
+            }
+            else
+            {
+                lblResultado.Text = "Falha ao realizar investimento...";
+                Response.Write("<script language='javascript'>alert('Erro ao realizar investimento...');</script>");
+            }
+            AtualizaLabels();
+        }
+        private void AtualizaLabels()
+        {
+            cc = Session["contaCorrente"] as ContaCorrente;
+            lblContaAtual.Text = "Número da Conta: " + cc.Numero;
+            lblSaldo.Text = "Saldo: " + cc.Saldo;
         }
     }
 }

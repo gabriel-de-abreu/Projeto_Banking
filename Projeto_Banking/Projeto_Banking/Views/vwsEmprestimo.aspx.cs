@@ -53,9 +53,6 @@ namespace Projeto_Banking.Views
                 EmprestimoDAO empDAO = new EmprestimoDAO();
                 if (empDAO.InserirEmprestimo(emprestimo, tipoPagamento))
                 {
-
-                    //atualizar saldo da conta corrente
-
                     lblResultado.Text = "Empréstimo Realizado com Sucesso!";
                 }
             }
@@ -74,7 +71,8 @@ namespace Projeto_Banking.Views
             int parcelas;
 
             Taxa taxa = new TaxaDAO().PesquisarPorTaxa(EmprestimoOPS.VerificarPerfil(cc)); //obtem taxa atraves do perfil da pessoa
-            data = DateTime.Parse(txtDataPrimeiroVencimento.Text);
+            //data = DateTime.Parse(txtDataPrimeiroVencimento.Text);
+            if(DateTime.TryParse(txtDataPrimeiroVencimento.Text, out data)){ }
 
             if (Double.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima < data && dataMaxima > data)
             {

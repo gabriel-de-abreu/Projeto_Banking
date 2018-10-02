@@ -19,7 +19,17 @@ namespace Projeto_Banking.Views
         {
             cc = Session["contaCorrente"] as ContaCorrente;
             
-            PopularGrid();
+
+            if (new EmprestimoDAO().PesquisarEmprestimosContaCorrente(cc).Rows.Count > 0)
+            {
+                PopularGrid();
+            }
+            else
+            {
+                Response.Write("<script language='javascript'> alert('Você não tem nenhum empréstimo realizado ainda!');</script>");
+                
+            }
+            
         }
 
         public void PopularGrid()
@@ -29,11 +39,14 @@ namespace Projeto_Banking.Views
 
 
             dTable.Columns.Add("Pagamento_tipo", typeof(String));
+            dTable.Columns.Add("Emprestimo_Inicio_Formatado", typeof(String));
 
             PagamentoDAO pagDAO = new PagamentoDAO();
 
             foreach (DataRow row in dTable.Rows) {
-               row["Pagamento_tipo"] = pagDAO.TipoPagamentoEmprestimo(new Emprestimo() { Id = Convert.ToInt32(row["Emprestimo_id"].ToString()) });
+                row["Pagamento_tipo"] = pagDAO.TipoPagamentoEmprestimo(new Emprestimo() { Id = Convert.ToInt32(row["Emprestimo_id"].ToString()) });
+                DateTime data = Convert.ToDateTime(row["Emprestimo_Inicio"]);
+                row["Emprestimo_Inicio_Formatado"] = data.ToString("dd/MM/yyyy");
             }
             
             gdvEmprestimos.DataSource = dTable;
@@ -51,7 +64,7 @@ namespace Projeto_Banking.Views
                 Label lblPagamento = (Label)clickedRow.FindControl("lblPagamento");
 
                 if (lblPagamento.Text.Equals("Débito em Conta")){
-                    Session["tipoPagamento"] = "Debito em Conta";
+                    Session["tipoPagamento"] = "Débito em Conta";
                     Response.Redirect("~/Views/vwsVisualizarPagamentoEmprestimo.aspx");
 
                 }else if (lblPagamento.Text.Equals("Boleto"))

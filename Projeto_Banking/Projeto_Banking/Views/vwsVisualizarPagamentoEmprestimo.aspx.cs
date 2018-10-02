@@ -16,29 +16,92 @@ namespace Projeto_Banking.Views
         protected void Page_Load(object sender, EventArgs e)
         {
             emp = Session["emprestimo"] as Emprestimo;
-            PopularGrid();
+
+            gdvPagamentosBoleto.Visible = false;
+            gdvPagamentosDebito.Visible = false;
+
+            if (!IsPostBack)
+            {
+                if (Session["tipoPagamento"].Equals("Débito em Conta"))
+                {
+                    gdvPagamentosBoleto.Visible = false;
+                    gdvPagamentosDebito.Visible = true;
+
+                    PopularGridDebito();
+
+                }
+                else if (Session["tipoPagamento"].Equals("Boleto"))
+                {
+                    gdvPagamentosBoleto.Visible = true;
+                    gdvPagamentosDebito.Visible = false;
+
+                    PopularGridBoleto();
+
+                }
+            }
+            
         }
 
-        public void PopularGrid()
+        public void PopularGridDebito()
         {
             PagamentoDAO pagDao = new PagamentoDAO();
             DataTable dTable = pagDao.BuscarPagamentosPorIdDoEmprestimo(emp.Id);
-            dTable.Columns.Add("TipoPagamento", typeof(String));
+            dTable.Columns.Add("StatusPagamento", typeof(String));
+            dTable.Columns.Add("NumeroParcela", typeof(int));
+            dTable.Columns.Add("Pagamento_data_Formatado", typeof(String));
+
+            int i = 1;
 
             foreach (DataRow row in dTable.Rows)
-            {   
-                if(int.Parse(row["Pagamento_Pago"].ToString()) == 1)
+            {
+                row["NumeroParcela"] = i++; //gera o indice do numero de parcela
+
+                DateTime data = Convert.ToDateTime(row["Pagamento_data"]);  //formatada a data retirando a hora
+                row["Pagamento_data_Formatado"] = data.ToString("dd/MM/yyyy");
+
+                if (int.Parse(row["Pagamento_Pago"].ToString()) == 1) //se for 1 no banco, atribui como pago
                 {
-                    row["TipoPagamento"] = "Pago";
+                    row["StatusPagamento"] = "Pago";
                 }
-                else if(int.Parse(row["Pagamento_Pago"].ToString()) == 0)
+                else if(int.Parse(row["Pagamento_Pago"].ToString()) == 0) //se for 0 no banco, atribui como não pago
                 {
-                    row["TipoPagamento"] = "Não Pago";
+                    row["StatusPagamento"] = "Não Pago";
                 }
             }
 
             gdvPagamentosDebito.DataSource = dTable;
             gdvPagamentosDebito.DataBind();
+        }
+
+        public void PopularGridBoleto()
+        {
+            PagamentoDAO pagDao = new PagamentoDAO();
+            DataTable dTable = pagDao.BuscarPagamentosPorIdDoEmprestimo(emp.Id);
+            dTable.Columns.Add("StatusPagamento", typeof(String));
+            dTable.Columns.Add("NumeroParcela", typeof(int));
+            dTable.Columns.Add("Pagamento_data_Formatado", typeof(String));
+
+            int i = 1;
+
+            foreach (DataRow row in dTable.Rows)
+            {
+                row["NumeroParcela"] = i++; //gera o indice do numero de parcela
+
+                DateTime data = Convert.ToDateTime(row["Pagamento_data"]);
+                row["Pagamento_data_Formatado"] = data.ToString("dd/MM/yyyy");
+
+                if (int.Parse(row["Pagamento_Pago"].ToString()) == 1) //se for 1 no banco, atribui como pago
+                {
+                    row["StatusPagamento"] = "Pago";
+                }
+                else if (int.Parse(row["Pagamento_Pago"].ToString()) == 0) //se for 0 no banco, atribui como não pago
+                {
+                    row["StatusPagamento"] = "Não Pago";
+                }
+            }
+
+            gdvPagamentosBoleto.DataSource = dTable;
+            gdvPagamentosBoleto.DataBind();
         }
 
 
