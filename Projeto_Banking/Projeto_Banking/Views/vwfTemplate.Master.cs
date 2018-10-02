@@ -16,13 +16,14 @@ namespace Projeto_Banking
                 aMeusEmprestimos.Visible = true;
                 aMeusInvestimentos.Visible = true;
                 lbEntrarSair.Text = "Sair";
+                lbEntrarSair.Visible = true;
             }
             else
             {
 
                 aMeusEmprestimos.Visible = false;
                 aMeusInvestimentos.Visible = false;
-                lbEntrarSair.Text = "Entrar";
+                lbEntrarSair.Visible = false;
 
             }
         }
