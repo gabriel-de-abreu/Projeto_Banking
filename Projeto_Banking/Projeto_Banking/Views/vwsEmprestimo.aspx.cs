@@ -53,9 +53,6 @@ namespace Projeto_Banking.Views
                 EmprestimoDAO empDAO = new EmprestimoDAO();
                 if (empDAO.InserirEmprestimo(emprestimo, tipoPagamento))
                 {
-
-                    //atualizar saldo da conta corrente
-
                     lblResultado.Text = "Empréstimo Realizado com Sucesso!";
                 }
             }
