@@ -142,6 +142,7 @@
     <Content Include="Views\vwsInvestimento.aspx" />
     <Content Include="Views\vwsLogin.aspx" />
     <Content Include="Views\vwsMeusInvestimentos.aspx" />
+    <Content Include="Views\vwsRegaste.aspx" />
     <Content Include="Views\vwsTransferencia.aspx" />
     <Content Include="Views\vwsVisualizarPagamentoEmprestimo.aspx" />
     <Content Include="Web.config" />
@@ -222,6 +223,13 @@
     </Compile>
     <Compile Include="Views\vwsLogin.aspx.designer.cs">
       <DependentUpon>vwsLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vwsRegaste.aspx.cs">
+      <DependentUpon>vwsRegaste.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vwsRegaste.aspx.designer.cs">
+      <DependentUpon>vwsRegaste.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\vwsVisualizarPagamentoEmprestimo.aspx.cs">
       <DependentUpon>vwsVisualizarPagamentoEmprestimo.aspx</DependentUpon>
