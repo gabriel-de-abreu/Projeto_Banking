@@ -22,7 +22,7 @@
                 <div class=" form-group">
                     <asp:Button ID="btnSimular" runat="server" Text="Simular" OnClick="btnSimular_Click" CssClass="btn btn-primary" />
                     <br />
-                    <asp:Label ID="lblAviso" runat="server" Text="" ForeColor="Red">Teste</asp:Label>
+                    <asp:Label ID="lblAviso" runat="server" Text="" ForeColor="Red"></asp:Label>
                 </div>
             </div>
 

@@ -21,6 +21,11 @@ namespace Projeto_Banking.Views
         {
             cc = Session["contaCorrente"] as ContaCorrente;
 
+            if(cc == null)
+            {
+                Response.Redirect("~/Views/vwsLogin.aspx");
+            }
+
             lblDataVencimento.Text = " (entre " + dataMinima.ToString("dd/MM/yyyy") + " e " + dataMaxima.ToString("dd/MM/yyyy") + ")"; //exibe data limites para o primeiro vencimento
 
             if (!IsPostBack)
@@ -72,7 +77,9 @@ namespace Projeto_Banking.Views
 
             Taxa taxa = new TaxaDAO().PesquisarPorTaxa(EmprestimoOPS.VerificarPerfil(cc)); //obtem taxa atraves do perfil da pessoa
             //data = DateTime.Parse(txtDataPrimeiroVencimento.Text);
-            if(DateTime.TryParse(txtDataPrimeiroVencimento.Text, out data)){ }
+            if(!DateTime.TryParse(txtDataPrimeiroVencimento.Text, out data)){
+                data = DateTime.Now.Date;
+            }
 
             if (Double.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima < data && dataMaxima > data)
             {
@@ -88,6 +95,7 @@ namespace Projeto_Banking.Views
             }
             else
             {
+                divSimulacao.Visible = false;
                 lblAviso.Text = "Dados incorretos!";
             }
         }
