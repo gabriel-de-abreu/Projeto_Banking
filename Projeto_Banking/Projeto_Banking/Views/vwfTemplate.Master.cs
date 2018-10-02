@@ -23,7 +23,6 @@ namespace Projeto_Banking
                 aMeusEmprestimos.Visible = false;
                 aMeusInvestimentos.Visible = false;
                 lbEntrarSair.Text = "Entrar";
-                Response.Redirect("~/Views/vwsLogin.aspx");
 
             }
         }
