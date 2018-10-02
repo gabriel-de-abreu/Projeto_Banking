@@ -53,6 +53,5 @@
                     </asp:TemplateField>                
             </Columns>
         </asp:GridView>
-        <asp:Label ID="lblDeuPau" runat="server" Text=""></asp:Label>
     </div>
 </asp:Content>

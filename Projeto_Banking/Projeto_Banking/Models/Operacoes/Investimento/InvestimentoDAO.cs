@@ -95,9 +95,10 @@ namespace Projeto_Banking.Models
             var valor = InvestimentoOPS.Resgate(investimentoConta, dataResgate);
             if (new ContaDAO().Transferir(new ContaDAO().PesquisarContaPorNumero(1),
                 investimentoConta.Conta, (float)valor, "Resgate de investimento") != null)
-                return (float)valor;
-            else
-                return -1;
+                if (AtualizaInvestimentoConta(investimentoConta) != null)
+                    return (float)valor;
+
+            return -1;
 
         }
         public float SimulaResgate(InvestimentoConta investimentoConta, DateTime dataResgate)
@@ -169,6 +170,25 @@ namespace Projeto_Banking.Models
 
 
             return iC;
+
+        }
+        public InvestimentoConta AtualizaInvestimentoConta(InvestimentoConta investimentoConta)
+        {
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            string sql = ("UPDATE projetobanking.investimento_conta " +
+                          "SET Investimento_Resgate = 1" +
+                          " WHERE Investimento_Conta_Id = " + investimentoConta.Id);
+
+            command.CommandText = sql;
+            int retorno = command.ExecuteNonQuery();
+            if (retorno > 0)
+            {
+                return investimentoConta;
+            }
+            else
+            {
+                return null;
+            }
 
         }
     }
