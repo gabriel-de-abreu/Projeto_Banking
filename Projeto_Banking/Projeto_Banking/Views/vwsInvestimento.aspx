@@ -3,11 +3,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
      <div>
+            <asp:Label ID="lblContaAtual" runat="server" Text="Conta: "></asp:Label>
+            <br />
+            <asp:Label ID="lblSaldo" runat="server" Text="Saldo: "></asp:Label>
             <br />
             <asp:Label ID="lblValorIni" runat="server" Text="Valor inicial do Investimento:"></asp:Label>
             <asp:TextBox ID="txtValorIni" runat="server"></asp:TextBox>
-            <asp:Label ID="lblValorFim" runat="server" Text="Valor final do Investimento:"></asp:Label>
-            <asp:TextBox ID="txtValorFim" runat="server" ></asp:TextBox>
+            <asp:Label ID="lblValorFim" runat="server" Text="Valor final do Investimento:" Visible="False"></asp:Label>
+            <asp:TextBox ID="txtValorFim" runat="server" Visible="False" ></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnEfetuar" runat="server" OnClick="btnEfetuar_Click" Text="Efetuar Investimento" Visible="False" />
             <br />
 
             <asp:Label ID="lblDataIni" runat="server" Text="Data Inicial do Investimento: "></asp:Label>
@@ -18,14 +23,14 @@
             <asp:TextBox ID="txtDataFim" runat="server"></asp:TextBox>
             <br />
 
-            <asp:Label ID="lblDataRet" runat="server" Text="Data da Retirada: "></asp:Label>
-            <asp:TextBox ID="txtDataRet" runat="server"></asp:TextBox>
+           
             <br />
 
             <asp:Label ID="lblInvestimento" runat="server" Text="Selecione o Tipo de Investimento: "></asp:Label>
             <asp:DropDownList ID="ddlInvestimentos" runat="server"></asp:DropDownList>
             <br />
             <asp:Button ID="BtnSimular"  runat="server" Text="Simular" OnClick="BtnSimular_Click" />
+               <br />
          <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
         </div>
 </asp:Content>

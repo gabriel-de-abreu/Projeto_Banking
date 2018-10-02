@@ -13,7 +13,29 @@ namespace Projeto_Banking
         {
             if (Session["contaCorrente"] != null)
             {
+                aMeusEmprestimos.Visible = true;
+                aMeusInvestimentos.Visible = true;
+                lbEntrarSair.Text = "Sair";
+            }
+            else
+            {
 
+                aMeusEmprestimos.Visible = false;
+                aMeusInvestimentos.Visible = false;
+                lbEntrarSair.Text = "Entrar";
+            }
+        }
+
+        protected void lbEntrarSair_Click(object sender, EventArgs e)
+        {
+            if(Session["contaCorrente"] != null)
+            {
+                Session["contaCorrente"] = null;
+                Response.Redirect("~/Views/vwsLogin.aspx");
+            }
+            else
+            {
+                Response.Redirect("~/Views/vwsLogin.aspx");
             }
         }
     }
