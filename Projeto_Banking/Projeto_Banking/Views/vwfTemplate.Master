@@ -18,13 +18,26 @@
 
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">                
+                <a class="nav-item nav-link" href="#">Meus Empréstimos</a>
+                <a class="nav-item nav-link" href="vwsMeusInvestimentos.aspx">Meus Investimentos</a>
+            </div>
+        </div>
+    </nav>
+
     <form id="form1" runat="server">
 
         <asp:ContentPlaceHolder ID="body" runat="server">
         </asp:ContentPlaceHolder>
     </form>
     <footer class="footer">
-        <div class="container">
+        <div class="container" align="center">
             <span class="text-muted">Projeto final do curso de programação do Senai. </span>
         </div>
     </footer>

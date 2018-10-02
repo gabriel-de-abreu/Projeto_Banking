@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-     <div>
+     <div class="container conta-corrente-div">
             <div>
                 <asp:Label ID="lblTitular" runat="server" Text="Titular da Conta: "></asp:Label>
             </div>
