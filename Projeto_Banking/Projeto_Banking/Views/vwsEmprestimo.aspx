@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div class="container margin-1-upper">
+    <div class="container container-border margin-1-upper">
         <div class="row">
             <div class="col">
                 <div class="form-group">
@@ -25,7 +25,6 @@
                     <asp:Label ID="lblAviso" runat="server" Text="" ForeColor="Red"></asp:Label>
                 </div>
             </div>
-
             <div class="col">
                 <div runat="server" id="divSimulacao">
                         <table class="table">

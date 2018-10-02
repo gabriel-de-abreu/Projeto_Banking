@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div class="container conta-corrente-div ">
         <div class="container-border margin-3-upper">
-            <table class="table table-hover">
+            <table class="table table-hover remove-border">
                 <tr>
                     <td><strong>Titular da Conta</strong></td>
                     <td>

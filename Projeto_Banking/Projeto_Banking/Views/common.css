@@ -1,4 +1,9 @@
-﻿.login-div {
+﻿body {
+    background-color: #E0E0E0
+}
+
+
+.login-div {
     display: block;
     margin-top: 15%;
     margin-bottom: auto;
@@ -17,8 +22,8 @@
     margin-top: 2%;
 }
 
-.table-hover tbody tr:hover td {
-    background-color: #dbdbdb
+.table-hover tbody tr:hover th {
+    background-color: white;
 }
 
 .container-border {
@@ -26,7 +31,7 @@
     border-radius: 5px;
     padding: 15px 15px 15px 15px;
     padding-bottom: 5px;
-    background-color: ghostwhite
+    background-color: white;
 }
 
 .container-border-login {
@@ -34,7 +39,7 @@
     border-radius: 5px;
     padding: 5px 5px 5px 5px;
     padding-bottom: 5px;
-    background-color: ghostwhite
+    background-color: #f8f8ff
 }
 
 .inner-padding-button1 {
@@ -53,17 +58,22 @@
     border: none;
 }
 
-    .view-table tr th {
-        border-bottom: 1px solid lightgray;
-    }
-
     .view-table tr * {
         border: none;
+    }
+
+    .view-table tr:nth-child(2) td {
+        border-top: 1px solid lightgray;
     }
 
     .view-table tr td {
         border-bottom: 1px solid lightgray;
     }
-    .view-table tr:last-child td{
-        border-bottom:none;
+
+    .view-table tr:last-child td {
+        border-bottom: none;
     }
+
+.remove-border tbody tr:first-child td {
+    border-top: none;
+}

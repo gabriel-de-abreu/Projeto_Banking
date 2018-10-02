@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div class="container text-center margin-3-upper">
+    <div class="container container-border text-center margin-3-upper">
         <div id="divTransf" runat="server">
             <div class="row">
                 <div class="col-4">

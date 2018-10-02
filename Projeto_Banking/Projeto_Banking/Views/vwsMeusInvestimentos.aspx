@@ -4,11 +4,10 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div>
+    <div class = "container container-border margin-3-upper">
         <asp:GridView ID="gdvMeusInvestimentos" runat="server"
             AutoGenerateColumns="False" OnSelectedIndexChanged="gdvMeusInvestimentos_SelectedIndexChanged"
-            DataKeyNames="Investimento_Conta_Id">
-
+            DataKeyNames="Investimento_Conta_Id" CssClass ="table table-hover view-table">
             <Columns>
                 <asp:TemplateField HeaderText="Conta Corrente">
                     <EditItemTemplate>
