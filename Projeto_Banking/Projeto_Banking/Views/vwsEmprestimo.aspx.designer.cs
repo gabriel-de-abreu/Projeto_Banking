@@ -13,15 +13,6 @@ namespace Projeto_Banking.Views {
     public partial class vwsEmprestimo {
         
         /// <summary>
-        /// Controle btnConsultar.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnConsultar;
-        
-        /// <summary>
         /// Controle Label1.
         /// </summary>
         /// <remarks>
@@ -67,15 +58,6 @@ namespace Projeto_Banking.Views {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// Controle txtDataPrimeiroVencimento.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDataPrimeiroVencimento;
-        
-        /// <summary>
         /// Controle lblDataVencimento.
         /// </summary>
         /// <remarks>
@@ -83,6 +65,15 @@ namespace Projeto_Banking.Views {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDataVencimento;
+        
+        /// <summary>
+        /// Controle txtDataPrimeiroVencimento.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDataPrimeiroVencimento;
         
         /// <summary>
         /// Controle btnSimular.
@@ -182,5 +173,14 @@ namespace Projeto_Banking.Views {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblResultado;
+        
+        /// <summary>
+        /// Controle btnConsultar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnConsultar;
     }
 }

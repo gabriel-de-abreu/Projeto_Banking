@@ -125,6 +125,7 @@
     <Content Include="Vendors\Scripts\popper-utils.min.js.map" />
     <Content Include="Vendors\Scripts\popper-utils.js.map" />
     <Content Include="Vendors\Snippets\sticky-footer.css" />
+    <Content Include="Views\common.css" />
     <Content Include="Views\vwfTemplate.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

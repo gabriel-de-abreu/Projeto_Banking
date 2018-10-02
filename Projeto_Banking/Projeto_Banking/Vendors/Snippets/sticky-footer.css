@@ -9,13 +9,6 @@ body {
     margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
-.login-div {
-    display:block;
-    margin-top:15%;
-    margin-bottom:auto;
-    text-align:center;
-}
-
 .footer {
     position: absolute;
     bottom: 0;
