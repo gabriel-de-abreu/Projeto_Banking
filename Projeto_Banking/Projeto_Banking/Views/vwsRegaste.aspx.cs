@@ -57,6 +57,7 @@ namespace Projeto_Banking.Views
             {
                 txtValorFim.Text = (invDAO.Resgate(inv, Convert.ToDateTime(txtDataResgate.Text))).ToString();
                 Response.Write("<script language='javascript'>alert('Resgate Realizado com sucesso...');</script>");
+                Response.Redirect("~/Views/vwsMeusInvestimentos.aspx");
             }
 
         }
