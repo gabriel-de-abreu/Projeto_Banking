@@ -12,3 +12,24 @@
     margin-top: 10%;
 }
 
+.margin-3-upper{
+    margin-top:2%;
+}
+.table-hover tbody tr:hover td {
+    background-color: #dbdbdb
+}
+
+.container-border {
+    border: 1px solid #007bff   ;
+    border-radius: 5px;
+    padding: 15px 15px 15px 15px;
+    padding-bottom:5px;
+    background-color: ghostwhite
+}
+.inner-padding-button1{
+    margin-right:5px;
+}
+
+.inner-padding-button2 {
+    margin-left: 5px;
+}

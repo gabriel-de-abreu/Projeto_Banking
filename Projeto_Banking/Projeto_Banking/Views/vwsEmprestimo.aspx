@@ -67,7 +67,7 @@
         </div>
         <div class="row">
             <div class="container text-center margin-2-upper">
-                <asp:Button ID="btnConsultar" runat="server" Text="Consultar meus empréstimos" OnClick="btnConsultar_Click" CssClass=" btn btn-primary" />
+                <asp:Button ID="btnConsultar" runat="server" Text="Consultar meus empréstimos" OnClick="btnConsultar_Click" CssClass=" btn btn-outline-primary" />
             </div>
         </div>
     </div>
