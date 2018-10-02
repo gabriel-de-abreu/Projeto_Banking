@@ -19,7 +19,9 @@ namespace Projeto_Banking.Views
             cc = Session["contaCorrente"] as ContaCorrente;
             List<Investimento> investimentos = new List<Investimento>();
             lblValorFim.Visible = txtValorFim.Visible = btnEfetuar.Visible = false;
+
             if (cc == null) Response.Redirect("~/Views/vwsLogin.aspx");
+
             if (!IsPostBack)
             {
                 PopularMenuDD();
@@ -74,7 +76,7 @@ namespace Projeto_Banking.Views
             ddlInvestimentos.DataTextField = "Nome";
             ddlInvestimentos.DataValueField = "Id";
             ddlInvestimentos.DataBind();
-            txtDataIni.Text = DateTime.Now.Date.ToString();
+            txtDataIni.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
         }
 
         private void PreencherCampos()
