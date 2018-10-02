@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div class="container">
+    <div class="container margin-1-upper">
         <div class="row">
             <div class="col">
                 <div class="form-group">
@@ -17,38 +17,39 @@
                 <div class="form-group">
                     <asp:Label ID="Label4" runat="server" Text="Vencimento da primeira parcela"></asp:Label>
                     <asp:Label ID="lblDataVencimento" runat="server" Text=""></asp:Label>
-                    <asp:TextBox ID="txtDataPrimeiroVencimento" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtDataPrimeiroVencimento" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
                 </div>
                 <div class=" form-group">
                     <asp:Button ID="btnSimular" runat="server" Text="Simular" OnClick="btnSimular_Click" CssClass="btn btn-primary" />
+                    <br />
+                    <asp:Label ID="lblAviso" runat="server" Text="" ForeColor="Red">Teste</asp:Label>
                 </div>
             </div>
 
             <div class="col">
-                <asp:Label ID="lblAviso" runat="server" Text="" ForeColor="Red">Teste</asp:Label>
                 <div runat="server" id="divSimulacao">
-                    <table class="table">
-                        <tr>
-                            <td><b>Parcelas</b></td>
-                            <td>
-                                <asp:Label ID="lblParcelas" runat="server" Text=""></asp:Label></td>
-                        </tr>
-                        <tr>
-                            <td><b>Valor</b></td>
-                            <td>
-                                <asp:Label ID="lblValor" runat="server" Text=""></asp:Label></td>
-                        </tr>
-                        <tr>
-                            <td><b>Valor Total</b></td>
-                            <td>
-                                <asp:Label ID="lblValorTotal" runat="server" Text=""></asp:Label></td>
-                        </tr>
-                        <tr>
-                            <td><b>Taxa de Juros</b></td>
-                            <td>
-                                <asp:Label ID="lblTaxa" runat="server" Text=""></asp:Label></td>
-                        </tr>
-                    </table>
+                        <table class="table">
+                            <tr>
+                                <td><b>Parcelas</b></td>
+                                <td>
+                                    <asp:Label ID="lblParcelas" runat="server" Text=""></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td><b>Valor</b></td>
+                                <td>
+                                    <asp:Label ID="lblValor" runat="server" Text=""></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td><b>Valor Total</b></td>
+                                <td>
+                                    <asp:Label ID="lblValorTotal" runat="server" Text=""></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td><b>Taxa de Juros</b></td>
+                                <td>
+                                    <asp:Label ID="lblTaxa" runat="server" Text=""></asp:Label></td>
+                            </tr>
+                        </table>
                     <div class="form-group">
                         <asp:Label ID="Label3" runat="server" Text="Pagamento"></asp:Label>
                         <asp:RadioButtonList ID="rblPagamento" runat="server">
@@ -56,13 +57,16 @@
                             <asp:ListItem Text="Boleto" Value="boleto" />
                         </asp:RadioButtonList>
                     </div>
-                    <asp:Button ID="btnRealizar" runat="server" Text="Realizar Empréstimo" OnClick="btnRealizar_Click" CssClass="btn btn-primary" />
-                    <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
+                    <div>
+                        <asp:Button ID="btnRealizar" runat="server" Text="Realizar Empréstimo" OnClick="btnRealizar_Click" CssClass="btn btn-primary" />
+                        <br />
+                        <asp:Label ID="lblResultado" runat="server" Text="" CssClass="margin-1-upper"></asp:Label>
+                    </div>
                 </div>
-            </div>
+        </div>
         </div>
         <div class="row">
-            <div class="container text-center">
+            <div class="container text-center margin-2-upper">
                 <asp:Button ID="btnConsultar" runat="server" Text="Consultar meus empréstimos" OnClick="btnConsultar_Click" CssClass=" btn btn-primary" />
             </div>
         </div>
