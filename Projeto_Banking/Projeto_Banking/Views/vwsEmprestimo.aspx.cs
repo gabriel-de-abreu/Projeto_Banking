@@ -52,19 +52,26 @@ namespace Projeto_Banking.Views
             }
             else if (float.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima <= data && dataMaxima >= data)
             {
-                Emprestimo emprestimo = new Emprestimo()
+                if (valorDesejado > cc.Limite)
                 {
-                    Valor = valorDesejado,
-                    Parcelas = parcelas,
-                    ContaCorrente = cc,
-                    Taxa = taxa,
-                    DataInicio = data,
-                };
+                    lblAviso.Text = "Valor é superior ao limite disponível em sua conta";
+                }
+                else
+                {
+                    Emprestimo emprestimo = new Emprestimo()
+                    {
+                        Valor = valorDesejado,
+                        Parcelas = parcelas,
+                        ContaCorrente = cc,
+                        Taxa = taxa,
+                        DataInicio = data,
+                    };
 
-                EmprestimoDAO empDAO = new EmprestimoDAO();
-                if (empDAO.InserirEmprestimo(emprestimo, tipoPagamento))
-                {
-                    lblResultado.Text = "Empréstimo Realizado com Sucesso!";
+                    EmprestimoDAO empDAO = new EmprestimoDAO();
+                    if (empDAO.InserirEmprestimo(emprestimo, tipoPagamento))
+                    {
+                        lblResultado.Text = "Empréstimo Realizado com Sucesso!";
+                    }
                 }
             }
             else
@@ -83,23 +90,32 @@ namespace Projeto_Banking.Views
 
             Taxa taxa = new TaxaDAO().PesquisarPorTaxa(EmprestimoOPS.VerificarPerfil(cc)); //obtem taxa atraves do perfil da pessoa
             //data = DateTime.Parse(txtDataPrimeiroVencimento.Text);
-
+            
+            
             if(!DateTime.TryParse(txtDataPrimeiroVencimento.Text, out data)){   //verifica data
                 lblAviso.Text = "Escolha uma data válida!";
                 divSimulacao.Visible = false;
 
             }
             else if (Double.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima <= data && dataMaxima >= data)
-            {
-                divSimulacao.Visible = true;
+            {   
+                if(valorDesejado > cc.Limite)
+                {
+                    lblAviso.Text = "Valor é superior ao limite disponível em sua conta";
+                }
+                else
+                {
+                    divSimulacao.Visible = true;
+                    
+                    valorParcela = EmprestimoOPS.CalcularParcelas(parcelas, taxa, valorDesejado); //calcula valor das parcelas 
+                    valorTotal = valorParcela * parcelas;
 
-                valorParcela = EmprestimoOPS.CalcularParcelas(parcelas, taxa, valorDesejado); //calcula valor das parcelas 
-                valorTotal = valorParcela * parcelas;
-
-                lblParcelas.Text = parcelas.ToString();
-                lblValor.Text = "R$ " + valorParcela.ToString("0.00");
-                lblValorTotal.Text = "R$" + valorTotal.ToString("0.00");
-                lblTaxa.Text = taxa.Valor + "%";
+                    lblParcelas.Text = parcelas.ToString();
+                    lblValor.Text = "R$ " + valorParcela.ToString("0.00");
+                    lblValorTotal.Text = "R$" + valorTotal.ToString("0.00");
+                    lblTaxa.Text = taxa.Valor + "%";
+                }
+                
             }
             else
             {

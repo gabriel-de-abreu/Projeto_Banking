@@ -62,5 +62,20 @@ namespace Projeto_Banking.Models.ContaDAOs
             return conta;
 
         }
+
+        public bool AtualizarLimite(int numeroCC, float valor)
+        {
+
+            ContaCorrente cc = PesquisarPorNumero(numeroCC);
+            cc.Limite += valor;
+
+            MySqlCommand command = Connection.Instance.CreateCommand();
+
+            command.CommandText = $"UPDATE conta_corrente SET Conta_Corrente_limite = @limite" +
+                $" WHERE `Conta_id` = {cc.Numero};";
+            command.Parameters.AddWithValue("@limite", (float)cc.Limite);
+
+            return command.ExecuteNonQuery() == 1 ? true : false;
+        }
     }
 }

@@ -60,7 +60,13 @@ namespace Projeto_Banking.Models
                     }
                 }
                 // Fim da gerar pagamentos
+
+                //sensibliza contabil
                 new ContaDAO().Transferir(new ContaDAO().PesquisarContaPorNumero(2), emp.ContaCorrente, emp.Valor, "Realização de empréstimo");
+
+                //atualiza limite da conta corrente
+                new ContaCorrenteDAO().AtualizarLimite(emp.ContaCorrente.Numero, emp.Valor);
+
                 if (retorno > 0)
                 {
                     return true;

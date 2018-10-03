@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="ContaContabilEmprestimoDAOTest.cs" />
     <Compile Include="ContaContabilInvestimentoDAOTest.cs" />
+    <Compile Include="ContaCorrenteDAOTest.cs" />
     <Compile Include="ContaDAOTest.cs" />
     <Compile Include="ContaPessoaDAOTest.cs" />
     <Compile Include="InvestimentoDAOTest.cs" />
