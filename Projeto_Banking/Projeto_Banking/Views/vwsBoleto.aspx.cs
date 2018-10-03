@@ -14,7 +14,19 @@ namespace Projeto_Banking.Views
         protected void Page_Load(object sender, EventArgs e)
         {
             PagamentoBoleto pagamentoBoleto = new PagamentoDAO().BuscarPagamentoPorId(Convert.ToInt32(Session["Pag_Boleto_id"])) as PagamentoBoleto;
-            Label1.Text = pagamentoBoleto.ToString();
+            lblCodBarras.Text = pagamentoBoleto.Codigo.ToString();
+            lblConta.Text = pagamentoBoleto.Emprestimo.ContaCorrente.Numero.ToString();
+            lblEmpCod.Text = pagamentoBoleto.Emprestimo.Id.ToString();
+            lblPago.Text = (pagamentoBoleto.Pago ? "Sim" : "Não");
+            lblValor.Text = pagamentoBoleto.Valor.ToString();
+            lblVencimento.Text = pagamentoBoleto.Vencimento.ToString("dd/MM/yyyy");
+            lblCliente.Text = pagamentoBoleto.Emprestimo.ContaCorrente.Pessoa.Nome;
+            lblClienteCPF.Text = pagamentoBoleto.Emprestimo.ContaCorrente.Pessoa.Cpf;
+        }
+
+        protected void btnVoltar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/vwsVisualizarPagamentoEmprestimo.aspx");
         }
     }
 }

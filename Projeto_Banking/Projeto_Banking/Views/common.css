@@ -84,3 +84,21 @@
 .btn-conta-corrente {
     width: 200px;
 }
+
+/*Boleto*/
+.header-boleto {
+    text-align: center;
+}
+
+.table-boleto tr td {
+    width: 50%;
+}
+
+@media print{
+    .container-border{
+        border:none;
+    }
+   .btn{
+        display:none;
+    }
+}
