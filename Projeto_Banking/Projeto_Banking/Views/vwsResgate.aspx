@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div class="container container-border margin-3-upper">
         <div class="row">
-            <div class="col-4">
+            <div id="divSelData" class="col-4" runat="server">
                 <div class="form-group">
                     <label>Data Desejada do Resgate</label>
                     <asp:TextBox ID="txtDataResgate"
@@ -49,7 +49,7 @@
         <div class="row">
             <div class="container text-center margin-1-bottom">
                 <div id="divResultado" class="form-group" runat="server" visible="false">
-                    <label>Valor Final do Investimento:</label>
+                    <asp:Label ID="lblStringValorFim" runat="server">Valor Final do Investimento:</asp:Label>
                     <asp:Label ID="txtValorFim" runat="server"></asp:Label>
                 </div>
                 <asp:Button ID="btnResgatar" runat="server" Text="Resgatar Investimento" OnClick="btnResgatar_Click" CssClass="btn btn-primary" />

@@ -22,6 +22,9 @@ INSERT INTO `ProjetoBanking`.`Conta_Corrente` (`Conta_Conta_Corrente_id`, `Conta
 INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUES (1, "Juros Perfil 1", 4);
 INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUES (2, "Juros Perfil 2", 8);
 INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUES (3,"Juros Perfil 3", 12);
+INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUES (4,"Imposto de Renda", 17.5);
+INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUES (5,"IOF", 20);
+INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUES (6,"Taxa Poupança", 0.01);
 
 /* Inserção de Investimentos */
 INSERT INTO `projetobanking`.`investimento`
@@ -30,7 +33,7 @@ INSERT INTO `projetobanking`.`investimento`
 `Investimento_rentabilidade`,
 `Taxa_Taxa_id`)
 VALUES
-(1, "Renda Fixa", 4, 3);
+(1, "Renda Fixa", 4, 4);
 
 INSERT INTO `projetobanking`.`investimento`
 (`Investimento_id`,
@@ -38,7 +41,12 @@ INSERT INTO `projetobanking`.`investimento`
 `Investimento_rentabilidade`,
 `Taxa_Taxa_id`)
 VALUES
-(2, "Tesouro Direto", 2, 3);
+(2, "Tesouro Direto", 2, 5);
 
-/* Inserção Investimento_Conta */
-INSERT INTO projetobanking.Investimento_Conta (Investimento_Investimento_id, Conta_Corrente_Conta_Conta_Corrente_id,Investimento_Conta_Valor, Investimento_Inicio, Investimento_Fim)  VALUES (1, 4,100, '2018-10-01','2019-10-01');
+INSERT INTO `projetobanking`.`investimento`
+(`Investimento_id`,
+`Investimento_nome`,
+`Investimento_rentabilidade`,
+`Taxa_Taxa_id`)
+VALUES
+(3, "Poupança", 1, 6);

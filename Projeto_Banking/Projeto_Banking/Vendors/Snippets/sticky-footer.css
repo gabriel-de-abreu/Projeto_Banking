@@ -18,12 +18,3 @@ body {
     line-height: 60px; /* Vertically center the text there */
     background-color: #000000;
 }
-
-
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-.centered {
-    margin: 0 auto !important;
-    float: none !important;
-}

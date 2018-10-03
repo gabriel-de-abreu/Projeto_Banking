@@ -35,6 +35,7 @@ namespace Projeto_Banking.Views
 
             dTable.Columns.Add("Pagamento_tipo", typeof(String));
             dTable.Columns.Add("Emprestimo_Inicio_Formatado", typeof(String));
+            dTable.Columns.Add("Emprestimo_Valor_Formatado", typeof(String));
 
             PagamentoDAO pagDAO = new PagamentoDAO();
 
@@ -43,6 +44,7 @@ namespace Projeto_Banking.Views
                 row["Pagamento_tipo"] = pagDAO.TipoPagamentoEmprestimo(new Emprestimo() { Id = Convert.ToInt32(row["Emprestimo_id"].ToString()) });
                 DateTime data = Convert.ToDateTime(row["Emprestimo_Inicio"]);
                 row["Emprestimo_Inicio_Formatado"] = data.ToString("dd/MM/yyyy");
+                row["Emprestimo_Valor_Formatado"] = Convert.ToDouble(row["Emprestimo_Valor"]).ToString("c2");
             }
 
             gdvEmprestimos.DataSource = dTable;

@@ -91,14 +91,14 @@ namespace Projeto_Banking.Models
 
         }
 
-        public DataTable BuscarExtratosConta(Conta id)
+        public DataTable BuscarExtratosConta(int id)
         {
             try
             {
                 DataTable table = new DataTable();
 
                 MySqlDataAdapter sqlData = new MySqlDataAdapter("SELECT * FROM projetobanking.movimentacao " +
-                    "WHERE Conta_movimentacao_origem_id = @id OR Conta_movimetacao_detino = @id", Connection.Instance);
+                    "WHERE Conta_movimentacao_origem_id = @id OR Conta_movimetacao_destino = @id", Connection.Instance);
                 sqlData.SelectCommand.Parameters.AddWithValue("@id", id);
                 sqlData.Fill(table);
 

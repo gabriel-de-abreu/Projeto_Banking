@@ -21,8 +21,8 @@ namespace Projeto_Banking.Views
                 Session["contaCorrente"] = new ContaDAO().PesquisarContaPorNumero((Session["contaCorrente"] as ContaCorrente).Numero);
                 ContaCorrente ccSession = Session["contaCorrente"] as ContaCorrente;
                 lblNumero.Text += ccSession.Numero.ToString(); //validar nome com objeto
-                lblSaldo.Text += ccSession.Saldo.ToString(); //validar nome com objeto
-                lblLimite.Text += ccSession.Limite.ToString();
+                lblSaldo.Text += ccSession.Saldo.ToString("c2"); //validar nome com objeto
+                lblLimite.Text += ccSession.Limite.ToString("c2");
                 lblTitular.Text += ccSession.Pessoa.Nome;
             }
 
@@ -46,6 +46,11 @@ namespace Projeto_Banking.Views
         protected void btnTransferencias_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Views/vwsTransferencia.aspx");
+
+        }
+        protected void btnExtrato_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/vwsExtrato.aspx");
 
         }
     }

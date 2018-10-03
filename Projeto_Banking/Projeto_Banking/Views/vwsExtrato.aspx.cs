@@ -29,7 +29,7 @@ namespace Projeto_Banking.Views
         public void PopularGrid()
         {
             MovimentacaoDAO movDao = new MovimentacaoDAO();
-            DataTable dTable = movDao.BuscarExtratosConta(cc);
+            DataTable dTable = movDao.BuscarExtratosConta(cc.Numero);
 
             gdvExtrato.DataSource = dTable;
             gdvExtrato.DataBind();

@@ -12,15 +12,18 @@ namespace Projeto_Banking.Views
     public partial class vwsRegaste : System.Web.UI.Page
     {
         ContaCorrente cc; InvestimentoConta iC;
+        private float valorInicial;
         protected void Page_Load(object sender, EventArgs e)
         {
             cc = Session["contaCorrente"] as ContaCorrente;
             iC = Session["investimentoConta"] as InvestimentoConta;
+            valorInicial = (float)(Session["investimentoConta"] as InvestimentoConta).Valor;
 
             if (cc == null || iC == null) Response.Redirect("~/Views/vwsContaCorrente.aspx");
 
             if (!IsPostBack)
             {
+
                 PreencherCampos();
             }
         }
@@ -28,7 +31,7 @@ namespace Projeto_Banking.Views
         private void PreencherCampos()
         {
 
-            txtValorIni.Text = ((Convert.ToDouble(iC.Valor))).ToString();
+            txtValorIni.Text = ((Convert.ToDouble(iC.Valor))).ToString("c2");
             txtValorFim.Text = ("");
             txtDataResgate.Text = ("");
             txtDataIni.Text = (iC.DataInicio).ToString("dd/MM/yyyy");
@@ -37,28 +40,41 @@ namespace Projeto_Banking.Views
             if (iC.Resgatado)
             {
                 btnResgatar.Enabled = false;
-                txtDataResgate.Enabled = false;
+                divSelData.Visible = false;
             }
 
         }
         public void SimularInvestimento(object sender, EventArgs e)
-        {            
-            if (!(txtDataResgate.Text).Equals(""))
+        {
+            try
             {
-                txtValorFim.Text = (new InvestimentoDAO().SimulaResgate(iC, Convert.ToDateTime(txtDataResgate.Text))).ToString();
+                DateTime.Parse(txtDataResgate.Text);
+                txtValorFim.Text = "Valor Final do Investimento: " + (new InvestimentoDAO().SimulaResgate(iC, Convert.ToDateTime(txtDataResgate.Text))).ToString("c2");
                 divResultado.Visible = true;
             }
-            iC.Valor = double.Parse(txtValorIni.Text.ToString());
+            catch
+            {
+                divResultado.Visible = true;
+                lblStringValorFim.Text = "Formato de data inválido!";
+            }
+            iC.Valor = valorInicial;
         }
 
         protected void btnResgatar_Click(object sender, EventArgs e)
         {
             InvestimentoDAO invDAO = new InvestimentoDAO();
-            if (!(txtDataResgate.Text).Equals(""))
+            try
             {
-                txtValorFim.Text = (invDAO.Resgate(iC, Convert.ToDateTime(txtDataResgate.Text))).ToString();
+                DateTime.Parse(txtDataResgate.Text);
+                txtValorFim.Text = "Valor Final do Investimento: "+(invDAO.Resgate(iC, Convert.ToDateTime(txtDataResgate.Text))).ToString("c2");
+
                 Response.Write("<script language='javascript'>alert('Resgate Realizado com sucesso!');</script>");
                 Response.Redirect("~/Views/vwsMeusInvestimentos.aspx");
+            }
+            catch
+            {
+                divResultado.Visible = true;
+                lblStringValorFim.Text = "Formato de data inválido!";
             }
 
         }

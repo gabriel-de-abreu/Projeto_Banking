@@ -10,78 +10,87 @@
 namespace Projeto_Banking.Views {
     
     
-    public partial class vwsContaCorrente {
+    public partial class vwsBoleto {
         
         /// <summary>
-        /// Controle lblTitular.
+        /// Controle lblCliente.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitular;
+        protected global::System.Web.UI.WebControls.Label lblCliente;
         
         /// <summary>
-        /// Controle lblNumero.
+        /// Controle lblClienteCPF.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNumero;
+        protected global::System.Web.UI.WebControls.Label lblClienteCPF;
         
         /// <summary>
-        /// Controle lblLimite.
+        /// Controle lblConta.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLimite;
+        protected global::System.Web.UI.WebControls.Label lblConta;
         
         /// <summary>
-        /// Controle lblSaldo.
+        /// Controle lblEmpCod.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSaldo;
+        protected global::System.Web.UI.WebControls.Label lblEmpCod;
         
         /// <summary>
-        /// Controle btnEmprestimo.
+        /// Controle lblPago.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEmprestimo;
+        protected global::System.Web.UI.WebControls.Label lblPago;
         
         /// <summary>
-        /// Controle btnInvestimento.
+        /// Controle lblVencimento.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnInvestimento;
+        protected global::System.Web.UI.WebControls.Label lblVencimento;
         
         /// <summary>
-        /// Controle btnTransferencias.
+        /// Controle lblValor.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnTransferencias;
+        protected global::System.Web.UI.WebControls.Label lblValor;
         
         /// <summary>
-        /// Controle btnExtrato.
+        /// Controle lblCodBarras.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnExtrato;
+        protected global::System.Web.UI.WebControls.Label lblCodBarras;
+        
+        /// <summary>
+        /// Controle btnVoltar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVoltar;
     }
 }

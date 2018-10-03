@@ -30,11 +30,13 @@ namespace Projeto_Banking.Views
             dt.Columns.Add("Investimento_Inicio_Formatado", typeof(String));
             dt.Columns.Add("Investimento_Fim_Formatado", typeof(String));
             dt.Columns.Add("Investimento_Resgate_Formatado", typeof(String));
+            dt.Columns.Add("Investimento_Conta_Valor_Formatado", typeof(String));
             foreach (DataRow row in dt.Rows)
             {
                 row["Investimento_Inicio_Formatado"] = Convert.ToDateTime(row["Investimento_Inicio"]).ToString("dd/MM/yyyy");
                 row["Investimento_Fim_Formatado"] = Convert.ToDateTime(row["Investimento_Fim"]).ToString("dd/MM/yyyy");
                 row["Investimento_Resgate_Formatado"] = (Convert.ToBoolean(row["Investimento_Resgate"])) ? ("Sim") : ("Não");
+                row["Investimento_Conta_Valor_Formatado"] = Convert.ToDouble(row["Investimento_Conta_Valor"]).ToString("c2");
 
             }
             gdvMeusInvestimentos.DataSource = dt;
@@ -48,16 +50,7 @@ namespace Projeto_Banking.Views
             iC = new InvestimentoDAO().BuscarInvestimento(new InvestimentoConta() { Id = id });
             Session["investimentoConta"] = iC;
 
-            //Session["contaCorrente"] = ccSession;
-            //if (int.Parse(gdvMeusInvestimentos.Rows[rowIndex].Cells[6].Text) ==0 )
-            //{
-
             Response.Redirect("~/Views/vwsResgate.aspx");
-            //}
-            //else
-            //{
-            //    Response.Write("<script language='javascript'>alert('Este investimento já foi resgatado!');</script>");
-            //}
 
         }
     }

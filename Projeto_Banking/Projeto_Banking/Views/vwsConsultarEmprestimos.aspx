@@ -12,9 +12,12 @@
                         <asp:Label ID="lblData" runat="server" Text='<%# Bind("Emprestimo_inicio_Formatado") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Valor ">
+                <asp:TemplateField HeaderText="Valor">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Emprestimo_Valor_Formatado") %>'></asp:TextBox>
+                    </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="lblValor" runat="server" Text='<%# "R$ "+Eval("Emprestimo_valor") %>'></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Emprestimo_Valor_Formatado") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Nº de Parcelas">
@@ -24,7 +27,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Taxa de Juros">
                     <ItemTemplate>
-                        <asp:Label ID="lblTaxa" runat="server" Text='<%# Eval("Taxa_valor")+"%" %>'></asp:Label>
+                        <asp:Label ID="lblTaxa" runat="server" Text='<%# Eval("Taxa_valor")+" %" %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Tipo de Pagamento">
