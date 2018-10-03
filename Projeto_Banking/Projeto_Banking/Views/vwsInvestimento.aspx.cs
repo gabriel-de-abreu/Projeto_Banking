@@ -48,8 +48,9 @@ namespace Projeto_Banking.Views
 
                     //investimentoDao.InserirInvestimento(investimentoConta);
                     txtValorFim.Text = investimentoDao.SimulaResgate(investimentoConta, DateTime.Parse(txtDataFim.Text)).ToString();
-                    dadosInvestimento.Visible = false;
                     dadosSimulacao.Visible = true;
+                    dadosSimulacaoBtn.Visible = true;
+                    lblResultado.Text = "";
                 }
                 else
                 {
@@ -61,11 +62,8 @@ namespace Projeto_Banking.Views
                 lblResultado.Text = "O valor não pode ser maior que o saldo!";
 
             }
-
-
-
-
         }
+
         private void PopularMenuDD()
         {
             InvestimentoDAO investimentoDao = new InvestimentoDAO();
@@ -101,7 +99,7 @@ namespace Projeto_Banking.Views
             };
             if (investimentoDao.InserirInvestimento(investimentoConta) != null)
             {
-                dadosSimulacao.Visible = false;
+                dadosSimulacaoBtn.Visible = false;
                 lblResultado.Text = "Investimento realizado com sucesso!";
             }
             else
@@ -119,8 +117,8 @@ namespace Projeto_Banking.Views
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            dadosInvestimento.Visible = true;
             dadosSimulacao.Visible = false;
+            dadosSimulacaoBtn.Visible = false;
         }
     }
 }

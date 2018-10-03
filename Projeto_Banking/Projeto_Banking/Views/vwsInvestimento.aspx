@@ -39,16 +39,23 @@
                             <asp:Label ID="lblSaldo" runat="server"></asp:Label>
                         </td>
                     </tr>
+                    <tr id="dadosSimulacao" runat="server" visible="false">
+                        <td>
+                            <strong>Valor Final do Investimento
+                            </strong>
+                        </td>
+                        <td>
+                            <asp:Label ID="txtValorFim" runat="server"></asp:Label>
+                        </td>
+                    </tr>
                 </table>
-            </div>
-            <div id="dadosSimulacao" class="col" runat="server" visible="false">
-                <%-- Exibir após simulação --%>
-                <div class="form-group">
-                    <asp:Label ID="lblValorFim" runat="server" Text="Valor final do Investimento:"></asp:Label>
-                    <asp:TextBox ID="txtValorFim" runat="server" CssClass="form-control"></asp:TextBox>
+                <div id="dadosSimulacaoBtn" class="col" runat="server" visible="false">
+                    <%-- Exibir após simulação --%>
+                    <div class="form-group">
+                    </div>
+                    <asp:Button ID="btnEfetuar" CssClass="btn btn-primary inner-padding-button1" runat="server" OnClick="btnEfetuar_Click" Text="Efetuar Investimento" />
+                    <asp:Button ID="btnCancelar" CssClass="btn btn-outline-primary inner-padding-button2" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
                 </div>
-                <asp:Button ID="btnEfetuar" CssClass="btn btn-primary inner-padding-button1" runat="server" OnClick="btnEfetuar_Click" Text="Efetuar Investimento" />
-                <asp:Button ID="btnCancelar" CssClass="btn btn-outline-primary inner-padding-button2" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
             </div>
         </div>
         <div class="row">

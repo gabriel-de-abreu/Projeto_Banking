@@ -127,16 +127,7 @@ namespace Projeto_Banking.Views {
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dadosSimulacao;
-        
-        /// <summary>
-        /// Controle lblValorFim.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblValorFim;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow dadosSimulacao;
         
         /// <summary>
         /// Controle txtValorFim.
@@ -145,7 +136,16 @@ namespace Projeto_Banking.Views {
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtValorFim;
+        protected global::System.Web.UI.WebControls.Label txtValorFim;
+        
+        /// <summary>
+        /// Controle dadosSimulacaoBtn.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dadosSimulacaoBtn;
         
         /// <summary>
         /// Controle btnEfetuar.
