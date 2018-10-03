@@ -44,7 +44,7 @@ namespace Projeto_Banking.Views
                     lblNomeOrigem.Text = cc.Pessoa.Nome;
                     lblContaDestino.Text = conta.Numero.ToString();
                     lblNomeDestino.Text = conta.Pessoa.Nome;
-                    lblValor.Text = valor.ToString();
+                    lblValor.Text = valor.ToString("c2");
                 }
                 else
                 {
@@ -62,7 +62,7 @@ namespace Projeto_Banking.Views
         {
             cc = Session["contaCorrente"] as ContaCorrente;
             lblContaAtual.Text = cc.Numero.ToString();
-            lblSaldo.Text = cc.Saldo.ToString();
+            lblSaldo.Text = cc.Saldo.ToString("c2");
         }
 
         protected void btnVoltar_Click(object sender, EventArgs e)
