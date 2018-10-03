@@ -48,5 +48,10 @@ namespace Projeto_Banking.Views
             Response.Redirect("~/Views/vwsTransferencia.aspx");
 
         }
+        protected void btnExtrato_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/vwsExtrato.aspx");
+
+        }
     }
 }

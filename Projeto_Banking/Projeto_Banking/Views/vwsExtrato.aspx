@@ -33,7 +33,7 @@
                     <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Movimentacao_origem") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("Movimentacao_origem") %>'></asp:Label>
+                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("Conta_Movimentacao_origem_id") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Destino">
@@ -41,7 +41,7 @@
                     <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Movimentacao_destino") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("Movimentacao_destino") %>'></asp:Label>
+                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("Conta_Movimetacao_destino") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Valor">

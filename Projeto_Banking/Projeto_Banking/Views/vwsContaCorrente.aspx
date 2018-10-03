@@ -34,6 +34,7 @@
     <div class="margin-3-upper container text-center">
         <asp:Button ID="btnEmprestimo" runat="server" CssClass="btn btn-primary btn-conta-corrente inner-padding-button1" Text="Realizar Empréstimo" OnClick="btnEmprestimo_Click" />
         <asp:Button ID="btnInvestimento" runat="server" CssClass="btn btn-primary btn-conta-corrente inner-padding-button2 " Text="Realizar Investimento" OnClick="btnInvestimento_Click" />
-        <asp:Button ID="btnTransferencias" runat="server" CssClass="btn btn-primary btn-conta-corrente inner-padding-button3" OnClick="btnTransferencias_Click" Text="Transferir" />
+        <asp:Button ID="btnTransferencias" runat="server" CssClass="btn btn-primary btn-conta-corrente inner-padding-button2" OnClick="btnTransferencias_Click" Text="Transferir" />
+        <asp:Button ID="btnExtrato" runat="server" CssClass="btn btn-primary btn-conta-corrente inner-padding-button3" OnClick="btnExtrato_Click" Text="Extrato" />
     </div>
 </asp:Content>
