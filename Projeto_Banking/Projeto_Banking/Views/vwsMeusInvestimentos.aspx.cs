@@ -52,7 +52,7 @@ namespace Projeto_Banking.Views
             //if (int.Parse(gdvMeusInvestimentos.Rows[rowIndex].Cells[6].Text) ==0 )
             //{
 
-            Response.Redirect("~/Views/vwsResgaste.aspx");
+            Response.Redirect("~/Views/vwsResgate.aspx");
             //}
             //else
             //{

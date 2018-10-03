@@ -14,6 +14,7 @@ namespace Projeto_Banking.Models.Operacoes.Investimento
             Random random = new Random();
             TimeSpan mes;
             mes = dataResgate.Subtract(investimentoConta.DataInicio);
+            float valorInicial = (float)investimentoConta.Valor;
 
             int meses = (int)(mes.TotalDays / 30);
             if (investimentoConta.Investimento.Rentabilidade > 0)
@@ -28,9 +29,9 @@ namespace Projeto_Banking.Models.Operacoes.Investimento
                     investimentoConta = AtualizaInvestimento(investimentoConta);
                     investimentoConta.Valor -= investimentoConta.Valor * (investimentoConta.Investimento.Taxa.Valor / 100) / 12;
                 }
-                if (investimentoConta.DataFim != dataResgate)
+                if (investimentoConta.DataFim > dataResgate)
                 {
-                    investimentoConta.Valor -= 0.5 * (investimentoConta.DataFim.Subtract(dataResgate).TotalDays);
+                    investimentoConta.Valor -= investimentoConta.Valor * 0.0005 * (investimentoConta.DataFim.Subtract(dataResgate).TotalDays);
                 }
             }
 
@@ -41,7 +42,7 @@ namespace Projeto_Banking.Models.Operacoes.Investimento
                     investimentoConta.Valor -= investimentoConta.Valor * (investimentoConta.Investimento.Taxa.Valor / 100) / 12;
                 }
 
-            return investimentoConta.Valor;
+            return (investimentoConta.Valor < valorInicial ? valorInicial : investimentoConta.Valor);
         }
 
         public static InvestimentoConta AtualizaInvestimento(InvestimentoConta investimentoConta)
