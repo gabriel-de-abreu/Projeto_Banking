@@ -19,10 +19,10 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Valor do Investimento">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtContaValor" runat="server" Text='<%# Bind("Investimento_Conta_Valor") %>'></asp:TextBox>
+                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Investimento_Conta_Valor_Formatado") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="lblContaValor" runat="server" Text='<%# Bind("Investimento_Conta_Valor") %>'></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("Investimento_Conta_Valor_Formatado") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Data de Inicio">
