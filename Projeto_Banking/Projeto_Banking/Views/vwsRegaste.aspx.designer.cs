@@ -13,69 +13,6 @@ namespace Projeto_Banking.Views {
     public partial class vwsRegaste {
         
         /// <summary>
-        /// Controle lblValorIni.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblValorIni;
-        
-        /// <summary>
-        /// Controle txtValorIni.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtValorIni;
-        
-        /// <summary>
-        /// Controle lblDataIni.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDataIni;
-        
-        /// <summary>
-        /// Controle txtDataIni.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDataIni;
-        
-        /// <summary>
-        /// Controle lblDataFim.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDataFim;
-        
-        /// <summary>
-        /// Controle txtDataFim.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDataFim;
-        
-        /// <summary>
-        /// Controle lblDataResgate.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDataResgate;
-        
-        /// <summary>
         /// Controle txtDataResgate.
         /// </summary>
         /// <remarks>
@@ -85,13 +22,40 @@ namespace Projeto_Banking.Views {
         protected global::System.Web.UI.WebControls.TextBox txtDataResgate;
         
         /// <summary>
-        /// Controle lblValorFinal.
+        /// Controle txtValorIni.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblValorFinal;
+        protected global::System.Web.UI.WebControls.Label txtValorIni;
+        
+        /// <summary>
+        /// Controle txtDataIni.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtDataIni;
+        
+        /// <summary>
+        /// Controle txtDataFim.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtDataFim;
+        
+        /// <summary>
+        /// Controle divResultado.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divResultado;
         
         /// <summary>
         /// Controle txtValorFim.
@@ -100,7 +64,7 @@ namespace Projeto_Banking.Views {
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtValorFim;
+        protected global::System.Web.UI.WebControls.Label txtValorFim;
         
         /// <summary>
         /// Controle btnResgatar.

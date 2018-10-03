@@ -31,8 +31,8 @@ namespace Projeto_Banking.Views
             txtValorIni.Text = ((Convert.ToDouble(iC.Valor))).ToString();
             txtValorFim.Text = ("");
             txtDataResgate.Text = ("");
-            txtDataIni.Text = (iC.DataInicio).ToString();
-            txtDataFim.Text = (iC.DataFim).ToString();
+            txtDataIni.Text = (iC.DataInicio).ToString("dd/MM/yyyy");
+            txtDataFim.Text = (iC.DataFim).ToString("dd/MM/yyyy");
 
         }
         public void SimularInvestimento(object sender, EventArgs e)
@@ -40,6 +40,7 @@ namespace Projeto_Banking.Views
             if (!(txtDataResgate.Text).Equals(""))
             {
                 txtValorFim.Text = (new InvestimentoDAO().SimulaResgate(iC, Convert.ToDateTime(txtDataResgate.Text))).ToString();
+                divResultado.Visible = true;
             }
         }
 

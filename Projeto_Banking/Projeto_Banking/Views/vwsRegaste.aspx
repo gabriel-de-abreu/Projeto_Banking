@@ -3,29 +3,57 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-
-
-    <div>
-        <asp:Label ID="lblValorIni" runat="server" Text="Valor inicial do Investimento: "></asp:Label>
-        <asp:TextBox ID="txtValorIni" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="lblDataIni" runat="server" Text="Data Inicial do Investimento: "></asp:Label>
-        <asp:TextBox ID="txtDataIni" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="lblDataFim" runat="server" Text="Data Final do Investimento: "></asp:Label>
-        <asp:TextBox ID="txtDataFim" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="lblDataResgate" runat="server" Text="Data Desejada do Resgate: "></asp:Label>
-        <asp:TextBox ID="txtDataResgate" 
-            runat="server"
-            AutoPostBack="True" 
-            ontextchanged="SimularInvestimento"></asp:TextBox>
-        <br />
-        <asp:Label ID="lblValorFinal" runat="server" Text="Valor Final do Investimento: "></asp:Label>
-        <asp:TextBox ID="txtValorFim" runat="server"></asp:TextBox>
-        <br />
-        <asp:Button ID="btnResgatar" runat="server" Text="Resgatar Investimento" OnClick="btnResgatar_Click" />
-        
-
+    <div class="container container-border margin-3-upper">
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Data Desejada do Resgate</label>
+                    <asp:TextBox ID="txtDataResgate"
+                        runat="server"
+                        AutoPostBack="True"
+                        OnTextChanged="SimularInvestimento" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                </div>
+            </div>
+            <div class="col">
+                <table class="table remove-border">
+                    <tr>
+                        <td>
+                            <strong>Valor Inicial do Investimento
+                            </strong>
+                        </td>
+                        <td>
+                            <asp:Label ID="txtValorIni" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Data Inicial do Investimento
+                            </strong>
+                        </td>
+                        <td>
+                            <asp:Label ID="txtDataIni" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Data Final do Investimento
+                            </strong>
+                        </td>
+                        <td>
+                            <asp:Label ID="txtDataFim" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container text-center margin-1-bottom">
+                <div id="divResultado" class="form-group" runat="server" visible="false">
+                    <label>Valor Final do Investimento:</label>
+                    <asp:Label ID="txtValorFim" runat="server"></asp:Label>
+                </div>
+                <asp:Button ID="btnResgatar" runat="server" Text="Resgatar Investimento" OnClick="btnResgatar_Click" CssClass="btn btn-primary" />
+            </div>
+        </div>
     </div>
 </asp:Content>
