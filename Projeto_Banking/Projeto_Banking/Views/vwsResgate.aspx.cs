@@ -37,12 +37,12 @@ namespace Projeto_Banking.Views
             if (iC.Resgatado)
             {
                 btnResgatar.Enabled = false;
-                txtDataResgate.Enabled = false;
+                divSelData.Visible = false;
             }
 
         }
         public void SimularInvestimento(object sender, EventArgs e)
-        {            
+        {
             if (!(txtDataResgate.Text).Equals(""))
             {
                 txtValorFim.Text = (new InvestimentoDAO().SimulaResgate(iC, Convert.ToDateTime(txtDataResgate.Text))).ToString();

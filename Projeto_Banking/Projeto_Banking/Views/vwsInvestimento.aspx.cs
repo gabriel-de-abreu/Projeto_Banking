@@ -119,6 +119,12 @@ namespace Projeto_Banking.Views
         {
             dadosSimulacao.Visible = false;
             dadosSimulacaoBtn.Visible = false;
+            lblResultado.Text = "";
+        }
+
+        protected void BtnConsultarInvestimentos_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/vwsMeusInvestimentos.aspx");
         }
     }
 }
