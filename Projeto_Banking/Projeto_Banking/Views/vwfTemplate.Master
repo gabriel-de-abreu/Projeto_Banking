@@ -12,6 +12,7 @@
     <script src="../Vendors/Scripts/jquery-3.0.0.min.js"></script>
     <script src="../Vendors/Scripts/bootstrap.min.js"></script>
     <script src="../Vendors/Scripts/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
     <link href="common.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>

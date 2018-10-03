@@ -27,26 +27,26 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Data de Inicio">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtInvestimentoInicio" runat="server" Text='<%# Bind("Investimento_Inicio") %>'></asp:TextBox>
+                        <asp:TextBox ID="txtInvestimentoInicio" runat="server" Text='<%# Bind("Investimento_Inicio_Formatado") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="ldlInvestimentoInicio" runat="server" Text='<%# Bind("Investimento_Inicio") %>'></asp:Label>
+                        <asp:Label ID="ldlInvestimentoInicio" runat="server" Text='<%# Bind("Investimento_Inicio_Formatado") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Data de Término">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtInvestimentoFim" runat="server" Text='<%# Bind("Investimento_Fim") %>'></asp:TextBox>
+                        <asp:TextBox ID="txtInvestimentoFim" runat="server" Text='<%# Bind("Investimento_Fim_Formatado") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="lblInvestimentoFim" runat="server" Text='<%# Bind("Investimento_Fim") %>'></asp:Label>
+                        <asp:Label ID="lblInvestimentoFim" runat="server" Text='<%# Bind("Investimento_Fim_Formatado") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Resgatado">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Investimento_Resgate") %>'></asp:TextBox>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Investimento_Resgate_Formatado") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Investimento_Resgate") %>'></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Investimento_Resgate_Formatado") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Operações">

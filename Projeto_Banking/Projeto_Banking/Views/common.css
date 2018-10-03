@@ -1,13 +1,8 @@
 ﻿body {
-    background-color: #E0E0E0
+    background-color: #E0E0E0;
+    font-family: 'Noto Sans', sans-serif;
 }
 
-.login-div {
-    display: block;
-    margin-top: 15%;
-    margin-bottom: auto;
-    text-align: center;
-}
 /*Margens para espaçamento de elementos*/
 .margin-1-upper {
     margin-top: 1%;
@@ -21,12 +16,16 @@
     margin-top: 2%;
 }
 
+.margin-center-vertical {
+    margin-top: 40%;
+}
+
 .margin-1-bottom {
     margin-bottom: 1%;
 }
 
-.margin-2-bottom-final{
-    margin-bottom:2% !important;
+.margin-2-bottom-final {
+    margin-bottom: 2% !important;
 }
 
 /*Container padrão para agrupar elementos do sistema com borda*/
@@ -36,7 +35,7 @@
     padding: 15px 15px 15px 15px;
     padding-bottom: 5px;
     background-color: white;
-    margin-bottom:10%;
+    margin-bottom: 10%;
 }
 
 /*Botões da conta corrente*/

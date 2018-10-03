@@ -51,7 +51,7 @@ namespace Projeto_Banking.Models
                     {
                         new PagamentoDAO().Inserir(new PagamentoBoleto()
                         {
-                            Codigo = Math.Abs(emp.DataInicio.AddMonths(i).GetHashCode()),
+                            Codigo = Math.Abs(emp.DataInicio.AddMonths(i).GetHashCode() + DateTime.Now.GetHashCode()),
                             Data = emp.DataInicio.AddMonths(i),
                             Valor = EmprestimoOPS.CalcularParcelas(emp.Parcelas, emp.Taxa, emp.Valor),
                             Vencimento = emp.DataInicio.AddMonths(i),

@@ -27,6 +27,16 @@ namespace Projeto_Banking.Views
         {
             InvestimentoDAO investimentoDAO = new InvestimentoDAO();
             DataTable dt = investimentoDAO.BuscarInvestimentosConta(cc);
+            dt.Columns.Add("Investimento_Inicio_Formatado", typeof(String));
+            dt.Columns.Add("Investimento_Fim_Formatado", typeof(String));
+            dt.Columns.Add("Investimento_Resgate_Formatado", typeof(String));
+            foreach (DataRow row in dt.Rows)
+            {
+                row["Investimento_Inicio_Formatado"] = Convert.ToDateTime(row["Investimento_Inicio"]).ToString("dd/MM/yyyy");
+                row["Investimento_Fim_Formatado"] = Convert.ToDateTime(row["Investimento_Fim"]).ToString("dd/MM/yyyy");
+                row["Investimento_Resgate_Formatado"] = (Convert.ToBoolean(row["Investimento_Resgate"])) ? ("Sim") : ("Não");
+
+            }
             gdvMeusInvestimentos.DataSource = dt;
             gdvMeusInvestimentos.DataBind();
         }
@@ -35,7 +45,7 @@ namespace Projeto_Banking.Views
         {
             int rowIndex = gdvMeusInvestimentos.SelectedIndex;
             int id = Convert.ToInt32(gdvMeusInvestimentos.DataKeys[rowIndex].Value);
-            iC=new InvestimentoDAO().BuscarInvestimento(new InvestimentoConta() { Id = id });
+            iC = new InvestimentoDAO().BuscarInvestimento(new InvestimentoConta() { Id = id });
             Session["investimentoConta"] = iC;
 
             //Session["contaCorrente"] = ccSession;
