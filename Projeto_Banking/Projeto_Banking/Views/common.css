@@ -2,14 +2,13 @@
     background-color: #E0E0E0
 }
 
-
 .login-div {
     display: block;
     margin-top: 15%;
     margin-bottom: auto;
     text-align: center;
 }
-
+/*Margens para espaçamento de elementos*/
 .margin-1-upper {
     margin-top: 1%;
 }
@@ -22,38 +21,38 @@
     margin-top: 2%;
 }
 
-.table-hover tbody tr:hover th {
-    background-color: white;
+.margin-1-bottom {
+    margin-bottom: 1%;
 }
 
+.margin-2-bottom-final{
+    margin-bottom:2% !important;
+}
+
+/*Container padrão para agrupar elementos do sistema com borda*/
 .container-border {
     border: 1px solid #007bff;
     border-radius: 5px;
     padding: 15px 15px 15px 15px;
     padding-bottom: 5px;
     background-color: white;
+    margin-bottom:10%;
 }
 
-.container-border-login {
-    border: 1px solid #007bff;
-    border-radius: 5px;
-    padding: 5px 5px 5px 5px;
-    padding-bottom: 5px;
-    background-color: #f8f8ff
-}
-
+/*Botões da conta corrente*/
 .inner-padding-button1 {
     margin-right: 5px;
 }
 
 .inner-padding-button2 {
     margin-left: 5px;
+    margin-right: 5px;
 }
 
-.display-off {
-    display: none;
+.inner-padding-button3 {
+    margin-left: 5px;
 }
-
+/*CSS para estilizar gridview no padrão do bootstrap*/
 .view-table {
     border: none;
 }
@@ -74,6 +73,15 @@
         border-bottom: none;
     }
 
+/*Remove a borda da primeia linha para as tabelas sem header*/
 .remove-border tbody tr:first-child td {
     border-top: none;
+}
+/*Remove o efeito de hover dos cabeçalhos das tabelas*/
+.table-hover tbody tr:hover th {
+    background-color: white;
+}
+/*Width fixada para os botões da tela de conta corrente*/
+.btn-conta-corrente {
+    width: 200px;
 }

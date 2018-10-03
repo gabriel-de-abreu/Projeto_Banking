@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div class="container conta-corrente-div ">
-        <div class="container-border margin-3-upper">
+        <div class="container-border margin-3-upper margin-2-bottom-final">
             <table class="table table-hover remove-border">
                 <tr>
                     <td><strong>Titular da Conta</strong></td>
@@ -34,13 +34,9 @@
         </div>
         <div class="row">
             <div class="margin-3-upper container text-center">
-                <asp:Button ID="btnEmprestimo" runat="server" CssClass="btn btn-primary inner-padding-button1" Text="Realizar Empréstimo" OnClick="btnEmprestimo_Click" />
-                <asp:Button ID="btnInvestimento" runat="server" CssClass="btn btn-primary inner-padding-button2" Text="Realizar Investimento" OnClick="btnInvestimento_Click" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="container margin-1-upper text-center">
-                <asp:Button ID="btnTransferencias" runat="server" CssClass="btn btn-primary" OnClick="btnTransferencias_Click" Text="Transferir" />
+                <asp:Button ID="btnEmprestimo" runat="server" CssClass="btn btn-primary btn-conta-corrente inner-padding-button1" Text="Realizar Empréstimo" OnClick="btnEmprestimo_Click" />
+                <asp:Button ID="btnInvestimento" runat="server" CssClass="btn btn-primary btn-conta-corrente inner-padding-button2 " Text="Realizar Investimento" OnClick="btnInvestimento_Click" />
+                <asp:Button ID="btnTransferencias" runat="server" CssClass="btn btn-primary btn-conta-corrente inner-padding-button3" OnClick="btnTransferencias_Click" Text="Transferir" />
             </div>
         </div>
     </div>

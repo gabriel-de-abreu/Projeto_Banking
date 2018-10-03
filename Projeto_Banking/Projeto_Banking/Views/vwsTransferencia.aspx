@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div class="container container-border text-center margin-3-upper">
+    <div class="container container-border margin-3-upper">
         <div id="divTransf" runat="server">
             <div class="row">
                 <div class="col-4">
@@ -15,12 +15,13 @@
                         <label>Valor</label>
                         <asp:TextBox ID="txtValor" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
-                    <asp:Button ID="btnTransferir" runat="server" OnClick="btnTransferir_Click" Text="Transferir" CssClass="btn btn-primary" />
-                    <br />
+                    <div class="container text-center">
+                        <asp:Button ID="btnTransferir" runat="server" OnClick="btnTransferir_Click" Text="Transferir" CssClass="btn btn-primary" />
+                    </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
-                        <table class="table">
+                        <table class="table remove-border">
                             <tr>
                                 <td><strong>Número da Conta</strong></td>
                                 <td>
@@ -45,48 +46,46 @@
         </div>
         <div id="divComprovante" class="row" runat="server">
             <div class="container text-center">
-                <div class="margin-2-upper">
-                    <h5>Comprovante de Envio
-                    </h5>
-                    <table class="table">
-                        <tr>
-                            <td>
-                                <strong>Conta de Origem</strong>
-                            </td>
-                            <td>
-                                <asp:Label ID="lblContaOrigem" runat="server" Text="Label"></asp:Label>
-                            </td>
-                            <td><strong>Nome</strong></td>
-                            <td>
-                                <asp:Label ID="lblNomeOrigem" runat="server" Text="Label"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>Conta de Destino</strong></td>
-                            <td>
-                                <asp:Label ID="lblContaDestino" runat="server" Text="Label"></asp:Label>
-                            </td>
-                            <td><strong>Nome</strong></td>
-                            <td>
-                                <asp:Label ID="lblNomeDestino" runat="server" Text="Label"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <strong>Valor</strong>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <asp:Label ID="lblValor" runat="server" Text="Label"></asp:Label>
-                            </td>
-                        </tr>
-                    </table>
-                    <div class="alert alert-success" role="alert">
-                        Operação Realizada com sucesso!
-                    </div>
-                    <asp:Button ID="btnVoltar" runat="server" Text="Voltar" CssClass="btn btn-primary" OnClick="btnVoltar_Click" />
+                <h5>Comprovante de Envio
+                </h5>
+                <table class="table">
+                    <tr>
+                        <td>
+                            <strong>Conta de Origem</strong>
+                        </td>
+                        <td>
+                            <asp:Label ID="lblContaOrigem" runat="server" Text="Label"></asp:Label>
+                        </td>
+                        <td><strong>Nome</strong></td>
+                        <td>
+                            <asp:Label ID="lblNomeOrigem" runat="server" Text="Label"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Conta de Destino</strong></td>
+                        <td>
+                            <asp:Label ID="lblContaDestino" runat="server" Text="Label"></asp:Label>
+                        </td>
+                        <td><strong>Nome</strong></td>
+                        <td>
+                            <asp:Label ID="lblNomeDestino" runat="server" Text="Label"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Valor</strong>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <asp:Label ID="lblValor" runat="server" Text="Label"></asp:Label>
+                        </td>
+                    </tr>
+                </table>
+                <div class="alert alert-success" role="alert">
+                    Operação Realizada com sucesso!
                 </div>
+                <asp:Button ID="btnVoltar" runat="server" Text="Voltar" CssClass="btn btn-primary" OnClick="btnVoltar_Click" />
             </div>
         </div>
     </div>

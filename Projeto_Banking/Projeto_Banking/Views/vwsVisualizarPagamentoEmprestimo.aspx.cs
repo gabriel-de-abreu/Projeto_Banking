@@ -19,29 +19,26 @@ namespace Projeto_Banking.Views
             if (cc == null) Response.Redirect("~/Views/vwsLogin.aspx");
             emp = Session["emprestimo"] as Emprestimo;
 
-            gdvPagamentosBoleto.Visible = false;
-            gdvPagamentosDebito.Visible = false;
-
+            divPagBoleto.Visible = false;
+            divPagDebito.Visible = false;
             if (!IsPostBack)
             {
                 if (Session["tipoPagamento"].Equals("Débito em Conta"))
                 {
-                    gdvPagamentosBoleto.Visible = false;
-                    gdvPagamentosDebito.Visible = true;
-
+                    divPagBoleto.Visible = false;
+                    divPagDebito.Visible = true;
                     PopularGridDebito();
 
                 }
                 else if (Session["tipoPagamento"].Equals("Boleto"))
                 {
-                    gdvPagamentosBoleto.Visible = true;
-                    gdvPagamentosDebito.Visible = false;
-
+                    divPagBoleto.Visible = true;
+                    divPagDebito.Visible = false;
                     PopularGridBoleto();
 
                 }
             }
-            
+
         }
 
         public void PopularGridDebito()
@@ -65,7 +62,7 @@ namespace Projeto_Banking.Views
                 {
                     row["StatusPagamento"] = "Pago";
                 }
-                else if(int.Parse(row["Pagamento_Pago"].ToString()) == 0) //se for 0 no banco, atribui como não pago
+                else if (int.Parse(row["Pagamento_Pago"].ToString()) == 0) //se for 0 no banco, atribui como não pago
                 {
                     row["StatusPagamento"] = "Não Pago";
                 }

@@ -27,7 +27,7 @@
             </div>
             <div class="col">
                 <div runat="server" id="divSimulacao">
-                        <table class="table">
+                        <table class="table remove-border">
                             <tr>
                                 <td><b>Parcelas</b></td>
                                 <td>
@@ -65,7 +65,7 @@
         </div>
         </div>
         <div class="row">
-            <div class="container text-center margin-2-upper">
+            <div class="container text-center margin-2-upper margin-1-bottom">
                 <asp:Button ID="btnConsultar" runat="server" Text="Consultar meus empréstimos" OnClick="btnConsultar_Click" CssClass=" btn btn-outline-primary" />
             </div>
         </div>

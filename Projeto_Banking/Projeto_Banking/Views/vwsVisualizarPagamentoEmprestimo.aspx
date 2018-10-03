@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div id="gdvDebito" class="container container-border margin-3-upper">
+    <div id="divPagDebito" runat="server" class="container container-border margin-3-upper">
         <asp:GridView ID="gdvPagamentosDebito" runat="server" AutoGenerateColumns="False"
             DataKeyNames="Pagamento_id" CssClass="table table-hover view-table">
             <Columns>
@@ -31,7 +31,7 @@
         </asp:GridView>
     </div>
 
-    <div id="gdvBoleto" class="container margin-3-upper">
+    <div id="divPagBoleto" runat="server" class="container container-border margin-3-upper">
         <asp:GridView ID="gdvPagamentosBoleto" runat="server" AutoGenerateColumns="False"
             DataKeyNames="Pagamento_id" CssClass="table table-hover view-table">
             <Columns>

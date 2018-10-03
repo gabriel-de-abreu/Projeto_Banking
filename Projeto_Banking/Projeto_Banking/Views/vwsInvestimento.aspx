@@ -26,7 +26,7 @@
             </div>
             <div class="col">
                 <%-- Exibir para auxiliar o usuário --%>
-                <table class="table">
+                <table class="table remove-border">
                     <tr>
                         <td><strong>Número da Conta</strong></td>
                         <td>
