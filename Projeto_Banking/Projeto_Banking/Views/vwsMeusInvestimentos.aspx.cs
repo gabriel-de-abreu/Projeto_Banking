@@ -48,16 +48,7 @@ namespace Projeto_Banking.Views
             iC = new InvestimentoDAO().BuscarInvestimento(new InvestimentoConta() { Id = id });
             Session["investimentoConta"] = iC;
 
-            //Session["contaCorrente"] = ccSession;
-            //if (int.Parse(gdvMeusInvestimentos.Rows[rowIndex].Cells[6].Text) ==0 )
-            //{
-
-            Response.Redirect("~/Views/vwsResgate.aspx");
-            //}
-            //else
-            //{
-            //    Response.Write("<script language='javascript'>alert('Este investimento já foi resgatado!');</script>");
-            //}
+                     Response.Redirect("~/Views/vwsResgate.aspx");
 
         }
     }
