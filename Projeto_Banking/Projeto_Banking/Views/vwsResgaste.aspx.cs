@@ -17,7 +17,7 @@ namespace Projeto_Banking.Views
             cc = Session["contaCorrente"] as ContaCorrente;
             iC = Session["investimentoConta"] as InvestimentoConta;
 
-            if (cc == null || iC == null) Response.Redirect("~/Views/vwsLogin.aspx");
+            if (cc == null || iC == null) Response.Redirect("~/Views/vwsContaCorrente.aspx");
 
             if (!IsPostBack)
             {
@@ -33,6 +33,12 @@ namespace Projeto_Banking.Views
             txtDataResgate.Text = ("");
             txtDataIni.Text = (iC.DataInicio).ToString("dd/MM/yyyy");
             txtDataFim.Text = (iC.DataFim).ToString("dd/MM/yyyy");
+
+            if (iC.Resgatado)
+            {
+                btnResgatar.Enabled = false;
+                txtDataResgate.Enabled = false;
+            }
 
         }
         public void SimularInvestimento(object sender, EventArgs e)
