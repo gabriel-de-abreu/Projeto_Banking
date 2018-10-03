@@ -31,28 +31,36 @@ namespace Projeto_Banking.Views
         {
             if (cc.Saldo > Double.Parse(txtValorIni.Text))
             {
-                if (DateTime.Parse(txtDataIni.Text) < DateTime.Parse(txtDataFim.Text))
+                try
                 {
-                    InvestimentoDAO investimentoDao = new InvestimentoDAO();
-                    Investimento investimento = investimentoDao.BuscarInvestimentoPorId(int.Parse(ddlInvestimentos.SelectedValue));
-
-                    InvestimentoConta investimentoConta = new InvestimentoConta()
+                    if (DateTime.Parse(txtDataIni.Text) < DateTime.Parse(txtDataFim.Text))
                     {
-                        Conta = cc,
-                        Investimento = investimento,
-                        DataInicio = DateTime.Parse(txtDataIni.Text),
-                        DataFim = DateTime.Parse(txtDataFim.Text),
-                        Valor = double.Parse(txtValorIni.Text)
+                        InvestimentoDAO investimentoDao = new InvestimentoDAO();
+                        Investimento investimento = investimentoDao.BuscarInvestimentoPorId(int.Parse(ddlInvestimentos.SelectedValue));
 
-                    };
+                        InvestimentoConta investimentoConta = new InvestimentoConta()
+                        {
+                            Conta = cc,
+                            Investimento = investimento,
+                            DataInicio = DateTime.Parse(txtDataIni.Text),
+                            DataFim = DateTime.Parse(txtDataFim.Text),
+                            Valor = double.Parse(txtValorIni.Text)
 
-                    //investimentoDao.InserirInvestimento(investimentoConta);
-                    txtValorFim.Text = investimentoDao.SimulaResgate(investimentoConta, DateTime.Parse(txtDataFim.Text)).ToString();
-                    dadosSimulacao.Visible = true;
-                    dadosSimulacaoBtn.Visible = true;
-                    lblResultado.Text = "";
+                        };
+
+                        //investimentoDao.InserirInvestimento(investimentoConta);
+                        txtValorFim.Text = investimentoDao.SimulaResgate(investimentoConta, DateTime.Parse(txtDataFim.Text)).ToString("c2");
+                        dadosSimulacao.Visible = true;
+                        dadosSimulacaoBtn.Visible = true;
+                        lblResultado.Text = "";
+                    }
+
+                    else
+                    {
+                        lblResultado.Text = "Insira as datas de forma válida!";
+                    }
                 }
-                else
+                catch (Exception)
                 {
                     lblResultado.Text = "Insira as datas de forma válida!";
                 }
@@ -80,7 +88,7 @@ namespace Projeto_Banking.Views
         {
             InvestimentoConta investimento = new InvestimentoDAO().BuscarInvestimento(new InvestimentoConta() { Id = cc.Numero });
 
-            txtValorIni.Text = ((Convert.ToDouble(investimento.Valor))).ToString();
+            txtValorIni.Text = ((float)investimento.Valor).ToString("c2");
             //txtValorFim.Text = 
 
         }
@@ -112,7 +120,7 @@ namespace Projeto_Banking.Views
         {
             cc = Session["contaCorrente"] as ContaCorrente;
             lblContaAtual.Text = cc.Numero.ToString();
-            lblSaldo.Text = cc.Saldo.ToString();
+            lblSaldo.Text = ((float)cc.Saldo).ToString("c2");
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
