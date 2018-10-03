@@ -29,10 +29,11 @@ namespace Projeto_Banking.Views
 
         protected void BtnSimular_Click(object sender, EventArgs e)
         {
-            if (cc.Saldo > Double.Parse(txtValorIni.Text))
+            try
             {
-                try
+                if (cc.Saldo > Double.Parse(txtValorIni.Text))
                 {
+
                     if (DateTime.Parse(txtDataIni.Text) < DateTime.Parse(txtDataFim.Text))
                     {
                         InvestimentoDAO investimentoDao = new InvestimentoDAO();
@@ -60,15 +61,17 @@ namespace Projeto_Banking.Views
                         lblResultado.Text = "Insira as datas de forma válida!";
                     }
                 }
-                catch (Exception)
+
+
+                else
                 {
-                    lblResultado.Text = "Insira as datas de forma válida!";
+                    lblResultado.Text = "O valor não pode ser maior que o saldo!";
+
                 }
             }
-            else
+            catch
             {
-                lblResultado.Text = "O valor não pode ser maior que o saldo!";
-
+                lblResultado.Text = "Entrada inválida!";
             }
         }
 

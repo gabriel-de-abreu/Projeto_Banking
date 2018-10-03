@@ -48,12 +48,14 @@ namespace Projeto_Banking.Views
             dTable.Columns.Add("StatusPagamento", typeof(String));
             dTable.Columns.Add("NumeroParcela", typeof(int));
             dTable.Columns.Add("Pagamento_data_Formatado", typeof(String));
+            dTable.Columns.Add("Pagamento_Valor_Formatado", typeof(String));
 
             int i = 1;
 
             foreach (DataRow row in dTable.Rows)
             {
                 row["NumeroParcela"] = i++; //gera o indice do numero de parcela
+                row["Pagamento_Valor_Formatado"] = Convert.ToDouble(row["Pagamento_Valor"]).ToString("c2");
 
                 DateTime data = Convert.ToDateTime(row["Pagamento_data"]);  //formatada a data retirando a hora
                 row["Pagamento_data_Formatado"] = data.ToString("dd/MM/yyyy");

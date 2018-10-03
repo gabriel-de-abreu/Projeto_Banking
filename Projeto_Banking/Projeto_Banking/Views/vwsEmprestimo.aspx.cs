@@ -97,9 +97,9 @@ namespace Projeto_Banking.Views
                 valorTotal = valorParcela * parcelas;
 
                 lblParcelas.Text = parcelas.ToString();
-                lblValor.Text = "R$ " + valorParcela.ToString("0.00");
-                lblValorTotal.Text = "R$" + valorTotal.ToString("0.00");
-                lblTaxa.Text = taxa.Valor + "%";
+                lblValor.Text = valorParcela.ToString("c2");
+                lblValorTotal.Text = valorTotal.ToString("c2");
+                lblTaxa.Text = taxa.Valor.ToString("F")+" % a.m.";
             }
             else
             {
