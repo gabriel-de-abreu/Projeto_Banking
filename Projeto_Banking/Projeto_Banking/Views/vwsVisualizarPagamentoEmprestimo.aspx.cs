@@ -103,6 +103,10 @@ namespace Projeto_Banking.Views
             gdvPagamentosBoleto.DataBind();
         }
 
-
+        protected void gdvPagamentosBoleto_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            Session["Pag_Boleto_id"] = e.CommandArgument;
+            Response.Redirect("~/Views/vwsBoleto.aspx");
+        }
     }
 }

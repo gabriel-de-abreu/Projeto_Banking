@@ -33,7 +33,7 @@
 
     <div id="divPagBoleto" runat="server" class="container container-border margin-3-upper">
         <asp:GridView ID="gdvPagamentosBoleto" runat="server" AutoGenerateColumns="False"
-            DataKeyNames="Pagamento_id" CssClass="table table-hover view-table">
+            DataKeyNames="Pagamento_id" CssClass="table table-hover view-table" OnRowCommand="gdvPagamentosBoleto_RowCommand">
             <Columns>
                 <asp:TemplateField HeaderText="Parcela">
                     <ItemTemplate>
@@ -57,7 +57,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:LinkButton ID="lkbImprimir" runat="server" Text="Imprimir"></asp:LinkButton>
+                        <asp:LinkButton ID="lkbImprimir" runat="server" Text="Imprimir" CommandArgument='<%# Bind("Pagamento_id") %>'></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
