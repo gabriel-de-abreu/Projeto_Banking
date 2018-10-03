@@ -37,7 +37,7 @@ namespace Projeto_Banking {
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor aMeusEmprestimos;
+        protected global::System.Web.UI.WebControls.LinkButton aMeusEmprestimos;
         
         /// <summary>
         /// Controle aMeusInvestimentos.
@@ -46,7 +46,7 @@ namespace Projeto_Banking {
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor aMeusInvestimentos;
+        protected global::System.Web.UI.WebControls.LinkButton aMeusInvestimentos;
         
         /// <summary>
         /// Controle lbEntrarSair.

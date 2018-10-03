@@ -13,22 +13,19 @@ namespace Projeto_Banking.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["contaCorrente"] != null)
-            {
-                if (!IsPostBack)
-                {
-                    Session["contaCorrente"] = new ContaDAO().PesquisarContaPorNumero((Session["contaCorrente"] as ContaCorrente).Numero);
-                    ContaCorrente ccSession = Session["contaCorrente"] as ContaCorrente;
-                    lblNumero.Text += ccSession.Numero.ToString(); //validar nome com objeto
-                    lblSaldo.Text += ccSession.Saldo.ToString(); //validar nome com objeto
-                    lblLimite.Text += ccSession.Limite.ToString();
-                    lblTitular.Text += ccSession.Pessoa.Nome;
-                }
-            }
-            else
-            {
+            if (Session["contaCorrente"] == null)
                 Response.Redirect("~/Views/vwsLogin.aspx");
+
+            if (!IsPostBack)
+            {
+                Session["contaCorrente"] = new ContaDAO().PesquisarContaPorNumero((Session["contaCorrente"] as ContaCorrente).Numero);
+                ContaCorrente ccSession = Session["contaCorrente"] as ContaCorrente;
+                lblNumero.Text += ccSession.Numero.ToString(); //validar nome com objeto
+                lblSaldo.Text += ccSession.Saldo.ToString(); //validar nome com objeto
+                lblLimite.Text += ccSession.Limite.ToString();
+                lblTitular.Text += ccSession.Pessoa.Nome;
             }
+
         }
 
         protected void btnEmprestimo_Click(object sender, EventArgs e)

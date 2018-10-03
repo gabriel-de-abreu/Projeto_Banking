@@ -158,12 +158,12 @@ namespace Projeto_Banking.Models
                     DataFim = DateTime.Parse(reader["Investimento_Fim"].ToString()),
                     DataInicio = DateTime.Parse(reader["Investimento_Inicio"].ToString()),
                     Valor = double.Parse(reader["Investimento_Conta_Valor"].ToString()),
-                    
+
                 };
             }
 
             int resgatado = int.Parse(reader["Investimento_Resgate"].ToString());
-            if ( resgatado == 1)
+            if (resgatado == 1)
             {
                 iC.Resgatado = true;
             }

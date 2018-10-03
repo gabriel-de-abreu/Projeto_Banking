@@ -2,6 +2,7 @@
 using Projeto_Banking.Models.Opecacoes.EmprestimoDAOs;
 using Projeto_Banking.Objetos;
 using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -20,16 +21,10 @@ namespace Projeto_Banking.Views
             cc = Session["contaCorrente"] as ContaCorrente;
 
             if (cc == null) Response.Redirect("~/Views/vwsLogin.aspx");
-            if (new EmprestimoDAO().PesquisarEmprestimosContaCorrente(cc).Rows.Count > 0)
-            {
-                PopularGrid();
-            }
-            else
-            {
-                Response.Write("<script language='javascript'> alert('Você não tem nenhum empréstimo realizado ainda!');</script>");
-                
-            }
-            
+
+            PopularGrid();
+
+
         }
 
         public void PopularGrid()
@@ -43,12 +38,13 @@ namespace Projeto_Banking.Views
 
             PagamentoDAO pagDAO = new PagamentoDAO();
 
-            foreach (DataRow row in dTable.Rows) {
+            foreach (DataRow row in dTable.Rows)
+            {
                 row["Pagamento_tipo"] = pagDAO.TipoPagamentoEmprestimo(new Emprestimo() { Id = Convert.ToInt32(row["Emprestimo_id"].ToString()) });
                 DateTime data = Convert.ToDateTime(row["Emprestimo_Inicio"]);
                 row["Emprestimo_Inicio_Formatado"] = data.ToString("dd/MM/yyyy");
             }
-            
+
             gdvEmprestimos.DataSource = dTable;
             gdvEmprestimos.DataBind();
         }
@@ -63,11 +59,13 @@ namespace Projeto_Banking.Views
                 GridViewRow clickedRow = ((LinkButton)e.CommandSource).NamingContainer as GridViewRow;
                 Label lblPagamento = (Label)clickedRow.FindControl("lblPagamento");
 
-                if (lblPagamento.Text.Equals("Débito em Conta")){
+                if (lblPagamento.Text.Equals("Débito em Conta"))
+                {
                     Session["tipoPagamento"] = "Débito em Conta";
                     Response.Redirect("~/Views/vwsVisualizarPagamentoEmprestimo.aspx");
 
-                }else if (lblPagamento.Text.Equals("Boleto"))
+                }
+                else if (lblPagamento.Text.Equals("Boleto"))
                 {
                     Session["tipoPagamento"] = "Boleto";
                     Response.Redirect("~/Views/vwsVisualizarPagamentoEmprestimo.aspx");
