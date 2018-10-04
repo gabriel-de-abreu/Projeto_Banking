@@ -144,6 +144,7 @@
     <Content Include="Views\vwsExtrato.aspx" />
     <Content Include="Views\vwsInvestimento.aspx" />
     <Content Include="Views\vwsLogin.aspx" />
+    <Content Include="Views\vwsLoginGerente.aspx" />
     <Content Include="Views\vwsMeusInvestimentos.aspx" />
     <Content Include="Views\vwsResgate.aspx" />
     <Content Include="Views\vwsTransferencia.aspx" />
@@ -173,6 +174,8 @@
     <Compile Include="Objetos\ContaObjetos\ContaContabilEmprestimo.cs" />
     <Compile Include="Objetos\ContaObjetos\ContaContabilInvestimento.cs" />
     <Compile Include="Objetos\ContaObjetos\ContaCorrente.cs" />
+    <Compile Include="Models\Gerente\GerenteDAO.cs" />
+    <Compile Include="Objetos\Gerente.cs" />
     <Compile Include="Objetos\OperacoesObjetos\Emprestimo.cs" />
     <Compile Include="Objetos\OperacoesObjetos\Investimento.cs" />
     <Compile Include="Objetos\OperacoesObjetos\InvestimentoConta.cs" />
@@ -240,6 +243,13 @@
     </Compile>
     <Compile Include="Views\vwsLogin.aspx.designer.cs">
       <DependentUpon>vwsLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vwsLoginGerente.aspx.cs">
+      <DependentUpon>vwsLoginGerente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vwsLoginGerente.aspx.designer.cs">
+      <DependentUpon>vwsLoginGerente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\vwsResgate.aspx.cs">
       <DependentUpon>vwsResgate.aspx</DependentUpon>
