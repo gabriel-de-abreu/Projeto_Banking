@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using Projeto_Banking.Objetos;
+using Projeto_Banking.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace Projeto_Banking.Models.ContaDAOs
                 {
                     Numero = numero,
                     Limite = float.Parse(reader["Conta_Corrente_limite"].ToString()),
-                  
+
                 };
                 cpfPessoa = reader["Pessoa_Pessoa_cpf"].ToString();
             }
@@ -77,6 +78,29 @@ namespace Projeto_Banking.Models.ContaDAOs
 
             if (command.ExecuteNonQuery() == 1) return true;
             else return false;
+        }
+
+        public ContaCorrente InserirContaCorrente(ContaCorrente conta)
+        {
+            // INSERT INTO `ProjetoBanking`.`Conta` (`Conta_saldo`) VALUES (0);
+            // INSERT INTO `ProjetoBanking`.`Conta_Corrente` (`Conta_Conta_Corrente_id`, `Conta_Corrente_limite`, `Pessoa_Pessoa_cpf`, `Conta_Corrente_senha`) VALUES (NULL, NULL, NULL, NULL);
+            new PessoaDAO().InserirPessoa(conta.Pessoa);
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            command.CommandText = " INSERT INTO `ProjetoBanking`.`Conta` (`Conta_saldo`) VALUES (0);";
+            command.ExecuteNonQuery();
+            int contaID = (int)command.LastInsertedId;
+            command.CommandText = "INSERT INTO `ProjetoBanking`.`Conta_Corrente` (`Conta_Conta_Corrente_id`, `Conta_Corrente_limite`, `Pessoa_Pessoa_cpf`, `Conta_Corrente_senha`)" +
+                " VALUES (@id, @limite, @cpf, @senha);";
+            command.Parameters.AddWithValue("@id", contaID);
+            command.Parameters.AddWithValue("@limite", conta.Limite);
+            command.Parameters.AddWithValue("@cpf", conta.Pessoa.Cpf);
+            command.Parameters.AddWithValue("@senha", Criptografia.GerarHashMd5(conta.Senha));
+            if (command.ExecuteNonQuery() > 0)
+            {
+                conta.Numero = (int)command.LastInsertedId;
+                return conta;
+            }
+            return null;
         }
     }
 }

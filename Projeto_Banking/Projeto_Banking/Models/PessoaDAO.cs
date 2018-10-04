@@ -45,5 +45,25 @@ namespace Projeto_Banking.Models
             reader.Close();
             return p;
         }
+
+        public Pessoa InserirPessoa(Pessoa pessoa)
+        {
+            //INSERT INTO `ProjetoBanking`.`Pessoa` (`Pessoa_cpf`, `Pessoa_nome`) VALUES (NULL, NULL);
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            command.CommandText = "INSERT INTO `ProjetoBanking`.`Pessoa` (`Pessoa_cpf`, `Pessoa_nome`) VALUES (@cpf, @nome);";
+            command.Parameters.AddWithValue("cpf", pessoa.Cpf);
+            command.Parameters.AddWithValue("@nome", pessoa.Nome);
+            if (command.ExecuteNonQuery() > 0)
+            {
+                pessoa.Id = (int)command.LastInsertedId;
+                return pessoa;
+            }
+            else
+            {
+                return null;
+
+            }
+
+        }
     }
 }
