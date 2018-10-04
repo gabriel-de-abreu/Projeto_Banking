@@ -50,3 +50,5 @@ INSERT INTO `projetobanking`.`investimento`
 `Taxa_Taxa_id`)
 VALUES
 (3, "Poupança", 1, 6);
+
+INSERT INTO `ProjetoBanking`.`Gerente` (`Gerente_id`, `Gerente_login`, `Gerente_senha`) VALUES (1, 'gerente', '81dc9bdb52d04dc20036dbd8313ed055');
