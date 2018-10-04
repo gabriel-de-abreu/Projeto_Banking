@@ -54,7 +54,7 @@
                     <div class="form-group">
                     </div>
                     <asp:Button ID="btnEfetuar" CssClass="btn btn-primary inner-padding-button1" runat="server" OnClick="btnEfetuar_Click" Text="Efetuar Investimento" />
-                    <asp:Button ID="btnCancelar" CssClass="btn btn-outline-primary inner-padding-button2" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+                    <asp:Button ID="btnCancelar" CssClass="btn btn-outline-primary inner-padding-button3" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
                 </div>
             </div>
         </div>
