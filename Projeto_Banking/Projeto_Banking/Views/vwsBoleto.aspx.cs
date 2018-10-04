@@ -18,7 +18,7 @@ namespace Projeto_Banking.Views
             lblConta.Text = pagamentoBoleto.Emprestimo.ContaCorrente.Numero.ToString();
             lblEmpCod.Text = pagamentoBoleto.Emprestimo.Id.ToString();
             lblPago.Text = (pagamentoBoleto.Pago ? "Sim" : "Não");
-            lblValor.Text = pagamentoBoleto.Valor.ToString("c2");
+            lblValor.Text = pagamentoBoleto.Valor.ToString();
             lblVencimento.Text = pagamentoBoleto.Vencimento.ToString("dd/MM/yyyy");
             lblCliente.Text = pagamentoBoleto.Emprestimo.ContaCorrente.Pessoa.Nome;
             lblClienteCPF.Text = pagamentoBoleto.Emprestimo.ContaCorrente.Pessoa.Cpf;

@@ -58,6 +58,24 @@ namespace Projeto_Banking.Views {
         protected global::System.Web.UI.WebControls.Label txtDataFim;
         
         /// <summary>
+        /// Controle txtResgate.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtResgate;
+        
+        /// <summary>
+        /// Controle txtValorRecebido.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtValorRecebido;
+        
+        /// <summary>
         /// Controle divResultado.
         /// </summary>
         /// <remarks>

@@ -36,11 +36,18 @@ namespace Projeto_Banking.Views
             txtDataResgate.Text = ("");
             txtDataIni.Text = (iC.DataInicio).ToString("dd/MM/yyyy");
             txtDataFim.Text = (iC.DataFim).ToString("dd/MM/yyyy");
+            txtResgate.Text = (iC.DataResgate).ToString("dd/MM/yyyy");
+            txtValorRecebido.Text = (iC.ValorResgate).ToString("c2");
 
             if (iC.Resgatado)
             {
                 btnResgatar.Enabled = false;
                 divSelData.Visible = false;
+            }
+            else
+            {
+                txtResgate.Text = "Não Resgatado";
+                txtValorRecebido.Text = "Não Resgatado";
             }
 
         }
@@ -48,8 +55,12 @@ namespace Projeto_Banking.Views
         {
             try
             {
-                DateTime.Parse(txtDataResgate.Text);
-                txtValorFim.Text = (new InvestimentoDAO().SimulaResgate(iC, Convert.ToDateTime(txtDataResgate.Text))).ToString("c2");
+                if (iC.Investimento.Rentabilidade <= 0)
+                    txtValorFim.Text = "Aproximadamente ";
+                else
+                    txtValorFim.Text = "";
+
+                txtValorFim.Text += (new InvestimentoDAO().SimulaResgate(iC, DateTime.Parse(txtDataResgate.Text))).ToString("c2");
                 divResultado.Visible = true;
             }
             catch
@@ -65,18 +76,18 @@ namespace Projeto_Banking.Views
             InvestimentoDAO invDAO = new InvestimentoDAO();
             try
             {
-                DateTime.Parse(txtDataResgate.Text);
-                txtValorFim.Text = (invDAO.Resgate(iC, Convert.ToDateTime(txtDataResgate.Text))).ToString("c2");
+                txtValorFim.Text = (invDAO.Resgate(iC, DateTime.Parse(txtDataResgate.Text))).ToString("c2");
 
-                Response.Write("<script language='javascript'>alert('Resgate Realizado com sucesso!');</script>");
-                Response.Redirect("~/Views/vwsMeusInvestimentos.aspx");
+                Response.Write("<script language='javascript'> alert('Investimento resgatado com sucesso!');</script>");
+                Response.Write("<script>window.location.href='vwsMeusInvestimentos.aspx';</script>");
             }
             catch
             {
                 divResultado.Visible = true;
                 lblStringValorFim.Text = "Formato de data inválido!";
+                txtValorFim.Text = "";
             }
-
         }
+
     }
 }

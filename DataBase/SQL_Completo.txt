@@ -229,6 +229,7 @@ CREATE TABLE IF NOT EXISTS `ProjetoBanking`.`Investimento_Conta` (
   `Investimento_Inicio` DATE NOT NULL,
   `Investimento_Fim` DATE NULL,
   `Investimento_Resgate` DATE NULL DEFAULT NULL,
+  `Investimento_ValorResgate` FLOAT NULL DEFAULT NULL,
   PRIMARY KEY (`Investimento_Conta_Id`),
   INDEX `fk_Investimento_has_Conta_Corrente_Conta_Corrente1_idx` (`Conta_Corrente_Conta_Conta_Corrente_id` ASC) VISIBLE,
   INDEX `fk_Investimento_has_Conta_Corrente_Investimento1_idx` (`Investimento_Investimento_id` ASC) VISIBLE,
@@ -248,6 +249,7 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
 
 /* Inserções de pessoa */
 INSERT INTO `ProjetoBanking`.`Pessoa` (`Pessoa_id`, `Pessoa_cpf`, `Pessoa_nome`) VALUES (1, '000.111.222-33', 'Fulano');

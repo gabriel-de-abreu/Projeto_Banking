@@ -1,4 +1,4 @@
-﻿/* Inserções de pessoa */
+/* Inserções de pessoa */
 INSERT INTO `ProjetoBanking`.`Pessoa` (`Pessoa_id`, `Pessoa_cpf`, `Pessoa_nome`) VALUES (1, '000.111.222-33', 'Fulano');
 INSERT INTO `ProjetoBanking`.`Pessoa` (`Pessoa_id`, `Pessoa_cpf`, `Pessoa_nome`) VALUES (2, '000.121.222-44', 'Beltrano');
 
@@ -28,33 +28,25 @@ INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUE
 
 /* Inserção de Investimentos */
 INSERT INTO `projetobanking`.`investimento`
-(`Investimento_nome`,
+(`Investimento_id`,
+`Investimento_nome`,
 `Investimento_rentabilidade`,
 `Taxa_Taxa_id`)
 VALUES
-("Renda Fixa", 4, 4);
+(1, "Renda Fixa", 4, 4);
 
 INSERT INTO `projetobanking`.`investimento`
-(`Investimento_nome`,
+(`Investimento_id`,
+`Investimento_nome`,
 `Investimento_rentabilidade`,
 `Taxa_Taxa_id`)
 VALUES
-("Tesouro Direto", 2, 5);
+(2, "Tesouro Direto", 2, 5);
 
 INSERT INTO `projetobanking`.`investimento`
-(`Investimento_nome`,
+(`Investimento_id`,
+`Investimento_nome`,
 `Investimento_rentabilidade`,
 `Taxa_Taxa_id`)
 VALUES
-("Poupança", 1, 6);
-
-INSERT INTO `projetobanking`.`investimento` (`Investimento_nome`,
-`Taxa_Taxa_id`)
-VALUES
-("CDB",  5);
-
-
-INSERT INTO `projetobanking`.`investimento` (`Investimento_nome`,
-`Taxa_Taxa_id`)
-VALUES
-("LCI",  5);
+(3, "Poupança", 1, 6);

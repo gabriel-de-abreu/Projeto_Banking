@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Projeto_Banking.Models;
 using Projeto_Banking.Models.ContaDAOs;
+using Projeto_Banking.Objetos;
 
 namespace Projeto_Banking.Testes
 {
@@ -66,5 +67,26 @@ namespace Projeto_Banking.Testes
             bool atualizado = new ContaCorrenteDAO().AtualizarLimite(3, -1000);
             Assert.AreNotEqual(true, atualizado);
         }
+
+        [TestMethod]
+        public void TestCadastro()
+        {
+            Pessoa p = new Pessoa()
+            {
+                Nome = "Batatão",
+                Cpf = "000.000.000-12"
+            };
+
+            ContaCorrente conta = new ContaCorrente()
+            {
+                Limite = 3000,
+                Pessoa = p,
+                Senha = "123"
+            };
+
+            Assert.IsNotNull(new ContaCorrenteDAO().InserirContaCorrente(conta));
+
+        }
+
     }
 }

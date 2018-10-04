@@ -31,7 +31,7 @@ namespace Projeto_Banking.Views
         {
             try
             {
-                if (cc.Saldo > Double.Parse(txtValorIni.Text))
+                if (cc.Saldo >= double.Parse(txtValorIni.Text))
                 {
 
                     if (DateTime.Parse(txtDataIni.Text) < DateTime.Parse(txtDataFim.Text))
@@ -50,7 +50,11 @@ namespace Projeto_Banking.Views
                         };
 
                         //investimentoDao.InserirInvestimento(investimentoConta);
-                        txtValorFim.Text = investimentoDao.SimulaResgate(investimentoConta, DateTime.Parse(txtDataFim.Text)).ToString("c2");
+                        txtValorFim.Text = "";
+
+                        if (!investimento.PreFixada) txtValorFim.Text = "Aproximadamente ";
+
+                        txtValorFim.Text += investimentoDao.SimulaResgate(investimentoConta, DateTime.Parse(txtDataFim.Text)).ToString("c2");
                         dadosSimulacao.Visible = true;
                         dadosSimulacaoBtn.Visible = true;
                         lblResultado.Text = "";
@@ -66,7 +70,6 @@ namespace Projeto_Banking.Views
                 else
                 {
                     lblResultado.Text = "O valor não pode ser maior que o saldo!";
-
                 }
             }
             catch

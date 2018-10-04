@@ -34,6 +34,7 @@
                             <asp:Label ID="txtDataIni" runat="server"></asp:Label>
                         </td>
                     </tr>
+                    
                     <tr>
                         <td>
                             <strong>Data Final do Investimento
@@ -41,6 +42,24 @@
                         </td>
                         <td>
                             <asp:Label ID="txtDataFim" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>
+                            <strong>Data de Resgate do Investimento
+                            </strong>
+                        </td>
+                        <td>
+                            <asp:Label ID="txtResgate" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Valor Recebido Pelo Investimento
+                            </strong>
+                        </td>
+                        <td>
+                            <asp:Label ID="txtValorRecebido" runat="server"></asp:Label>
                         </td>
                     </tr>
                 </table>
