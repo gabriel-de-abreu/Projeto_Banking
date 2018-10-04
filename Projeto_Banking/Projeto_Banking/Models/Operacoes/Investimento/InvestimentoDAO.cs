@@ -79,6 +79,7 @@ namespace Projeto_Banking.Models
                 }
                 reader.Close();
                 investimento.Taxa = new TaxaDAO().PesquisarPorTaxa(taxaId);
+                if (investimento.Rentabilidade > 0) investimento.PreFixada = true;
 
                 return investimento;
             }
@@ -95,7 +96,7 @@ namespace Projeto_Banking.Models
             var valor = InvestimentoOPS.Resgate(investimentoConta, dataResgate);
             if (new ContaDAO().Transferir(new ContaDAO().PesquisarContaPorNumero(1),
                 investimentoConta.Conta, (float)valor, "Resgate de investimento") != null)
-                if (AtualizaInvestimentoConta(investimentoConta, dataResgate,(float)valor) != null)
+                if (AtualizaInvestimentoConta(investimentoConta, dataResgate, (float)valor) != null)
                     return (float)valor;
 
             return -1;
@@ -158,12 +159,13 @@ namespace Projeto_Banking.Models
                     DataFim = DateTime.Parse(reader["Investimento_Fim"].ToString()),
                     DataInicio = DateTime.Parse(reader["Investimento_Inicio"].ToString()),
                     Valor = double.Parse(reader["Investimento_Conta_Valor"].ToString()),
-                    
+
 
                 };
             }
 
-            if (reader["Investimento_Resgate"].GetType() != typeof(DBNull)) {
+            if (reader["Investimento_Resgate"].GetType() != typeof(DBNull))
+            {
                 iC.Resgatado = true;
                 iC.DataResgate = DateTime.Parse(reader["Investimento_Resgate"].ToString());
                 iC.ValorResgate = float.Parse(reader["Investimento_Valor_Resgate"].ToString());
