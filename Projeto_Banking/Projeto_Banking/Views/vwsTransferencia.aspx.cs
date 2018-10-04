@@ -32,7 +32,12 @@ namespace Projeto_Banking.Views
 
                 float valor = float.Parse(txtValor.Text);
 
-                if (cc.Saldo >= valor)
+                if (conta.Numero.Equals(cc.Numero))
+                {
+                    lblResultado.Text = "Falha ao realizar transferência. Não é possível realizar transferências entre a própria conta.";
+                    AtualizaLabels();
+                }
+                else  if (cc.Saldo >= valor)
                 {
                     List<Conta> contas = new ContaDAO().Transferir(cc, conta, valor, "Transferência entre contas");
                     if (contas != null)
