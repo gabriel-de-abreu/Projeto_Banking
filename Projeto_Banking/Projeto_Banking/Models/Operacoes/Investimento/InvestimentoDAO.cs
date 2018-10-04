@@ -53,7 +53,6 @@ namespace Projeto_Banking.Models
 
         public Investimento BuscarInvestimentoPorId(int id)
         {
-
             try
             {
                 MySqlCommand command = Connection.Instance.CreateCommand();
@@ -73,7 +72,6 @@ namespace Projeto_Banking.Models
                         Id = int.Parse(reader["Investimento_id"].ToString()),
                         Nome = reader["Investimento_nome"].ToString(),
                         Rentabilidade = double.Parse(reader["Investimento_rentabilidade"].ToString()),
-
                     };
                     taxaId = int.Parse(reader["Taxa_Taxa_id"].ToString());
                 }
