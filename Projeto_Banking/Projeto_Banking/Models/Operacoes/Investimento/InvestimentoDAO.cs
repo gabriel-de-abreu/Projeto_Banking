@@ -93,7 +93,7 @@ namespace Projeto_Banking.Models
             var valor = InvestimentoOPS.Resgate(investimentoConta, dataResgate);
             if (new ContaDAO().Transferir(new ContaDAO().PesquisarContaPorNumero(1),
                 investimentoConta.Conta, (float)valor, "Resgate de investimento") != null)
-                if (AtualizaInvestimentoConta(investimentoConta) != null)
+                if (AtualizaInvestimentoConta(investimentoConta, dataResgate,(float)valor) != null)
                     return (float)valor;
 
             return -1;
@@ -156,18 +156,17 @@ namespace Projeto_Banking.Models
                     DataFim = DateTime.Parse(reader["Investimento_Fim"].ToString()),
                     DataInicio = DateTime.Parse(reader["Investimento_Inicio"].ToString()),
                     Valor = double.Parse(reader["Investimento_Conta_Valor"].ToString()),
+                    
 
                 };
             }
 
-            int resgatado = int.Parse(reader["Investimento_Resgate"].ToString());
-            if (resgatado == 1)
-            {
+            if (reader["Investimento_Resgate"].GetType() != typeof(DBNull)) {
                 iC.Resgatado = true;
+                iC.DataResgate = DateTime.Parse(reader["Investimento_Resgate"].ToString());
+                iC.ValorResgate = float.Parse(reader["Investimento_Valor_Resgate"].ToString());
             }
-            else
-            {
-            }
+
             contaId = int.Parse(reader["Conta_Corrente_Conta_Conta_Corrente_id"].ToString());
             investimentoId = int.Parse(reader["Investimento_Investimento_id"].ToString());
             reader.Close();
@@ -179,14 +178,16 @@ namespace Projeto_Banking.Models
             return iC;
 
         }
-        public InvestimentoConta AtualizaInvestimentoConta(InvestimentoConta investimentoConta)
+        public InvestimentoConta AtualizaInvestimentoConta(InvestimentoConta investimentoConta, DateTime dataResgate, float valor)
         {
             MySqlCommand command = Connection.Instance.CreateCommand();
             string sql = ("UPDATE projetobanking.investimento_conta " +
-                          "SET Investimento_Resgate = 1" +
-                          " WHERE Investimento_Conta_Id = " + investimentoConta.Id);
+                          "SET Investimento_Resgate = @Investimento_Resgate, Investimento_Valor_Resgate = @valorResgate" +
+                          " WHERE Investimento_Conta_Id = " + investimentoConta.Id) + ";";
 
             command.CommandText = sql;
+            command.Parameters.AddWithValue("@Investimento_Resgate", dataResgate);
+            command.Parameters.AddWithValue("@valorResgate", valor);
             int retorno = command.ExecuteNonQuery();
             if (retorno > 0)
             {
