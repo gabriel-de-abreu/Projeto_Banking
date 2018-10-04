@@ -22,6 +22,7 @@ namespace Projeto_Banking.Models
                 reader.Close();
                 return true;
             }
+            reader.Close();
             return false;
         }
     }
