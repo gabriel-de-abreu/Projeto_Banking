@@ -56,13 +56,14 @@
                             <asp:ListItem Text="Boleto" Value="boleto" />
                         </asp:RadioButtonList>
                     </div>
-                    <div>
-                        <asp:Button ID="btnRealizar" runat="server" Text="Realizar Empréstimo" OnClick="btnRealizar_Click" CssClass="btn btn-primary" />
-                        <asp:Button ID="btnCancear" runat="server" Text="Realizar Empréstimo"  OnClick="btnCancelar_Click" CssClass="btn btn-outline-primary" />
-                        <br /><br />
-                        <div class="alert alert-success" role="alert" runat="server" id="divResultado">
-                            <asp:Label ID="lblResultado" runat="server" Text="" CssClass="margin-1-upper"></asp:Label>
-                        </div>
+                    <div id="divRealizarBtn" runat="server">
+                        <asp:Button ID="btnRealizar" runat="server" Text="Realizar Empréstimo" OnClick="btnRealizar_Click" CssClass="btn btn-primary inner-padding-button1" />
+                        <asp:Button ID="btnCancear" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" CssClass="btn btn-outline-primary inner-padding-button3" />
+                        <br />
+                        <br />
+                    </div>
+                    <div class="alert alert-success" role="alert" runat="server" id="divResultado">
+                        <asp:Label ID="lblResultado" runat="server" Text="" CssClass="margin-1-upper"></asp:Label>
                     </div>
                 </div>
             </div>
