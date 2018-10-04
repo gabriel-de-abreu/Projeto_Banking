@@ -32,10 +32,12 @@ namespace Projeto_Banking.Views
             lblResultado.Text = "";
             try
             {
-                if (cc.Saldo >= double.Parse(txtValorIni.Text))
+                if (cc.Saldo >= double.Parse(txtValorIni.Text)
+                    && double.Parse(txtValorIni.Text)>0)
                 {
 
-                    if (DateTime.Parse(txtDataIni.Text) < DateTime.Parse(txtDataFim.Text))
+                    if (DateTime.Parse(txtDataIni.Text) < DateTime.Parse(txtDataFim.Text)
+                        && DateTime.Parse(txtDataIni.Text)>=DateTime.Now.Date)
                     {
                         InvestimentoDAO investimentoDao = new InvestimentoDAO();
                         Investimento investimento = investimentoDao.BuscarInvestimentoPorId(int.Parse(ddlInvestimentos.SelectedValue));
@@ -64,6 +66,7 @@ namespace Projeto_Banking.Views
                     else
                     {
                         lblResultado.Text = "Insira as datas de forma válida!";
+                        txtValorFim.Text = "";
                     }
                 }
 

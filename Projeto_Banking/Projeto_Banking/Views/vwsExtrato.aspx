@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
 
-    <div class="container container-border margin-3-upper col-lg-4 ">
+    <div class="container container-border margin-3-upper col-lg-6 ">
         <div class="container text-center margin-3-upper margin-1-bottom">
 
             <h5 class="align-content-center"><strong> Extrato</strong>  </h5>
