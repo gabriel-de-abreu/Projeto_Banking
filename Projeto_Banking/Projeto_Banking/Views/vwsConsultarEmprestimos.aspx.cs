@@ -18,11 +18,9 @@ namespace Projeto_Banking.Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (Session["contaCorrente"] == null) Response.Redirect("~/Views/vwLogin.aspx");
+            cc = Session["contaCorrente"] as ContaCorrente;
+            if (cc == null) Response.Redirect("~/Views/vwLogin.aspx");
             PopularGrid();
-
-
         }
 
         public void PopularGrid()

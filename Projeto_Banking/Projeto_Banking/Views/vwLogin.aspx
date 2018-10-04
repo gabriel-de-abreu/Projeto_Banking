@@ -13,13 +13,14 @@
     <script src="../Vendors/Scripts/bootstrap.bundle.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" />
     <link href="common.css" rel="stylesheet" />
+    <link href="../Vendors/Snippets/center-login.css" rel="stylesheet" />
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" class="flex-parent">
         <div class="container">
             <div class="row">
                 <div class="col-5 offset-4">
-                    <div class="container-border margin-center-vertical">
+                    <div class="container-border">
                         <div class="form-group">
                             <asp:Label ID="LblNumConta" runat="server" Text="Número da Conta"></asp:Label>
                             <asp:TextBox ID="TxtNumConta" runat="server" CssClass="form-control" placeholder="Digite o número da conta"
