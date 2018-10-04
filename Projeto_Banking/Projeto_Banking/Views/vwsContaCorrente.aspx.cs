@@ -13,9 +13,7 @@ namespace Projeto_Banking.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["contaCorrente"] == null)
-                Response.Redirect("~/Views/vwsLogin.aspx");
-
+            if (Session["contaCorrente"] == null) Response.Redirect("~/Views/vwLogin.aspx");
             if (!IsPostBack)
             {
                 Session["contaCorrente"] = new ContaDAO().PesquisarContaPorNumero((Session["contaCorrente"] as ContaCorrente).Numero);

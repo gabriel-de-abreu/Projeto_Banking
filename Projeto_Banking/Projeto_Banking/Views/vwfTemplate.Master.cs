@@ -13,36 +13,23 @@ namespace Projeto_Banking
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["contaCorrente"] == null && !HttpContext.Current.Request.Url.AbsolutePath.Equals("/Views/vwsLogin.aspx"))
-                Response.Redirect("~/Views/vwsLogin.aspx");
-
-            if (Session["contaCorrente"] != null)
+            if (Session["contaCorrente"] == null)
             {
-                aMeusEmprestimos.Visible = true;
-                aMeusInvestimentos.Visible = true;
-                lbEntrarSair.Text = "Sair";
-                lbEntrarSair.Visible = true;
-            }
-            else
-            {
-
-                aMeusEmprestimos.Visible = false;
-                aMeusInvestimentos.Visible = false;
-                lbEntrarSair.Visible = false;
+                Response.Redirect("~/Views/vwLogin.aspx");
 
             }
         }
 
         protected void lbEntrarSair_Click(object sender, EventArgs e)
         {
-            if(Session["contaCorrente"] != null)
+            if (Session["contaCorrente"] != null)
             {
                 Session["contaCorrente"] = null;
-                Response.Redirect("~/Views/vwsLogin.aspx");
+                Response.Redirect("~/Views/vwLogin.aspx");
             }
             else
             {
-                Response.Redirect("~/Views/vwsLogin.aspx");
+                Response.Redirect("~/Views/vwLogin.aspx");
             }
         }
         protected void ConsultarEmprestimos(object sender, EventArgs e)

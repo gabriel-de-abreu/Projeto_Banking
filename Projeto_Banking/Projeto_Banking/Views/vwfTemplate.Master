@@ -30,7 +30,7 @@
                 <div class="navbar-nav">
                     <asp:LinkButton ID="aMeusEmprestimos" runat="server" CssClass="nav-item nav-link" OnClick="ConsultarEmprestimos">Meus Empréstimos </asp:LinkButton>
                     <asp:LinkButton ID="aMeusInvestimentos" runat="server" CssClass="nav-item nav-link" OnClick="MeusInvestimentos">Meus Investimentos</asp:LinkButton>
-                    <asp:LinkButton ID="lbEntrarSair" runat="server" CssClass="nav-item nav-link" OnClick="lbEntrarSair_Click">Entrar</asp:LinkButton>
+                    <asp:LinkButton ID="lbEntrarSair" runat="server" CssClass="nav-item nav-link" OnClick="lbEntrarSair_Click">Sair</asp:LinkButton>
                 </div>
             </div>
         </nav>

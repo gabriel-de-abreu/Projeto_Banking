@@ -139,13 +139,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Views\vwLogin.aspx" />
     <Content Include="Views\vwsBoleto.aspx" />
     <Content Include="Views\vwsConsultarEmprestimos.aspx" />
     <Content Include="Views\vwsContaCorrente.aspx" />
     <Content Include="Views\vwsEmprestimo.aspx" />
     <Content Include="Views\vwsExtrato.aspx" />
     <Content Include="Views\vwsInvestimento.aspx" />
-    <Content Include="Views\vwsLogin.aspx" />
     <Content Include="Views\vwsMeusInvestimentos.aspx" />
     <Content Include="Views\vwsResgate.aspx" />
     <Content Include="Views\vwsTransferencia.aspx" />
@@ -202,6 +202,13 @@
     <Compile Include="Views\vwfTemplate.Master.designer.cs">
       <DependentUpon>vwfTemplate.Master</DependentUpon>
     </Compile>
+    <Compile Include="Views\vwLogin.aspx.cs">
+      <DependentUpon>vwLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vwLogin.aspx.designer.cs">
+      <DependentUpon>vwLogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\vwsBoleto.aspx.cs">
       <DependentUpon>vwsBoleto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -243,13 +250,6 @@
     </Compile>
     <Compile Include="Views\vwsInvestimento.aspx.designer.cs">
       <DependentUpon>vwsInvestimento.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\vwsLogin.aspx.cs">
-      <DependentUpon>vwsLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\vwsLogin.aspx.designer.cs">
-      <DependentUpon>vwsLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\vwsResgate.aspx.cs">
       <DependentUpon>vwsResgate.aspx</DependentUpon>

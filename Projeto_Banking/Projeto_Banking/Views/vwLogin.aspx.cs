@@ -10,22 +10,12 @@ using System.Web.UI.WebControls;
 
 namespace Projeto_Banking.Views
 {
-    public partial class vwsLogin : System.Web.UI.Page
+    public partial class vwLogin : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-        protected void TxtSenha_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void TxtNumConta_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         protected void BtnLogar_Click(object sender, EventArgs e)
         {
 
@@ -48,11 +38,5 @@ namespace Projeto_Banking.Views
             }
 
         }
-
-        //   private Conta PesquisaPorNumero(int numero)
-        //    {
-        //       return new ContaCorrenteDAO().PesquisaPorNumero(numero);
-        //  }
-
     }
 }

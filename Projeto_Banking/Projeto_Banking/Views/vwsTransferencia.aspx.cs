@@ -17,7 +17,7 @@ namespace Projeto_Banking.Views
             divComprovante.Visible = false;
             if (Session["contaCorrente"] == null)
             {
-                Response.Redirect("~/Views/vwsLogin.aspx");
+                Response.Redirect("~/Views/vwLogin.aspx");
             }
 
 

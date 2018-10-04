@@ -22,7 +22,7 @@ namespace Projeto_Banking.Views
             }
             else
             {
-                Response.Redirect("~/Views/vwsLogin.aspx");
+                Response.Redirect("~/Views/vwLogin.aspx");
             }
         }
 
@@ -43,26 +43,30 @@ namespace Projeto_Banking.Views
                 if (row["Movimentacao_descricao"].Equals("Transferência entre contas"))
                 {
                     //caso for a conta do cliente significa que ele fez a transferencia
-                    if (row["Conta_Movimentacao_origem_id"].Equals(cc.Numero)){     
+                    if (row["Conta_Movimentacao_origem_id"].Equals(cc.Numero))
+                    {
                         row["Movimentacao_descricao"] = "Transferência para conta " + row["Conta_Movimetacao_destino"];
-                        row["Movimentacao_valor_formatado"] = "- "+row["Movimentacao_valor_formatado"]; //formata p/ simbolizar debito
+                        row["Movimentacao_valor_formatado"] = "- " + row["Movimentacao_valor_formatado"]; //formata p/ simbolizar debito
                     }
                     //caso não for a conta do cliente significa que recebeu a transferencia
                     else
                     {
                         row["Movimentacao_descricao"] = "Transferência de conta " + row["Conta_Movimentacao_origem_id"];
-                        row["Movimentacao_valor_formatado"] = "+ "+row["Movimentacao_valor_formatado"]; //formata p/ simbolizar credito
+                        row["Movimentacao_valor_formatado"] = "+ " + row["Movimentacao_valor_formatado"]; //formata p/ simbolizar credito
                     }
 
-                }else if(row["Movimentacao_descricao"].Equals("Realização de investimento"))
+                }
+                else if (row["Movimentacao_descricao"].Equals("Realização de investimento"))
                 {
                     row["Movimentacao_valor_formatado"] = "- " + row["Movimentacao_valor_formatado"]; //formata p/ simbolizar debito
 
-                } else if(row["Movimentacao_descricao"].Equals("Realização de empréstimo"))
+                }
+                else if (row["Movimentacao_descricao"].Equals("Realização de empréstimo"))
                 {
                     row["Movimentacao_valor_formatado"] = "+ " + row["Movimentacao_valor_formatado"]; //formata p/ simbolizar credito
 
-                } else if(row["Movimentacao_descricao"].Equals("Resgate de investimento"))
+                }
+                else if (row["Movimentacao_descricao"].Equals("Resgate de investimento"))
                 {
                     row["Movimentacao_valor_formatado"] = "+ " + row["Movimentacao_valor_formatado"]; //formata p/ simbolizar credito
                 }

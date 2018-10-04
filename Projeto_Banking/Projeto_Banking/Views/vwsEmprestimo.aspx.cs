@@ -23,7 +23,7 @@ namespace Projeto_Banking.Views
 
             if (cc == null)
             {
-                Response.Redirect("~/Views/vwsLogin.aspx");
+                Response.Redirect("~/Views/vwLogin.aspx");
             }
 
             lblDataVencimento.Text = " (entre " + dataMinima.ToString("dd/MM/yyyy") + " e " + dataMaxima.ToString("dd/MM/yyyy") + ")"; //exibe data limites para o primeiro vencimento

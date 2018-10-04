@@ -13,6 +13,7 @@ namespace Projeto_Banking.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["contaCorrente"] == null) Response.Redirect("~/Views/vwLogin.aspx");
             PagamentoBoleto pagamentoBoleto = new PagamentoDAO().BuscarPagamentoPorId(Convert.ToInt32(Session["Pag_Boleto_id"])) as PagamentoBoleto;
             lblCodBarras.Text = pagamentoBoleto.Codigo.ToString();
             lblConta.Text = pagamentoBoleto.Emprestimo.ContaCorrente.Numero.ToString();

@@ -16,6 +16,7 @@ namespace Projeto_Banking.Views
         protected void Page_Load(object sender, EventArgs e)
         {
             cc = Session["contaCorrente"] as ContaCorrente;
+            if (cc == null) Response.Redirect("~/Views/vwLogin.aspx");
             iC = Session["investimentoConta"] as InvestimentoConta;
             valorInicial = (float)(Session["investimentoConta"] as InvestimentoConta).Valor;
 
