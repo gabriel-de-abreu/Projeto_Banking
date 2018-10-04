@@ -53,6 +53,7 @@
     <Compile Include="ContaCorrenteDAOTest.cs" />
     <Compile Include="ContaDAOTest.cs" />
     <Compile Include="ContaPessoaDAOTest.cs" />
+    <Compile Include="GerenteDAOTest.cs" />
     <Compile Include="InvestimentoDAOTest.cs" />
     <Compile Include="InvestimentoOPSTest.cs" />
     <Compile Include="PagamentoBoletoDAOTest.cs" />
