@@ -49,7 +49,7 @@ namespace Projeto_Banking.Views
             try
             {
                 DateTime.Parse(txtDataResgate.Text);
-                txtValorFim.Text = "Valor Final do Investimento: " + (new InvestimentoDAO().SimulaResgate(iC, Convert.ToDateTime(txtDataResgate.Text))).ToString("c2");
+                txtValorFim.Text = (new InvestimentoDAO().SimulaResgate(iC, Convert.ToDateTime(txtDataResgate.Text))).ToString("c2");
                 divResultado.Visible = true;
             }
             catch
@@ -66,7 +66,7 @@ namespace Projeto_Banking.Views
             try
             {
                 DateTime.Parse(txtDataResgate.Text);
-                txtValorFim.Text = "Valor Final do Investimento: "+(invDAO.Resgate(iC, Convert.ToDateTime(txtDataResgate.Text))).ToString("c2");
+                txtValorFim.Text = (invDAO.Resgate(iC, Convert.ToDateTime(txtDataResgate.Text))).ToString("c2");
 
                 Response.Write("<script language='javascript'>alert('Resgate Realizado com sucesso!');</script>");
                 Response.Redirect("~/Views/vwsMeusInvestimentos.aspx");

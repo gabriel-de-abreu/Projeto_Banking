@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Projeto_Banking.Models;
+using Projeto_Banking.Models.ContaDAOs;
 
 namespace Projeto_Banking.Testes
 {
@@ -62,7 +63,8 @@ namespace Projeto_Banking.Testes
         [TestMethod]
         public void TestAtualizarLimite()
         {
-            new ContaCorrenteDAO().AtualizarLimite(3, 9000);
+            bool atualizado = new ContaCorrenteDAO().AtualizarLimite(3, -1000);
+            Assert.AreNotEqual(true, atualizado);
         }
     }
 }

@@ -27,10 +27,13 @@ namespace Projeto_Banking.Views
             }
 
             lblDataVencimento.Text = " (entre " + dataMinima.ToString("dd/MM/yyyy") + " e " + dataMaxima.ToString("dd/MM/yyyy") + ")"; //exibe data limites para o primeiro vencimento
+            txtDataPrimeiroVencimento.Text = dataMinima.ToString("yyyy-MM-dd");
+            divResultado.Visible = false;
 
             if (!IsPostBack)
             {
                 divSimulacao.Visible = false;
+                
             }
         }
 
@@ -42,7 +45,6 @@ namespace Projeto_Banking.Views
             Taxa taxa = new TaxaDAO().PesquisarPorTaxa(EmprestimoOPS.VerificarPerfil(cc)); //obtem taxa atraves do perfil da pessoa
 
             string tipoPagamento = rblPagamento.SelectedValue;
-            //data = DateTime.Parse(txtDataPrimeiroVencimento.Text);
 
             if (!DateTime.TryParse(txtDataPrimeiroVencimento.Text, out data))
             {   //verifica data
@@ -54,7 +56,7 @@ namespace Projeto_Banking.Views
             {
                 if (valorDesejado > cc.Limite)
                 {
-                    lblAviso.Text = "Valor é superior ao limite disponível em sua conta";
+                    lblAviso.Text = "Valor é superior ao limite disponível em sua conta!";
                 }
                 else
                 {
@@ -71,11 +73,15 @@ namespace Projeto_Banking.Views
                     if (empDAO.InserirEmprestimo(emprestimo, tipoPagamento))
                     {
                         lblResultado.Text = "Empréstimo Realizado com Sucesso!";
+                        divResultado.Visible = true;
+                        btnRealizar.Visible = false;
+                        btnCancear.Visible = false;
                     }
                 }
             }
             else
             {
+                divSimulacao.Visible = false;
                 lblAviso.Text = "Dados incorretos!";
             }
 
@@ -89,31 +95,30 @@ namespace Projeto_Banking.Views
             int parcelas;
 
             Taxa taxa = new TaxaDAO().PesquisarPorTaxa(EmprestimoOPS.VerificarPerfil(cc)); //obtem taxa atraves do perfil da pessoa
-            //data = DateTime.Parse(txtDataPrimeiroVencimento.Text);
-            
-            
+                        
             if(!DateTime.TryParse(txtDataPrimeiroVencimento.Text, out data)){   //verifica data
                 lblAviso.Text = "Escolha uma data válida!";
                 divSimulacao.Visible = false;
 
             }
             else if (Double.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima <= data && dataMaxima >= data)
+
             {   
                 if(valorDesejado > cc.Limite)
                 {
-                    lblAviso.Text = "Valor é superior ao limite disponível em sua conta";
+                    lblAviso.Text = "Valor é superior ao limite disponível em sua conta!";
                 }
                 else
                 {
                     divSimulacao.Visible = true;
-                    
+
                     valorParcela = EmprestimoOPS.CalcularParcelas(parcelas, taxa, valorDesejado); //calcula valor das parcelas 
                     valorTotal = valorParcela * parcelas;
 
                     lblParcelas.Text = parcelas.ToString();
-                    lblValor.Text = "R$ " + valorParcela.ToString("0.00");
-                    lblValorTotal.Text = "R$" + valorTotal.ToString("0.00");
-                    lblTaxa.Text = taxa.Valor + "%";
+                    lblValor.Text = valorParcela.ToString("c2");
+                    lblValorTotal.Text = valorTotal.ToString("c2");
+                    lblTaxa.Text = taxa.Valor.ToString("F") + " % a.m.";
                 }
                 
             }
@@ -127,6 +132,14 @@ namespace Projeto_Banking.Views
         protected void btnConsultar_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Views/vwsConsultarEmprestimos.aspx");
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            txtValor.Text = "";
+            txtParcelas.Text = "";
+            txtDataPrimeiroVencimento.Text = dataMinima.ToString("yyyy-MM-dd");
+            divSimulacao.Visible = false;
         }
     }
 }

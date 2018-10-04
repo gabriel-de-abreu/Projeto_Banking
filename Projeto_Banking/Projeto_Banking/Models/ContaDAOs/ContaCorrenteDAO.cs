@@ -72,10 +72,11 @@ namespace Projeto_Banking.Models.ContaDAOs
             MySqlCommand command = Connection.Instance.CreateCommand();
 
             command.CommandText = $"UPDATE conta_corrente SET Conta_Corrente_limite = @limite" +
-                $" WHERE `Conta_id` = {cc.Numero};";
+                $" WHERE `Conta_Conta_Corrente_id` = {cc.Numero};";
             command.Parameters.AddWithValue("@limite", (float)cc.Limite);
 
-            return command.ExecuteNonQuery() == 1 ? true : false;
+            if (command.ExecuteNonQuery() == 1) return true;
+            else return false;
         }
     }
 }

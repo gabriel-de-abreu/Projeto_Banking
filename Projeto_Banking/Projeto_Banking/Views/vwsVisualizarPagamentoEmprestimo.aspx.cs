@@ -81,6 +81,7 @@ namespace Projeto_Banking.Views
             dTable.Columns.Add("StatusPagamento", typeof(String));
             dTable.Columns.Add("NumeroParcela", typeof(int));
             dTable.Columns.Add("Pagamento_data_Formatado", typeof(String));
+            dTable.Columns.Add("Pagamento_Valor_Formatado", typeof(String));
 
             int i = 1;
 
@@ -90,6 +91,8 @@ namespace Projeto_Banking.Views
 
                 DateTime data = Convert.ToDateTime(row["Pagamento_data"]);
                 row["Pagamento_data_Formatado"] = data.ToString("dd/MM/yyyy");
+
+                row["Pagamento_Valor_Formatado"] = Convert.ToDouble(row["Pagamento_Valor"]).ToString("c2");
 
                 if (int.Parse(row["Pagamento_Pago"].ToString()) == 1) //se for 1 no banco, atribui como pago
                 {

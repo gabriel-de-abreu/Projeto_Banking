@@ -27,28 +27,28 @@
             </div>
             <div class="col">
                 <div runat="server" id="divSimulacao">
-                        <table class="table remove-border">
-                            <tr>
-                                <td><b>Parcelas</b></td>
-                                <td>
-                                    <asp:Label ID="lblParcelas" runat="server" Text=""></asp:Label></td>
-                            </tr>
-                            <tr>
-                                <td><b>Valor</b></td>
-                                <td>
-                                    <asp:Label ID="lblValor" runat="server" Text=""></asp:Label></td>
-                            </tr>
-                            <tr>
-                                <td><b>Valor Total</b></td>
-                                <td>
-                                    <asp:Label ID="lblValorTotal" runat="server" Text=""></asp:Label></td>
-                            </tr>
-                            <tr>
-                                <td><b>Taxa de Juros</b></td>
-                                <td>
-                                    <asp:Label ID="lblTaxa" runat="server" Text=""></asp:Label></td>
-                            </tr>
-                        </table>
+                    <table class="table remove-border">
+                        <tr>
+                            <td><b>Parcelas</b></td>
+                            <td>
+                                <asp:Label ID="lblParcelas" runat="server" Text=""></asp:Label></td>
+                        </tr>
+                        <tr>
+                            <td><b>Valor</b></td>
+                            <td>
+                                <asp:Label ID="lblValor" runat="server" Text=""></asp:Label></td>
+                        </tr>
+                        <tr>
+                            <td><b>Valor Total</b></td>
+                            <td>
+                                <asp:Label ID="lblValorTotal" runat="server" Text=""></asp:Label></td>
+                        </tr>
+                        <tr>
+                            <td><b>Taxa de Juros</b></td>
+                            <td>
+                                <asp:Label ID="lblTaxa" runat="server" Text=""></asp:Label></td>
+                        </tr>
+                    </table>
                     <div class="form-group">
                         <asp:Label ID="Label3" runat="server" Text="Pagamento"></asp:Label>
                         <asp:RadioButtonList ID="rblPagamento" runat="server">
@@ -58,12 +58,17 @@
                     </div>
                     <div>
                         <asp:Button ID="btnRealizar" runat="server" Text="Realizar Empréstimo" OnClick="btnRealizar_Click" CssClass="btn btn-primary" />
-                        <br />
-                        <asp:Label ID="lblResultado" runat="server" Text="" CssClass="margin-1-upper"></asp:Label>
+                        <asp:Button ID="btnCancear" runat="server" Text="Realizar Empréstimo"  OnClick="btnCancelar_Click" CssClass="btn btn-outline-primary" />
+                        <br /><br />
+                        <div class="alert alert-success" role="alert" runat="server" id="divResultado">
+                            <asp:Label ID="lblResultado" runat="server" Text="" CssClass="margin-1-upper"></asp:Label>
+                        </div>
                     </div>
                 </div>
+            </div>
+
         </div>
-        </div>
+
         <div class="row">
             <div class="container text-center margin-2-upper margin-1-bottom">
                 <asp:Button ID="btnConsultar" runat="server" Text="Consultar meus empréstimos" OnClick="btnConsultar_Click" CssClass=" btn btn-outline-primary" />

@@ -27,7 +27,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Taxa de Juros">
                     <ItemTemplate>
-                        <asp:Label ID="lblTaxa" runat="server" Text='<%# Eval("Taxa_valor")+" %" %>'></asp:Label>
+                        <asp:Label ID="lblTaxa" runat="server" Text='<%# Eval("Taxa_valor") + " % a.m."%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Tipo de Pagamento">

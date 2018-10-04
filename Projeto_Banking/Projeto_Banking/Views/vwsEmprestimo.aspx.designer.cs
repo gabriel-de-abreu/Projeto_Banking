@@ -166,6 +166,24 @@ namespace Projeto_Banking.Views {
         protected global::System.Web.UI.WebControls.Button btnRealizar;
         
         /// <summary>
+        /// Controle btnCancear.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancear;
+        
+        /// <summary>
+        /// Controle divResultado.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divResultado;
+        
+        /// <summary>
         /// Controle lblResultado.
         /// </summary>
         /// <remarks>

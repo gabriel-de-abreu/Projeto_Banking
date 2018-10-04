@@ -42,7 +42,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Valor">
                     <ItemTemplate>
-                        <asp:Label ID="lblValor" runat="server" Text='<%# "R$ "+Eval("Pagamento_Valor") %>'></asp:Label>
+                        <asp:Label ID="lblValor" runat="server" Text='<%# Bind("Pagamento_Valor_Formatado") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Vencimento">
