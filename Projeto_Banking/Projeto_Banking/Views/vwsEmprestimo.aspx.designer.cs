@@ -157,15 +157,6 @@ namespace Projeto_Banking.Views {
         protected global::System.Web.UI.WebControls.RadioButtonList rblPagamento;
         
         /// <summary>
-        /// Controle divRealizarBtn.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRealizarBtn;
-        
-        /// <summary>
         /// Controle btnRealizar.
         /// </summary>
         /// <remarks>
