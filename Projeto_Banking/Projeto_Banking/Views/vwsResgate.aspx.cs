@@ -53,12 +53,17 @@ namespace Projeto_Banking.Views
         }
         public void SimularInvestimento(object sender, EventArgs e)
         {
+            lblStringValorFim.Text = "";
             try
             {
                 if (iC.Investimento.Rentabilidade <= 0)
                     txtValorFim.Text = "Aproximadamente ";
                 else
                     txtValorFim.Text = "";
+
+                if (DateTime.Parse(txtDataResgate.Text) < DateTime.Now.Date)
+                    throw new System.ArgumentException();
+
 
                 txtValorFim.Text += (new InvestimentoDAO().SimulaResgate(iC, DateTime.Parse(txtDataResgate.Text))).ToString("c2");
                 divResultado.Visible = true;
@@ -67,6 +72,7 @@ namespace Projeto_Banking.Views
             {
                 divResultado.Visible = true;
                 lblStringValorFim.Text = "Formato de data inválido!";
+                txtValorFim.Text = "";
             }
             iC.Valor = valorInicial;
         }
