@@ -35,7 +35,7 @@ namespace Projeto_Banking.Views
             {
                 row["Investimento_Inicio_Formatado"] = Convert.ToDateTime(row["Investimento_Inicio"]).ToString("dd/MM/yyyy");
                 row["Investimento_Fim_Formatado"] = Convert.ToDateTime(row["Investimento_Fim"]).ToString("dd/MM/yyyy");
-                row["Investimento_Resgate_Formatado"] = ((row["Investimento_Resgate"]).GetType() == typeof(DBNull) ? ("Não") : ("Sim"));
+                row["Investimento_Resgate_Formatado"] = (Convert.ToBoolean(row["Investimento_Resgate"])) ? ("Sim") : ("Não");
                 row["Investimento_Conta_Valor_Formatado"] = Convert.ToDouble(row["Investimento_Conta_Valor"]).ToString("c2");
 
             }
