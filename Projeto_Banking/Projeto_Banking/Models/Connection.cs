@@ -20,7 +20,7 @@ namespace Projeto_Banking.Models
 
         private Connection()
         {
-            string con = "Server=localhost;Database=ProjetoBanking;Uid=root;Pwd=1234";
+            string con = "Server=localhost;Database=ProjetoBanking;Uid=root;Pwd=venus";
             DBConnection = new MySqlConnection(con);
             DBConnection.Open();
         }
