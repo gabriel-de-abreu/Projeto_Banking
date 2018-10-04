@@ -81,7 +81,7 @@ namespace Projeto_Banking.Views
         private void PopularMenuDD()
         {
             InvestimentoDAO investimentoDao = new InvestimentoDAO();
-            List<Investimento> lInvestimento = investimentoDao.PopularDropMenu();
+            List<Investimento> lInvestimento = investimentoDao.BuscarTodosInvestimentos();
 
             ddlInvestimentos.DataSource = lInvestimento;
             ddlInvestimentos.DataTextField = "Nome";
