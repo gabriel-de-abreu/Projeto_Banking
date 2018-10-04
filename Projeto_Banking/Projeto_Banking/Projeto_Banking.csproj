@@ -160,6 +160,7 @@
     <Compile Include="Models\ContaDAOs\ContaContabilInvestimentoDAO.cs" />
     <Compile Include="Models\ContaDAOs\ContaCorrenteDAO.cs" />
     <Compile Include="Models\ContaDAOs\ContaDAO.cs" />
+    <Compile Include="Models\GerenteDAO.cs" />
     <Compile Include="Models\MovimentacaoDAO.cs" />
     <Compile Include="Models\Operacoes\EmprestimoDAOs\EmprestimoOPS.cs" />
     <Compile Include="Models\Operacoes\EmprestimoDAOs\PagamentoDAOs\PagamentoBoletoDAO.cs" />
