@@ -30,12 +30,12 @@
                             <label>
                                 Senha
                             </label>
-                            <asp:TextBox ID="txtSenha" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="txtSenha" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
                         </div>
-                        <div class="container text-center">
+                        <div class="container text-center margin-3-upper margin-1-bottom">
                             <asp:Button ID="Logar" runat="server" Text="Logar" CssClass="btn btn-primary" OnClick="Logar_Click" />
                             <br />
-                            <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
+                            <asp:Label ID="lblResultado" runat="server" Text="" CssClass="margin-1-upper"></asp:Label>
                         </div>
                     </div>
                 </div>
