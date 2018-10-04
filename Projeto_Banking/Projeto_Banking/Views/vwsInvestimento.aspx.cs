@@ -29,6 +29,7 @@ namespace Projeto_Banking.Views
 
         protected void BtnSimular_Click(object sender, EventArgs e)
         {
+            lblResultado.Text = "";
             try
             {
                 if (cc.Saldo >= double.Parse(txtValorIni.Text))
