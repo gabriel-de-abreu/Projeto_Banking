@@ -55,7 +55,12 @@ namespace Projeto_Banking.Views
         {
             try
             {
-                txtValorFim.Text = (new InvestimentoDAO().SimulaResgate(iC, DateTime.Parse(txtDataResgate.Text))).ToString("c2");
+                if (iC.Investimento.Rentabilidade <= 0)
+                    txtValorFim.Text = "Aproximadamente ";
+                else
+                    txtValorFim.Text = "";
+
+                txtValorFim.Text += (new InvestimentoDAO().SimulaResgate(iC, DateTime.Parse(txtDataResgate.Text))).ToString("c2");
                 divResultado.Visible = true;
             }
             catch
