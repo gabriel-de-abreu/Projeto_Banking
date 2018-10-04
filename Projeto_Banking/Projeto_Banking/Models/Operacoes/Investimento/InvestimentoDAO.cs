@@ -107,7 +107,7 @@ namespace Projeto_Banking.Models
             return (float)InvestimentoOPS.Resgate(investimentoConta, dataResgate);
         }
 
-        public List<Investimento> PopularDropMenu()
+        public List<Investimento> BuscarTodosInvestimentos()
         {
             MySqlCommand command = Connection.Instance.CreateCommand();
             command.CommandText = "SELECT * FROM investimento";
@@ -120,12 +120,19 @@ namespace Projeto_Banking.Models
                     Id = int.Parse(reader["Investimento_id"].ToString()),
                     Nome = reader["Investimento_nome"].ToString(),
                     Rentabilidade = double.Parse(reader["Investimento_rentabilidade"].ToString()),
+                    Taxa = new Taxa()
+                    {
+                        Id = int.Parse(reader["Taxa_Taxa_id"].ToString())
+                    }
 
                 };
                 lInvestimento.Add(investimento);
-                //taxaId = int.Parse(reader["Taxa_Taxa_id"].ToString());
             }
             reader.Close();
+            foreach (Investimento investimento in lInvestimento)
+            {
+                investimento.Taxa = new TaxaDAO().PesquisarPorTaxa(investimento.Taxa.Id);
+            }
             return lInvestimento;
         }
 
@@ -202,6 +209,22 @@ namespace Projeto_Banking.Models
                 return null;
             }
 
+        }
+
+        public Investimento CadastrarInvestimento(Investimento investimento)
+        {
+            //INSERT INTO `ProjetoBanking`.`Investimento` (`Investimento_nome`, `Investimento_rentabilidade`, `Taxa_Taxa_id`) VALUES (NULL, NULL, NULL);
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            command.CommandText = "INSERT INTO `ProjetoBanking`.`Investimento` (`Investimento_nome`, `Investimento_rentabilidade`, `Taxa_Taxa_id`) VALUES (@nome, @rentabilidade, @taxa_id);";
+            command.Parameters.AddWithValue("@nome", investimento.Nome);
+            command.Parameters.AddWithValue("@rentabilidade", investimento.Nome);
+            command.Parameters.AddWithValue("@taxa_id", investimento.Taxa.Id);
+            if (command.ExecuteNonQuery() > 0)
+            {
+                investimento.Id = (int)command.LastInsertedId;
+                return investimento;
+            }
+            return null;
         }
     }
 }

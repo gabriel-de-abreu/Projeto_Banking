@@ -27,7 +27,7 @@ namespace Projeto_Banking.Views
             }
 
             lblDataVencimento.Text = " (entre " + dataMinima.ToString("dd/MM/yyyy") + " e " + dataMaxima.ToString("dd/MM/yyyy") + ")"; //exibe data limites para o primeiro vencimento
-            txtDataPrimeiroVencimento.Text = dataMinima.ToString("yyyy-MM-dd");
+            txtDataPrimeiroVencimento.Text = dataMinima.ToString("dd/MM/yyyy");
             divResultado.Visible = false;
 
             if (!IsPostBack)
@@ -108,7 +108,8 @@ namespace Projeto_Banking.Views
                 {
                     lblAviso.Text = "Valor é superior ao limite disponível em sua conta!";
                 }
-                else
+               
+                else if (valorDesejado > 0)
                 {
                     divSimulacao.Visible = true;
                     divRealizarBtn.Visible = true;
@@ -120,6 +121,11 @@ namespace Projeto_Banking.Views
                     lblValor.Text = valorParcela.ToString("c2");
                     lblValorTotal.Text = valorTotal.ToString("c2");
                     lblTaxa.Text = taxa.Valor.ToString("F") + " % a.m.";
+                }
+                else
+                {
+                    divSimulacao.Visible = false;
+                    lblAviso.Text = "Valor precisa ser maior que zero!";
                 }
 
             }
