@@ -2,6 +2,7 @@
 using Projeto_Banking.Objetos;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -30,7 +31,7 @@ namespace Projeto_Banking.Views
             {
                 ContaCorrente conta = new ContaDAO().PesquisarContaPorNumero(int.Parse(txtConta.Text)) as ContaCorrente;
 
-                float valor = float.Parse(txtValor.Text);
+                float valor = float.Parse(txtValor.Text, CultureInfo.InvariantCulture.NumberFormat);
                 if (conta != null)
                 {
                     if (conta.Numero.Equals(cc.Numero))

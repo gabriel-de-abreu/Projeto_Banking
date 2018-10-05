@@ -64,8 +64,8 @@ namespace Projeto_Banking.Testes
         [TestMethod]
         public void TestAtualizarLimite()
         {
-            bool atualizado = new ContaCorrenteDAO().AtualizarLimite(3, -1000);
-            Assert.AreNotEqual(true, atualizado);
+            bool atualizado = new ContaCorrenteDAO().AtualizarLimite(3, -5000);
+            Assert.AreEqual(true, atualizado);
         }
 
         [TestMethod]
