@@ -22,12 +22,12 @@
                 <div class="col-5 offset-4">
                     <div class="container-border">
                         <div class="form-group">
-                            <asp:Label ID="LblNumConta" runat="server" Text="Número da Conta"></asp:Label>
+                            <label>Número da Conta</label>
                             <asp:TextBox ID="TxtNumConta" runat="server" CssClass="form-control" placeholder="Digite o número da conta"
                                 required="true"></asp:TextBox>
                         </div>
                         <div class="form-group">
-                            <asp:Label ID="LblSenha" runat="server" Text="Senha:"></asp:Label>
+                            <label>Senha</label>
                             <asp:TextBox ID="TxtSenha" runat="server" TextMode="Password" CssClass="form-control"
                                 placeholder="Senha da Conta" required="true"></asp:TextBox>
                         </div>

@@ -7,16 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Projeto_Banking.Views.Gerencial
 {
-    public partial class PrincipalGerente : System.Web.UI.Page
+    public partial class vwsCadastroConta : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Carregar dados aqui
-        }
 
-        protected void btnCadastroConta_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Views/Gerencial/vwsCadastroConta.aspx");
         }
     }
 }

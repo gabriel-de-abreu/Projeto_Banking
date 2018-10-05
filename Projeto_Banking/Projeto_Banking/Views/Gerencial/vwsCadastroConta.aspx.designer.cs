@@ -7,54 +7,63 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace Projeto_Banking.Views {
+namespace Projeto_Banking.Views.Gerencial {
     
     
-    public partial class vwLogin {
+    public partial class vwsCadastroConta {
         
         /// <summary>
-        /// Controle form1.
+        /// Controle txtNome.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox txtNome;
         
         /// <summary>
-        /// Controle TxtNumConta.
+        /// Controle txtCpf.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtNumConta;
+        protected global::System.Web.UI.WebControls.TextBox txtCpf;
         
         /// <summary>
-        /// Controle TxtSenha.
+        /// Controle txtLimite.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtSenha;
+        protected global::System.Web.UI.WebControls.TextBox txtLimite;
         
         /// <summary>
-        /// Controle BtnLogar.
+        /// Controle txtSenha.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnLogar;
+        protected global::System.Web.UI.WebControls.TextBox txtSenha;
         
         /// <summary>
-        /// Controle LblResultado.
+        /// Controle btnCadastrar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblResultado;
+        protected global::System.Web.UI.WebControls.Button btnCadastrar;
+        
+        /// <summary>
+        /// Controle btnVoltar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVoltar;
     }
 }
