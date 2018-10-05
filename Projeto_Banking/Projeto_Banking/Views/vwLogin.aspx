@@ -7,7 +7,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link href="../Vendors/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="../Vendors/Snippets/sticky-footer.css" rel="stylesheet" />
     <script src="../Vendors/Scripts/jquery-3.0.0.min.js"></script>
     <script src="../Vendors/Scripts/bootstrap.min.js"></script>
     <script src="../Vendors/Scripts/bootstrap.bundle.min.js"></script>
