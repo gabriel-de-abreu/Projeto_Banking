@@ -15,9 +15,13 @@ namespace Projeto_Banking.Views.Gerencial
         protected void Page_Load(object sender, EventArgs e)
         {
             List<Taxa> lTaxas = new List<Taxa>();
-
-            PopularMenuDD();
             PopularGrid();
+
+            if (!IsPostBack)
+            {
+                PopularMenuDD();
+            }
+
 
         }
 
@@ -36,7 +40,6 @@ namespace Projeto_Banking.Views.Gerencial
         {
             InvestimentoDAO investimentoDAO = new InvestimentoDAO();
             DataTable dt = investimentoDAO.MostrarInvestimentos();
-
             gdvInvestimento.DataSource = dt;
             gdvInvestimento.DataBind();
         }
@@ -59,12 +62,19 @@ namespace Projeto_Banking.Views.Gerencial
                     Rentabilidade = rentabilidade
 
                 };
+
                 investimento = investimentoDao.CadastrarInvestimento(investimento);
+
                 if (investimento != null)
                 {
                     txtInvNom.Text = "";
                     txtInvRen.Text = "";
+                    lblRes.Text = "Inserção realizada com sucesso";
                     PopularGrid();
+                }
+                else
+                {
+                    lblRes.Text = "Erro na inserção";
                 }
             }
 
@@ -103,7 +113,7 @@ namespace Projeto_Banking.Views.Gerencial
         {
             InvestimentoDAO invDao = new InvestimentoDAO();
 
-                if (invDao.RemoverInvestimento(Convert.ToInt32(txtIdInv.Text)))
+            if (invDao.RemoverInvestimento(Convert.ToInt32(txtIdInv.Text)))
             {
                 txtIdInv.Text = "";
                 txtInvNom.Text = "";
@@ -111,6 +121,36 @@ namespace Projeto_Banking.Views.Gerencial
             }
             PopularGrid();
         }
-        
+
+        protected void btnEdi_Click(object sender, EventArgs e)
+        {
+            TaxaDAO taxaDao = new TaxaDAO();
+            string nome = txtInvNom.Text;
+            double rentabilidade = Double.Parse(txtInvRen.Text);
+            Taxa taxa = taxaDao.PesquisarPorTaxa(int.Parse(ddlInvTax.SelectedValue));
+            int id = Convert.ToInt32(txtIdInv.Text);
+            InvestimentoDAO investimentoDao = new InvestimentoDAO();
+
+            Investimento investimento = new Investimento()
+            {
+                Id = id,
+                Nome = nome,
+                Taxa = taxa,
+                Rentabilidade = rentabilidade
+
+            };
+
+            investimento = investimentoDao.EditarInvestimento(investimento);
+
+
+            if (investimento != null)
+            {
+                PopularGrid();
+
+            }
+
+        }
+
+
     }
 }

@@ -11,21 +11,27 @@ namespace Projeto_Banking.Models
     {
         public Taxa PesquisarPorTaxa(int id)
         {
-            MySqlCommand command = Connection.Instance.CreateCommand();
-            command.CommandText = "SELECT * FROM taxa WHERE Taxa_id  = @id";
-            command.Parameters.AddWithValue("@id", id);
-
-            var reader = command.ExecuteReader();
-            Taxa t = new Taxa();
-            while (reader.Read())
+            try
             {
-                t = new Taxa();
-                t.Id = id;
-                t.Nome = reader["Taxa_nome"].ToString();
-                t.Valor = Convert.ToInt32(reader["Taxa_valor"]);
+                MySqlCommand command = Connection.Instance.CreateCommand();
+                command.CommandText = "SELECT * FROM taxa WHERE Taxa_id  = @id";
+                command.Parameters.AddWithValue("@id", id);
+
+                var reader = command.ExecuteReader();
+                Taxa t = new Taxa();
+                while (reader.Read())
+                {
+                    t = new Taxa();
+                    t.Id = id;
+                    t.Valor = Convert.ToInt32(reader["Taxa_valor"]);
+                }
+                reader.Close();
+                return t;
             }
-            reader.Close();
-            return t;
+            catch(Exception e)
+            {
+                return null;
+            }
         }
 
         public List<Taxa> BuscarTodasTaxas()
