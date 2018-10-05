@@ -31,11 +31,14 @@
                         <table class="table">
                             <tr>
                                 <td><strong>Investimentos</strong></td>
-                                <td>10000</td>
+                                <td>
+                                    <asp:Label ID="lblSaldoInvestimentos" runat="server"></asp:Label></td>
                             </tr>
                             <tr>
                                 <td><strong>Empréstimos</strong></td>
-                                <td>10000</td>
+                                <td>
+                                    <asp:Label ID="lblSaldEmprestimo" runat="server"></asp:Label>
+                                </td>
                             </tr>
                         </table>
                     </div>

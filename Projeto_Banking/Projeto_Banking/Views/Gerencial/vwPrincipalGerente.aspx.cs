@@ -1,4 +1,5 @@
 ﻿using Projeto_Banking.Models;
+using Projeto_Banking.Models.ContaDAOs;
 using Projeto_Banking.Objetos;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace Projeto_Banking.Views.Gerencial
                 Response.Redirect("~/Views/Gerencial/vwLoginGerente.aspx.cs");
             }
             LoadLastMovs();
+            CarregaSaldos();
         }
 
         protected void btnCadastroConta_Click(object sender, EventArgs e)
@@ -30,7 +32,11 @@ namespace Projeto_Banking.Views.Gerencial
         {
             Response.Redirect("~/Views/Gerencial/vwsMovimentacao.aspx");
         }
-
+        private void CarregaSaldos()
+        {
+            lblSaldEmprestimo.Text = new ContaContabilEmprestimoDAO().BuscarSaldoContaContabilEmprestimo().ToString("c2");
+            lblSaldoInvestimentos.Text = new ContaContabilInvestimentoDAO().BuscarSaldoContaContabilInvestimento().ToString("c2");
+        }
         private void LoadLastMovs()
         {
             List<Movimentacao> movimentacoes = new MovimentacaoDAO().Buscar5Ultimas();
