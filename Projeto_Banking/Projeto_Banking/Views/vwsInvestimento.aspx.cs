@@ -97,7 +97,7 @@ namespace Projeto_Banking.Views
             ddlInvestimentos.DataValueField = "Id";
             ddlInvestimentos.DataBind();
             txtDataIni.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
-            txtDataFim.Text = DateTime.Now.Date.AddYears(1).ToString("yyyy-MM-dd";
+            txtDataFim.Text = DateTime.Now.Date.AddYears(1).ToString("yyyy-MM-dd");
         }
 
         private void PreencherCampos()
