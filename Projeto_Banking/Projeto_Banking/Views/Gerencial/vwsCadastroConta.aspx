@@ -30,7 +30,7 @@
                     <div class="col">
                         <div class="form-group">
                             <label>Senha</label>
-                            <asp:TextBox ID="txtSenha" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="txtSenha" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
                 </div>
