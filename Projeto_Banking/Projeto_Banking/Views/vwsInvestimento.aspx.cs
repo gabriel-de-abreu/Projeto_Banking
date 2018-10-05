@@ -3,6 +3,7 @@ using Projeto_Banking.Objetos;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -32,9 +33,10 @@ namespace Projeto_Banking.Views
             lblResultado.Text = "";
             try
             {
-                if (cc.Saldo >= double.Parse(txtValorIni.Text))
+                float valorIni = float.Parse(txtValorIni.Text, CultureInfo.InvariantCulture.NumberFormat);
+                if (cc.Saldo >= valorIni)
                 {
-                    if (double.Parse(txtValorIni.Text) > 0)
+                    if (valorIni > 0)
                     {
                         if (DateTime.Parse(txtDataIni.Text) < DateTime.Parse(txtDataFim.Text))
                             if (DateTime.Parse(txtDataIni.Text) >= DateTime.Now.Date)
@@ -48,7 +50,7 @@ namespace Projeto_Banking.Views
                                     Investimento = investimento,
                                     DataInicio = DateTime.Parse(txtDataIni.Text),
                                     DataFim = DateTime.Parse(txtDataFim.Text),
-                                    Valor = double.Parse(txtValorIni.Text)
+                                    Valor = valorIni
 
                                 };
 
@@ -94,8 +96,8 @@ namespace Projeto_Banking.Views
             ddlInvestimentos.DataTextField = "Nome";
             ddlInvestimentos.DataValueField = "Id";
             ddlInvestimentos.DataBind();
-            txtDataIni.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
-            txtDataFim.Text = DateTime.Now.Date.AddYears(1).ToString("dd/MM/yyyy");
+            txtDataIni.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
+            txtDataFim.Text = DateTime.Now.Date.AddYears(1).ToString("yyyy-MM-dd");
         }
 
         private void PreencherCampos()
@@ -117,7 +119,7 @@ namespace Projeto_Banking.Views
                 Investimento = investimento,
                 DataInicio = DateTime.Parse(txtDataIni.Text),
                 DataFim = DateTime.Parse(txtDataFim.Text),
-                Valor = double.Parse(txtValorIni.Text)
+                Valor = double.Parse(txtValorIni.Text, CultureInfo.InvariantCulture.NumberFormat)
             };
             if (investimentoDao.InserirInvestimento(investimentoConta) != null)
             {

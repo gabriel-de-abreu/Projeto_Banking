@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
 
 namespace Projeto_Banking.Views.Gerencial
 {
@@ -17,7 +18,7 @@ namespace Projeto_Banking.Views.Gerencial
             Boolean isActive = Convert.ToBoolean(Session["gerente"]);
             if (!isActive || Session["gerente"] == null)
             {
-                Response.Redirect("~/Views/Gerencial/vwLoginGerente.aspx.cs");
+                Response.Redirect("~/Views/Gerencial/vwLoginGerente.aspx");
             }
             LoadLastMovs();
             CarregaSaldos();
@@ -26,6 +27,12 @@ namespace Projeto_Banking.Views.Gerencial
         protected void btnCadastroConta_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Views/Gerencial/vwsCadastroConta.aspx");
+        }
+
+        protected void btnCadastroInvestimento_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/Gerencial/vwsGerenciarInvestimento.aspx");
+
         }
 
         protected void btnConsultarMovimentacoes_Click(object sender, EventArgs e)
@@ -78,5 +85,7 @@ namespace Projeto_Banking.Views.Gerencial
                 ultimasMovimentacoes.Rows.Add(tr);
             }
         }
+
+
     }
 }
