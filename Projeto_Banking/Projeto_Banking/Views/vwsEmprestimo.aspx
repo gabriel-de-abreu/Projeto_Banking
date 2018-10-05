@@ -12,7 +12,7 @@
                 </div>
                 <div class="form-group">
                     <asp:Label ID="Label2" runat="server" Text="Número de Parcelas"></asp:Label>
-                    <asp:TextBox ID="txtParcelas" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtParcelas" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                 </div>
                 <div class="form-group">
                     <asp:Label ID="Label4" runat="server" Text="Vencimento da primeira parcela"></asp:Label>

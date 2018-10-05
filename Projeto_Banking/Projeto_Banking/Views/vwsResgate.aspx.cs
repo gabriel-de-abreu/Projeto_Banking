@@ -20,12 +20,12 @@ namespace Projeto_Banking.Views
             iC = Session["investimentoConta"] as InvestimentoConta;
             valorInicial = (float)(Session["investimentoConta"] as InvestimentoConta).Valor;
 
-            if (cc == null || iC == null) Response.Redirect("~/Views/vwsContaCorrente.aspx");
+            if (iC == null) Response.Redirect("~/Views/vwsContaCorrente.aspx");
 
             if (!IsPostBack)
             {
-
                 PreencherCampos();
+                SimularInvestimento();
             }
         }
 
@@ -34,11 +34,12 @@ namespace Projeto_Banking.Views
 
             txtValorIni.Text = ((Convert.ToDouble(iC.Valor))).ToString("c2");
             txtValorFim.Text = ("");
-            txtDataResgate.Text = ("");
             txtDataIni.Text = (iC.DataInicio).ToString("dd/MM/yyyy");
             txtDataFim.Text = (iC.DataFim).ToString("dd/MM/yyyy");
+            txtDataResgate.Text = txtDataFim.Text;
             txtResgate.Text = (iC.DataResgate).ToString("dd/MM/yyyy");
             txtValorRecebido.Text = (iC.ValorResgate).ToString("c2");
+
 
             if (iC.Resgatado)
             {
@@ -53,6 +54,11 @@ namespace Projeto_Banking.Views
 
         }
         public void SimularInvestimento(object sender, EventArgs e)
+        {
+            SimularInvestimento();
+        }
+
+        private void SimularInvestimento()
         {
             lblStringValorFim.Text = "";
             try

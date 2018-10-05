@@ -31,37 +31,40 @@ namespace Projeto_Banking.Views
                 ContaCorrente conta = new ContaDAO().PesquisarContaPorNumero(int.Parse(txtConta.Text)) as ContaCorrente;
 
                 float valor = float.Parse(txtValor.Text);
-
-                if (conta.Numero.Equals(cc.Numero))
+                if (conta != null)
                 {
-                    lblResultado.Text = "Falha ao realizar transferência. Não é possível realizar transferências para a própria conta.";
-                    AtualizaLabels();
-                }
-                else  if (valor>0 && cc.Saldo >= valor)
-                {
-                    List<Conta> contas = new ContaDAO().Transferir(cc, conta, valor, "Transferência entre contas");
-                    if (contas != null)
+                    if (conta.Numero.Equals(cc.Numero))
                     {
-                        Session["contaCorrente"] = contas.First();
-                        lblResultado.Text = "Transferência realizada com sucesso!";
-                        divTransf.Visible = false;
-                        divComprovante.Visible = true;
-                        //Atualizar os dados para comprovante
-                        lblContaOrigem.Text = cc.Numero.ToString();
-                        lblNomeOrigem.Text = cc.Pessoa.Nome;
-                        lblContaDestino.Text = conta.Numero.ToString();
-                        lblNomeDestino.Text = conta.Pessoa.Nome;
-                        lblValor.Text = valor.ToString("c2");
+                        lblResultado.Text = "Falha ao realizar transferência. Não é possível realizar transferências para a própria conta.";
+                        AtualizaLabels();
+                    }
+                    else if (valor > 0 && cc.Saldo >= valor)
+                    {
+                        List<Conta> contas = new ContaDAO().Transferir(cc, conta, valor, "Transferência entre contas");
+                        if (contas != null)
+                        {
+                            Session["contaCorrente"] = contas.First();
+                            lblResultado.Text = "Transferência realizada com sucesso!";
+                            divTransf.Visible = false;
+                            divComprovante.Visible = true;
+                            //Atualizar os dados para comprovante
+                            lblContaOrigem.Text = cc.Numero.ToString();
+                            lblNomeOrigem.Text = cc.Pessoa.Nome;
+                            lblContaDestino.Text = conta.Numero.ToString();
+                            lblNomeDestino.Text = conta.Pessoa.Nome;
+                            lblValor.Text = valor.ToString("c2");
+                        }
+                        else
+                            lblResultado.Text = "Falha ao realizar transferência...";
+
                     }
                     else
-                    {
                         lblResultado.Text = "Falha ao realizar transferência...";
-                    }
+
                 }
                 else
-                {
-                    lblResultado.Text = "Falha ao realizar transferência...";
-                }
+                    lblResultado.Text = "Conta de destino não encontrada!";
+
                 AtualizaLabels();
             }
             catch

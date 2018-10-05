@@ -9,11 +9,11 @@
                 <div class="col-4">
                     <div class="form-group">
                         <label>Conta Destino</label>
-                        <asp:TextBox ID="txtConta" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtConta" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                     </div>
                     <div class="form-group">
                         <label>Valor</label>
-                        <asp:TextBox ID="txtValor" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtValor" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                     </div>
                     <div class="container text-center">
                         <asp:Button ID="btnTransferir" runat="server" OnClick="btnTransferir_Click" Text="Transferir" CssClass="btn btn-primary" />

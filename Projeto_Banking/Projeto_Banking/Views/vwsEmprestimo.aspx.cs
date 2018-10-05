@@ -27,13 +27,13 @@ namespace Projeto_Banking.Views
             }
 
             lblDataVencimento.Text = " (entre " + dataMinima.ToString("dd/MM/yyyy") + " e " + dataMaxima.ToString("dd/MM/yyyy") + ")"; //exibe data limites para o primeiro vencimento
-            txtDataPrimeiroVencimento.Text = dataMinima.ToString("dd/MM/yyyy");
+
             divResultado.Visible = false;
 
             if (!IsPostBack)
             {
                 divSimulacao.Visible = false;
-
+                txtDataPrimeiroVencimento.Text = dataMinima.ToString("dd/MM/yyyy");
             }
         }
 
@@ -52,7 +52,7 @@ namespace Projeto_Banking.Views
                 divSimulacao.Visible = false;
 
             }
-            else if (float.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima <= data && dataMaxima >= data)
+            else if (float.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima <= data && dataMaxima >= data && parcelas > 0)
             {
                 if (valorDesejado > cc.Limite)
                 {
@@ -108,7 +108,7 @@ namespace Projeto_Banking.Views
                 {
                     lblAviso.Text = "Valor é superior ao limite disponível em sua conta!";
                 }
-               
+
                 else if (valorDesejado > 0)
                 {
                     divSimulacao.Visible = true;

@@ -18,7 +18,7 @@ namespace Projeto_Banking.Views
         {
             cc = Session["contaCorrente"] as ContaCorrente;
             List<Investimento> investimentos = new List<Investimento>();
-            if (cc == null) Response.Redirect("~/Views/vwsLogin.aspx");
+            if (cc == null) Response.Redirect("~/Views/vwLogin.aspx");
 
             if (!IsPostBack)
             {
@@ -32,45 +32,48 @@ namespace Projeto_Banking.Views
             lblResultado.Text = "";
             try
             {
-                if (cc.Saldo >= double.Parse(txtValorIni.Text)
-                    && double.Parse(txtValorIni.Text)>0)
+                if (cc.Saldo >= double.Parse(txtValorIni.Text))
                 {
-
-                    if (DateTime.Parse(txtDataIni.Text) < DateTime.Parse(txtDataFim.Text)
-                        && DateTime.Parse(txtDataIni.Text)>=DateTime.Now.Date)
+                    if (double.Parse(txtValorIni.Text) > 0)
                     {
-                        InvestimentoDAO investimentoDao = new InvestimentoDAO();
-                        Investimento investimento = investimentoDao.BuscarInvestimentoPorId(int.Parse(ddlInvestimentos.SelectedValue));
+                        if (DateTime.Parse(txtDataIni.Text) < DateTime.Parse(txtDataFim.Text))
+                            if (DateTime.Parse(txtDataIni.Text) >= DateTime.Now.Date)
+                            {
+                                InvestimentoDAO investimentoDao = new InvestimentoDAO();
+                                Investimento investimento = investimentoDao.BuscarInvestimentoPorId(int.Parse(ddlInvestimentos.SelectedValue));
 
-                        InvestimentoConta investimentoConta = new InvestimentoConta()
-                        {
-                            Conta = cc,
-                            Investimento = investimento,
-                            DataInicio = DateTime.Parse(txtDataIni.Text),
-                            DataFim = DateTime.Parse(txtDataFim.Text),
-                            Valor = double.Parse(txtValorIni.Text)
+                                InvestimentoConta investimentoConta = new InvestimentoConta()
+                                {
+                                    Conta = cc,
+                                    Investimento = investimento,
+                                    DataInicio = DateTime.Parse(txtDataIni.Text),
+                                    DataFim = DateTime.Parse(txtDataFim.Text),
+                                    Valor = double.Parse(txtValorIni.Text)
 
-                        };
+                                };
 
-                        //investimentoDao.InserirInvestimento(investimentoConta);
-                        txtValorFim.Text = "";
+                                //investimentoDao.InserirInvestimento(investimentoConta);
+                                txtValorFim.Text = "";
 
-                        if (!investimento.PreFixada) txtValorFim.Text = "Aproximadamente ";
+                                if (!investimento.PreFixada) txtValorFim.Text = "Aproximadamente ";
 
-                        txtValorFim.Text += investimentoDao.SimulaResgate(investimentoConta, DateTime.Parse(txtDataFim.Text)).ToString("c2");
-                        dadosSimulacao.Visible = true;
-                        dadosSimulacaoBtn.Visible = true;
-                        lblResultado.Text = "";
+                                txtValorFim.Text += investimentoDao.SimulaResgate(investimentoConta, DateTime.Parse(txtDataFim.Text)).ToString("c2");
+                                dadosSimulacao.Visible = true;
+                                dadosSimulacaoBtn.Visible = true;
+                                lblResultado.Text = "";
+                            }
+
+                            else
+                            {
+                                lblResultado.Text = "Insira as datas de forma válida!";
+                                txtValorFim.Text = "";
+                            }
                     }
-
                     else
                     {
-                        lblResultado.Text = "Insira as datas de forma válida!";
-                        txtValorFim.Text = "";
+                        lblResultado.Text = "O valor precisa ser maior que zero!";
                     }
                 }
-
-
                 else
                 {
                     lblResultado.Text = "O valor não pode ser maior que o saldo!";
@@ -92,6 +95,7 @@ namespace Projeto_Banking.Views
             ddlInvestimentos.DataValueField = "Id";
             ddlInvestimentos.DataBind();
             txtDataIni.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
+            txtDataFim.Text = DateTime.Now.Date.AddYears(1).ToString("dd/MM/yyyy");
         }
 
         private void PreencherCampos()
