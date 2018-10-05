@@ -21,6 +21,7 @@ namespace Projeto_Banking.Views.Gerencial
             {
                 PopularMenuDD();
             }
+            divRes.Visible = false;
 
 
         }
@@ -69,6 +70,7 @@ namespace Projeto_Banking.Views.Gerencial
                 {
                     txtInvNom.Text = "";
                     txtInvRen.Text = "";
+
                     lblRes.Text = "Inserção realizada com sucesso";
                     PopularGrid();
                 }
@@ -76,6 +78,7 @@ namespace Projeto_Banking.Views.Gerencial
                 {
                     lblRes.Text = "Erro na inserção";
                 }
+                divRes.Visible = true;
             }
 
             catch (Exception exp)
@@ -118,8 +121,16 @@ namespace Projeto_Banking.Views.Gerencial
                 txtIdInv.Text = "";
                 txtInvNom.Text = "";
                 txtInvRen.Text = "";
+                PopularGrid();
+                lblRes.Text = "Investimento deletado com sucesso!";
             }
-            PopularGrid();
+            else
+            {
+                lblRes.Text = "Investimento deletado com sucesso!";
+            }
+            divRes.Visible = true;
+
+
         }
 
         protected void btnEdi_Click(object sender, EventArgs e)
@@ -146,9 +157,14 @@ namespace Projeto_Banking.Views.Gerencial
             if (investimento != null)
             {
                 PopularGrid();
+                lblRes.Text = "Investimento alterado com sucesso!";
+            }
+            else
+            {
+                lblRes.Text = "Falha ao alterar investimento!";
 
             }
-
+            divRes.Visible = true;
         }
 
 

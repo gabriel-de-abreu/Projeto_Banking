@@ -16,7 +16,7 @@ namespace Projeto_Banking.Models
         public DataTable MostrarInvestimentos()
         {
             MySqlCommand command = Connection.Instance.CreateCommand();
-            string sql = "SELECT * FROM investimento";
+            string sql = "SELECT * FROM investimento i INNER JOIN taxa t ON i.Taxa_Taxa_id = t.Taxa_id";
 
             MySqlDataAdapter mAdpater = new MySqlDataAdapter(sql, Connection.Instance);
             DataTable table = new DataTable();

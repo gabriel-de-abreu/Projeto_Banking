@@ -4,26 +4,39 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContent" runat="server">
     <div class="container container-border margin-3-upper col-lg-6 ">
-        <div class="container text-center margin-3-upper margin-1-bottom">
+        <div>
+            <div class="container">
+                <div class="form-group">
+                    <label>Id do Investimento</label>
+                    <asp:TextBox ID="txtIdInv" ReadOnly="true" runat="server" CssClass="form-control" required="true" TextMode="Number"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label>Nome do Investimento</label>
+                    <asp:TextBox ID="txtInvNom" runat="server" CssClass="form-control" required="true"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label>Valor do Investimento</label>
+                    <asp:TextBox ID="txtInvRen" runat="server" CssClass="form-control" required="true"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label>Selecione uma Taxa</label>
+                    <asp:DropDownList ID="ddlInvTax" runat="server" CssClass="form-control"></asp:DropDownList>
+                </div>
+                <div class="container text-center margin-3-upper margin-1-bottom">
+                    <asp:Button ID="btnCad" runat="server" class="btn btn-primary" Text="Cadastrar" OnClick="btnCad_Click" />
+                    <asp:Button ID="btnRem" runat="server" class="btn btn-primary" Text="Remover" OnClick="btnRem_Click" />
+                    <asp:Button ID="btnEdi" runat="server" class="btn btn-primary" Text="Editar" OnClick="btnEdi_Click" />
 
-            <asp:Label runat="server" ID="lblIdInv" Text="Id do Investimento: "></asp:Label>
-            <asp:TextBox runat="server" ID="txtIdInv"  ReadOnly="true"></asp:TextBox>
-            <br />
-            <asp:Label runat="server" ID="lblInvNom" Text="Investimento: "></asp:Label>
-            <asp:TextBox runat="server" ID="txtInvNom"></asp:TextBox>
-            <br />
-            <asp:Label runat="server" ID="lblInvRen" Text="Valor do Investimento: "></asp:Label>
-            <asp:TextBox runat="server" ID="txtInvRen"></asp:TextBox>
-            <br />
-            <asp:Label ID="lblInvTax" runat="server" Text="Selecione uma taxa: "></asp:Label>
-            <asp:DropDownList ID="ddlInvTax" runat="server"></asp:DropDownList>
-            <br />
-            <asp:Label ID="lblRes" runat="server" Text=""></asp:Label>
-            <br />
+                    <br /><br />
+                    <div class="alert alert-primary" role="alert" id="divRes" runat="server">
+                        <asp:Label ID="lblRes" runat="server" Text="" CssClass="margin-1-upper"></asp:Label>
+                    </div>
+                </div>
+            </div>
         </div>
-        <asp:Button ID="btnCad" runat="server" Text="Cadastrar" OnClick="btnCad_Click" />
-        <asp:Button ID="btnRem" runat="server" Text="Remover" OnClick="btnRem_Click" />
-        <asp:Button ID="btnEdi" runat="server" Text="Editar" OnClick="btnEdi_Click" />
+
+
+
 
         <asp:GridView ID="gdvInvestimento" runat="server"
             AutoGenerateColumns="False"
@@ -48,10 +61,10 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Taxa %">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Taxa_Taxa_id") %>'></asp:TextBox>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Taxa_valor") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Taxa_Taxa_id") %>'></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Taxa_valor") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 
