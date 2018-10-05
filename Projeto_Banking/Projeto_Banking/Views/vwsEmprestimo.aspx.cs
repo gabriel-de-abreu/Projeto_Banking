@@ -34,7 +34,7 @@ namespace Projeto_Banking.Views
             if (!IsPostBack)
             {
                 divSimulacao.Visible = false;
-                txtDataPrimeiroVencimento.Text = dataMinima.ToString("dd/MM/yyyy");
+                txtDataPrimeiroVencimento.Text = dataMinima.ToString("yyyy-MM-dd");
             }
         }
 
