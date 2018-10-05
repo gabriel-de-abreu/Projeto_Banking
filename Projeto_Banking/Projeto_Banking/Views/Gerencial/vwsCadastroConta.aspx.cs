@@ -17,44 +17,48 @@ namespace Projeto_Banking.Views.Gerencial
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            txtCpf.MaxLength = 11;
         }
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtCpf.Text) && txtCpf.Text.Length == 11 && !string.IsNullOrEmpty(txtNome.Text) && !string.IsNullOrEmpty(txtLimite.Text) && !string.IsNullOrEmpty(txtSenha.Text))
+                if (!string.IsNullOrEmpty(txtCpf.Text) && !string.IsNullOrEmpty(txtNome.Text) && !string.IsNullOrEmpty(txtLimite.Text) && !string.IsNullOrEmpty(txtSenha.Text))
                 {
-                    Pessoa p = new Pessoa()
+                    if (txtCpf.Text.Length == 11)
                     {
-                        Nome = txtNome.Text,
-                        Cpf = txtCpf.Text
-                    };
+                        Pessoa p = new Pessoa()
+                        {
+                            Nome = txtNome.Text,
+                            Cpf = txtCpf.Text
+                        };
 
-                    ContaCorrente cc = new ContaCorrente()
-                    {
-                        Limite = float.Parse(txtLimite.Text, CultureInfo.InvariantCulture.NumberFormat),
-                        Pessoa = p,
-                        Senha = txtSenha.Text
-                    };
+                        ContaCorrente cc = new ContaCorrente()
+                        {
+                            Limite = float.Parse(txtLimite.Text, CultureInfo.InvariantCulture.NumberFormat),
+                            Pessoa = p,
+                            Senha = txtSenha.Text
+                        };
 
-                    cc = new ContaCorrenteDAO().InserirContaCorrente(cc);
+                        cc = new ContaCorrenteDAO().InserirContaCorrente(cc);
 
-                    if (cc != null)
-                    {
-                        lblResultado.Text = "Cadastro de Cliente Realizado com Sucesso!";
-                        lblResultado2.Text = "Numero da Conta: " + cc.Numero.ToString();
+                        if (cc != null)
+                        {
+                            lblResultado.Text = "Cadastro de Cliente Realizado com Sucesso!";
+                            lblResultado2.Text = "Numero da Conta: " + cc.Numero.ToString();
+                        }
+
                     }
-
+                    else throw new ArgumentException("CPF precisa possuir 11 caracteres.");
                 }
-                else throw new ArgumentException("Cpf inválido");
+                else throw new ArgumentException("Dados inválidos.");
             }
             catch (Exception exc)
             {
                 if (exc is ArgumentException)
                 {
-                    lblResultado.Text = "Dados inválidos.";
+                    lblResultado.Text = exc.Message;//"Dados inválidos.";
                     lblResultado2.Text = "Favor verificar os dados de entrada.";
                 }
                 else if (exc is MySql.Data.MySqlClient.MySqlException)
