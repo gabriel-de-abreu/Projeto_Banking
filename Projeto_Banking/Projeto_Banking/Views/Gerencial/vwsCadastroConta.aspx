@@ -24,7 +24,7 @@
                     <div class="col">
                         <div class="form-group">
                             <label>Limite</label>
-                            <asp:TextBox ID="txtLimite" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="txtLimite" runat="server" CssClass="form-control" TextMode="Number" min="0" step="0.01"></asp:TextBox>
                         </div>
                     </div>
                     <div class="col">
