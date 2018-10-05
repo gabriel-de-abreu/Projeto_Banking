@@ -30,7 +30,7 @@
                     <div class="col">
                         <div class="form-group">
                             <label>Senha</label>
-                            <asp:TextBox ID="txtSenha" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="txtSenha" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -38,8 +38,13 @@
         </div>
         <div class="row">
             <div class="container text-center">
-                <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" CssClass="btn btn-primary inner-padding-button1" />
-                <asp:Button ID="btnVoltar" runat="server" Text="Voltar" CssClass="btn btn-outline-primary inner-padding-button3 btn-background-white" />
+                <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" CssClass="btn btn-primary inner-padding-button1" OnClick="btnCadastrar_Click" />
+                <asp:Button ID="btnVoltar" runat="server" Text="Voltar" CssClass="btn btn-outline-primary inner-padding-button3 btn-background-white" OnClick="btnVoltar_Click" />
+                <div>
+                    <asp:Label ID="lblResultado" runat="server" Text="" CssClass="margin-1-upper"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblResultado2" runat="server" Text="" CssClass="margin-1-upper"></asp:Label>
+                </div>
             </div>
         </div>
     </div>

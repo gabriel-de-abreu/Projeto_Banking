@@ -10,78 +10,78 @@
 namespace Projeto_Banking.Views.Gerencial {
     
     
-    public partial class vwsCadastroConta {
+    public partial class vwsMovimentacao {
         
         /// <summary>
-        /// Controle txtNome.
+        /// Controle btnSemana.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNome;
+        protected global::System.Web.UI.WebControls.Button btnSemana;
         
         /// <summary>
-        /// Controle txtCpf.
+        /// Controle btnMes.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCpf;
+        protected global::System.Web.UI.WebControls.Button btnMes;
         
         /// <summary>
-        /// Controle txtLimite.
+        /// Controle btnAno.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLimite;
+        protected global::System.Web.UI.WebControls.Button btnAno;
         
         /// <summary>
-        /// Controle txtSenha.
+        /// Controle txtInicio.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSenha;
+        protected global::System.Web.UI.WebControls.TextBox txtInicio;
         
         /// <summary>
-        /// Controle btnCadastrar.
+        /// Controle txtFim.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCadastrar;
+        protected global::System.Web.UI.WebControls.TextBox txtFim;
         
         /// <summary>
-        /// Controle btnVoltar.
+        /// Controle btnFiltrar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVoltar;
+        protected global::System.Web.UI.WebControls.Button btnFiltrar;
         
         /// <summary>
-        /// Controle lblResultado.
+        /// Controle lblAviso.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblResultado;
+        protected global::System.Web.UI.WebControls.Label lblAviso;
         
         /// <summary>
-        /// Controle lblResultado2.
+        /// Controle gdvMovimentacao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblResultado2;
+        protected global::System.Web.UI.WebControls.GridView gdvMovimentacao;
     }
 }

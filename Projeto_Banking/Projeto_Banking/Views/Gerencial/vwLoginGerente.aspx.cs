@@ -19,7 +19,7 @@ namespace Projeto_Banking.Views.Gerencial
         {
             if (new GerenteDAO().Login(txtUsuario.Text, txtSenha.Text))
             {
-                Session["Gerente"] = true;
+                Session["gerente"] = true;
                 Response.Redirect("~/Views/Gerencial/vwPrincipalGerente.aspx");
             }
             else

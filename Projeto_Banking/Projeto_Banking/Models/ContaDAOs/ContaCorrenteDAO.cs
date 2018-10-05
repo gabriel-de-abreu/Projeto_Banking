@@ -97,7 +97,7 @@ namespace Projeto_Banking.Models.ContaDAOs
             command.Parameters.AddWithValue("@senha", Criptografia.GerarHashMd5(conta.Senha));
             if (command.ExecuteNonQuery() > 0)
             {
-                conta.Numero = (int)command.LastInsertedId;
+                conta.Numero = contaID;
                 return conta;
             }
             return null;
