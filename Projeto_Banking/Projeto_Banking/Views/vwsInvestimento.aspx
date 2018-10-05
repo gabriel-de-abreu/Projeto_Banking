@@ -8,7 +8,7 @@
             <div id="dadosInvestimento" runat="server" class="col">
                 <div class="form-group">
                     <asp:Label ID="lblValorIni" runat="server" Text="Valor inicial do Investimento:"></asp:Label>
-                    <asp:TextBox ID="txtValorIni" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                    <asp:TextBox ID="txtValorIni" runat="server" CssClass="form-control" TextMode="Number" step="0.01" min="0.01"></asp:TextBox>
                 </div>
                 <div class="form-group">
                     <asp:Label ID="lblDataIni" runat="server" Text="Data Inicial do Investimento: "></asp:Label>
