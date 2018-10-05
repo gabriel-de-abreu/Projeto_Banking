@@ -13,5 +13,11 @@ namespace Projeto_Banking.Views.Gerencial
         {
 
         }
+
+        protected void btnSair_Click(object sender, EventArgs e)
+        {
+            Session["gerente"] = false;
+            Response.Redirect("~/Views/Gerencial/vwLoginGerente.aspx");
+        }
     }
 }

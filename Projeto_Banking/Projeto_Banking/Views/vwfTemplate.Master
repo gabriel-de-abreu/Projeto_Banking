@@ -22,14 +22,16 @@
 
     <form id="form1" runat="server">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="vwsContaCorrente.aspx">Home</a>
+            <a class="navbar-brand" href="vwsContaCorrente.aspx">Internet Banking</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <asp:LinkButton ID="aMeusEmprestimos" runat="server" CssClass="nav-item nav-link" OnClick="ConsultarEmprestimos">Meus Empréstimos </asp:LinkButton>
                     <asp:LinkButton ID="aMeusInvestimentos" runat="server" CssClass="nav-item nav-link" OnClick="MeusInvestimentos">Meus Investimentos</asp:LinkButton>
+                </div>
+                <div class="navbar-nav">
                     <asp:LinkButton ID="lbEntrarSair" runat="server" CssClass="nav-item nav-link" OnClick="lbEntrarSair_Click">Sair</asp:LinkButton>
                 </div>
             </div>
