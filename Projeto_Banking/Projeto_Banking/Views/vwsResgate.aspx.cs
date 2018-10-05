@@ -25,7 +25,8 @@ namespace Projeto_Banking.Views
             if (!IsPostBack)
             {
                 PreencherCampos();
-                SimularInvestimento();
+                if (!iC.Resgatado)
+                    SimularInvestimento();
             }
         }
 
