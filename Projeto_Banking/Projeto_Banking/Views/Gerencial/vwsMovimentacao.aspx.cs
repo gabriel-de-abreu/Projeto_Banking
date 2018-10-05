@@ -13,15 +13,15 @@ namespace Projeto_Banking.Views.Gerencial
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            //if (Session["gerente"] != null && (bool)Session["gerente"])
-            //{
+
+            if (Session["gerente"] != null && (bool)Session["gerente"])
+            {
                 PopularGrid(DateTime.Today.AddYears(-1), DateTime.Today); //lista 1 ano por padrao
-            //}
-            //else
-            //{
-            //    Response.Redirect("~/Views/Gerencial/vwLoginGerente.aspx");
-            //}
+            }
+            else
+            {
+                Response.Redirect("~/Views/Gerencial/vwLoginGerente.aspx");
+            }
         }
 
         public void PopularGrid(DateTime inicio, DateTime fim)
@@ -63,21 +63,22 @@ namespace Projeto_Banking.Views.Gerencial
         {
             DateTime inicio, fim;
 
-            if(DateTime.TryParse(txtInicio.Text, out inicio) && DateTime.TryParse(txtFim.Text, out fim))
+            if (DateTime.TryParse(txtInicio.Text, out inicio) && DateTime.TryParse(txtFim.Text, out fim))
             {
                 if (DateTime.Today < inicio || fim < inicio)
                 {
                     lblAviso.Text = "Período inválido!";
-                }else if(fim > DateTime.Today)
+                }
+                else if (fim > DateTime.Today)
                 {
+                    lblAviso.Text = "";
                     PopularGrid(inicio, fim);
                 }
                 else
                 {
+                    lblAviso.Text = "";
                     PopularGrid(inicio, fim);
                 }
-                    
-                    
             }
         }
     }

@@ -3,57 +3,68 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContent" runat="server">
-
-
     <div class="container container-border margin-3-upper col-lg-6 ">
-        <div class="container text-center margin-3-upper margin-1-bottom">
-
-            <h5 class="align-content-center"><strong>Movimentações </strong></h5>
-
-            <div class="btn-group btn-group-toggle" role="group">
-                <asp:button id="btnSemana" runat="server" text="7 dias" class="btn btn-secondary" onclick="btnSemana_Click" />
-                <asp:button id="btnMes" runat="server" text="30 dias" class="btn btn-secondary" onclick="btnMes_Click" />
-                <asp:button id="btnAno" runat="server" text="Ano" class="btn btn-secondary" onclick="btnAno_Click" />
+        <div class="container margin-3-upper margin-1-bottom">
+            <div class="container text-center">
+                <h5 class="align-content-center"><strong>Movimentações </strong></h5>
+                <asp:Button ID="btnSemana" runat="server" Text="7 dias" class="btn btn-secondary inner-padding-button1 btn-mov-width" OnClick="btnSemana_Click" />
+                <asp:Button ID="btnMes" runat="server" Text="30 dias" class="btn btn-secondary inner-padding-button2 btn-mov-width" OnClick="btnMes_Click" />
+                <asp:Button ID="btnAno" runat="server" Text="Ano" class="btn btn-secondary inner-padding-button3 btn-mov-width" OnClick="btnAno_Click" />
             </div>
-            <p class="align-content-center"><strong>Demias períodos </strong></p>
-            <div>
-                <asp:textbox id="txtInicio" runat="server" cssclass="form-control" textmode="Date"></asp:textbox>
-                <asp:textbox id="txtFim" runat="server" cssclass="form-control" textmode="Date"></asp:textbox>
-                <asp:button id="btnFiltrar" runat="server" text="Filtrar" class="btn btn-secondary" onclick="btnFiltrar_Click" />
+            <div class="container-border margin-2-bottom-final margin-3-upper">
+                <div class="container text-center">
+                    <p><strong>Demais períodos </strong></p>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label>
+                            Data Inicial
+                        </label>
+                        <asp:TextBox ID="txtInicio" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label>Data Final</label>
+                        <asp:TextBox ID="txtFim" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                    </div>
+                    <div class="container text-right">
+                        <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" class="btn btn-primary btn-mov-width" OnClick="btnFiltrar_Click" />
+                    </div>
+                </div>
+                <div class="container text-center">
+                    <asp:Label ID="lblAviso" runat="server" Text=""></asp:Label>
+                </div>
             </div>
-
-            <asp:label ID="lblAviso" runat="server" text=""></asp:label>
-
         </div>
-        <asp:gridview id="gdvMovimentacao" runat="server" autogeneratecolumns="False" cssclass="table table-hover view-table ">
-            <Columns>
-                <asp:TemplateField HeaderText="Data">
-                    <ItemTemplate>
-                        <asp:Label ID="Label6" runat="server" Text='<%# Bind("Movimentacao_data_formatado") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Descrição">
-                    <ItemTemplate>
-                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("Movimentacao_descricao") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Origem">
-                <ItemTemplate>
-                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("Conta_Movimentacao_origem_id") %>'></asp:Label>
-                </ItemTemplate>
-            </asp:TemplateField>
-            <asp:TemplateField HeaderText="Destino">
-                <ItemTemplate>
-                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("Conta_Movimetacao_destino") %>'></asp:Label>
-                </ItemTemplate>
-            </asp:TemplateField>
-                <asp:TemplateField HeaderText="Valor">
-                    <ItemTemplate>
-                        <asp:Label ID="Label5" runat="server" Text='<%# Bind("Movimentacao_valor_formatado") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:gridview>
+        <div class="container text-center">
+            <asp:GridView ID="gdvMovimentacao" runat="server" AutoGenerateColumns="False" CssClass="table table-hover view-table ">
+                <Columns>
+                    <asp:TemplateField HeaderText="Data">
+                        <ItemTemplate>
+                            <asp:Label ID="Label6" runat="server" Text='<%# Bind("Movimentacao_data_formatado") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Descrição">
+                        <ItemTemplate>
+                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("Movimentacao_descricao") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Origem">
+                        <ItemTemplate>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("Conta_Movimentacao_origem_id") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Destino">
+                        <ItemTemplate>
+                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("Conta_Movimetacao_destino") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Valor">
+                        <ItemTemplate>
+                            <asp:Label ID="Label5" runat="server" Text='<%# Bind("Movimentacao_valor_formatado") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+        </div>
     </div>
-
 </asp:Content>
