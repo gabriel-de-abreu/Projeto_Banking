@@ -7,6 +7,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema ProjetoBanking
 -- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `ProjetoBanking` ;
 
 -- -----------------------------------------------------
 -- Schema ProjetoBanking
@@ -22,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `ProjetoBanking`.`Pessoa` (
   `Pessoa_cpf` VARCHAR(45) NOT NULL,
   `Pessoa_nome` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`Pessoa_cpf`),
-  UNIQUE INDEX `idPessoa_UNIQUE` (`Pessoa_id` ASC) VISIBLE)
+  UNIQUE INDEX `idPessoa_UNIQUE` (`Pessoa_id` ASC) )
 ENGINE = InnoDB;
 
 
@@ -73,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `ProjetoBanking`.`Conta_Corrente` (
   `Pessoa_Pessoa_cpf` VARCHAR(45) NOT NULL,
   `Conta_Corrente_senha` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`Conta_Conta_Corrente_id`, `Pessoa_Pessoa_cpf`),
-  INDEX `fk_Conta_Corrente_Pessoa1_idx` (`Pessoa_Pessoa_cpf` ASC) VISIBLE,
+  INDEX `fk_Conta_Corrente_Pessoa1_idx` (`Pessoa_Pessoa_cpf` ASC) ,
   CONSTRAINT `fk_Conta_Corrente_Conta1`
     FOREIGN KEY (`Conta_Conta_Corrente_id`)
     REFERENCES `ProjetoBanking`.`Conta` (`Conta_id`)
@@ -109,8 +110,8 @@ CREATE TABLE IF NOT EXISTS `ProjetoBanking`.`Emprestimo` (
   `Conta_Corrente_Conta_Conta_Corrente_id` INT NOT NULL,
   `Emprestimo_Inicio` DATE NOT NULL,
   PRIMARY KEY (`Emprestimo_id`),
-  INDEX `fk_Emprestimo_Taxa1_idx` (`Taxa_Taxa_id` ASC) VISIBLE,
-  INDEX `fk_Emprestimo_Conta_Corrente1_idx` (`Conta_Corrente_Conta_Conta_Corrente_id` ASC) VISIBLE,
+  INDEX `fk_Emprestimo_Taxa1_idx` (`Taxa_Taxa_id` ASC) ,
+  INDEX `fk_Emprestimo_Conta_Corrente1_idx` (`Conta_Corrente_Conta_Conta_Corrente_id` ASC) ,
   CONSTRAINT `fk_Emprestimo_Taxa1`
     FOREIGN KEY (`Taxa_Taxa_id`)
     REFERENCES `ProjetoBanking`.`Taxa` (`Taxa_id`)
@@ -134,7 +135,7 @@ CREATE TABLE IF NOT EXISTS `ProjetoBanking`.`Pagamento` (
   `Pagamento_Valor` FLOAT NOT NULL,
   `Pagamento_Pago` TINYINT NOT NULL DEFAULT 0,
   PRIMARY KEY (`Pagamento_id`),
-  INDEX `fk_Pagamento_Emprestimo1_idx` (`Emprestimo_Emprestimo_id` ASC) VISIBLE,
+  INDEX `fk_Pagamento_Emprestimo1_idx` (`Emprestimo_Emprestimo_id` ASC) ,
   CONSTRAINT `fk_Pagamento_Emprestimo1`
     FOREIGN KEY (`Emprestimo_Emprestimo_id`)
     REFERENCES `ProjetoBanking`.`Emprestimo` (`Emprestimo_id`)
@@ -165,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `ProjetoBanking`.`Pagamento_Boleto` (
   `Pagamento_Boleto_codigo` VARCHAR(45) NOT NULL,
   `Pagamento_Boleto_vencimento` DATE NOT NULL,
   PRIMARY KEY (`Pagamento_Pagamento_Boleto_id`),
-  UNIQUE INDEX `Pagamento_Boleto_Codigo_UNIQUE` (`Pagamento_Boleto_codigo` ASC) VISIBLE,
+  UNIQUE INDEX `Pagamento_Boleto_Codigo_UNIQUE` (`Pagamento_Boleto_codigo` ASC) ,
   CONSTRAINT `fk_Pagamento_Boleto_Pagamento1`
     FOREIGN KEY (`Pagamento_Pagamento_Boleto_id`)
     REFERENCES `ProjetoBanking`.`Pagamento` (`Pagamento_id`)
@@ -185,8 +186,8 @@ CREATE TABLE IF NOT EXISTS `ProjetoBanking`.`Movimentacao` (
   `Movimentacao_descricao` VARCHAR(45) NOT NULL,
   `Movimentacao_data` DATE NOT NULL,
   PRIMARY KEY (`Movimentacao_id`),
-  INDEX `fk_Movimentacao_Conta1_idx` (`Conta_Movimentacao_origem_id` ASC) VISIBLE,
-  INDEX `fk_Movimentacao_Conta2_idx` (`Conta_Movimetacao_destino` ASC) VISIBLE,
+  INDEX `fk_Movimentacao_Conta1_idx` (`Conta_Movimentacao_origem_id` ASC) ,
+  INDEX `fk_Movimentacao_Conta2_idx` (`Conta_Movimetacao_destino` ASC) ,
   CONSTRAINT `fk_Movimentacao_Conta1`
     FOREIGN KEY (`Conta_Movimentacao_origem_id`)
     REFERENCES `ProjetoBanking`.`Conta` (`Conta_id`)
@@ -209,7 +210,7 @@ CREATE TABLE IF NOT EXISTS `ProjetoBanking`.`Investimento` (
   `Investimento_rentabilidade` FLOAT NULL DEFAULT 0,
   `Taxa_Taxa_id` INT NOT NULL,
   PRIMARY KEY (`Investimento_id`),
-  INDEX `fk_Investimento_Taxa1_idx` (`Taxa_Taxa_id` ASC) VISIBLE,
+  INDEX `fk_Investimento_Taxa1_idx` (`Taxa_Taxa_id` ASC) ,
   CONSTRAINT `fk_Investimento_Taxa1`
     FOREIGN KEY (`Taxa_Taxa_id`)
     REFERENCES `ProjetoBanking`.`Taxa` (`Taxa_id`)
@@ -229,10 +230,10 @@ CREATE TABLE IF NOT EXISTS `ProjetoBanking`.`Investimento_Conta` (
   `Investimento_Inicio` DATE NOT NULL,
   `Investimento_Fim` DATE NULL,
   `Investimento_Resgate` DATE NULL DEFAULT NULL,
-  `Investimento_ValorResgate` FLOAT NULL DEFAULT NULL,
+  `Investimento_Valor_Resgate` FLOAT NULL DEFAULT NULL,
   PRIMARY KEY (`Investimento_Conta_Id`),
-  INDEX `fk_Investimento_has_Conta_Corrente_Conta_Corrente1_idx` (`Conta_Corrente_Conta_Conta_Corrente_id` ASC) VISIBLE,
-  INDEX `fk_Investimento_has_Conta_Corrente_Investimento1_idx` (`Investimento_Investimento_id` ASC) VISIBLE,
+  INDEX `fk_Investimento_has_Conta_Corrente_Conta_Corrente1_idx` (`Conta_Corrente_Conta_Conta_Corrente_id` ASC) ,
+  INDEX `fk_Investimento_has_Conta_Corrente_Investimento1_idx` (`Investimento_Investimento_id` ASC) ,
   CONSTRAINT `fk_Investimento_has_Conta_Corrente_Investimento1`
     FOREIGN KEY (`Investimento_Investimento_id`)
     REFERENCES `ProjetoBanking`.`Investimento` (`Investimento_id`)
@@ -246,68 +247,18 @@ CREATE TABLE IF NOT EXISTS `ProjetoBanking`.`Investimento_Conta` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `ProjetoBanking`.`Gerente`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ProjetoBanking`.`Gerente` (
+  `Gerente_id` INT NOT NULL AUTO_INCREMENT,
+  `Gerente_login` VARCHAR(45) NOT NULL,
+  `Gerente_senha` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`Gerente_login`),
+  UNIQUE INDEX `Gerente_id_UNIQUE` (`Gerente_id` ASC) )
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-
-/* Inserções de pessoa */
-INSERT INTO `ProjetoBanking`.`Pessoa` (`Pessoa_id`, `Pessoa_cpf`, `Pessoa_nome`) VALUES (1, '000.111.222-33', 'Fulano');
-INSERT INTO `ProjetoBanking`.`Pessoa` (`Pessoa_id`, `Pessoa_cpf`, `Pessoa_nome`) VALUES (2, '000.121.222-44', 'Beltrano');
-
-/*Inserção de Contas Contabeis*/
-INSERT INTO `ProjetoBanking`.`Conta` (`Conta_id`, `Conta_saldo`) VALUES (1, 0);
-INSERT INTO `ProjetoBanking`.`Conta_Contabil_Investimento` (`Conta_Conta_Contabil_Investimento_id`) VALUES (1);
-
-INSERT INTO `ProjetoBanking`.`Conta` (`Conta_id`, `Conta_saldo`) VALUES (2, 0);
-INSERT INTO `ProjetoBanking`.`Conta_Contabil_Emprestimo` (`Conta_Conta_Contabil_Emprestimo_id`) VALUES (2);
-
-/*Inserção de Conta Corrente */
-INSERT INTO `ProjetoBanking`.`Conta` (`Conta_id`, `Conta_saldo`) VALUES (3, 0);
-INSERT INTO `ProjetoBanking`.`Conta_Corrente` (`Conta_Conta_Corrente_id`, `Conta_Corrente_limite`, `Pessoa_Pessoa_cpf`,
- `Conta_Corrente_senha`) VALUES (3, 10000, '000.111.222-33', "81dc9bdb52d04dc20036dbd8313ed055");
-
-INSERT INTO `ProjetoBanking`.`Conta` (`Conta_id`, `Conta_saldo`) VALUES (4, 0);
-INSERT INTO `ProjetoBanking`.`Conta_Corrente` (`Conta_Conta_Corrente_id`, `Conta_Corrente_limite`,
-`Pessoa_Pessoa_cpf`, `Conta_Corrente_senha`) VALUES (4, 20000, '000.121.222-44', "81dc9bdb52d04dc20036dbd8313ed055");
-
-/* Inserção de Taxa */
-INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUES (1, "Juros Perfil 1", 4);
-INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUES (2, "Juros Perfil 2", 8);
-INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUES (3,"Juros Perfil 3", 12);
-INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUES (4,"Imposto de Renda", 17.5);
-INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUES (5,"IOF", 20);
-INSERT INTO `ProjetoBanking`.`Taxa` (`Taxa_id`, `Taxa_nome`, `Taxa_valor`) VALUES (6,"Taxa Poupança", 0.01);
-
-/* Inserção de Investimentos */
-INSERT INTO `projetobanking`.`investimento`
-(`Investimento_nome`,
-`Investimento_rentabilidade`,
-`Taxa_Taxa_id`)
-VALUES
-("Renda Fixa", 4, 4);
-
-INSERT INTO `projetobanking`.`investimento`
-(`Investimento_nome`,
-`Investimento_rentabilidade`,
-`Taxa_Taxa_id`)
-VALUES
-("Tesouro Direto", 2, 5);
-
-INSERT INTO `projetobanking`.`investimento`
-(`Investimento_nome`,
-`Investimento_rentabilidade`,
-`Taxa_Taxa_id`)
-VALUES
-("Poupança", 1, 6);
-
-INSERT INTO `projetobanking`.`investimento` (`Investimento_nome`,
-`Taxa_Taxa_id`)
-VALUES
-("CDB",  5);
-
-
-INSERT INTO `projetobanking`.`investimento` (`Investimento_nome`,
-`Taxa_Taxa_id`)
-VALUES
-("LCI",  5);
