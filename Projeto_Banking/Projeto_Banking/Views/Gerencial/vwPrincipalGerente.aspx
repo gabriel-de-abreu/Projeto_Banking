@@ -10,7 +10,7 @@
                     <div class="container text-center">
                         <h4 class="text-center margin-1-bottom">Últimas Movimentações
                         </h4>
-                        <table class="table">
+                        <table id="ultimasMovimentacoes" class="table" runat="server">
                             <tr>
                                 <th>Conta de Origem
                                 </th>
@@ -20,66 +20,6 @@
                                 </th>
                                 <th>Valor
                                 </th>
-                            </tr>
-                            <tr>
-                                <td>1
-                                </td>
-                                <td>2
-                                </td>
-                                <td>Movimentação de dinheiro
-                                </td>
-                                <td>100
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1
-                                </td>
-                                <td>2
-                                </td>
-                                <td>Movimentação de dinheiro
-                                </td>
-                                <td>100
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1
-                                </td>
-                                <td>2
-                                </td>
-                                <td>Movimentação de dinheiro
-                                </td>
-                                <td>100
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1
-                                </td>
-                                <td>2
-                                </td>
-                                <td>Movimentação de dinheiro
-                                </td>
-                                <td>100
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1
-                                </td>
-                                <td>2
-                                </td>
-                                <td>Movimentação de dinheiro
-                                </td>
-                                <td>100
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1
-                                </td>
-                                <td>2
-                                </td>
-                                <td>Movimentação de dinheiro
-                                </td>
-                                <td>100
-                                </td>
                             </tr>
                         </table>
                     </div>
@@ -92,7 +32,8 @@
                             <tr>
                                 <td><strong>Investimentos</strong></td>
                                 <td>
-                                    <asp:Label ID="lblSaldoInvestimentos" runat="server"></asp:Label></td>
+                                    <asp:Label ID="lblSaldoInvestimentos" runat="server"></asp:Label>
+                                </td>
                             </tr>
                             <tr>
                                 <td><strong>Empréstimos</strong></td>
@@ -109,7 +50,7 @@
             <div class="container text-center">
                 <asp:Button ID="btnCadastroConta" runat="server" Text="Cadastrar Conta" CssClass="btn btn-primary btn-principal inner-padding-button1" OnClick="btnCadastroConta_Click" />
                 <asp:Button ID="btnCadastroInvestimento" runat="server" Text="Cadastrar Investimento" CssClass="btn btn-primary btn-principal inner-padding-button2" OnClick="btnCadastroInvestimento_Click" />
-                <asp:Button ID="btnConsultarMovimentacoes" runat="server" Text="Consultar Movimentações" CssClass="btn btn-primary btn-principal inner-padding-button3" />
+                <asp:Button ID="btnConsultarMovimentacoes" runat="server" Text="Consultar Movimentações" CssClass="btn btn-primary btn-principal inner-padding-button3" OnClick="btnConsultarMovimentacoes_Click" />
             </div>
         </div>
     </div>
