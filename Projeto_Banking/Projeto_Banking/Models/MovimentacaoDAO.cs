@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Projeto_Banking.Models.ContaDAOs;
 using Projeto_Banking.Objetos;
 using System;
 using System.Collections.Generic;
@@ -90,6 +91,39 @@ namespace Projeto_Banking.Models
             }
 
         }
+        public List<Movimentacao> Buscar5Ultimas()
+        {
+            List<Movimentacao> movimentacoes = new List<Movimentacao>();
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            command.CommandText = "SELECT * FROM projetobanking.movimentacao ORDER BY Movimentacao_data DESC LIMIT 5;";
+            var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                movimentacoes.Add(new Movimentacao()
+                {
+                    Movimentacao_id = Convert.ToInt32(reader["Movimentacao_id"]),
+                    Data = Convert.ToDateTime(reader["Movimentacao_data"]),
+                    Descricao = reader["Movimentacao_descricao"].ToString(),
+                    Destino = new ContaCorrente()
+                    {
+                        Numero = Convert.ToInt32(reader["Conta_Movimetacao_destino"])
+                    },
+                    Origem = new ContaCorrente()
+                    {
+                        Numero = Convert.ToInt32(reader["Conta_Movimentacao_origem_id"])
+                    },
+                    Valor = float.Parse(reader["Movimentacao_valor"].ToString())
+                });
+
+            }
+            reader.Close();
+            foreach (Movimentacao mov in movimentacoes)
+            {
+                mov.Origem = new ContaDAO().PesquisarContaPorNumero(mov.Origem.Numero);
+                mov.Destino = new ContaDAO().PesquisarContaPorNumero(mov.Destino.Numero);
+            }
+            return movimentacoes;
+        }
 
         public DataTable BuscarExtratosConta(int id)
         {
@@ -104,7 +138,7 @@ namespace Projeto_Banking.Models
 
                 return table;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return null;
             }

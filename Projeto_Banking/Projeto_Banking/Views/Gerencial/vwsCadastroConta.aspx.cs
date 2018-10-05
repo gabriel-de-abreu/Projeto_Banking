@@ -30,7 +30,7 @@ namespace Projeto_Banking.Views.Gerencial
             {
                 Limite = float.Parse(txtLimite.Text),
                 Pessoa = p,
-                Senha = Criptografia.GerarHashMd5(txtSenha.Text)
+                Senha = txtSenha.Text
             };
             try
             {
@@ -41,7 +41,7 @@ namespace Projeto_Banking.Views.Gerencial
                     lblResultado.Text = "Cadastro de Cliente Realizado com Sucesso!";
                     lblResultado2.Text = "Numero da Conta: " + cc.Numero.ToString();
                 }
-               
+
             }
             catch
             {
