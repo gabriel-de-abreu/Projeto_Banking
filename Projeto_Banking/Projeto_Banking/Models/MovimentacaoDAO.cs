@@ -77,7 +77,7 @@ namespace Projeto_Banking.Models
             {
                 DataTable table = new DataTable();
                 MySqlDataAdapter sqlData = new MySqlDataAdapter("SELECT * FROM projetobanking.movimentacao " +
-                    "WHERE Movimentacao_data BETWEEN  @dataIni AND @dataFim", Connection.Instance);
+                    "WHERE Movimentacao_data BETWEEN  @dataIni AND @dataFim ORDER BY Movimentacao_data DESC", Connection.Instance);
                 sqlData.SelectCommand.Parameters.AddWithValue("@dataIni", DataIni);
                 sqlData.SelectCommand.Parameters.AddWithValue("@dataFim", DataFim);
                 sqlData.Fill(table);

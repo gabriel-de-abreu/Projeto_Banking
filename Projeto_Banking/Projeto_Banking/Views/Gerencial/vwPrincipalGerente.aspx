@@ -106,7 +106,7 @@
             <div class="container text-center">
                 <asp:Button ID="btnCadastroConta" runat="server" Text="Cadastrar Conta" CssClass="btn btn-primary btn-principal inner-padding-button1" OnClick="btnCadastroConta_Click" />
                 <asp:Button ID="btnCadastroInvestimento" runat="server" Text="Cadastrar Investimento" CssClass="btn btn-primary btn-principal inner-padding-button2" />
-                <asp:Button ID="btnConsultarMovimentacoes" runat="server" Text="Consultar Movimentações" CssClass="btn btn-primary btn-principal inner-padding-button3" />
+                <asp:Button ID="btnConsultarMovimentacoes" runat="server" Text="Consultar Movimentações" CssClass="btn btn-primary btn-principal inner-padding-button3" OnClick="btnConsultarMovimentacoes_Click" />
             </div>
         </div>
     </div>
