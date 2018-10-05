@@ -30,7 +30,7 @@ namespace Projeto_Banking.Views
             {
                 ContaCorrente conta = new ContaDAO().PesquisarContaPorNumero(int.Parse(txtConta.Text)) as ContaCorrente;
 
-                float valor = float.Parse(txtValor.Text)/100;
+                float valor = float.Parse(txtValor.Text);
                 if (conta != null)
                 {
                     if (conta.Numero.Equals(cc.Numero))

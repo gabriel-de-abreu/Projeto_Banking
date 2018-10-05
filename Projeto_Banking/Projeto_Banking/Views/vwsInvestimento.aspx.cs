@@ -32,7 +32,7 @@ namespace Projeto_Banking.Views
             lblResultado.Text = "";
             try
             {
-                float valorIni = float.Parse(txtValorIni.Text)/100;
+                float valorIni = float.Parse(txtValorIni.Text);
                 if (cc.Saldo >= valorIni)
                 {
                     if (valorIni > 0)
