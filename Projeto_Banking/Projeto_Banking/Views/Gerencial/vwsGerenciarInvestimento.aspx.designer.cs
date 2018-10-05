@@ -13,6 +13,24 @@ namespace Projeto_Banking.Views.Gerencial {
     public partial class vwsGerenciarInvestimento {
         
         /// <summary>
+        /// Controle lblIdInv.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIdInv;
+        
+        /// <summary>
+        /// Controle txtIdInv.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIdInv;
+        
+        /// <summary>
         /// Controle lblInvNom.
         /// </summary>
         /// <remarks>
@@ -74,6 +92,24 @@ namespace Projeto_Banking.Views.Gerencial {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCad;
+        
+        /// <summary>
+        /// Controle btnRem.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRem;
+        
+        /// <summary>
+        /// Controle btnEdi.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEdi;
         
         /// <summary>
         /// Controle gdvInvestimento.

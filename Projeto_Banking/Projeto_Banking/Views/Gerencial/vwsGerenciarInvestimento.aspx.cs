@@ -92,11 +92,25 @@ namespace Projeto_Banking.Views.Gerencial
 
             if (inv != null)
             {
+                txtIdInv.Text = inv.Id.ToString();
                 txtInvNom.Text = inv.Nome;
                 txtInvRen.Text = inv.Rentabilidade.ToString();
                 ddlInvTax.SelectedIndex = inv.Taxa.Id;
             }
         }
 
+        protected void btnRem_Click(object sender, EventArgs e)
+        {
+            InvestimentoDAO invDao = new InvestimentoDAO();
+
+                if (invDao.RemoverInvestimento(Convert.ToInt32(txtIdInv.Text)))
+            {
+                txtIdInv.Text = "";
+                txtInvNom.Text = "";
+                txtInvRen.Text = "";
+            }
+            PopularGrid();
+        }
+        
     }
 }

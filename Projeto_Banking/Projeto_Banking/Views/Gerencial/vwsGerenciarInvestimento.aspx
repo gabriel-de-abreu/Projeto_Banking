@@ -3,7 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContent" runat="server">
-
+    <asp:label runat="server" id="lblIdInv" text="Id do Investimento: "></asp:label>
+    <asp:textbox runat="server" id="txtIdInv"></asp:textbox>
+    <br />
     <asp:label runat="server" id="lblInvNom" text="Investimento: "></asp:label>
     <asp:textbox runat="server" id="txtInvNom"></asp:textbox>
     <br />
@@ -16,6 +18,8 @@
     <br />
 
     <asp:button id="btnCad" runat="server" text="Cadastrar" onclick="btnCad_Click" />
+    <asp:Button ID="btnRem" runat="server" Text="Remover" OnClick="btnRem_Click" />
+    <asp:Button ID="btnEdi" runat="server" Text="Editar" />
 
     <asp:gridview id="gdvInvestimento" runat="server"
         autogeneratecolumns="False"

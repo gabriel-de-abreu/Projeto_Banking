@@ -64,6 +64,8 @@ namespace Projeto_Banking.Models
             }
         }
 
+
+
         public Investimento BuscarInvestimentoPorId(int id)
         {
 
@@ -238,6 +240,30 @@ namespace Projeto_Banking.Models
                 return investimento;
             }
             return null;
+        }
+
+        public bool RemoverInvestimento(int cod)
+        {
+            try
+            {
+                MySqlCommand command = Connection.Instance.CreateCommand();
+                command.CommandText = "DELETE FROM investimento WHERE Investimento_id =@id";
+                command.Parameters.AddWithValue("@id", cod);
+
+                if (command.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            
         }
     }
 }
