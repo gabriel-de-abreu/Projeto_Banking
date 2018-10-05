@@ -16,7 +16,7 @@
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label>CPF</label>
-                            <asp:TextBox ID="txtCpf" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="txtCpf" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                         </div>
                     </div>
                 </div>
