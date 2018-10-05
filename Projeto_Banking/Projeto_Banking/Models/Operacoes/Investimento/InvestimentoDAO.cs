@@ -12,6 +12,19 @@ namespace Projeto_Banking.Models
 {
     public class InvestimentoDAO
     {
+
+        public DataTable MostrarInvestimentos()
+        {
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            string sql = "SELECT * FROM investimento";
+
+            MySqlDataAdapter mAdpater = new MySqlDataAdapter(sql, Connection.Instance);
+            DataTable table = new DataTable();
+            mAdpater.Fill(table);
+            return table;
+
+            return table;
+        }
         public InvestimentoConta InserirInvestimento(InvestimentoConta investimentoConta)
         {
             try
@@ -222,7 +235,7 @@ namespace Projeto_Banking.Models
             if (command.ExecuteNonQuery() > 0)
             {
                 investimento.Id = (int)command.LastInsertedId;
-                return investimento; 
+                return investimento;
             }
             return null;
         }
