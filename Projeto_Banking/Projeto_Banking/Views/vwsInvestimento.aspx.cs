@@ -32,9 +32,10 @@ namespace Projeto_Banking.Views
             lblResultado.Text = "";
             try
             {
-                if (cc.Saldo >= double.Parse(txtValorIni.Text))
+                float valorIni = float.Parse(txtValorIni.Text)/100;
+                if (cc.Saldo >= valorIni)
                 {
-                    if (double.Parse(txtValorIni.Text) > 0)
+                    if (valorIni > 0)
                     {
                         if (DateTime.Parse(txtDataIni.Text) < DateTime.Parse(txtDataFim.Text))
                             if (DateTime.Parse(txtDataIni.Text) >= DateTime.Now.Date)
@@ -48,7 +49,7 @@ namespace Projeto_Banking.Views
                                     Investimento = investimento,
                                     DataInicio = DateTime.Parse(txtDataIni.Text),
                                     DataFim = DateTime.Parse(txtDataFim.Text),
-                                    Valor = double.Parse(txtValorIni.Text)
+                                    Valor = valorIni
 
                                 };
 
