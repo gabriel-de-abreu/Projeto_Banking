@@ -119,7 +119,7 @@ namespace Projeto_Banking.Views
                 Investimento = investimento,
                 DataInicio = DateTime.Parse(txtDataIni.Text),
                 DataFim = DateTime.Parse(txtDataFim.Text),
-                Valor = double.Parse(txtValorIni.Text)
+                Valor = double.Parse(txtValorIni.Text, CultureInfo.InvariantCulture.NumberFormat)
             };
             if (investimentoDao.InserirInvestimento(investimentoConta) != null)
             {
