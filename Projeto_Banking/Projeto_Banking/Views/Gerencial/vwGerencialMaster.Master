@@ -20,17 +20,21 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="vwPrincipalGerente.aspx">Internet Banking</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-            </div>
-        </div>
-    </nav>
+
     <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="vwPrincipalGerente.aspx">Internet Banking</a>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                </div>
+                <div class="navbar-nav">
+                    <asp:LinkButton ID="btnSair" runat="server" CssClass="nav-item nav-link" OnClick="btnSair_Click">Sair</asp:LinkButton>
+                </div>
+            </div>
+        </nav>
         <div>
             <asp:ContentPlaceHolder ID="bodyContent" runat="server">
             </asp:ContentPlaceHolder>
