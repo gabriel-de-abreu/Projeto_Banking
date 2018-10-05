@@ -39,7 +39,7 @@
     </form>
     <footer class="footer">
         <div class="container text-center">
-            <span class="text-muted">Projeto final do curso de programação do Senai. </span>
+            <span class="text-center text-muted">Projeto final do curso de programação do Senai. </span>
         </div>
     </footer>
 </body>
