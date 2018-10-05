@@ -132,6 +132,7 @@
     <Content Include="Views\Gerencial\vwPrincipalGerente.aspx" />
     <Content Include="Views\Gerencial\vwLoginGerente.aspx" />
     <Content Include="Views\Gerencial\vwsCadastroConta.aspx" />
+    <Content Include="Views\Gerencial\vwsGerenciarInvestimento.aspx" />
     <Content Include="Views\vwfTemplate.Master" />
     <Content Include="Views\Gerencial\vwGerencialMaster.Master" />
     <None Include="Web.Debug.config">
@@ -219,6 +220,13 @@
     </Compile>
     <Compile Include="Views\Gerencial\vwsCadastroConta.aspx.designer.cs">
       <DependentUpon>vwsCadastroConta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Gerencial\vwsGerenciarInvestimento.aspx.cs">
+      <DependentUpon>vwsGerenciarInvestimento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Gerencial\vwsGerenciarInvestimento.aspx.designer.cs">
+      <DependentUpon>vwsGerenciarInvestimento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\vwfTemplate.Master.cs">
       <DependentUpon>vwfTemplate.Master</DependentUpon>

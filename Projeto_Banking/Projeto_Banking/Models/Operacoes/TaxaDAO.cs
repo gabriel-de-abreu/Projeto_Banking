@@ -27,5 +27,27 @@ namespace Projeto_Banking.Models
             reader.Close();
             return t;
         }
+
+        public List<Taxa> BuscarTodasTaxas()
+        {
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            command.CommandText = "SELECT * FROM taxa";
+            var reader = command.ExecuteReader();
+            List<Taxa> lTaxa = new List<Taxa>();
+            while (reader.Read())
+            {
+                Taxa taxa = new Taxa()
+                {
+                    Id = int.Parse(reader["Taxa_id"].ToString()),
+                    Nome = reader["Taxa_nome"].ToString(),
+                    Valor = double.Parse(reader["Taxa_valor"].ToString())
+
+                };
+                lTaxa.Add(taxa);
+            }
+            reader.Close();
+            
+            return lTaxa;
+        }
     }
 }

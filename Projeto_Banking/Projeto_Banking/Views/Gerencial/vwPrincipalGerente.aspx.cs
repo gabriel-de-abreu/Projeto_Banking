@@ -18,5 +18,11 @@ namespace Projeto_Banking.Views.Gerencial
         {
             Response.Redirect("~/Views/Gerencial/vwsCadastroConta.aspx");
         }
+
+        protected void btnCadastroInvestimento_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/Gerencial/vwsGerenciarInvestimento.aspx");
+
+        }
     }
 }
