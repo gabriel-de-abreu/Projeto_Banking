@@ -104,7 +104,6 @@ namespace Projeto_Banking.Views
             else if (Double.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima <= data && dataMaxima >= data)
 
             {
-                valorDesejado;
                 if (valorDesejado > cc.Limite)
                 {
                     lblAviso.Text = "Valor é superior ao limite disponível em sua conta!";
