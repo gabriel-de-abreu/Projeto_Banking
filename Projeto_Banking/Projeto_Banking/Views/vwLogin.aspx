@@ -23,7 +23,7 @@
                         <div class="form-group">
                             <label>Número da Conta</label>
                             <asp:TextBox ID="TxtNumConta" runat="server" CssClass="form-control" placeholder="Digite o número da conta"
-                                required="true"></asp:TextBox>
+                                required="true" TextMode="Number"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Senha</label>

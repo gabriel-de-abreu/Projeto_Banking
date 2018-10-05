@@ -18,23 +18,32 @@ namespace Projeto_Banking.Views
         }
         protected void BtnLogar_Click(object sender, EventArgs e)
         {
-
-            ContaCorrente cc = new ContaCorrente()
+            ContaCorrente cc = null;
+            try
             {
-                Numero = int.Parse(TxtNumConta.Text),
-                Senha = Criptografia.GerarHashMd5(TxtSenha.Text)
-            };
+                cc = new ContaCorrente()
+                {
+                    Numero = int.Parse(TxtNumConta.Text),
+                    Senha = Criptografia.GerarHashMd5(TxtSenha.Text)
+                };
+                if (cc.Numero <= 0)
+                    throw new System.ArgumentException();
 
-            cc = new ContaCorrenteDAO().Login(cc);
+                cc = new ContaCorrenteDAO().Login(cc);
 
-            if (cc != null)
-            {
-                Session["contaCorrente"] = cc;
-                Response.Redirect("~/Views/vwsContaCorrente.aspx");
+                if (cc != null)
+                {
+                    Session["contaCorrente"] = cc;
+                    Response.Redirect("~/Views/vwsContaCorrente.aspx");
+                }
+                else
+                {
+                    LblResultado.Text = "Usuário não encontrado!";
+                }
             }
-            else
+            catch
             {
-                LblResultado.Text = "Dados Inválidos!";
+                LblResultado.Text = "Entrada inválida!";
             }
 
         }
