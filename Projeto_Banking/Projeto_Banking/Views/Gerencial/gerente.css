@@ -1,6 +1,11 @@
 ﻿.borda-lateral {
     border-right: 1px solid #007bff;
 }
-.container-border{
+
+.container-border {
     padding: 20px 20px 20px 20px;
+}
+
+.btn-principal {
+    width: 220px;
 }
