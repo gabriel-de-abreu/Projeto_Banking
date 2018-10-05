@@ -37,7 +37,7 @@ namespace Projeto_Banking.Views
             txtValorFim.Text = ("");
             txtDataIni.Text = (iC.DataInicio).ToString("dd/MM/yyyy");
             txtDataFim.Text = (iC.DataFim).ToString("dd/MM/yyyy");
-            txtDataResgate.Text = txtDataFim.Text;
+            txtDataResgate.Text = (iC.DataFim).ToString("yyyy-MM-dd");
             txtResgate.Text = (iC.DataResgate).ToString("dd/MM/yyyy");
             txtValorRecebido.Text = (iC.ValorResgate).ToString("c2");
 

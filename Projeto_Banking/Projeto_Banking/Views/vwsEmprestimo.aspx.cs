@@ -3,6 +3,7 @@ using Projeto_Banking.Models.Opecacoes.EmprestimoDAOs;
 using Projeto_Banking.Objetos;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -33,7 +34,7 @@ namespace Projeto_Banking.Views
             if (!IsPostBack)
             {
                 divSimulacao.Visible = false;
-                txtDataPrimeiroVencimento.Text = dataMinima.ToString("dd/MM/yyyy");
+                txtDataPrimeiroVencimento.Text = dataMinima.ToString("yyyy-MM-dd");
             }
         }
 
@@ -52,7 +53,7 @@ namespace Projeto_Banking.Views
                 divSimulacao.Visible = false;
 
             }
-            else if (float.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima <= data && dataMaxima >= data && parcelas > 0)
+            else if (float.TryParse(txtValor.Text, NumberStyles.Any, CultureInfo.InvariantCulture.NumberFormat, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima <= data && dataMaxima >= data && parcelas > 0)
             {
                 if (valorDesejado > cc.Limite)
                 {
@@ -101,7 +102,7 @@ namespace Projeto_Banking.Views
                 divSimulacao.Visible = false;
 
             }
-            else if (Double.TryParse(txtValor.Text, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima <= data && dataMaxima >= data)
+            else if (Double.TryParse(txtValor.Text, NumberStyles.Any, CultureInfo.InvariantCulture.NumberFormat, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima <= data && dataMaxima >= data)
 
             {
                 if (valorDesejado > cc.Limite)
