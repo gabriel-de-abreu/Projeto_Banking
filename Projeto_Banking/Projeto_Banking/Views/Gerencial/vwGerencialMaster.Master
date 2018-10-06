@@ -11,7 +11,7 @@
     <script src="../../Vendors/Scripts/jquery-3.0.0.min.js"></script>
     <script src="../../Vendors/Scripts/bootstrap.min.js"></script>
     <script src="../../Vendors/Scripts/bootstrap.bundle.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <link href="../../Vendors/Snippets/sticky-footer.css" rel="stylesheet" />
     <link href="../common.css" rel="stylesheet" />
     <link href="gerente.css" rel="stylesheet" />
@@ -29,6 +29,9 @@
             <a class="navbar-brand" href="vwPrincipalGerente.aspx">Internet Banking</a>
             <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
+                    <a href="vwsCadastroConta.aspx" class="nav-item nav-link">Cadastro de Contas</a>
+                    <a href="vwsGerenciarInvestimento.aspx" class="nav-item nav-link">Cadastro de Investimentos</a>
+                    <a href="vwsMovimentacao.aspx" class="nav-item nav-link">Consulta de Movimentações</a>
                 </div>
                 <div class="navbar-nav">
                     <asp:LinkButton ID="btnSair" runat="server" CssClass="nav-item nav-link" OnClick="btnSair_Click">Sair</asp:LinkButton>

@@ -3,60 +3,84 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContent" runat="server">
-    <asp:label runat="server" id="lblIdInv" text="Id do Investimento: "></asp:label>
-    <asp:textbox runat="server" id="txtIdInv"></asp:textbox>
-    <br />
-    <asp:label runat="server" id="lblInvNom" text="Investimento: "></asp:label>
-    <asp:textbox runat="server" id="txtInvNom"></asp:textbox>
-    <br />
-    <asp:label runat="server" id="lblInvRen" text="Valor do Investimento: "></asp:label>
-    <asp:textbox runat="server" id="txtInvRen"></asp:textbox>
-    <br />
-    <asp:label id="lblInvTax" runat="server" text="Selecione uma taxa: "></asp:label>
-    <asp:dropdownlist id="ddlInvTax" runat="server"></asp:dropdownlist>
-    <br />
-    <br />
+    <div class="container container-border margin-3-upper col-lg-6 ">
+        <div>
+            <div class="container">
+                <div class="form-group">
+                    <label>Id do Investimento</label>
+                    <asp:TextBox ID="txtIdInv" ReadOnly="true" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label>Nome do Investimento</label>
+                    <asp:TextBox ID="txtInvNom" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label>Rendimento do Investimento</label>
+                    <asp:TextBox ID="txtInvRen" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label>Selecione uma Taxa</label>
+                    <asp:DropDownList ID="ddlInvTax" runat="server" CssClass="form-control"></asp:DropDownList>
+                </div>
+                <div class="container text-center margin-3-upper margin-1-bottom">
+                    <asp:Button ID="btnCad" runat="server" class="btn btn-primary" Text="Cadastrar Novo" OnClick="btnCad_Click" />
+                    <asp:Button ID="btnRem" runat="server" class="btn btn-primary" Text="Remover" OnClick="btnRem_Click" />
+                    <asp:Button ID="btnEdi" runat="server" class="btn btn-primary" Text="Salvar" OnClick="btnEdi_Click" />
+                    <asp:Button ID="btnSal" runat="server" class="btn btn-primary" Text="Salvar" OnClick="btnSal_Click" />
 
-    <asp:button id="btnCad" runat="server" text="Cadastrar" onclick="btnCad_Click" />
-    <asp:Button ID="btnRem" runat="server" Text="Remover" OnClick="btnRem_Click" />
-    <asp:Button ID="btnEdi" runat="server" Text="Editar" />
+                    <asp:Button ID="btnCan" runat="server" class="btn btn-outline-primary" Text="Cancelar" OnClick="btnCan_Click" />
 
-    <asp:gridview id="gdvInvestimento" runat="server"
-        autogeneratecolumns="False"
-        datakeynames="Investimento_id" onrowcommand="gdvInvestimento_RowCommand"
-        backcolor="White" bordercolor="#CCCCCC" borderstyle="None" borderwidth="1px" cellpadding="4" forecolor="Black" gridlines="Horizontal"> 
-     <Columns>
-            <asp:TemplateField HeaderText="Nome do Investimento">
-                <EditItemTemplate>
-                    <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Investimento_nome") %>'></asp:TextBox>
-                </EditItemTemplate>
-                <ItemTemplate>
-                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("Investimento_nome") %>'></asp:Label>
-                </ItemTemplate>
-            </asp:TemplateField>
-            <asp:TemplateField HeaderText="Rentabilidade %">
-                <EditItemTemplate>
-                    <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Investimento_rentabilidade") %>'></asp:TextBox>
-                </EditItemTemplate>
-                <ItemTemplate>
-                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("Investimento_rentabilidade") %>'></asp:Label>
-                </ItemTemplate>
-            </asp:TemplateField>
-            <asp:TemplateField HeaderText="Taxa %">
-                <EditItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Taxa_Taxa_id") %>'></asp:TextBox>
-                </EditItemTemplate>
-                <ItemTemplate>
-                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("Taxa_Taxa_id") %>'></asp:Label>
-                </ItemTemplate>
-            </asp:TemplateField>
 
-          <asp:TemplateField>
+                    <br />
+                    <br />
+                    <div class="alert alert-primary" role="alert" id="divRes" runat="server">
+                        <asp:Label ID="lblRes" runat="server" Text="" CssClass="margin-1-upper"></asp:Label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <asp:GridView ID="gdvInvestimento" runat="server"
+            AutoGenerateColumns="False"
+            DataKeyNames="Investimento_id" OnRowCommand="gdvInvestimento_RowCommand"
+            CssClass="table table-hover view-table " >
+            <Columns>
+                <asp:TemplateField HeaderText="Nome do Investimento">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Investimento_nome") %>'></asp:TextBox>
+                    </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:LinkButton ID="lkbEditar" runat="server" Text="Editar" CommandArgument='<%# Bind("Investimento_id") %>' CommandName="Editar"></asp:LinkButton>
+                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("Investimento_nome") %>'></asp:Label>
                     </ItemTemplate>
-          </asp:TemplateField>
-        </Columns>
-    </asp:gridview>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Rentabilidade %">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Investimento_rentabilidade") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("Investimento_rentabilidade") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Taxa %">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Taxa_valor") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Taxa_valor") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:LinkButton ID="lkbEditar" runat="server" Text="Selecione" CommandArgument='<%# Bind("Investimento_id") %>' CommandName="Selecionar"></asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
+    </div>
+
 
 </asp:Content>

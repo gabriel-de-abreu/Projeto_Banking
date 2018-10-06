@@ -13,15 +13,6 @@ namespace Projeto_Banking.Views.Gerencial {
     public partial class vwsGerenciarInvestimento {
         
         /// <summary>
-        /// Controle lblIdInv.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdInv;
-        
-        /// <summary>
         /// Controle txtIdInv.
         /// </summary>
         /// <remarks>
@@ -29,15 +20,6 @@ namespace Projeto_Banking.Views.Gerencial {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIdInv;
-        
-        /// <summary>
-        /// Controle lblInvNom.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInvNom;
         
         /// <summary>
         /// Controle txtInvNom.
@@ -49,15 +31,6 @@ namespace Projeto_Banking.Views.Gerencial {
         protected global::System.Web.UI.WebControls.TextBox txtInvNom;
         
         /// <summary>
-        /// Controle lblInvRen.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInvRen;
-        
-        /// <summary>
         /// Controle txtInvRen.
         /// </summary>
         /// <remarks>
@@ -65,15 +38,6 @@ namespace Projeto_Banking.Views.Gerencial {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtInvRen;
-        
-        /// <summary>
-        /// Controle lblInvTax.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInvTax;
         
         /// <summary>
         /// Controle ddlInvTax.
@@ -110,6 +74,42 @@ namespace Projeto_Banking.Views.Gerencial {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEdi;
+        
+        /// <summary>
+        /// Controle btnSal.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSal;
+        
+        /// <summary>
+        /// Controle btnCan.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCan;
+        
+        /// <summary>
+        /// Controle divRes.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRes;
+        
+        /// <summary>
+        /// Controle lblRes.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRes;
         
         /// <summary>
         /// Controle gdvInvestimento.

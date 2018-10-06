@@ -16,14 +16,13 @@ namespace Projeto_Banking.Models
         public DataTable MostrarInvestimentos()
         {
             MySqlCommand command = Connection.Instance.CreateCommand();
-            string sql = "SELECT * FROM investimento";
+            string sql = "SELECT * FROM investimento i INNER JOIN taxa t ON i.Taxa_Taxa_id = t.Taxa_id";
 
             MySqlDataAdapter mAdpater = new MySqlDataAdapter(sql, Connection.Instance);
             DataTable table = new DataTable();
             mAdpater.Fill(table);
             return table;
 
-            return table;
         }
         public InvestimentoConta InserirInvestimento(InvestimentoConta investimentoConta)
         {
@@ -242,6 +241,27 @@ namespace Projeto_Banking.Models
             return null;
         }
 
+        public Investimento EditarInvestimento(Investimento inv)
+        {
+            MySqlCommand command = Connection.Instance.CreateCommand();
+            string sql = ("UPDATE projetobanking.investimento " +
+                          "SET Investimento_nome = @inv_nome, Investimento_rentabilidade = @inv_rentabilidade, Taxa_Taxa_id =  @inv_taxa " +
+                          " WHERE Investimento_id = " + inv.Id) + ";";
+
+            command.CommandText = sql;
+            command.Parameters.AddWithValue("@inv_nome", inv.Nome);
+            command.Parameters.AddWithValue("@inv_rentabilidade", inv.Rentabilidade);
+            command.Parameters.AddWithValue("@inv_taxa", inv.Taxa.Id);
+            int retorno = command.ExecuteNonQuery();
+            if (retorno > 0)
+            {
+                return inv;
+            }
+            else
+            {
+                return null;
+            }
+        }
         public bool RemoverInvestimento(int cod)
         {
             try
