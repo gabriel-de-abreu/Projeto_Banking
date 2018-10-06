@@ -7,6 +7,7 @@
         <h4 class="header-boleto">Boleto Para Pagamento de Parcela de Empréstimo
         </h4>
         <div class="container margin-1-upper text-center table-boleto">
+            <h3>Boleto Para Pagamento de Empréstimo</h3>
             <table class="table">
                 <tr>
                     <td><strong>Cliente</strong>
