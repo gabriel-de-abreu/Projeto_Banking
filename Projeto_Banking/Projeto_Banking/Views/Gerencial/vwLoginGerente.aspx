@@ -19,23 +19,29 @@
         <div class="container">
             <div class="row">
                 <div class="col-5 offset-4">
-                    <div class="container-border">
-                        <div class="form-group">
-                            <label>
-                                Usuário
-                            </label>
-                            <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control"></asp:TextBox>
+                    <div class="container-border-login">
+                        <div class="container top backgroung-blue text-center">
+                            <h1>Internet Banking</h1>
+                            <h4>Módulo Gerencial</h4>
                         </div>
-                        <div class="form-group">
-                            <label>
-                                Senha
-                            </label>
-                            <asp:TextBox ID="txtSenha" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
-                        </div>
-                        <div class="container text-center margin-3-upper margin-1-bottom">
-                            <asp:Button ID="Logar" runat="server" Text="Logar" CssClass="btn btn-primary" OnClick="Logar_Click" />
-                            <br />
-                            <asp:Label ID="lblResultado" runat="server" Text="" CssClass="margin-1-upper"></asp:Label>
+                        <div class="padding">
+                            <div class="form-group">
+                                <label>
+                                    Usuário
+                                </label>
+                                <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control"></asp:TextBox>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Senha
+                                </label>
+                                <asp:TextBox ID="txtSenha" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                            </div>
+                            <div class="container text-center margin-3-upper margin-1-bottom">
+                                <asp:Button ID="Logar" runat="server" Text="Logar" CssClass="btn btn-primary" OnClick="Logar_Click" />
+                                <br />
+                                <asp:Label ID="lblResultado" runat="server" Text="" CssClass="margin-1-upper"></asp:Label>
+                            </div>
                         </div>
                     </div>
                 </div>

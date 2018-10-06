@@ -55,7 +55,13 @@
 h1 {
     color: white;
     font-weight: 300;
-    font-size:2.5em;
+    font-size: 2.5em;
+}
+
+h4 {
+    color: white;
+    font-weight: 300;
+    font-size: 1.35em;
 }
 /*Container padrão para agrupar elementos do sistema com borda*/
 .container-border {
