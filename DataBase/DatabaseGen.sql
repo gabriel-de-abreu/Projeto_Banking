@@ -7,7 +7,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema ProjetoBanking
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `ProjetoBanking` ;
 
 -- -----------------------------------------------------
 -- Schema ProjetoBanking
@@ -211,6 +210,7 @@ CREATE TABLE IF NOT EXISTS `ProjetoBanking`.`Investimento` (
   `Taxa_Taxa_id` INT NOT NULL,
   PRIMARY KEY (`Investimento_id`),
   INDEX `fk_Investimento_Taxa1_idx` (`Taxa_Taxa_id` ASC) ,
+  UNIQUE INDEX `Investimento_nome_UNIQUE` (`Investimento_nome` ASC) ,
   CONSTRAINT `fk_Investimento_Taxa1`
     FOREIGN KEY (`Taxa_Taxa_id`)
     REFERENCES `ProjetoBanking`.`Taxa` (`Taxa_id`)
