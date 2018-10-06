@@ -19,21 +19,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-5 offset-4">
-                    <div class="container-border">
-                        <div class="form-group">
-                            <label>Número da Conta</label>
-                            <asp:TextBox ID="TxtNumConta" runat="server" CssClass="form-control" placeholder="Digite o número da conta"
-                                required="true" TextMode="Number"></asp:TextBox>
+                    <div class="container-border-login">
+                        <div class="container backgroung-blue text-center top">
+                            <h1>Internet Banking</h1>
                         </div>
-                        <div class="form-group">
-                            <label>Senha</label>
-                            <asp:TextBox ID="TxtSenha" runat="server" TextMode="Password" CssClass="form-control"
-                                placeholder="Senha da Conta" required="true"></asp:TextBox>
-                        </div>
-                        <div class="container text-center margin-3-upper margin-1-bottom">
-                            <asp:Button ID="BtnLogar" Class="btn btn-primary" runat="server" Text="Logar" OnClick="BtnLogar_Click" />
-                            <br />
-                            <asp:Label ID="LblResultado" runat="server" Text="" CssClass="margin-1-upper"></asp:Label>
+                        <div class="padding">
+                            <div class="form-group">
+                                <label>Número da Conta</label>
+                                <asp:TextBox ID="TxtNumConta" runat="server" CssClass="form-control" placeholder="Digite o número da conta"
+                                    required="true" TextMode="Number"></asp:TextBox>
+                            </div>
+                            <div class="form-group">
+                                <label>Senha</label>
+                                <asp:TextBox ID="TxtSenha" runat="server" TextMode="Password" CssClass="form-control"
+                                    placeholder="Senha da Conta" required="true"></asp:TextBox>
+                            </div>
+                            <div class="container text-center margin-3-upper margin-1-bottom">
+                                <asp:Button ID="BtnLogar" Class="btn btn-primary" runat="server" Text="Logar" OnClick="BtnLogar_Click" />
+                                <br />
+                                <asp:Label ID="LblResultado" runat="server" Text="" CssClass="margin-1-upper"></asp:Label>
+                            </div>
                         </div>
                     </div>
                 </div>
