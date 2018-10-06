@@ -13,6 +13,15 @@ namespace Projeto_Banking.Views.Gerencial {
     public partial class vwsGerenciarInvestimento {
         
         /// <summary>
+        /// Controle divIdInv.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divIdInv;
+        
+        /// <summary>
         /// Controle txtIdInv.
         /// </summary>
         /// <remarks>
@@ -58,15 +67,6 @@ namespace Projeto_Banking.Views.Gerencial {
         protected global::System.Web.UI.WebControls.Button btnCad;
         
         /// <summary>
-        /// Controle btnRem.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRem;
-        
-        /// <summary>
         /// Controle btnEdi.
         /// </summary>
         /// <remarks>
@@ -83,6 +83,15 @@ namespace Projeto_Banking.Views.Gerencial {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSal;
+        
+        /// <summary>
+        /// Controle btnRem.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRem;
         
         /// <summary>
         /// Controle btnCan.

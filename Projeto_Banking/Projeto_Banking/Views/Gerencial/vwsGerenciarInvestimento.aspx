@@ -6,30 +6,28 @@
     <div class="container container-border margin-3-upper col-lg-6 ">
         <div>
             <div class="container">
-                <div class="form-group">
+                <div class="form-group" id="divIdInv" runat="server">
                     <label>Id do Investimento</label>
-                    <asp:TextBox ID="txtIdInv" ReadOnly="true" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                    <asp:TextBox ID="txtIdInv" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                 </div>
                 <div class="form-group">
-                    <label>Nome do Investimento</label>
-                    <asp:TextBox ID="txtInvNom" runat="server" CssClass="form-control"></asp:TextBox>
+                    <label><strong>Nome do Investimento</strong></label>
+                    <asp:TextBox ID="txtInvNom" runat="server"  CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="form-group">
-                    <label>Rendimento do Investimento</label>
-                    <asp:TextBox ID="txtInvRen" runat="server" CssClass="form-control"></asp:TextBox>
+                    <label><strong>Rendimento do Investimento</strong></label>
+                    <asp:TextBox ID="txtInvRen" runat="server" TextMode="Number" placeholder="Caso o investimento seja pós-fixado, esse campo deve ficar vazio." CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="form-group">
-                    <label>Selecione uma Taxa</label>
+                    <label><strong>Selecione uma Taxa</strong></label>
                     <asp:DropDownList ID="ddlInvTax" runat="server" CssClass="form-control"></asp:DropDownList>
                 </div>
                 <div class="container text-center margin-3-upper margin-1-bottom">
                     <asp:Button ID="btnCad" runat="server" class="btn btn-primary" Text="Cadastrar Novo" OnClick="btnCad_Click" />
-                    <asp:Button ID="btnRem" runat="server" class="btn btn-primary" Text="Remover" OnClick="btnRem_Click" />
                     <asp:Button ID="btnEdi" runat="server" class="btn btn-primary" Text="Salvar" OnClick="btnEdi_Click" />
                     <asp:Button ID="btnSal" runat="server" class="btn btn-primary" Text="Salvar" OnClick="btnSal_Click" />
-
+                    <asp:Button ID="btnRem" runat="server" class="btn btn-outline-primary" Text="Remover" OnClick="btnRem_Click" />
                     <asp:Button ID="btnCan" runat="server" class="btn btn-outline-primary" Text="Cancelar" OnClick="btnCan_Click" />
-
 
                     <br />
                     <br />
@@ -46,7 +44,7 @@
         <asp:GridView ID="gdvInvestimento" runat="server"
             AutoGenerateColumns="False"
             DataKeyNames="Investimento_id" OnRowCommand="gdvInvestimento_RowCommand"
-            CssClass="table table-hover view-table " >
+            CssClass="table table-hover view-table ">
             <Columns>
                 <asp:TemplateField HeaderText="Nome do Investimento">
                     <EditItemTemplate>

@@ -12,22 +12,27 @@ namespace Projeto_Banking.Views.Gerencial
 {
     public partial class vwsGerenciarInvestimento : System.Web.UI.Page
     {
+        List<Taxa> lTaxas = new List<Taxa>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<Taxa> lTaxas = new List<Taxa>();
+            divIdInv.Visible = false;
+
             btnCan.Visible = false;
             btnSal.Visible = false;
             btnEdi.Visible = false;
             btnRem.Visible = false;
 
-            PopularGrid();
 
             if (!IsPostBack)
             {
+                PopularGrid();
                 PopularMenuDD();
             }
-            divRes.Visible = false;
 
+             
+           
+            divRes.Visible = false;
 
         }
 
@@ -49,18 +54,6 @@ namespace Projeto_Banking.Views.Gerencial
             gdvInvestimento.DataSource = dt;
             gdvInvestimento.DataBind();
         }
-
-        protected void btnCad_Click(object sender, EventArgs e)
-        {
-            txtIdInv.Text = "";
-            txtIdInv.Text = "";
-            txtInvNom.Text = "";
-            txtInvRen.Text = "";
-            PopularGrid();
-            btnCad.Visible = false;
-            btnCan.Visible = true;
-            btnSal.Visible = true;
-        }
         protected void gdvInvestimento_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             try
@@ -68,10 +61,11 @@ namespace Projeto_Banking.Views.Gerencial
                 if (e.CommandName.Equals("Selecionar"))
                 {
                     PopulaCamposInvestimento(Convert.ToInt32(e.CommandArgument.ToString()));
-                    btnCan.Visible = true;
                     btnEdi.Visible = true;
                     btnRem.Visible = true;
+                    btnCan.Visible = true;
                     btnCad.Visible = false;
+
                 }
 
 
@@ -96,19 +90,31 @@ namespace Projeto_Banking.Views.Gerencial
             }
         }
 
+        protected void btnCad_Click(object sender, EventArgs e)
+        {
+            txtIdInv.Text = "";
+            txtIdInv.Text = "";
+            txtInvNom.Text = "";
+            txtInvRen.Text = "";
+            PopularGrid();
+            btnCad.Visible = false;
+            btnCan.Visible = true;
+            btnSal.Visible = true;
+
+          
+        }
+     
+
+       
+
         protected void btnRem_Click(object sender, EventArgs e)
         {
             InvestimentoDAO invDao = new InvestimentoDAO();
             if (invDao.RemoverInvestimento(Convert.ToInt32(txtIdInv.Text)))
             {
-                txtIdInv.Text = "";
-                txtInvNom.Text = "";
-                txtInvRen.Text = "";
-
-                PopularGrid();
-                btnCad.Visible = true;
-
                 lblRes.Text = "Investimento deletado com sucesso!";
+                LimpaCampos();
+                PopularGrid();
             }
             else
             {
@@ -120,51 +126,55 @@ namespace Projeto_Banking.Views.Gerencial
 
         protected void btnEdi_Click(object sender, EventArgs e)
         {
-            TaxaDAO taxaDao = new TaxaDAO();
-            string nome = txtInvNom.Text;
-            double rentabilidade = Double.Parse(txtInvRen.Text);
-            Taxa taxa = taxaDao.PesquisarPorTaxa(int.Parse(ddlInvTax.SelectedValue));
-            int id = Convert.ToInt32(txtIdInv.Text);
-            InvestimentoDAO investimentoDao = new InvestimentoDAO();
-
-            Investimento investimento = new Investimento()
+            try
             {
-                Id = id,
-                Nome = nome,
-                Taxa = taxa,
-                Rentabilidade = rentabilidade
+                TaxaDAO taxaDao = new TaxaDAO();
+                string nome = txtInvNom.Text;
+                double rentabilidade = 0;
+                Taxa taxa = taxaDao.PesquisarPorTaxa(int.Parse(ddlInvTax.SelectedValue));
+                int id = Convert.ToInt32(txtIdInv.Text);
+                if (txtInvRen.Text.Length > 0)
+                {
+                    rentabilidade = Double.Parse(txtInvRen.Text);
+                }
+                InvestimentoDAO investimentoDao = new InvestimentoDAO();
 
-            };
+                Investimento investimento = new Investimento()
+                {
+                    Id = id,
+                    Nome = nome,
+                    Taxa = taxa,
+                    Rentabilidade = rentabilidade
 
-            investimento = investimentoDao.EditarInvestimento(investimento);
+                };
+
+                investimento = investimentoDao.EditarInvestimento(investimento);
 
 
-            if (investimento != null)
-            {
-                PopularGrid();
-                lblRes.Text = "Investimento alterado com sucesso!";
-                txtIdInv.Text = "";
-                txtIdInv.Text = "";
-                txtInvNom.Text = "";
-                txtInvRen.Text = "";
-                btnCad.Visible = true;
+                if (investimento != null)
+                {
+                    lblRes.Text = "Investimento alterado com sucesso!";
+                    LimpaCampos();
+                    PopularGrid();
+                }
+                else
+                {
+                    lblRes.Text = "Falha ao alterar investimento!";
+
+                }
+                divRes.Visible = true;
             }
-            else
+            catch (Exception exp)
             {
-                lblRes.Text = "Falha ao alterar investimento!";
+                lblRes.Text = "Erro!";
 
             }
-            divRes.Visible = true;
+
         }
 
         protected void btnCan_Click(object sender, EventArgs e)
         {
-            txtIdInv.Text = "";
-            txtIdInv.Text = "";
-            txtInvNom.Text = "";
-            txtInvRen.Text = "";
-            PopularGrid();
-            btnCad.Visible = true;
+            LimpaCampos();
 
         }
 
@@ -174,9 +184,12 @@ namespace Projeto_Banking.Views.Gerencial
             {
                 TaxaDAO taxaDao = new TaxaDAO();
                 string nome = txtInvNom.Text;
-                double rentabilidade = Double.Parse(txtInvRen.Text);
+                double rentabilidade = 0;
                 Taxa taxa = taxaDao.PesquisarPorTaxa(int.Parse(ddlInvTax.SelectedValue));
-
+                if (txtInvRen.Text.Length > 0)
+                {
+                    rentabilidade = Double.Parse(txtInvRen.Text);
+                }
                 InvestimentoDAO investimentoDao = new InvestimentoDAO();
 
                 Investimento investimento = new Investimento()
@@ -191,27 +204,32 @@ namespace Projeto_Banking.Views.Gerencial
 
                 if (investimento != null)
                 {
-                    txtIdInv.Text = "";
-                    txtIdInv.Text = "";
-                    txtInvNom.Text = "";
-                    txtInvRen.Text = "";
-                    btnCad.Visible = true;
-
-
                     lblRes.Text = "Inserção realizada com sucesso";
+                    LimpaCampos();
                     PopularGrid();
                 }
                 else
                 {
-                    lblRes.Text = "Erro na inserção";
+                    lblRes.Text = "Erro na inserção.";
                 }
                 divRes.Visible = true;
             }
 
             catch (Exception exp)
             {
+                lblRes.Text = "Erro!";
 
             }
+        }
+
+
+        public void LimpaCampos()
+        {
+            txtIdInv.Text = "";
+            txtInvNom.Text = "";
+            txtInvRen.Text = "";
+            
+            btnCad.Visible = true;
         }
 
 

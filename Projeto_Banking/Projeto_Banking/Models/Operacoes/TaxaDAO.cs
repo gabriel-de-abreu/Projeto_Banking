@@ -16,19 +16,27 @@ namespace Projeto_Banking.Models
                 MySqlCommand command = Connection.Instance.CreateCommand();
                 command.CommandText = "SELECT * FROM taxa WHERE Taxa_id  = @id";
                 command.Parameters.AddWithValue("@id", id);
-
                 var reader = command.ExecuteReader();
-                Taxa t = new Taxa();
+                Taxa t = null;
+
                 while (reader.Read())
                 {
-                    t = new Taxa();
-                    t.Id = id;
-                    t.Valor = Convert.ToInt32(reader["Taxa_valor"]);
+                   
+
+                    t = new Taxa()
+                    {
+                        Id = int.Parse(reader["Taxa_id"].ToString()),
+                        Nome = reader["Taxa_nome"].ToString(),
+                        Valor = Convert.ToInt32(reader["Taxa_valor"])
+
+                };
+
+
                 }
                 reader.Close();
                 return t;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return null;
             }
@@ -52,7 +60,7 @@ namespace Projeto_Banking.Models
                 lTaxa.Add(taxa);
             }
             reader.Close();
-            
+
             return lTaxa;
         }
     }
