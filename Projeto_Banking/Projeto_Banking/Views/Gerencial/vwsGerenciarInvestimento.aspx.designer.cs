@@ -76,6 +76,24 @@ namespace Projeto_Banking.Views.Gerencial {
         protected global::System.Web.UI.WebControls.Button btnEdi;
         
         /// <summary>
+        /// Controle btnSal.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSal;
+        
+        /// <summary>
+        /// Controle btnCan.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCan;
+        
+        /// <summary>
         /// Controle divRes.
         /// </summary>
         /// <remarks>
