@@ -6,12 +6,18 @@
     <div class="container container-border margin-3-upper">
         <div class="row">
             <div id="divSelData" class="col-4" runat="server">
-                <div class="form-group">
-                    <label>Data Desejada do Resgate</label>
-                    <asp:TextBox ID="txtDataResgate"
-                        runat="server"
-                        AutoPostBack="True"
-                        OnTextChanged="SimularInvestimento" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                <div class="container-border">
+                    <div class="form-group">
+                        <label>Data Desejada do Resgate</label>
+                        <asp:TextBox ID="txtDataResgate"
+                            runat="server"
+                            AutoPostBack="True"
+                            OnTextChanged="SimularInvestimento" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                    </div>
+                    <div class="margin-1-upper">
+                        <span>O valor disponível para resgate na data selecionada é de:
+                            <asp:Label ID="txtValorFim" runat="server"></asp:Label></span>
+                    </div>
                 </div>
             </div>
             <div class="col">
@@ -34,7 +40,7 @@
                             <asp:Label ID="txtDataIni" runat="server"></asp:Label>
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <td>
                             <strong>Data Final do Investimento
@@ -44,7 +50,7 @@
                             <asp:Label ID="txtDataFim" runat="server"></asp:Label>
                         </td>
                     </tr>
-                    <tr >
+                    <tr>
                         <td>
                             <strong>Data de Resgate do Investimento
                             </strong>
@@ -69,7 +75,6 @@
             <div class="container text-center margin-1-bottom">
                 <div id="divResultado" class="form-group" runat="server" visible="false">
                     <asp:Label ID="lblStringValorFim" runat="server">Valor Final do Investimento:</asp:Label>
-                    <asp:Label ID="txtValorFim" runat="server"></asp:Label>
                 </div>
                 <asp:Button ID="btnResgatar" runat="server" Text="Resgatar Investimento" OnClick="btnResgatar_Click" CssClass="btn btn-primary" />
             </div>
