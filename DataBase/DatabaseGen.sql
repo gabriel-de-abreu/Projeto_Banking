@@ -7,6 +7,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema ProjetoBanking
 -- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `ProjetoBanking` ;
 
 -- -----------------------------------------------------
 -- Schema ProjetoBanking
@@ -69,7 +70,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ProjetoBanking`.`Conta_Corrente` (
   `Conta_Conta_Corrente_id` INT NOT NULL,
-  `Conta_Corrente_limite` VARCHAR(45) NOT NULL,
+  `Conta_Corrente_limite` FLOAT NOT NULL,
   `Pessoa_Pessoa_cpf` VARCHAR(45) NOT NULL,
   `Conta_Corrente_senha` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`Conta_Conta_Corrente_id`, `Pessoa_Pessoa_cpf`),
@@ -226,7 +227,7 @@ CREATE TABLE IF NOT EXISTS `ProjetoBanking`.`Investimento_Conta` (
   `Investimento_Conta_Id` INT NOT NULL AUTO_INCREMENT,
   `Investimento_Investimento_id` INT NOT NULL,
   `Conta_Corrente_Conta_Conta_Corrente_id` INT NOT NULL,
-  `Investimento_Conta_Valor` VARCHAR(45) NOT NULL,
+  `Investimento_Conta_Valor` FLOAT NOT NULL,
   `Investimento_Inicio` DATE NOT NULL,
   `Investimento_Fim` DATE NULL,
   `Investimento_Resgate` DATE NULL DEFAULT NULL,
