@@ -17,7 +17,7 @@ namespace Projeto_Banking.Views.Gerencial
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtCpf.MaxLength = 11;
+          
         }
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
@@ -50,22 +50,19 @@ namespace Projeto_Banking.Views.Gerencial
                         }
 
                     }
-                    else throw new ArgumentException("CPF precisa possuir 11 caracteres.");
+                    else throw new ArgumentException("CPF deve possuir 11 caracteres.");
                 }
                 else throw new ArgumentException("Dados inválidos.");
             }
             catch (Exception exc)
             {
                 if (exc is ArgumentException)
-                {
-                    lblResultado.Text = exc.Message;//"Dados inválidos.";
-                    lblResultado2.Text = "Favor verificar os dados de entrada.";
-                }
+                    lblResultado.Text = exc.Message;
+
                 else if (exc is MySql.Data.MySqlClient.MySqlException)
-                {
                     lblResultado.Text = "CPF Já Cadastrado em Nosso Sistema.";
-                    lblResultado2.Text = "Favor Inserir um CPF Diferente.";
-                }
+
+                lblResultado2.Text = "Favor verificar os dados de entrada.";
             }
 
         }
