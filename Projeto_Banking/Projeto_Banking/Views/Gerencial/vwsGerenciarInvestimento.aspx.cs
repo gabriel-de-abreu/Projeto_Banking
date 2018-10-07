@@ -16,11 +16,13 @@ namespace Projeto_Banking.Views.Gerencial
         int idSelecionado = -1;
         protected void Page_Load(object sender, EventArgs e)
         {
-
             divEditBtn.Visible = false;
-
             PopularGrid();
-            PopularMenuDD();
+            if (!IsPostBack)
+            {
+                PopularMenuDD();
+
+            }
             if (Session["cadInvIdSel"] != null)
             {
                 idSelecionado = Convert.ToInt32(Session["cadInvIdSel"]);
@@ -59,17 +61,18 @@ namespace Projeto_Banking.Views.Gerencial
             {
                 if (e.CommandName.Equals("Selecionar"))
                 {
-                    PopulaCamposInvestimento(Convert.ToInt32(e.CommandArgument));
+                    PopularMenuDD();
                     idSelecionado = Convert.ToInt32(e.CommandArgument);
                     Session["cadInvIdSel"] = idSelecionado;
                     divEditBtn.Visible = true;
                     btnCad.Visible = false;
+                    PopulaCamposInvestimento(idSelecionado);
 
                 }
             }
             catch (Exception ee)
             {
-
+                throw ee;
             }
         }
 
@@ -82,7 +85,15 @@ namespace Projeto_Banking.Views.Gerencial
             {
                 txtInvNom.Text = inv.Nome;
                 txtInvRen.Text = inv.Rentabilidade.ToString();
-                ddlInvTax.SelectedIndex = inv.Taxa.Id;
+                int index = 0;
+                foreach (Taxa taxa in ddlInvTax.DataSource as List<Taxa>)
+                {
+                    if (taxa.Id == inv.Taxa.Id)
+                    {
+                        ddlInvTax.SelectedIndex = index;
+                    }
+                    index++;
+                }
             }
         }
 
@@ -94,7 +105,7 @@ namespace Projeto_Banking.Views.Gerencial
                 TaxaDAO taxaDao = new TaxaDAO();
                 string nome = txtInvNom.Text;
                 double rentabilidade = 0;
-                Taxa taxa = taxaDao.PesquisarPorTaxa(int.Parse(ddlInvTax.SelectedValue));
+                Taxa taxa = new TaxaDAO().PesquisarPorTaxa(int.Parse(ddlInvTax.SelectedValue));
                 if (txtInvRen.Text.Length > 0)
                 {
                     rentabilidade = Double.Parse(txtInvRen.Text);
