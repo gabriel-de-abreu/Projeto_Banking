@@ -13,24 +13,6 @@ namespace Projeto_Banking.Views.Gerencial {
     public partial class vwsGerenciarInvestimento {
         
         /// <summary>
-        /// Controle divIdInv.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divIdInv;
-        
-        /// <summary>
-        /// Controle txtIdInv.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdInv;
-        
-        /// <summary>
         /// Controle txtInvNom.
         /// </summary>
         /// <remarks>
@@ -67,13 +49,13 @@ namespace Projeto_Banking.Views.Gerencial {
         protected global::System.Web.UI.WebControls.Button btnCad;
         
         /// <summary>
-        /// Controle btnEdi.
+        /// Controle divEditBtn.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEdi;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divEditBtn;
         
         /// <summary>
         /// Controle btnSal.
