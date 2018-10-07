@@ -12,10 +12,16 @@ namespace Projeto_Banking.Views.Gerencial
 {
     public partial class vwsGerenciarInvestimento : System.Web.UI.Page
     {
+
         List<Taxa> lTaxas = new List<Taxa>();
         int idSelecionado = -1;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Boolean isActive = Convert.ToBoolean(Session["gerente"]);
+            if (!isActive || Session["gerente"] == null)
+            {
+                Response.Redirect("~/Views/Gerencial/vwLoginGerente.aspx");
+            }
             divEditBtn.Visible = false;
             PopularGrid();
             if (!IsPostBack)
@@ -135,9 +141,11 @@ namespace Projeto_Banking.Views.Gerencial
                 divRes.Visible = true;
             }
 
-            catch (Exception exp)
+            catch (Exception)
             {
-                lblRes.Text = "Erro!";
+                lblRes.Text = "Investimento já existente";
+                divRes.Visible = true;
+
 
             }
         }
