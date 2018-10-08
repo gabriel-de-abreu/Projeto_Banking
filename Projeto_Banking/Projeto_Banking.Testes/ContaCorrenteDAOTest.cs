@@ -73,7 +73,7 @@ namespace Projeto_Banking.Testes
         {
             Pessoa p = new Pessoa()
             {
-                Nome = "Batatão",
+                Nome = "Fulano",
                 Cpf = "000.000.000-12"
             };
 
@@ -87,6 +87,7 @@ namespace Projeto_Banking.Testes
             Assert.IsNotNull(new ContaCorrenteDAO().InserirContaCorrente(conta));
 
         }
+
 
     }
 }
