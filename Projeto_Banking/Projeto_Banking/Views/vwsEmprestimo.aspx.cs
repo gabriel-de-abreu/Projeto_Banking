@@ -43,8 +43,7 @@ namespace Projeto_Banking.Views
             float valorDesejado;
             int parcelas;
 
-            Taxa taxa = new TaxaDAO().PesquisarPorTaxa(EmprestimoOPS.VerificarPerfil(cc)); //obtem taxa atraves do perfil da pessoa
-
+            
             string tipoPagamento = rblPagamento.SelectedValue;
 
             if (!DateTime.TryParse(txtDataPrimeiroVencimento.Text, out data))
@@ -59,8 +58,10 @@ namespace Projeto_Banking.Views
                 {
                     lblAviso.Text = "Valor é superior ao limite disponível em sua conta!";
                 }
-                else
+                else if (valorDesejado > 0)
                 {
+                    Taxa taxa = new TaxaDAO().PesquisarPorTaxa(EmprestimoOPS.VerificarPerfil(cc)); //obtem taxa atraves do perfil da pessoa
+
                     Emprestimo emprestimo = new Emprestimo()
                     {
                         Valor = valorDesejado,
@@ -78,6 +79,11 @@ namespace Projeto_Banking.Views
                         divRealizarBtn.Visible = false;
                     }
                 }
+                else
+                {
+                    divSimulacao.Visible = false;
+                    lblAviso.Text = "Valor precisa ser maior que zero!";
+                }
             }
             else
             {
@@ -94,15 +100,15 @@ namespace Projeto_Banking.Views
             double valorDesejado, valorParcela, valorTotal;
             int parcelas;
 
-            Taxa taxa = new TaxaDAO().PesquisarPorTaxa(EmprestimoOPS.VerificarPerfil(cc)); //obtem taxa atraves do perfil da pessoa
-
+            
             if (!DateTime.TryParse(txtDataPrimeiroVencimento.Text, out data))
             {   //verifica data
                 lblAviso.Text = "Escolha uma data válida!";
                 divSimulacao.Visible = false;
 
             }
-            else if (Double.TryParse(txtValor.Text, NumberStyles.Any, CultureInfo.InvariantCulture.NumberFormat, out valorDesejado) && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima <= data && dataMaxima >= data)
+            else if (Double.TryParse(txtValor.Text, NumberStyles.Any, CultureInfo.InvariantCulture.NumberFormat, out valorDesejado) 
+                && Int32.TryParse(txtParcelas.Text, out parcelas) && dataMinima <= data && dataMaxima >= data)
 
             {
                 if (valorDesejado > cc.Limite)
@@ -114,6 +120,8 @@ namespace Projeto_Banking.Views
                 {
                     divSimulacao.Visible = true;
                     divRealizarBtn.Visible = true;
+
+                    Taxa taxa = new TaxaDAO().PesquisarPorTaxa(EmprestimoOPS.VerificarPerfil(cc)); //obtem taxa atraves do perfil da pessoa
 
                     valorParcela = EmprestimoOPS.CalcularParcelas(parcelas, taxa, valorDesejado); //calcula valor das parcelas 
                     valorTotal = valorParcela * parcelas;
